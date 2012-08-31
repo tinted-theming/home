@@ -1,17 +1,15 @@
 # Base16
-Color schemes for Hackers. Following in the footsteps of [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme).
+Color schemes for Hackers. Following in the footsteps of [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme). Base16 implements meaningful syntax highlighting and strives for minimalist base colors for suitability in a wide range of applications.
 
 ![Base16](https://raw.github.com/chriskempson/base16/master/base16-dark.png)
 
-![Base16](https://raw.github.com/chriskempson/base16/master/base16-light.png)
-
 ## Repositories
+Check out the individual repositories for screenshots of Base16 in action.
 * [Vim](https://github.com/chriskempson/base16-vim) (256 color and 16 color with [base16-shell](https://github.com/chriskempson/base16-shell))
 * [Shell](https://github.com/chriskempson/base16-shell) 
 * [iTerm2](https://github.com/chriskempson/base16-iterm2)
 * [TextMate](https://github.com/chriskempson/base16-textmate)
 * [OSX Color Palette](https://github.com/chriskempson/base16-osx-color-palette)
-
 
 ## Hex Palette
 `#151515` Base00  
