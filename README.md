@@ -1,35 +1,23 @@
-# Base16
-Color schemes for Hackers. Following in the footsteps of [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme). Base16 implements meaningful syntax highlighting and strives for minimalist base colors for suitability in a wide range of applications.
+![Base16 Logo](https://raw.github.com/chriskempson/base16/master/base16-logo.png)
+Base16 implements carefully chosen syntax highlighting and provides a clean set of default colors suitable for a wide range of applications.
 
-![Base16](https://raw.github.com/chriskempson/base16/master/base16-dark.png)
+Base16 is both a color scheme and set of templates providing sixteen customisable colors see [base16-builder](https://github.com/chriskempson/base16-builder) for more information.
+
+![Base16 Default](https://raw.github.com/chriskempson/base16/master/base16-default.png)
+Base16 "Default" color scheme.
 
 ## Repositories
 Check out the individual repositories for screenshots of Base16 in action.
-* [Vim](https://github.com/chriskempson/base16-vim) (256 color and 16 color with [base16-shell](https://github.com/chriskempson/base16-shell))
+
+* [Base 16 Builder](https://github.com/chriskempson/base16-builder)
+* [Vim](https://github.com/chriskempson/base16-vim)
 * [Shell](https://github.com/chriskempson/base16-shell) 
 * [iTerm2](https://github.com/chriskempson/base16-iterm2)
 * [TextMate](https://github.com/chriskempson/base16-textmate)
 * [OSX Color Palette](https://github.com/chriskempson/base16-osx-color-palette)
 
-## Hex Palette
-`#151515` Base00  
-`#202020` Base01  
-`#303030` Base02  
-`#505050` Base03  
-`#B0B0B0` Base04  
-`#D0D0D0` Base05  
-`#E0E0E0` Base06  
-`#F5F5F5` Base07  
-`#AC4142` Base08  
-`#D28445` Base09  
-`#F4BF75` Base0A  
-`#90A959` Base0B  
-`#75B5AA` Base0C  
-`#6A9FB5` Base0D  
-`#AA759f` Base0E  
-`#8F5536` Base0F  
-
-## Contributors
+## Contributing
 Please submit any issues and/or pull requests to the appropriate [repository](https://github.com/chriskempson/base16#repositories).
 
-* [ChrisKempson](https://github.com/chriskempson) - Vim, Shell, iTerm2, TextMate, OSX Color Palette
+## Repository Maintainers 
+* [ChrisKempson](https://github.com/chriskempson) - Base 16 Builder, Vim, Shell, iTerm2, TextMate, OSX Color Palette
