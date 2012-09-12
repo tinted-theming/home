@@ -14,7 +14,8 @@ Check out the individual repositories for screenshots of Base16 in action.
 * [TextMate](https://github.com/chriskempson/base16-textmate)
 * [OSX Color Palette](https://github.com/chriskempson/base16-osx-color-palette)
 
-## Contributors
+## Contributing
 Please submit any issues and/or pull requests to the appropriate [repository](https://github.com/chriskempson/base16#repositories).
 
+## Repository Maintainers 
 * [ChrisKempson](https://github.com/chriskempson) - Vim, Shell, iTerm2, TextMate, OSX Color Palette
