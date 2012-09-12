@@ -1,4 +1,4 @@
-![Base16 Logo](https://raw.github.com/chriskempson/base16/master/base16-logo.png)
+![Base16 Logo](https://raw.github.com/chriskempson/base16/master/base16-logo.png)  
 Base16 implements carefully chosen syntax highlighting and provides a clean set of default colors suitable for a wide range of applications.
 
 Base16 is both a color scheme and set of templates providing sixteen customisable colors see [base16-builder](https://github.com/chriskempson/base16-builder) for more information.
