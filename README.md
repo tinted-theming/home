@@ -15,9 +15,11 @@ Check out the individual repositories for screenshots of Base16 in action.
 * [iTerm2](https://github.com/chriskempson/base16-iterm2)
 * [TextMate](https://github.com/chriskempson/base16-textmate)
 * [OSX Color Palette](https://github.com/chriskempson/base16-osx-color-palette)
+* [Emacs](https://github.com/neil477/base16-emacs)
 
 ## Contributing
 Please submit any issues and/or pull requests to the appropriate [repository](https://github.com/chriskempson/base16#repositories).
 
-## Repository Maintainers 
-* [ChrisKempson](https://github.com/chriskempson) - Base 16 Builder, Vim, Shell, iTerm2, TextMate, OSX Color Palette
+## Template Maintainers 
+* [chriskempson](https://github.com/chriskempson) - Base 16 Builder, Vim, Shell, iTerm2, TextMate, OSX Color Palette
+* [neil477](https://github.com/neil477) - Emacs
