@@ -22,7 +22,7 @@ Check out the individual repositories for screenshots of Base16 in action.
 * [Emacs](https://github.com/neil477/base16-emacs)
 
 ## Contributing
-Please submit any issues and/or pull requests to the appropriate [repository](https://github.com/chriskempson/base16#repositories).
+Please submit any issues and/or pull requests to the appropriate [repository](https://github.com/chriskempson/base16#repositories). No pull requests shall be merged into this repository.
 
 ## Template Maintainers 
 * [chriskempson](https://github.com/chriskempson) - Base 16 Builder, Vim, Shell, iTerm2, TextMate, OSX Color Palette, Xresources, Mou, XFCE4 Terminal, Gimp Palette, Gnome Terminal
