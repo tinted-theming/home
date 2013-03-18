@@ -28,3 +28,4 @@ Please submit any issues and/or pull requests to the appropriate [repository](ht
 ## Template Maintainers 
 * [chriskempson](https://github.com/chriskempson) - Base 16 Builder, Vim, Shell, iTerm2, TextMate, OSX Color Palette, Xresources, Mou, XFCE4 Terminal, Gimp Palette, Gnome Terminal
 * [neil477](https://github.com/neil477) - Emacs
+* [robloach](https://github.com/robloach) - Geany
