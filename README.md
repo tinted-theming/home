@@ -20,6 +20,7 @@ Check out the individual repositories for screenshots of Base16 in action.
 * [Gimp Palette](https://github.com/chriskempson/base16-gimp-palette)
 * [Gnome Terminal](https://github.com/chriskempson/base16-gnome-terminal)
 * [Emacs](https://github.com/neil477/base16-emacs)
+* [Geany](https://github.com/robloach/base16-geany)
 
 ## Contributing
 Please submit any issues and/or pull requests to the appropriate [repository](https://github.com/chriskempson/base16#repositories). No pull requests shall be merged into this repository.
