@@ -15,7 +15,7 @@ Check out the individual repositories for screenshots of Base16 in action.
 * [Vim](https://github.com/chriskempson/base16-vim)
 * [Shell](https://github.com/chriskempson/base16-shell) 
 * [iTerm2](https://github.com/chriskempson/base16-iterm2)
-* [TextMate](https://github.com/chriskempson/base16-textmate)
+* [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate)
 * [OSX Color Palette](https://github.com/chriskempson/base16-osx-color-palette)
 * [Xresources](https://github.com/chriskempson/base16-xresources)
 * [Mou](https://github.com/chriskempson/base16-mou)
