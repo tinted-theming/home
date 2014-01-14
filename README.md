@@ -38,3 +38,7 @@ Please submit any issues and/or pull requests to the appropriate [repository](ht
 * [neil477](https://github.com/neil477) - Emacs
 * [robloach](https://github.com/robloach) - Geany
 * [geoffstokes](https://github.com/geoffstokes) - Windows Command Prompt, MinTTY
+
+## Projects using Base16
+* [c-Tiles16](https://github.com/atelierbram/c-tiles16)
+* [Spacegray](https://github.com/kkga/spacegray)
