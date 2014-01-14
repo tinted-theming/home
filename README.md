@@ -40,5 +40,5 @@ Please submit any issues and/or pull requests to the appropriate [repository](ht
 * [geoffstokes](https://github.com/geoffstokes) - Windows Command Prompt, MinTTY
 
 ## Projects using Base16
-* [c-Tiles16](https://github.com/atelierbram/c-tiles16)
-* [Spacegray](https://github.com/kkga/spacegray)
+* [c-Tiles16](https://github.com/atelierbram/c-tiles16) Colorscheming with Variables
+* [Spacegray](https://github.com/kkga/spacegray) A set of custom UI themes for Sublime Text 2/3
