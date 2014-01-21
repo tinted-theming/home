@@ -29,6 +29,7 @@ Check out the individual repositories for screenshots of Base16 in action.
 * [Windows Command Prompt](https://github.com/geoffstokes/base16-windows-command-prompt)  
 * [XFCE4 Terminal](https://github.com/chriskempson/base16-xfce4-terminal)  
 * [Xresources](https://github.com/chriskempson/base16-xresources)  
+* [Zathura PDF Reader](https://github.com/esn89/base16-zathura)
 
 ## Contributing
 Please submit any issues and/or pull requests to the appropriate [repository](https://github.com/chriskempson/base16#repositories). No pull requests shall be merged into this repository.
