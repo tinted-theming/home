@@ -44,3 +44,4 @@ Please submit any issues and/or pull requests to the appropriate [repository](ht
 ## Projects using Base16
 * [c-Tiles16](https://github.com/atelierbram/c-tiles16) Colorscheming with Variables
 * [Spacegray](https://github.com/kkga/spacegray) A set of custom UI themes for Sublime Text 2/3
+* [harmonic16](http://janniks.github.io/harmonic16) A color generator for harmonic base16 color-schemes
