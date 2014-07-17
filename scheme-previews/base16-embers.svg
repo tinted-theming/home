@@ -1,0 +1,21 @@
+<svg width="800" height="50" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Base16 Embers</title>
+  <line id="base00" x1="025" y1="0" x2="025" y2="720" stroke-width="50" stroke="#16130F" />
+  <line id="base01" x1="075" y1="0" x2="075" y2="720" stroke-width="50" stroke="#2C2620" />
+  <line id="base02" x1="125" y1="0" x2="125" y2="720" stroke-width="50" stroke="#433B32" />
+  <line id="base03" x1="175" y1="0" x2="175" y2="720" stroke-width="50" stroke="#5A5047" />
+  <line id="base04" x1="225" y1="0" x2="225" y2="720" stroke-width="50" stroke="#8A8075" />
+  <line id="base05" x1="275" y1="0" x2="275" y2="720" stroke-width="50" stroke="#A39A90" />
+  <line id="base06" x1="325" y1="0" x2="325" y2="720" stroke-width="50" stroke="#BEB6AE" />
+  <line id="base07" x1="375" y1="0" x2="375" y2="720" stroke-width="50" stroke="#DBD6D1" />
+  <line id="base08" x1="425" y1="0" x2="425" y2="720" stroke-width="50" stroke="#826D57" />
+  <line id="base09" x1="475" y1="0" x2="475" y2="720" stroke-width="50" stroke="#828257" />
+  <line id="base0A" x1="525" y1="0" x2="525" y2="720" stroke-width="50" stroke="#6D8257" />
+  <line id="base0B" x1="575" y1="0" x2="575" y2="720" stroke-width="50" stroke="#57826D" />
+  <line id="base0C" x1="625" y1="0" x2="625" y2="720" stroke-width="50" stroke="#576D82" />
+  <line id="base0D" x1="675" y1="0" x2="675" y2="720" stroke-width="50" stroke="#6D5782" />
+  <line id="base0E" x1="725" y1="0" x2="725" y2="720" stroke-width="50" stroke="#82576D" />
+  <line id="base0F" x1="775" y1="0" x2="775" y2="720" stroke-width="50" stroke="#825757" />
+ </g>
+</svg>
