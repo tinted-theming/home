@@ -11,7 +11,8 @@ Base16's default color scheme.
 ## Repositories
 Check out the individual repositories for screenshots of Base16 in action.
 
-* [Base 16 Builder](https://github.com/chriskempson/base16-builder)  
+* [Base 16 Builder](https://github.com/chriskempson/base16-builder)
+* [vx/ConnectBot](https://github.com/jprjr/base16-connectbot)  
 * [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools)  
 * [Emacs](https://github.com/neil477/base16-emacs)  
 * [Geany](https://github.com/robloach/base16-geany)  
