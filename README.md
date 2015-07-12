@@ -19,6 +19,7 @@ Check out the individual repositories for screenshots of Base16 in action.
 * [Gimp Palette](https://github.com/chriskempson/base16-gimp-palette)
 * [Gnome Terminal](https://github.com/chriskempson/base16-gnome-terminal)
 * [iTerm2](https://github.com/chriskempson/base16-iterm2)
+* [Mate Terminal](https://github.com/HashBang173/base16-mate-terminal)
 * [MinTTY](https://github.com/geoffstokes/base16-mintty)
 * [Mou](https://github.com/chriskempson/base16-mou)
 * [Notepad++](https://github.com/idleberg/base16-notepad-plus-plus)
