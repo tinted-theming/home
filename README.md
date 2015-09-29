@@ -29,7 +29,7 @@ Check out the individual repositories for screenshots of Base16 in action.
 * [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate)
 * [Vim](https://github.com/chriskempson/base16-vim)
 * [Windows Command Prompt](https://github.com/geoffstokes/base16-windows-command-prompt)
-* [Xcode 4] (https://github.com/joedynamite/base16-xcode4)
+* [Xcode](https://github.com/joedynamite/base16-xcode)
 * [XFCE4 Terminal](https://github.com/chriskempson/base16-xfce4-terminal)
 * [Xresources](https://github.com/chriskempson/base16-xresources)
 * [Zathura PDF Reader](https://github.com/esn89/base16-zathura)
@@ -43,6 +43,7 @@ Please submit any issues and/or pull requests to the appropriate [repository](ht
 * [robloach](https://github.com/robloach) - Geany
 * [geoffstokes](https://github.com/geoffstokes) - Windows Command Prompt, MinTTY
 * [atelierbram](https://github.com/atelierbram) - Prism
+* [joedynamite](http://github.com/joedynamite) - Xcode
 
 ## Projects using Base16
 * [c-Tiles16](https://github.com/atelierbram/c-tiles16) Colorscheming with Variables
