@@ -1,18 +1,7 @@
-![Base16 Logo](https://raw.github.com/chriskempson/base16/master/base16-logo.png)
-Base16 provides carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications.
-Base16 is both a color scheme and a template. To roll your own see [base16-builder](https://github.com/chriskempson/base16-builder).
+# Base16
+Base16 provides carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications. Base16 is not a single theme but a set of guildelines along with an example [PHP](https://github.com/chriskempson/base16-builder-php/) implmentation of a builder, example template repositories for [Vim](https://github.com/chriskempson/base16-textmate/) and editors that use the [Textmate](https://github.com/chriskempson/base16-textmate/) syntax files, and a collection of scheme repositories including the standard base16 color theme &ldquo;default&rdquo;. To download a compiled copy of all the schemes and templates, see the main repository at [Github](https://github.com/chriskempson/base16).
 
-## Preview
-To preview the various base16 themes visit http://chriskempson.github.com/base16 - Preview page courtesy of [tybenz](http://tybenz.com).
-
-![Base16 Default](https://raw.github.com/chriskempson/base16/master/base16-default.png)
-Base16's default color scheme.
-
-## Repositories
-Check out the individual repositories for screenshots of Base16 in action.
-
-* [Base 16 Builder](https://github.com/chriskempson/base16-builder)
-* [vx/ConnectBot](https://github.com/jprjr/base16-connectbot)
+## Template Repositories
 * [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools)
 * [Emacs](https://github.com/neil477/base16-emacs)
 * [Geany](https://github.com/robloach/base16-geany)
@@ -28,24 +17,22 @@ Check out the individual repositories for screenshots of Base16 in action.
 * [Shell](https://github.com/chriskempson/base16-shell)
 * [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate)
 * [Vim](https://github.com/chriskempson/base16-vim)
+* [vx/ConnectBot](https://github.com/jprjr/base16-connectbot)
 * [Windows Command Prompt](https://github.com/geoffstokes/base16-windows-command-prompt)
 * [Xcode](https://github.com/joedynamite/base16-xcode)
 * [XFCE4 Terminal](https://github.com/chriskempson/base16-xfce4-terminal)
 * [Xresources](https://github.com/chriskempson/base16-xresources)
 * [Zathura PDF Reader](https://github.com/esn89/base16-zathura)
 
-## Contributing
-Please submit any issues and/or pull requests to the appropriate [repository](https://github.com/chriskempson/base16#repositories). No pull requests shall be merged into this repository.
+## Scheme Repositories
+* [Default](https://github.com/chriskempson/base16-default-scheme)
+* [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme)
 
-## Template Maintainers
-* [chriskempson](https://github.com/chriskempson) - Base 16 Builder, Vim, Shell, iTerm2, TextMate, OSX Color Palette, Xresources, Mou, XFCE4 Terminal, Gimp Palette, Gnome Terminal
-* [neil477](https://github.com/neil477) - Emacs
-* [robloach](https://github.com/robloach) - Geany
-* [geoffstokes](https://github.com/geoffstokes) - Windows Command Prompt, MinTTY
-* [atelierbram](https://github.com/atelierbram) - Prism
-* [joedynamite](http://github.com/joedynamite) - Xcode
+## Builder Repositories
+* [Base 16 Builder PHP](https://github.com/chriskempson/base16-builder-php)
 
 ## Projects using Base16
+* [Atom](https://atom.io/) Atom.io
 * [c-Tiles16](https://github.com/atelierbram/c-tiles16) Colorscheming with Variables
 * [Spacegray](https://github.com/kkga/spacegray) A set of custom UI themes for Sublime Text 2/3
 * [harmonic16](http://janniks.github.io/harmonic16) A color generator for harmonic base16 color-schemes
