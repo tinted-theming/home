@@ -5,7 +5,7 @@ Base16 provides carefully chosen syntax highlighting and a default set of sixtee
 * [Styling](https://github.com/chriskempson/base16/blob/master/styling.md)
 * [Builders](https://github.com/chriskempson/base16/blob/master/builder.md)
 
-## Template and Build Repositories
+## Template Repositories
 * [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools)
 * [Emacs](https://github.com/neil477/base16-emacs)
 * [Geany](https://github.com/robloach/base16-geany)
