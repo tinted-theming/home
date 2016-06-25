@@ -1,7 +1,11 @@
 # Base16
-Base16 provides carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications. Base16 is not a single theme but a set of guildelines along with an example [PHP](https://github.com/chriskempson/base16-builder-php/) implmentation of a builder, example template repositories for [Vim](https://github.com/chriskempson/base16-textmate/) and editors that use the [Textmate](https://github.com/chriskempson/base16-textmate/) syntax files, and a collection of scheme repositories including the standard base16 color theme &ldquo;default&rdquo;. To download a compiled copy of all the schemes and templates, see the main repository at [Github](https://github.com/chriskempson/base16).
+Base16 provides carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications. Base16 is not a single theme but a set of guildelines with numerous implementations.
 
-## Template Repositories
+## Documentation
+* [Styling](https://github.com/chriskempson/base16/blob/master/styling.md)
+* [Builders](https://github.com/chriskempson/base16/blob/master/builder.md)
+
+## Template and Build Repositories
 * [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools)
 * [Emacs](https://github.com/neil477/base16-emacs)
 * [Geany](https://github.com/robloach/base16-geany)
