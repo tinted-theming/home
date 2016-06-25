@@ -2,15 +2,15 @@
 A base16 builder is an application that can build sytax highligting definition files for text editors by using base16 scheme files which contain a collection of colours and base16 template files which contain synax highlighting rules. A builder uses Git as the mechanism to download and keep uptodate sytax files and template files.
 
 ## File Structure
-- `schemes.yaml` - Holds a list of scheme respositories
-- `templates.yaml` - Holds a list of template respositories
-- `/schemes/scheme_name/scheme-dark.yaml` - A dark scheme file (optional if scheme is dark only)
-- `/schemes/scheme_name/scheme-light.yaml` - A light scheme file (optional if scheme is light only)
-- `/templates/editor_name/template.mustache` - A template file
-- `/templates/editor_name/template-config.yaml` - template configuration file
+- `/` - Contains anything you consider appropriate for your builder
+- `/sources/schemes/list.yaml` - Holds a list of scheme respositories
+- `/sources/templates/list.yaml` - Holds a list of template respositories
+- `/schemes/scheme_name/*.yaml` - A scheme file (there may be multiples of these)
+- `/templates/template_name/template/*.mustache` - A template file (there may be multiples of these)
+- `/templates/template_name/template/config.yaml` - A template configuration file
 
 ## Workflow
-When building themes a base16 builder should iterate through all the scheme files in `schemes` and for each scheme should iterate through all the template files in `templates`. 
+When building themes a base16 builder should iterate through all the scheme files in `/schemes` and for each scheme should iterate through all the template files in `/templates`.
 
 ## Variables
 A builder should provide the following variables to a template file:
@@ -27,7 +27,7 @@ A builder should provide the following variables to a template file:
 - `base00-rgb-b` to `base0F-rgb-b` - converted from the hex value in the scheme file
 
 ## Operation
-Running `base16` with no arguments should build all present scheme files and temlpate files. Running `base16 update` should update all scheme and template repositories.
+Running `builder` with no arguments should build all present scheme files and temlpate files. Running `builder update` should update all scheme and template repositories.
 
 ## Architecture
 There is no outline for the architecture that a base16 theme builder should follow but a design goal should be to keep the application as simple as possible providing only the functionality desibed in this document.
