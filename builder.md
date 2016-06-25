@@ -1,4 +1,6 @@
 # Builder Guidelines
+**Version 0.3**
+
 A base16 builder is an application that can build sytax highligting definition files for text editors by using base16 scheme files which contain a collection of colours and base16 template files which contain synax highlighting rules. A builder uses Git as the mechanism to download and keep uptodate sytax files and template files.
 
 ## File Structure
