@@ -2,8 +2,8 @@
 Base16 provides carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications. Base16 is not a single theme but a set of guildelines with numerous implementations.
 
 ## Documentation
-* [Styling](https://github.com/chriskempson/base16/blob/master/styling.md)
-* [Builders](https://github.com/chriskempson/base16/blob/master/builder.md)
+* [Styling Guidelines](https://github.com/chriskempson/base16/blob/master/styling.md)
+* [Builder Guidelines](https://github.com/chriskempson/base16/blob/master/builder.md)
 
 ## Template Repositories
 * [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools) maintained by [idleberg](https://github.com/idleberg)
