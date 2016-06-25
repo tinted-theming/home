@@ -13,9 +13,11 @@ A base16 builder is an application that can build sytax highligting definition f
 - `/templates/template_name/template/config.yaml` - A template configuration file
 
 ## Workflow
+The first job a just-installed builder has is to populate a list of scheme sources and template sources. It does this by parsing the `/sources.yaml` file and using git to download the defined repositories to `/sources`. Next a builder will parse the downloaded `/sources/schemes/list.yaml` and download the defined repositories to `/schemes`. Finally a builder will parse the downloaded `/sources/templates/list.yaml` and download the defined repositories to `/templates`. All this is performed by the `builder update` command which can also be used to update sources, schemes and teamplates.
+
 When building themes a base16 builder should iterate through all the scheme files in `/schemes` and for each scheme should iterate through all the template files in `/templates`.
 
-## Variables
+## Template Variables
 A builder should provide the following variables to a template file:
 
 - `scheme-name` - obtained from the scheme file
@@ -30,10 +32,10 @@ A builder should provide the following variables to a template file:
 - `base00-rgb-b` to `base0F-rgb-b` - converted from the hex value in the scheme file
 
 ## Operation
-Running `builder` with no arguments should build all present scheme files and temlpate files. Running `builder update` should update all scheme and template repositories.
+Running `builder` with no arguments should build all scheme files and temlplate files. Running `builder update` should update all scheme and template repositories.
 
-## Architecture
-There is no outline for the architecture that a base16 theme builder should follow but a design goal should be to keep the application as simple as possible providing only the functionality desibed in this document.
+## Code Structure
+There is no outline for a recommended code structure that a base16 theme builder should follow but a design goal should be to keep the application as simple as possible providing only the functionality desibed in this document. If you feel you have a great idea for additional functionality please raise an issue in the [base16 repository](https://github.com/chriskempson/base16).
 
 ## Considerations
-Mustache was chosen as the templating language due to its simplicity and widespread support across languages. Yaml was chosen to describe scheme and configuration files for the same reasons.
+Mustache was chosen as the templating language due to its simplicity and widespread adoption across languages. Yaml was chosen to describe scheme and configuration files for the same reasons.
