@@ -5,6 +5,7 @@ A base16 builder is an application that can build sytax highligting definition f
 
 ## File Structure
 - `/` - Contains anything you consider appropriate for your builder
+- `/sources.yaml` - Holds a list of source respositories for schemes and templates
 - `/sources/schemes/list.yaml` - Holds a list of scheme respositories
 - `/sources/templates/list.yaml` - Holds a list of template respositories
 - `/schemes/scheme_name/*.yaml` - A scheme file (there may be multiples of these)
