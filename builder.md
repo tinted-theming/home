@@ -15,7 +15,7 @@ A base16 builder is an application that can build sytax highligting definition f
 ## Workflow
 The first job a just-installed builder has is to populate a list of scheme sources and template sources. It does this by parsing the `/sources.yaml` file and using git to download the defined repositories to `/sources`. Next a builder will parse the downloaded `/sources/schemes/list.yaml` and download the defined repositories to `/schemes`. Finally a builder will parse the downloaded `/sources/templates/list.yaml` and download the defined repositories to `/templates`. All this is performed by the `builder update` command which can also be used to update sources, schemes and teamplates.
 
-When building themes a base16 builder should iterate through all the scheme files in `/schemes` and for each scheme should iterate through all the template files in `/templates`.
+When building themes by running `builder`, a base16 builder should iterate through all the scheme files in `/schemes` and for each scheme should iterate through all the template files in `/templates` producing themes that will be output in the directories specififed in `/templates/template_name/template/config.yaml`.
 
 ## Template Variables
 A builder should provide the following variables to a template file:
@@ -30,9 +30,6 @@ A builder should provide the following variables to a template file:
 - `base00-rgb-r` to `base0F-rgb-r` - converted from the hex value in the scheme file
 - `base00-rgb-g` to `base0F-rgb-g` - converted from the hex value in the scheme file
 - `base00-rgb-b` to `base0F-rgb-b` - converted from the hex value in the scheme file
-
-## Operation
-Running `builder` with no arguments should build all scheme files and temlplate files. Running `builder update` should update all scheme and template repositories.
 
 ## Code Structure
 There is no outline for a recommended code structure that a base16 theme builder should follow but a design goal should be to keep the application as simple as possible providing only the functionality desibed in this document. If you feel you have a great idea for additional functionality please raise an issue in the [base16 repository](https://github.com/chriskempson/base16).
