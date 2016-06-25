@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.3**
+**Version 0.4**
 
 A base16 builder is an application that can build sytax highligting definition files for text editors by using base16 scheme files which contain a collection of colours and base16 template files which contain synax highlighting rules. A builder uses Git as the mechanism to download and keep uptodate sytax files and template files.
 
@@ -30,6 +30,9 @@ A builder should provide the following variables to a template file:
 - `base00-rgb-r` to `base0F-rgb-r` - converted from the hex value in the scheme file
 - `base00-rgb-g` to `base0F-rgb-g` - converted from the hex value in the scheme file
 - `base00-rgb-b` to `base0F-rgb-b` - converted from the hex value in the scheme file
+- `base00-hsl-h` to `base0F-hsl-h` - converted from the hex value in the scheme file
+- `base00-hsl-s` to `base0F-hsl-s` - converted from the hex value in the scheme file
+- `base00-hsl-l` to `base0F-hsl-l` - converted from the hex value in the scheme file
 
 ## Code Structure
 There is no outline for a recommended code structure that a base16 theme builder should follow but a design goal should be to keep the application as simple as possible providing only the functionality desibed in this document. If you feel you have a great idea for additional functionality please raise an issue in the [base16 repository](https://github.com/chriskempson/base16).
