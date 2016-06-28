@@ -33,6 +33,8 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below.
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
+* [Materia](https://github.com/Defman21/base16-materia) maintained by
+[Defman21](https://github.com/Defman21)
 
 ## Builder Repositories
 * [Base 16 Builder PHP](https://github.com/chriskempson/base16-builder-php) maintained by [chriskempson](https://github.com/chriskempson)
