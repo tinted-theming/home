@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.5**
+**Version 0.6**
 
 A base16 builder is an application that can build sytax highligting definition files for text editors by using base16 scheme files which contain a collection of colours and base16 template files which contain synax highlighting rules. A builder uses Git as the mechanism to download and keep uptodate sytax files and template files.
 
@@ -9,13 +9,13 @@ A base16 builder is an application that can build sytax highligting definition f
 - `/sources/schemes/list.yaml` - Holds a list of scheme respositories
 - `/sources/templates/list.yaml` - Holds a list of template respositories
 - `/schemes/[name]/*.yaml` - A scheme file (there may be multiples of these)
-- `/templates/[name]/template/*.mustache` - A template file (there may be multiples of these)
-- `/templates/[name]/template/config.yaml` - A template configuration file
+- `/templates/[name]/templates/*.mustache` - A template file (there may be multiples of these)
+- `/templates/[name]/templates/config.yaml` - A template configuration file
 
 ## Workflow
 The first job a just-installed builder has is to populate a list of scheme sources and template sources. It does this by parsing the `/sources.yaml` file and using git to download the defined repositories to `/sources`. Next a builder will parse the downloaded `/sources/schemes/list.yaml` and download the defined repositories to `/schemes`. Finally a builder will parse the downloaded `/sources/templates/list.yaml` and download the defined repositories to `/templates`. All this is performed by the `builder update` command which can also be used to update sources, schemes and teamplates.
 
-When building themes by running `builder`, a base16 builder should iterate through all the scheme files in `/schemes` and for each scheme should iterate through all the template files in `/templates` producing themes that will be output in the directories specififed in `/templates/template_name/template/config.yaml`. The template filename should look like `[slug][extension]`. Where slug is taken from the scheme file and extention is taken from `/template/config.yaml`.
+When building themes by running `builder`, a base16 builder should first clear out any old output then iterate through all the scheme files in `/schemes` and for each scheme should iterate through all the template files in `/templates` producing themes that will be output in the directories specififed in `/templates/template_name/template/config.yaml`. The template filename should look like `[slug][extension]`. Where slug is taken from the scheme file and extention is taken from `/template/config.yaml`.
 
 ## Template Variables
 A builder should provide the following variables to a template file:
