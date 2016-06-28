@@ -6,6 +6,7 @@ Base16 provides carefully chosen syntax highlighting and a default set of sixtee
 * [Builder Guidelines](https://github.com/chriskempson/base16/blob/master/builder.md)
 
 ## Template Repositories
+To add your own template repository, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below.
 * [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools) maintained by [idleberg](https://github.com/idleberg)
 * [Emacs](https://github.com/neil477/base16-emacs) maintained by [neil477](https://github.com/neil477)
 * [Geany](https://github.com/robloach/base16-geany) maintained by [robloach](https://github.com/robloach)
@@ -29,6 +30,7 @@ Base16 provides carefully chosen syntax highlighting and a default set of sixtee
 * [Zathura PDF Reader](https://github.com/esn89/base16-zathura) maintained by [esn89](https://github.com/esn89)
 
 ## Scheme Repositories
+To add your own scheme repository, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below.
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 
