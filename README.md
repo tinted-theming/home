@@ -39,6 +39,11 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 ## Builder Repositories
 * [Base 16 Builder PHP](https://github.com/chriskempson/base16-builder-php) maintained by [chriskempson](https://github.com/chriskempson)
 
+## Scheme and Template Author Resources
+The following is a list of useful resources for anyone creating a base16 scheme and or template:
+* [Code Examples](https://github.com/chriskempson/base16-code-examples) - A list of example code file for various languages
+* [TmTheme Editor](http://tmtheme-editor.herokuapp.com) - An online editor for themes in tmTheme format.
+
 ## Projects using Base16
 * [Atom](https://atom.io/) Atom.io
 * [c-Tiles16](https://github.com/atelierbram/c-tiles16) Colorscheming with Variables
