@@ -1,5 +1,5 @@
 # ![Base16](https://raw.githubusercontent.com/chriskempson/base16/master/logo.png)
-Base16 provides carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications. Base16 is not a single theme but a set of guildelines with numerous implementations.
+Base16 provides carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications. Base16 is not a single theme but a set of guidelines with numerous implementations.
 
 ## Documentation
 * [Styling Guidelines](https://github.com/chriskempson/base16/blob/master/styling.md)
