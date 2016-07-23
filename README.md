@@ -35,6 +35,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Materia](https://github.com/Defman21/base16-materia) maintained by
 [Defman21](https://github.com/Defman21)
+[Mexico-Light](https://github.com/drzel/base16-mexico-light-scheme)
 
 ## Builder Repositories
 * [Base 16 Builder PHP](https://github.com/chriskempson/base16-builder-php) maintained by [chriskempson](https://github.com/chriskempson)
