@@ -20,6 +20,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [OSX Color Palette](https://github.com/chriskempson/base16-osx-color-palette) maintained by [chriskempson](https://github.com/chriskempson)
 * [PuTTY](https://github.com/benjojo/base-16-putty) maintained by [benjojo](https://github.com/benjojo)
 * [Shell](https://github.com/chriskempson/base16-shell) maintained by [chriskempson](https://github.com/chriskempson)
+* [Terminal.app](https://github.com/vbwx/base16-terminal-app) maintained by [vbwx](https://github.com/vbwx)
 * [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate) maintained by [chriskempson](https://github.com/chriskempson)
 * [Vim](https://github.com/chriskempson/base16-vim) maintained by [chriskempson](https://github.com/chriskempson)
 * [vx/ConnectBot](https://github.com/jprjr/base16-connectbot) maintained by [jprjr](https://github.com/jprjr)
