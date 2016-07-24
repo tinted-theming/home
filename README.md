@@ -26,7 +26,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [vx/ConnectBot](https://github.com/jprjr/base16-connectbot) maintained by [jprjr](https://github.com/jprjr)
 * [Windows Command Prompt](https://github.com/geoffstokes/base16-windows-command-prompt) maintained by [geoffstokes](https://github.com/geoffstokes)
 * [Xcode](https://github.com/joedynamite/base16-xcode) maintained by [joedynamite](https://github.com/joedynamite)
-* [XFCE4 Terminal](https://github.com/chriskempson/base16-xfce4-terminal) maintained by [chriskempson](https://github.com/chriskempson)
+* [XFCE4 Terminal](https://github.com/afg984/base16-xfce4-terminal) maintained by [afg984](https://github.com/afg984)
 * [Xresources](https://github.com/chriskempson/base16-xresources) maintained by [chriskempson](https://github.com/chriskempson)
 * [Zathura PDF Reader](https://github.com/esn89/base16-zathura) maintained by [esn89](https://github.com/esn89)
 
