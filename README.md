@@ -8,7 +8,7 @@ Base16 provides carefully chosen syntax highlighting and a default set of sixtee
 ## Template Repositories
 To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-template-name**
 * [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools) maintained by [idleberg](https://github.com/idleberg)
-* [Emacs](https://github.com/neil477/base16-emacs) maintained by [neil477](https://github.com/neil477)
+* [Emacs](https://github.com/belak/base16-emacs) maintained by [belak](https://github.com/belak)
 * [Geany](https://github.com/robloach/base16-geany) maintained by [robloach](https://github.com/robloach)
 * [Gimp Palette](https://github.com/chriskempson/base16-gimp-palette) maintained by [chriskempson](https://github.com/chriskempson)
 * [Gnome Terminal](https://github.com/chriskempson/base16-gnome-terminal) maintained by [chriskempson](https://github.com/chriskempson)
