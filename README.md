@@ -38,6 +38,8 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 [Defman21](https://github.com/Defman21)
 * [Mexico-Light](https://github.com/drzel/base16-mexico-light-scheme) maintained by 
 [drzel](https://github.com/drzel)
+* [Unikitty](https://github.com/joshwlewis/unikitty) maintained by 
+[joshwlewis](https://github.com/joshwlewis)
 
 ## Builder Repositories
 **Repository naming scheme: base16-builder-language**
