@@ -41,6 +41,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 
 ## Builder Repositories
 **Repository naming scheme: base16-builder-language**
+* [Base 16 Builder go](https://github.com/belak/base16-builder-go) maintained by [belak](https://github.com/belak)
 * [Base 16 Builder PHP](https://github.com/chriskempson/base16-builder-php) maintained by [chriskempson](https://github.com/chriskempson)
 
 ## Scheme and Template Author Resources
