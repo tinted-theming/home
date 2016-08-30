@@ -6,7 +6,7 @@ Base16 provides carefully chosen syntax highlighting and a default set of sixtee
 * [Builder Guidelines](https://github.com/chriskempson/base16/blob/master/builder.md)
 
 ## Template Repositories
-To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-template-name**
+To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-[template-name]**
 * [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools) maintained by [idleberg](https://github.com/idleberg)
 * [Emacs](https://github.com/belak/base16-emacs) maintained by [belak](https://github.com/belak)
 * [Geany](https://github.com/robloach/base16-geany) maintained by [robloach](https://github.com/robloach)
@@ -32,7 +32,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [Zathura PDF Reader](https://github.com/esn89/base16-zathura) maintained by [esn89](https://github.com/esn89)
 
 ## Scheme Repositories
-To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-scheme-name**
+To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-[scheme-name]-scheme**
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Materia](https://github.com/Defman21/base16-materia) maintained by
