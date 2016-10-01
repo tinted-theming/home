@@ -58,3 +58,4 @@ The following is a list of useful resources for anyone creating a base16 scheme 
 * [Spacegray](https://github.com/kkga/spacegray) - A set of custom UI themes for Sublime Text 2/3.
 * [Harmonic16](http://janniks.github.io/harmonic16) - A color generator for harmonic base16 color-schemes.
 * [Duotone-base16 ](https://github.com/davidosomething/duotone-base16/) - A Duotone scheme to Base16 convertor.
+* [terminal.sexy](https://terminal.sexy/) - Terminal Color Scheme Designer
