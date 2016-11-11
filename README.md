@@ -17,6 +17,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [MinTTY](https://github.com/geoffstokes/base16-mintty) maintained by [geoffstokes](https://github.com/geoffstokes)
 * [Mou](https://github.com/chriskempson/base16-mou) maintained by [chriskempson](https://github.com/chriskempson)
 * [Notepad++](https://github.com/idleberg/base16-notepad-plus-plus) maintained by [idleberg](https://github.com/idleberg)
+* [Omnifocus](https://github.com/nhurden/base16-omnifocus) maintained by [nhurden](https://github.com/nhurden)
 * [OSX Color Palette](https://github.com/chriskempson/base16-osx-color-palette) maintained by [chriskempson](https://github.com/chriskempson)
 * [PuTTY](https://github.com/benjojo/base-16-putty) maintained by [benjojo](https://github.com/benjojo)
 * [Qt Creator](https://github.com/ilpianista/base16-qtcreator) maintained by [ilpianista](https://github.com/ilpianista)
@@ -44,6 +45,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 
 ## Builder Repositories
 **Repository naming scheme: base16-builder-language**
+* [Base 16 Builder Clojure](https://github.com/nhurden/base16-builder-clojure) maintained by [nhurden](https://github.com/nhurden)
 * [Base 16 Builder go](https://github.com/belak/base16-builder-go) maintained by [belak](https://github.com/belak)
 * [Base 16 Builder PHP](https://github.com/chriskempson/base16-builder-php) maintained by [chriskempson](https://github.com/chriskempson)
 
