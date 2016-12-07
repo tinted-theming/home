@@ -5,6 +5,10 @@ Base16 provides carefully chosen syntax highlighting and a default set of sixtee
 * [Styling Guidelines](https://github.com/chriskempson/base16/blob/master/styling.md)
 * [Builder Guidelines](https://github.com/chriskempson/base16/blob/master/builder.md)
 
+## Previewing Themes
+
+To test the different Base 16 themes out, check out <https://chriskempson.github.io/base16/>.
+
 ## Template Repositories
 To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-[template-name]**
 * [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools) maintained by [idleberg](https://github.com/idleberg)
