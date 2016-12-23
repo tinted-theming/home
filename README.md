@@ -42,6 +42,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 [drzel](https://github.com/drzel)
 * [Unikitty](https://github.com/joshwlewis/base16-unikitty) maintained by 
 [joshwlewis](https://github.com/joshwlewis)
+* [Woodland](https://github.com/jcornwall/base16-woodland-scheme) maintained by [jcornwall](https://github.com/jcornwall)
 
 ## Builder Repositories
 **Repository naming scheme: base16-builder-language**
