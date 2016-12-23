@@ -6,34 +6,32 @@ Base16 provides carefully chosen syntax highlighting and a default set of sixtee
 * [Builder Guidelines](https://github.com/chriskempson/base16/blob/master/builder.md)
 
 ## Template Repositories
-To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-[template-name]**
-* [Chrome DevTools](https://github.com/idleberg/base16-chrome-devtools) maintained by [idleberg](https://github.com/idleberg)
+To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-[template-name]** (with dashes as separators).
+* [C Header](https://github.com/m1sports20/base16-c_header) maintained by [m1sports20](https://github.com/m1sports20)
+* [Crosh](https://github.com/philj56/base16-crosh) maintained by [philj56](https://github.com/philj56)
+* [Dunst](https://github.com/khamer/base16-dunst) maintained by [khamer](https://github.com/khamer)
 * [Emacs](https://github.com/belak/base16-emacs) maintained by [belak](https://github.com/belak)
-* [Geany](https://github.com/robloach/base16-geany) maintained by [robloach](https://github.com/robloach)
-* [Gimp Palette](https://github.com/chriskempson/base16-gimp-palette) maintained by [chriskempson](https://github.com/chriskempson)
-* [Gnome Terminal](https://github.com/chriskempson/base16-gnome-terminal) maintained by [chriskempson](https://github.com/chriskempson)
-* [iTerm2](https://github.com/chriskempson/base16-iterm2) maintained by [chriskempson](https://github.com/chriskempson)
-* [Mate Terminal](https://github.com/HashBang173/base16-mate-terminal) maintained by [HashBang173](https://github.com/HashBang173)
+* [Gnome Terminal](https://github.com/aaron-williamson/base16-gnome-terminal) maintained by [aaron-williamson](https://github.com/aaron-williamson)
+* [Highlight](https://github.com/bezhermoso/base16-highlight) maintained by [bezhermoso](https://github.com/bezhermoso)
+* [HTML Previews](https://github.com/chriskempson/base16-html-preview) maintained by [chriskempson](https://github.com/chriskempson)
+* [i3](https://github.com/khamer/base16-i3) maintained by [khamer](https://github.com/khamer)
+* [Kakoune](https://github.com/leira/base16-kakoune) maintained by [leira](https://github.com/leira)
 * [MinTTY](https://github.com/geoffstokes/base16-mintty) maintained by [geoffstokes](https://github.com/geoffstokes)
-* [Mou](https://github.com/chriskempson/base16-mou) maintained by [chriskempson](https://github.com/chriskempson)
-* [Notepad++](https://github.com/idleberg/base16-notepad-plus-plus) maintained by [idleberg](https://github.com/idleberg)
-* [Omnifocus](https://github.com/nhurden/base16-omnifocus) maintained by [nhurden](https://github.com/nhurden)
-* [OSX Color Palette](https://github.com/chriskempson/base16-osx-color-palette) maintained by [chriskempson](https://github.com/chriskempson)
+* [MonoDevelop](https://github.com/netpyoung/base16-monodevelop) maintained by [netpyoung](https://github.com/netpyoung)
+* [Prism](https://github.com/atelierbram/base16-prism) maintained by [atelierbram](https://github.com/atelierbram)
 * [PuTTY](https://github.com/benjojo/base-16-putty) maintained by [benjojo](https://github.com/benjojo)
 * [Qt Creator](https://github.com/ilpianista/base16-qtcreator) maintained by [ilpianista](https://github.com/ilpianista)
 * [Shell](https://github.com/chriskempson/base16-shell) maintained by [chriskempson](https://github.com/chriskempson)
-* [Terminal.app](https://github.com/vbwx/base16-terminal-app) maintained by [vbwx](https://github.com/vbwx)
+* [Termite](https://github.com/khamer/base16-termite) maintained by [khamer](https://github.com/khamer)
 * [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate) maintained by [chriskempson](https://github.com/chriskempson)
 * [Vim](https://github.com/chriskempson/base16-vim) maintained by [chriskempson](https://github.com/chriskempson)
-* [vx/ConnectBot](https://github.com/jprjr/base16-connectbot) maintained by [jprjr](https://github.com/jprjr)
-* [Windows Command Prompt](https://github.com/geoffstokes/base16-windows-command-prompt) maintained by [geoffstokes](https://github.com/geoffstokes)
-* [Xcode](https://github.com/joedynamite/base16-xcode) maintained by [joedynamite](https://github.com/joedynamite)
+* [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
 * [XFCE4 Terminal](https://github.com/afg984/base16-xfce4-terminal) maintained by [afg984](https://github.com/afg984)
 * [Xresources](https://github.com/chriskempson/base16-xresources) maintained by [chriskempson](https://github.com/chriskempson)
-* [Zathura PDF Reader](https://github.com/esn89/base16-zathura) maintained by [esn89](https://github.com/esn89)
 
 ## Scheme Repositories
-To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-[scheme-name]-scheme**
+To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-[scheme-name]-scheme**  (with dashes as separators).
+*
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Materia](https://github.com/Defman21/base16-materia) maintained by
