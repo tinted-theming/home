@@ -31,16 +31,20 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 
 ## Scheme Repositories
 To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-[scheme-name]-scheme**  (with dashes as separators).
-*
+
+* [Atelier](https://github.com/atelierbram/base16-atelier-schemes) maintained by [atelierbram](https://github.com/atelierbram)
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
+* [Dracula](https://github.com/mikebarkmin/base16-dracula-scheme) maintained by [mikebarkmin](https://github.com/mikebarkmin)
+* [Github](https://github.com/Defman21/base16-github-scheme) maintained by [Defman21](https://github.com/Defman21)
+* [Materia](https://github.com/Defman21/base16-materia) maintained by [Defman21](https://github.com/Defman21)
+* [Mexico-Light](https://github.com/drzel/base16-mexico-light-scheme) maintained by [drzel](https://github.com/drzel)
+* [Onedark](https://github.com/tilal6991/base16-onedark-scheme) maintained by [tilal6991](https://github.com/tilal6991)
+* [Summerfruit](https://github.com/cscorley/base16-summerfruit-scheme) maintained by [cscorley](https://github.com/cscorley)
 * [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
-* [Materia](https://github.com/Defman21/base16-materia) maintained by
-[Defman21](https://github.com/Defman21)
-* [Mexico-Light](https://github.com/drzel/base16-mexico-light-scheme) maintained by 
-[drzel](https://github.com/drzel)
-* [Unikitty](https://github.com/joshwlewis/base16-unikitty) maintained by 
-[joshwlewis](https://github.com/joshwlewis)
+* [Twilight](https://github.com/hartbit/base16-twilight-scheme) maintained by [hartbit](https://github.com/hartbit)
+* [Unikitty](https://github.com/joshwlewis/base16-unikitty) maintained by [joshwlewis](https://github.com/joshwlewis)
 * [Woodland](https://github.com/jcornwall/base16-woodland-scheme) maintained by [jcornwall](https://github.com/jcornwall)
+
 
 ## Builder Repositories
 **Repository naming scheme: base16-builder-language**
