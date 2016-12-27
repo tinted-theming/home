@@ -5,7 +5,7 @@ Base16 aims to group similar language constructs with a single color, e.g. float
 
 Since describing syntax highlighting can be tricky, please see [base16-vim](https://github.com/chriskempson/base16-vim/) and [base16-textmate](https://github.com/chriskempson/base16-textmate/) for reference. Though it should be noted that each editor will have some descrepancies due the fact that editors generally have different syntax highlighting engines.
 
-Colors base00 to base07 are typically varitions of a shade and run from darkest to lighest. These colors are used for foreground and background, status bars, line highlighting and such. Colors base08 to base0F are typically individual colors used for types, operators, names and variables. In order to create a dark theme colors base00 to base07 should span from dark to light. For a light theme these colours should span from light to dark.
+Colors base00 to base07 are typically variations of a shade and run from darkest to lighest. These colors are used for foreground and background, status bars, line highlighting and such. Colors base08 to base0F are typically individual colors used for types, operators, names and variables. In order to create a dark theme colors base00 to base07 should span from dark to light. For a light theme these colours should span from light to dark.
 
 - **base00** - Default Background
 - **base01** - Lighter Background (Used for status bars)
