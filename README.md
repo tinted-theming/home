@@ -4,6 +4,7 @@ Base16 provides carefully chosen syntax highlighting and a default set of sixtee
 ## Documentation
 * [Styling Guidelines](https://github.com/chriskempson/base16/blob/master/styling.md)
 * [Builder Guidelines](https://github.com/chriskempson/base16/blob/master/builder.md)
+* [File Guidelines](https://github.com/chriskempson/base16/blob/master/file.md)
 
 ## Previewing Themes
 
@@ -34,7 +35,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [Xresources](https://github.com/chriskempson/base16-xresources) maintained by [chriskempson](https://github.com/chriskempson)
 
 ## Scheme Repositories
-To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-[scheme-name]-scheme**  (with dashes as separators).
+To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-[scheme-name]-scheme** (with dashes as separators).
 
 * [Atelier](https://github.com/atelierbram/base16-atelier-schemes) maintained by [atelierbram](https://github.com/atelierbram)
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
@@ -49,9 +50,8 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Unikitty](https://github.com/joshwlewis/base16-unikitty) maintained by [joshwlewis](https://github.com/joshwlewis)
 * [Woodland](https://github.com/jcornwall/base16-woodland-scheme) maintained by [jcornwall](https://github.com/jcornwall)
 
-
 ## Builder Repositories
-**Repository naming scheme: base16-builder-[language]**
+**Repository naming scheme: base16-builder-[language]** (with dashes as separators).
 * [Base 16 Builder Clojure](https://github.com/nhurden/base16-builder-clojure) maintained by [nhurden](https://github.com/nhurden)
 * [Base 16 Builder Go](https://github.com/belak/base16-builder-go) maintained by [belak](https://github.com/belak)
 * [Base 16 Builder PHP](https://github.com/chriskempson/base16-builder-php) maintained by [chriskempson](https://github.com/chriskempson)
