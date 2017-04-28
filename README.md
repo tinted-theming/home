@@ -53,6 +53,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Twilight](https://github.com/hartbit/base16-twilight-scheme) maintained by [hartbit](https://github.com/hartbit)
 * [Unikitty](https://github.com/joshwlewis/base16-unikitty) maintained by [joshwlewis](https://github.com/joshwlewis)
 * [Woodland](https://github.com/jcornwall/base16-woodland-scheme) maintained by [jcornwall](https://github.com/jcornwall)
+* [Old Unclaimed Schemes](https://github.com/chriskempson/base16-unclaimed-schemes) - If your scheme is in this repository, please give it a new home!
 
 ## Builder Repositories
 **Repository naming scheme: base16-builder-[language]** (with dashes as separators).
