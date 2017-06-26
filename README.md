@@ -49,6 +49,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Materia](https://github.com/Defman21/base16-materia) maintained by [Defman21](https://github.com/Defman21)
 * [Mexico-Light](https://github.com/drzel/base16-mexico-light-scheme) maintained by [drzel](https://github.com/drzel)
 * [Onedark](https://github.com/tilal6991/base16-onedark-scheme) maintained by [tilal6991](https://github.com/tilal6991)
+* [One Light](https://github.com/purpleKarrot/base16-one-light-scheme) maintained by [purpleKarrot](https://github.com/purpleKarrot)
 * [Summerfruit](https://github.com/cscorley/base16-summerfruit-scheme) maintained by [cscorley](https://github.com/cscorley)
 * [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Twilight](https://github.com/hartbit/base16-twilight-scheme) maintained by [hartbit](https://github.com/hartbit)
