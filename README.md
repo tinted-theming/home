@@ -74,6 +74,9 @@ The following is a list of useful resources for anyone creating a base16 scheme 
 * [Code Examples](https://github.com/chriskempson/base16-code-examples) - A list of example code file for various languages.
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com) - An online editor for themes in tmTheme format.
 
+## Tools for using Base16
+* [base16-schemer](https://github.com/AuditeMarlow/base16-schemer) - A PHP script that will install multiple base16 template files.
+
 ## Projects using Base16
 * [Atom Editor](https://atom.io/) Atom.io
 * [c-Tiles16](https://github.com/atelierbram/c-tiles16) - Colorscheming with Variables.
@@ -81,4 +84,3 @@ The following is a list of useful resources for anyone creating a base16 scheme 
 * [Harmonic16](http://janniks.github.io/harmonic16) - A color generator for harmonic base16 color-schemes.
 * [Duotone-base16 ](https://github.com/davidosomething/duotone-base16/) - A Duotone scheme to Base16 convertor.
 * [terminal.sexy](https://terminal.sexy/) - Terminal Color Scheme Designer
-* [base16-schemer](https://github.com/AuditeMarlow/base16-schemer) - A PHP script to set multiple base16 schemes all at once.
