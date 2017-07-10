@@ -57,6 +57,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Unikitty](https://github.com/joshwlewis/base16-unikitty) maintained by [joshwlewis](https://github.com/joshwlewis)
 * [Woodland](https://github.com/jcornwall/base16-woodland-scheme) maintained by [jcornwall](https://github.com/jcornwall)
 * [Cupertino](https://github.com/Defman21/base16-cupertino) maintained by [Defman21](https://github.com/Defman21)
+* [Zenburn](https://github.com/elnawe/base16-zenburn-scheme) maintained by [elnawe](https://github.com/elnawe)
 * [Old Unclaimed Schemes](https://github.com/chriskempson/base16-unclaimed-schemes) - If your scheme is in this repository, please give it a new home!
 
 ## Builder Repositories
