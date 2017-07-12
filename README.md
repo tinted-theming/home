@@ -76,7 +76,7 @@ The following is a list of useful resources for anyone creating a base16 scheme 
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com) - An online editor for themes in tmTheme format.
 
 ## Tools for using Base16
-* [base16-schemer](https://github.com/AuditeMarlow/base16-schemer) - A PHP script that will install multiple base16 template files with a single command.
+* [base16-manager](https://github.com/AuditeMarlow/base16-manager) - A command line tool to install base16 templates and set themes globally.
 
 ## Projects using Base16
 * [Atom Editor](https://atom.io/) Atom.io
