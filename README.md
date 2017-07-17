@@ -70,6 +70,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Base 16 Builder Node.js](https://github.com/richardneililagan/base16-builder-node) maintained by [richardneililagan](https://github.com/richardneililagan)
 * [Base 16 Builder Rust](https://github.com/ilpianista/base16-builder-rust) maintained by [ilpianista](https://github.com/ilpianista)
 * [Base 16 Builder Ruby](https://github.com/obahareth/base16-builder-ruby) maintained by [obahareth](https://github.com/obahareth)
+* [Base 16 Builder Typescript](https://github.com/golf1052/base16-builder-typescript) maintained by [golf1052](https://github.com/golf1052)
 
 ## Scheme and Template Author Resources
 The following is a list of useful resources for anyone creating a base16 scheme and or template:
