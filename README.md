@@ -49,6 +49,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Github](https://github.com/Defman21/base16-github-scheme) maintained by [Defman21](https://github.com/Defman21)
 * [Gruvbox](https://github.com/dawikur/base16-gruvbox-scheme) maintained by [dawikur](https://github.com/dawikur)
 * [Materia](https://github.com/Defman21/base16-materia) maintained by [Defman21](https://github.com/Defman21)
+* [Material Theme](https://github.com/ntpeters/base16-materialtheme-scheme) maintained by [ntpeters](https://github.com/ntpeters)
 * [Mexico-Light](https://github.com/drzel/base16-mexico-light-scheme) maintained by [drzel](https://github.com/drzel)
 * [Onedark](https://github.com/tilal6991/base16-onedark-scheme) maintained by [tilal6991](https://github.com/tilal6991)
 * [One Light](https://github.com/purpleKarrot/base16-one-light-scheme) maintained by [purpleKarrot](https://github.com/purpleKarrot)
