@@ -1,4 +1,5 @@
 # ![Base16](logo.png)
+
 Base16 provides carefully chosen syntax highlighting and a default set of sixteen colors suitable for a wide range of applications. Base16 is not a single theme but a set of guidelines with numerous implementations.
 
 ## Documentation
@@ -11,7 +12,9 @@ Base16 provides carefully chosen syntax highlighting and a default set of sixtee
 To test the different Base 16 themes out, check out <https://chriskempson.github.io/base16/>.
 
 ## Template Repositories
+
 To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-[template-name]** (with dashes as separators).
+
 * [Alacritty](https://github.com/aaron-williamson/base16-alacritty) maintained by [aaron-williamson](https://github.com/aaron-williamson)
 * [C Header](https://github.com/m1sports20/base16-c_header) maintained by [m1sports20](https://github.com/m1sports20)
 * [Crosh](https://github.com/philj56/base16-crosh) maintained by [philj56](https://github.com/philj56)
@@ -40,6 +43,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [Xresources](https://github.com/chriskempson/base16-xresources) maintained by [chriskempson](https://github.com/chriskempson)
 
 ## Scheme Repositories
+
 To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-[scheme-name]-scheme** (with dashes as separators).
 
 * [Atelier](https://github.com/atelierbram/base16-atelier-schemes) maintained by [atelierbram](https://github.com/atelierbram)
@@ -63,7 +67,9 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Old Unclaimed Schemes](https://github.com/chriskempson/base16-unclaimed-schemes) - If your scheme is in this repository, please give it a new home!
 
 ## Builder Repositories
+
 **Repository naming scheme: base16-builder-[language]** (with dashes as separators).
+
 * [Base 16 Builder Clojure](https://github.com/nhurden/base16-builder-clojure) maintained by [nhurden](https://github.com/nhurden)
 * [Base 16 Builder Go](https://github.com/belak/base16-builder-go) maintained by [belak](https://github.com/belak)
 * [Base 16 Builder Perl](https://github.com/loomer/base16-builder-perl) maintained by [loomer](https://github.com/loomer)
@@ -74,18 +80,22 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Base 16 Builder Typescript](https://github.com/golf1052/base16-builder-typescript) maintained by [golf1052](https://github.com/golf1052)
 
 ## Scheme and Template Author Resources
+
 The following is a list of useful resources for anyone creating a base16 scheme and or template:
+
 * [Code Examples](https://github.com/chriskempson/base16-code-examples) - A list of example code file for various languages.
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com) - An online editor for themes in tmTheme format.
 * [Base16 Template Converter](https://github.com/ntpeters/base16-template-converter) - A script to automatically convert Base16 templates written in the old Embedded Ruby style to the new Mustache style.
 
 ## Tools for using Base16
+
 * [base16-manager](https://github.com/AuditeMarlow/base16-manager) - A command line tool to install base16 templates and set themes globally.
 
 ## Projects using Base16
+
 * [Atom Editor](https://atom.io/) Atom.io
 * [c-Tiles16](https://github.com/atelierbram/c-tiles16) - Colorscheming with Variables.
 * [Spacegray](https://github.com/kkga/spacegray) - A set of custom UI themes for Sublime Text 2/3.
 * [Harmonic16](http://janniks.github.io/harmonic16) - A color generator for harmonic base16 color-schemes.
-* [Duotone-base16 ](https://github.com/davidosomething/duotone-base16/) - A Duotone scheme to Base16 convertor.
+* [Duotone-base16](https://github.com/davidosomething/duotone-base16/) - A Duotone scheme to Base16 convertor.
 * [terminal.sexy](https://terminal.sexy/) - Terminal Color Scheme Designer
