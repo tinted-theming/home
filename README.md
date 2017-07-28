@@ -76,6 +76,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 The following is a list of useful resources for anyone creating a base16 scheme and or template:
 * [Code Examples](https://github.com/chriskempson/base16-code-examples) - A list of example code file for various languages.
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com) - An online editor for themes in tmTheme format.
+* [Base16 Template Converter](https://github.com/ntpeters/base16-template-converter) - A script to automatically convert Base16 templates written in the old Embedded Ruby style to the new Mustache style.
 
 ## Tools for using Base16
 * [base16-manager](https://github.com/AuditeMarlow/base16-manager) - A command line tool to install base16 templates and set themes globally.
