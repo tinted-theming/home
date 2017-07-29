@@ -15,14 +15,14 @@ A base16 builder is an application that can build syntax highlighting definition
 ## Workflow
 The first job a just-installed builder has is to populate a list of scheme sources and template sources. It does this by parsing the `/sources.yaml` file and using Git to clone the repositories defined within to `/sources`. Next a builder will parse the downloaded `/sources/schemes/list.yaml` and use Git to clone the defined repositories to `/schemes`. Finally a builder will parse the downloaded `/sources/templates/list.yaml` and use Git to clone the defined repositories to `/templates`. This task is performed by the `builder update` command which can be used to update sources, schemes and teamplates.
 
-When building themes by running `builder` without any arguments, a base16 builder should first clear out any old output then iterate through all the scheme files in `/schemes` and for each scheme should iterate through all the template files in `/templates` producing themes that will be output to the template directories specified in `/templates/template_name/template/config.yaml`. The theme filename should look like `base16-[slug][extension]`. Where the slug is taken from the scheme file name made lowercase with spaces replaced with dashes and extension is taken from `/template/config.yaml`.
+When building themes by running `builder` without any arguments, a base16 builder should first clear out any old output then iterate through all the scheme files in `/schemes` and for each scheme should iterate through all the template files in `/templates` producing themes that will be output to the template directories specified in `/templates/template_name/template/config.yaml`. The theme filename should look like `base16-[slug][extension]`. Where the slug is taken from the scheme filename made lowercase with spaces replaced with dashes and extension is taken from `/template/config.yaml`.
 
 ## Template Variables
 A builder should provide the following variables to a template file:
 
 - `scheme-name` - obtained from the scheme file
 - `scheme-author` - obtained from the scheme file
-- `scheme-slug` - obtained from the scheme file
+- `scheme-slug` - obtained from the scheme filename, as described above
 - `base00-hex` to `base0F-hex` - obtained from the scheme file e.g "7cafc2"
 - `base00-hex-r` to `base0F-hex-r` - built from the hex value in the scheme file e.g "7c"
 - `base00-hex-g` to `base0F-hex-g` - built from the hex value in the scheme file e.g "af"
