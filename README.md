@@ -75,6 +75,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 
 * [Base 16 Builder Go](https://github.com/belak/base16-builder-go) maintained by [belak](https://github.com/belak)
 * [Base 16 Builder Typescript](https://github.com/golf1052/base16-builder-typescript) maintained by [golf1052](https://github.com/golf1052)
+* [Base 16 Builder Clojure](https://github.com/nhurden/base16-builder-clojure) maintained by [nhurden](https://github.com/nhurden)
 
 ### 0.8.1
 
@@ -83,7 +84,6 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 
 ### 0.8.0
 
-* [Base 16 Builder Clojure](https://github.com/nhurden/base16-builder-clojure) maintained by [nhurden](https://github.com/nhurden)
 * [Base 16 Builder PHP](https://github.com/chriskempson/base16-builder-php) maintained by [chriskempson](https://github.com/chriskempson)
 * [Base 16 Builder Node.js](https://github.com/richardneililagan/base16-builder-node) maintained by [richardneililagan](https://github.com/richardneililagan)
 * [Base 16 Builder Rust](https://github.com/ilpianista/base16-builder-rust) maintained by [ilpianista](https://github.com/ilpianista)
