@@ -27,6 +27,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [HTML Previews](https://github.com/chriskempson/base16-html-preview) maintained by [chriskempson](https://github.com/chriskempson)
 * [i3](https://github.com/khamer/base16-i3) maintained by [khamer](https://github.com/khamer)
 * [iTerm2](https://github.com/martinlindhe/base16-iterm2) maintained by [martinlindhe](https://github.com/martinlindhe)
+* [Jetbrains](https://github.com/adilosa/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa)
 * [Kakoune](https://github.com/leira/base16-kakoune) maintained by [leira](https://github.com/leira)
 * [Konsole](https://github.com/cskeeters/base16-konsole) maintained by [cskeeters](https://github.com/cskeeters)
 * [MinTTY](https://github.com/geoffstokes/base16-mintty) maintained by [geoffstokes](https://github.com/geoffstokes)
