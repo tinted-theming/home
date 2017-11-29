@@ -13,7 +13,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 
 * [Alacritty](https://github.com/aaron-williamson/base16-alacritty) maintained by [aaron-williamson](https://github.com/aaron-williamson)
 * [Blink](https://github.com/niklaas/base16-blink) maintained by [niklaas](https://github.com/niklaas)
-* [BBEdit](https://github.com/hrbn/base16-bbedit) maintained by [](https://github.com/hrbn)
+* [BBEdit](https://github.com/hrbn/base16-bbedit) maintained by [hrbn](https://github.com/hrbn)
 * [C Header](https://github.com/m1sports20/base16-c_header) maintained by [m1sports20](https://github.com/m1sports20)
 * [ConEmu](https://github.com/martinlindhe/base16-conemu) maintained by [martinlindhe](https://github.com/martinlindhe)
 * [Crosh](https://github.com/philj56/base16-crosh) maintained by [philj56](https://github.com/philj56)
