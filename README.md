@@ -91,6 +91,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Base 16 Builder PHP](https://github.com/chriskempson/base16-builder-php) maintained by [chriskempson](https://github.com/chriskempson)
 * [Base 16 Builder Python](https://github.com/InspectorMustache/base16-builder-python) maintained by [InspectorMustache](https://github.com/InspectorMustache)
 * [Base 16 Builder Ruby](https://github.com/obahareth/base16-builder-ruby) maintained by [obahareth](https://github.com/obahareth)
+* [Base 16 Builder Rust](https://github.com/ilpianista/base16-builder-rust) maintained by [ilpianista](https://github.com/ilpianista)
 * [Base 16 Builder Typescript](https://github.com/golf1052/base16-builder-typescript) maintained by [golf1052](https://github.com/golf1052)
 
 ### 0.8.1
@@ -100,7 +101,6 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 ### 0.8.0
 
 * [Base 16 Builder Node.js](https://github.com/richardneililagan/base16-builder-node) maintained by [richardneililagan](https://github.com/richardneililagan)
-* [Base 16 Builder Rust](https://github.com/ilpianista/base16-builder-rust) maintained by [ilpianista](https://github.com/ilpianista)
 
 ## Scheme and Template Author Resources
 
