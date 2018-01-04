@@ -1,6 +1,6 @@
 # LICENSE
 
-Base16 Builder is released under the MIT License:
+Base16 is released under the MIT License:
 
 > Copyright (C) 2012 [Chris Kempson](http://chriskempson.com)
 > 
