@@ -96,6 +96,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 **Repository naming scheme: base16-builder-[language]** (with dashes as separators). The separate headings are the latest versions of the spec supported by each builder.
 
 ### 0.9.0
+* [Base 16 Builder Ansible](https://github.com/mnussbaum/base16-builder-ansible) maintained by [mnussbaum](https://github.com/mnussbaum)
 * [Base 16 Builder Clojure](https://github.com/nhurden/base16-builder-clojure) maintained by [nhurden](https://github.com/nhurden)
 * [Base 16 Builder Elixir](https://github.com/obahareth/base16-builder-elixir) maintained by [obahareth](https://github.com/obahareth)
 * [Base 16 Builder Go](https://github.com/belak/base16-builder-go) maintained by [belak](https://github.com/belak)
