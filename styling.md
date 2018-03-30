@@ -1,11 +1,11 @@
 # Styling Guidelines
 **Version 0.2**
 
-Base16 aims to group similar language constructs with a single color, e.g. float, ints and doubles would belong to the same colour group. The colors chosen for the default theme were chosen to be easily separatable but scheme designer should pick whatever colours they desire e.g. base0B (green by default) could be replaced with red. However, there are general guidelines below that stipulate what base0B should be used to highlight when designing templates for editors.
+Base16 aims to group similar language constructs with a single color. For example, floats, ints, and doubles would belong to the same colour group. The colors for the default theme were chosen to be easily separable, but scheme designers should pick whichever colours they desire, e.g. base0B (green by default) could be replaced with red. There are, however, some general guidelines below that stipulate which base0B should be used to highlight each construct when designing templates for editors.
 
 Since describing syntax highlighting can be tricky, please see [base16-vim](https://github.com/chriskempson/base16-vim/) and [base16-textmate](https://github.com/chriskempson/base16-textmate/) for reference. Though it should be noted that each editor will have some discrepancies due the fact that editors generally have different syntax highlighting engines.
 
-Colors base00 to base07 are typically variations of a shade and run from darkest to lighest. These colors are used for foreground and background, status bars, line highlighting and such. Colors base08 to base0F are typically individual colors used for types, operators, names and variables. In order to create a dark theme colors base00 to base07 should span from dark to light. For a light theme these colours should span from light to dark.
+Colors base00 to base07 are typically variations of a shade and run from darkest to lightest. These colors are used for foreground and background, status bars, line highlighting and such. Colors base08 to base0F are typically individual colors used for types, operators, names and variables. In order to create a dark theme, colors base00 to base07 should span from dark to light. For a light theme, these colours should span from light to dark.
 
 - **base00** - Default Background
 - **base01** - Lighter Background (Used for status bars)
@@ -22,4 +22,4 @@ Colors base00 to base07 are typically variations of a shade and run from darkest
 - **base0C** - Support, Regular Expressions, Escape Characters, Markup Quotes
 - **base0D** - Functions, Methods, Attribute IDs, Headings
 - **base0E** - Keywords, Storage, Selector, Markup Italic, Diff Changed
-- **base0F** - Deprecated, Opening/Closing Embedded Language Tags e.g. <?php ?>
+- **base0F** - Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
