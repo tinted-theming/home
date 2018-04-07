@@ -70,6 +70,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Dracula](https://github.com/dracula/base16-dracula-scheme) maintained by [mikebarkmin](https://github.com/mikebarkmin)
 * [Github](https://github.com/Defman21/base16-github-scheme) maintained by [Defman21](https://github.com/Defman21)
 * [Gruvbox](https://github.com/dawikur/base16-gruvbox-scheme) maintained by [dawikur](https://github.com/dawikur)
+* [iA](https://github.com/aramisgithub/base16-ia-scheme) maintained by [aramisgithub](https://github.com/aramisgithub)
 * [Icy](https://github.com/icyphox/base16-icy-scheme) maintained by [icyphox](https://github.com/icyphox)
 * [Materia](https://github.com/Defman21/base16-materia) maintained by [Defman21](https://github.com/Defman21)
 * [Material Theme](https://github.com/ntpeters/base16-materialtheme-scheme) maintained by [ntpeters](https://github.com/ntpeters)
