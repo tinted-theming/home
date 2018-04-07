@@ -82,6 +82,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Porple](https://github.com/AuditeMarlow/base16-porple-scheme) maintained by [AuditeMarlow](https://github.com/AuditeMarlow)
 * [Rebecca](https://github.com/vic/base16-rebecca) maintained by [vic](https://github.com/vic)
 * [Solarflare](https://github.com/mnussbaum/base16-solarflare-scheme) maintained by [mnussbaum](https://github.com/mnussbaum)
+* [Solarized](https://github.com/aramisgithub/base16-solarized-scheme) maintained by [aramisgithub](https://github.com/aramisgithub)
 * [Summerfruit](https://github.com/cscorley/base16-summerfruit-scheme) maintained by [cscorley](https://github.com/cscorley)
 * [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Twilight](https://github.com/hartbit/base16-twilight-scheme) maintained by [hartbit](https://github.com/hartbit)
