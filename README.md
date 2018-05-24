@@ -73,6 +73,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Icy](https://github.com/icyphox/base16-icy-scheme) maintained by [icyphox](https://github.com/icyphox)
 * [Materia](https://github.com/Defman21/base16-materia) maintained by [Defman21](https://github.com/Defman21)
 * [Material Theme](https://github.com/ntpeters/base16-materialtheme-scheme) maintained by [ntpeters](https://github.com/ntpeters)
+* [Material Vivid](https://github.com/joshyrobot/base16-material-vivid-scheme) maintained by [joshyrobot](https://github.com/joshyrobot)
 * [Mellow](https://github.com/gidsi/base16-mellow-scheme) maintained by [gidsi](https://github.com/gidsi)
 * [Mexico-Light](https://github.com/drzel/base16-mexico-light-scheme) maintained by [drzel](https://github.com/drzel)
 * [Nord](https://github.com/8-uh/base16-nord-scheme) maintained by [8-uh](https://github.com/8-uh)
