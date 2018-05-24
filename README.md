@@ -39,6 +39,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [PuTTY](https://github.com/benjojo/base-16-putty) maintained by [benjojo](https://github.com/benjojo)
 * [Pygments](https://github.com/mohd-akram/base16-pygments) maintained by [mohd-akram](https://github.com/mohd-akram)
 * [Qt Creator](https://github.com/ilpianista/base16-qtcreator) maintained by [ilpianista](https://github.com/ilpianista)
+* [qutebrowser](https://github.com/theova/base16-qutebrowser) maintaned by [theova](https://github.com/theova)
 * [Rofi](https://github.com/0xdec/base16-rofi) maintained by [0xdec](https://github.com/0xdec)
 * [Shell](https://github.com/chriskempson/base16-shell) maintained by [chriskempson](https://github.com/chriskempson)
 * [Scide](https://github.com/brunoro/base16-scide) maintained by [brunoro](https://github.com/brunoro)
