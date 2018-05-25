@@ -15,7 +15,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [Blink](https://github.com/niklaas/base16-blink) maintained by [niklaas](https://github.com/niklaas)
 * [BBEdit](https://github.com/hrbn/base16-bbedit) maintained by [hrbn](https://github.com/hrbn)
 * [C Header](https://github.com/m1sports20/base16-c_header) maintained by [m1sports20](https://github.com/m1sports20)
-* [ConCfg](https://github.com/tknarr/base16-concfg) maintained by [tknarr](https://github.com/tknarr)
+* [ConCfg](https://github.com/h404bi/base16-concfg) maintained by [h404bi](https://github.com/h404bi)
 * [ConEmu](https://github.com/martinlindhe/base16-conemu) maintained by [martinlindhe](https://github.com/martinlindhe)
 * [Crosh](https://github.com/philj56/base16-crosh) maintained by [philj56](https://github.com/philj56)
 * [Dunst](https://github.com/khamer/base16-dunst) maintained by [khamer](https://github.com/khamer)
