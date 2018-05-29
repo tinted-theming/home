@@ -57,6 +57,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [Xcode](https://github.com/kreeger/base16-xcode) maintained by [kreeger](https://github.com/kreeger)
 * [XFCE4 Terminal](https://github.com/afg984/base16-xfce4-terminal) maintained by [afg984](https://github.com/afg984)
 * [Xresources](https://github.com/chriskempson/base16-xresources) maintained by [chriskempson](https://github.com/chriskempson)
+* [Xshell](https://github.com/h404bi/base16-xshell) maintained by [h404bi](https://github.com/h404bi)
 * [zathura](https://github.com/nicodebo/base16-zathura) maintained by [nicodebo](https://github.com/nicodebo)
 
 ## Scheme Repositories
