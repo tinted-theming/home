@@ -133,6 +133,7 @@ The following is a list of useful resources for anyone creating a base16 scheme 
 ## Tools for using Base16
 
 * [base16-manager](https://github.com/AuditeMarlow/base16-manager) - A command line tool to install base16 templates and set themes globally.
+* [base16-shell-preview](https://github.com/nvllsvm/base16-shell-preview) - A command line tool to preview and set base16-shell themes.
 
 ## Projects using Base16
 
