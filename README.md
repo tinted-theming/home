@@ -49,6 +49,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [StumpWM](https://github.com/tpine/base16-stumpwm) maintained by [tpine](https://github.com/tpine)
 * [CSS, Less, Sass/Scss & Stylus](https://github.com/samme/base16-styles) maintained by [samme](https://github.com/samme)
 * [Termite](https://github.com/khamer/base16-termite) maintained by [khamer](https://github.com/khamer)
+* [Termux](https://github.com/kdrag0n/base16-termux) maintained by [kdrag0n](https://github.com/kdrag0n)
 * [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate) maintained by [chriskempson](https://github.com/chriskempson)
 * [Tilix](https://github.com/karlding/base16-tilix) maintained by [karlding](https://github.com/karlding)
 * [Vim](https://github.com/chriskempson/base16-vim) maintained by [chriskempson](https://github.com/chriskempson)
