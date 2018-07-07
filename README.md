@@ -42,7 +42,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [Qt Creator](https://github.com/ilpianista/base16-qtcreator) maintained by [ilpianista](https://github.com/ilpianista)
 * [qutebrowser](https://github.com/theova/base16-qutebrowser) maintaned by [theova](https://github.com/theova)
 * [Radare2](https://github.com/jtalowell/base16-radare2) maintained by [jtalowell](https://github.com/jtalowell)
-* [Rofi](https://github.com/0xdec/base16-rofi) maintained by [0xdec](https://github.com/0xdec)
+* [Rofi](https://gitlab.com/0xdec/base16-rofi) maintained by [0xdec](https://gitlab.com/0xdec)
 * [Shell](https://github.com/chriskempson/base16-shell) maintained by [chriskempson](https://github.com/chriskempson)
 * [Scide](https://github.com/brunoro/base16-scide) maintained by [brunoro](https://github.com/brunoro)
 * [st](https://github.com/honza/base16-st) maintained by [honza](https://github.com/honza)
