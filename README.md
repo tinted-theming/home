@@ -1,6 +1,6 @@
 # ![Base16](logo.png)
 
-An architecture for building themes based on carefully chosen syntax highlighting using a base of sixteen colours. Base16 provides a set of guidelines detailing how to style syntax and how to code a _builder_ for compiling Base16 _schemes_ and _templates_.
+An architecture for building themes based on carefully chosen syntax highlighting using a base of sixteen colors. Base16 provides a set of guidelines detailing how to style syntax and how to code a _builder_ for compiling Base16 _schemes_ and _templates_.
 
 ## Documentation
 
@@ -127,7 +127,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 
 ## Scheme and Template Author Resources
 
-The following is a list of useful resources for anyone creating a base16 scheme and or template:
+The following is a list of useful resources for anyone creating a Base16 scheme and or template:
 
 * [Code Examples](https://github.com/chriskempson/base16-code-examples) - A list of example code file for various languages.
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com) - An online editor for themes in tmTheme format.
@@ -143,7 +143,7 @@ The following is a list of useful resources for anyone creating a base16 scheme 
 * [Atom Editor](https://atom.io/) Atom.io
 * [c-Tiles16](https://github.com/atelierbram/c-tiles16) - Colorscheming with Variables.
 * [Spacegray](https://github.com/kkga/spacegray) - A set of custom UI themes for Sublime Text 2/3.
-* [Harmonic16](http://janniks.github.io/harmonic16) - A color generator for harmonic base16 color-schemes.
+* [Harmonic16](http://janniks.github.io/harmonic16) - A color generator for harmonic Base16 color-schemes.
 * [Duotone-base16](https://github.com/davidosomething/duotone-base16/) - A Duotone scheme to Base16 convertor.
 * [terminal.sexy](https://terminal.sexy/) - Terminal Color Scheme Designer
 
