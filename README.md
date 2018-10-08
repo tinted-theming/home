@@ -19,6 +19,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [C Header](https://github.com/m1sports20/base16-c_header) maintained by [m1sports20](https://github.com/m1sports20)
 * [ConCfg](https://github.com/h404bi/base16-concfg) maintained by [h404bi](https://github.com/h404bi)
 * [ConEmu](https://github.com/martinlindhe/base16-conemu) maintained by [martinlindhe](https://github.com/martinlindhe)
+* [Console2](https://github.com/AFulgens/base16-console2) maintained by [AFulgens](https://github.com/AFulgens)
 * [Crosh](https://github.com/philj56/base16-crosh) maintained by [philj56](https://github.com/philj56)
 * [Dunst](https://github.com/khamer/base16-dunst) maintained by [khamer](https://github.com/khamer)
 * [Emacs](https://github.com/belak/base16-emacs) maintained by [belak](https://github.com/belak)
