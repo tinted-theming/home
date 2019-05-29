@@ -82,6 +82,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Fruit Soda](https://github.com/jozip/base16-fruit-soda-scheme) maintained by [jozip](https://github.com/jozip)
 * [Github](https://github.com/Defman21/base16-github-scheme) maintained by [Defman21](https://github.com/Defman21)
 * [Gruvbox](https://github.com/dawikur/base16-gruvbox-scheme) maintained by [dawikur](https://github.com/dawikur)
+* [Helios](https://github.com/reyemxela/base16-helios-scheme) maintained by [reyemxela](https://github.com/reyemxela)
 * [iA](https://github.com/aramisgithub/base16-ia-scheme) maintained by [aramisgithub](https://github.com/aramisgithub)
 * [Icy](https://github.com/icyphox/base16-icy-scheme) maintained by [icyphox](https://github.com/icyphox)
 * [Materia](https://github.com/Defman21/base16-materia) maintained by [Defman21](https://github.com/Defman21)
