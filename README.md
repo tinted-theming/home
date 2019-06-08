@@ -163,6 +163,7 @@ The following is a list of useful resources for anyone creating a Base16 scheme 
 
 ## Projects using Base16
 
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Atom Editor](https://atom.io/) Atom.io
 * [c-Tiles16](https://github.com/atelierbram/c-tiles16) - Colorscheming with Variables.
 * [Spacegray](https://github.com/kkga/spacegray) - A set of custom UI themes for Sublime Text 2/3.
