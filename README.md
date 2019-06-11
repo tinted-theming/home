@@ -126,6 +126,8 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 
 ### 0.9.0 (Jul 6, 2017)
 
+- Add decimal color variables
+
 * [Base 16 Builder Ansible](https://github.com/mnussbaum/base16-builder-ansible) maintained by [mnussbaum](https://github.com/mnussbaum)
 * [Base 16 Builder Clojure](https://github.com/nhurden/base16-builder-clojure) maintained by [nhurden](https://github.com/nhurden)
 * [Base 16 Builder Elixir](https://github.com/obahareth/base16-builder-elixir) maintained by [obahareth](https://github.com/obahareth)
@@ -138,9 +140,14 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 
 ### 0.8.1 (Dec 29, 2016)
 
+- Clarify theme filename generation
+- Various clarifications
+
 * [Base 16 Builder Perl](https://github.com/loomer/base16-builder-perl) maintained by [loomer](https://github.com/loomer)
 
 ### 0.8.0 (Aug 27, 2016)
+
+- Drop support for HSL variables
 
 * [Base 16 Builder Node.js](https://github.com/richardneililagan/base16-builder-node) maintained by [richardneililagan](https://github.com/richardneililagan)
 
