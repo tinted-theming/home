@@ -54,6 +54,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [Shell](https://github.com/chriskempson/base16-shell) maintained by [chriskempson](https://github.com/chriskempson)
 * [st](https://github.com/honza/base16-st) maintained by [honza](https://github.com/honza)
 * [StumpWM](https://github.com/tpine/base16-stumpwm) maintained by [tpine](https://github.com/tpine)
+* [Sway](https://github.com/rkubosz/base16-sway) maintained by [rkubosz](https://github.com/rkubosz)
 * [Termite](https://github.com/khamer/base16-termite) maintained by [khamer](https://github.com/khamer)
 * [Termux](https://github.com/kdrag0n/base16-termux) maintained by [kdrag0n](https://github.com/kdrag0n)
 * [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate) maintained by [chriskempson](https://github.com/chriskempson)
