@@ -90,6 +90,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Fruit Soda](https://github.com/jozip/base16-fruit-soda-scheme) maintained by [jozip](https://github.com/jozip)
 * [Github](https://github.com/Defman21/base16-github-scheme) maintained by [Defman21](https://github.com/Defman21)
 * [Gruvbox](https://github.com/dawikur/base16-gruvbox-scheme) maintained by [dawikur](https://github.com/dawikur)
+* [Hardcore](https://github.com/callerc1/base16-hardcore-scheme) maintained by [callerc1](https://github.com/callerc1)
 * [Helios](https://github.com/reyemxela/base16-helios-scheme) maintained by [reyemxela](https://github.com/reyemxela)
 * [Heetch](https://github.com/tealeg/base16-heetch-scheme) maintained by [tealeg](https://github.com/tealeg)
 * [Horizon](https://github.com/michael-ball/base16-horizon-scheme) maintained by [michael-ball](https://github.com/michael-ball)
