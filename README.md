@@ -64,6 +64,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [VSCode](https://github.com/golf1052/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
 * [Waybar](https://github.com/mnussbaum/base16-waybar) maintained by [mnussbaum](https://github.com/mnussbaum)
 * [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
+* [Windows Terminal](https://github.com/wuqs-net/base16-windows-terminal) maintained by [wuqs-net](https://github.com/wuqs-net)
 * [Xcode](https://github.com/kreeger/base16-xcode) maintained by [kreeger](https://github.com/kreeger)
 * [XFCE4 Terminal](https://github.com/afg984/base16-xfce4-terminal) maintained by [afg984](https://github.com/afg984)
 * [Xresources](https://github.com/binaryplease/base16-xresources) maintained by [binaryplease](https://github.com/binaryplease)
