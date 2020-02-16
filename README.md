@@ -94,6 +94,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Helios](https://github.com/reyemxela/base16-helios-scheme) maintained by [reyemxela](https://github.com/reyemxela)
 * [Heetch](https://github.com/tealeg/base16-heetch-scheme) maintained by [tealeg](https://github.com/tealeg)
 * [Horizon](https://github.com/michael-ball/base16-horizon-scheme) maintained by [michael-ball](https://github.com/michael-ball)
+* [Humanoid](https://github.com/humanoid-colors/base16-humanoid-schemes) maintained by [tasmo](https://github.com/tasmo)
 * [iA](https://github.com/aramisgithub/base16-ia-scheme) maintained by [aramisgithub](https://github.com/aramisgithub)
 * [Icy](https://github.com/icyphox/base16-icy-scheme) maintained by [icyphox](https://github.com/icyphox)
 * [Materia](https://github.com/Defman21/base16-materia) maintained by [Defman21](https://github.com/Defman21)
