@@ -88,6 +88,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Darkviolet](https://github.com/ruler501/base16-darkviolet-scheme) maintained by [ruler501](https://github.com/ruler501)
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Dracula](https://github.com/dracula/base16-dracula-scheme) maintained by [mikebarkmin](https://github.com/mikebarkmin)
+* [Equilibrium](https://github.com/carloabelli/base16-equilibrium-scheme) maintained by [carloabelli](https://github.com/carloabelli)
 * [Espresso](https://github.com/alexmirrington/base16-espresso-scheme) maintained by [alexmirrington](https://github.com/alexmirrington)
 * [Framer](https://github.com/jssee/base16-framer-scheme) maintained by [jssee](https://github.com/jssee)
 * [Fruit Soda](https://github.com/jozip/base16-fruit-soda-scheme) maintained by [jozip](https://github.com/jozip)
