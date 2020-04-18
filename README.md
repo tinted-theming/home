@@ -195,4 +195,5 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [Harmonic16](http://janniks.github.io/harmonic16) - A color generator for harmonic Base16 color-schemes.
 * [Duotone-base16](https://github.com/davidosomething/duotone-base16/) - A Duotone scheme to Base16 convertor.
 * [terminal.sexy](https://terminal.sexy/) - Terminal Color Scheme Designer
+* [Just-Colors](https://github.com/andreyvpng/just-colors) - Simple configuration file generator
 
