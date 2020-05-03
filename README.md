@@ -95,6 +95,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Espresso](https://github.com/alexmirrington/base16-espresso-scheme) maintained by [alexmirrington](https://github.com/alexmirrington)
 * [Framer](https://github.com/jssee/base16-framer-scheme) maintained by [jssee](https://github.com/jssee)
 * [Fruit Soda](https://github.com/jozip/base16-fruit-soda-scheme) maintained by [jozip](https://github.com/jozip)
+* [Gigavolt](https://github.com/Whillikers/base16-gigavolt-scheme) maintained by [Whillikers](https://github.com/Whillikers)
 * [Github](https://github.com/Defman21/base16-github-scheme) maintained by [Defman21](https://github.com/Defman21)
 * [Gruvbox](https://github.com/dawikur/base16-gruvbox-scheme) maintained by [dawikur](https://github.com/dawikur)
 * [Hardcore](https://github.com/callerc1/base16-hardcore-scheme) maintained by [callerc1](https://github.com/callerc1)
