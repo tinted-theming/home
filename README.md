@@ -87,6 +87,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Circus](https://github.com/stepchowfun/base16-circus-scheme) maintained by [stepchowfun](https://github.com/stepchowfun) and [ewang12](https://github.com/ewang12)
 * [Classic](https://github.com/detly/base16-classic-scheme) maintained by [detly](https://github.com/detly)
 * [Codeschool](https://github.com/blockloop/base16-codeschool-scheme) maintained by [blockloop](https://github.com/blockloop)
+* [Colors](https://github.com/hakatashi/base16-colors-scheme) maintained by [hakatashi](https://github.com/hakatashi)
 * [Cupertino](https://github.com/Defman21/base16-cupertino) maintained by [Defman21](https://github.com/Defman21)
 * [Darkviolet](https://github.com/ruler501/base16-darkviolet-scheme) maintained by [ruler501](https://github.com/ruler501)
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
