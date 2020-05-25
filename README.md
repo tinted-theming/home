@@ -24,7 +24,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [CSS, Less, Sass/Scss & Stylus](https://github.com/samme/base16-styles) maintained by [samme](https://github.com/samme)
 * [Dunst](https://github.com/khamer/base16-dunst) maintained by [khamer](https://github.com/khamer)
 * [Emacs](https://github.com/belak/base16-emacs) maintained by [belak](https://github.com/belak)
-* [fzf](https://github.com/nicodebo/base16-fzf) maintained by [nicodebo](https://github.com/nicodebo)
+* [fzf](https://github.com/fnune/base16-fzf) maintained by [fnune](https://github.com/fnune)
 * [Gnome Terminal](https://github.com/aaron-williamson/base16-gnome-terminal) maintained by [aaron-williamson](https://github.com/aaron-williamson)
 * [Godot](https://github.com/Calinou/base16-godot) maintained by [Calinou](https://github.com/Calinou)
 * [GTK+2](https://github.com/dawikur/base16-gtk2) maintained by [dawikur](https://github.com/dawikur)
