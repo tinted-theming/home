@@ -133,6 +133,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Outrun](https://github.com/hugodelahousse/base16-outrun-schemes) maintained by [hugodelahousse](https://github.com/hugodelahousse)
 * [PaperColor](https://github.com/jonleopard/base16-papercolor-scheme) maintained by [jonleopard](https://github.com/jonleopard)
 * [Pasque](https://github.com/Misterio77/base16-pasque-scheme) maintained by [Misterio77](https://github.com/Misterio77)
+* [pinky](https://github.com/b3nj5m1n/base16-pinky-scheme) maintained by [b3nj5m1n](https://github.com/b3nj5m1n)
 * [Porple](https://github.com/AuditeMarlow/base16-porple-scheme) maintained by [AuditeMarlow](https://github.com/AuditeMarlow)
 * [Purpledream](https://github.com/archmalet/base16-purpledream-scheme) maintained by [archmalet](https://github.com/archmalet)
 * [Qualia](https://github.com/isaacwhanson/base16-qualia-scheme) maintained by [isaacwhanson](https://github.com/isaacwhanson)
