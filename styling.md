@@ -8,7 +8,7 @@ Since describing syntax highlighting can be tricky, please see [base16-vim](http
 Colors base00 to base07 are typically variations of a shade and run from darkest to lightest. These colors are used for foreground and background, status bars, line highlighting and such. Colors base08 to base0F are typically individual colors used for types, operators, names and variables. In order to create a dark theme, colors base00 to base07 should span from dark to light. For a light theme, these colours should span from light to dark.
 
 - **base00** - Default Background
-- **base01** - Lighter Background (Used for status bars)
+- **base01** - Lighter Background (Used for status bars, line number and folding marks)
 - **base02** - Selection Background
 - **base03** - Comments, Invisibles, Line Highlighting
 - **base04** - Dark Foreground (Used for status bars)
