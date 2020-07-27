@@ -109,6 +109,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Humanoid](https://github.com/humanoid-colors/base16-humanoid-schemes) maintained by [tasmo](https://github.com/tasmo)
 * [iA](https://github.com/aramisgithub/base16-ia-scheme) maintained by [aramisgithub](https://github.com/aramisgithub)
 * [Icy](https://github.com/icyphox/base16-icy-scheme) maintained by [icyphox](https://github.com/icyphox)
+* [Kimber](https://github.com/akhsiM/base16-kimber-scheme) maintained by [Mishka](https://github.com/akhsiM)
 * [Materia](https://github.com/Defman21/base16-materia) maintained by [Defman21](https://github.com/Defman21)
 * [Material Theme](https://github.com/ntpeters/base16-materialtheme-scheme) maintained by [ntpeters](https://github.com/ntpeters)
 * [Material Vivid](https://github.com/joshyrobot/base16-material-vivid-scheme) maintained by [joshyrobot](https://github.com/joshyrobot)
