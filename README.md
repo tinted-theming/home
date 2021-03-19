@@ -83,6 +83,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 
 To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-[scheme-name]-scheme** (with dashes as separators).
 
+* [Apprentice](https://github.com/casonadams/base16-apprentice-scheme) maintained by [casonadams](https://github.com/casonadams)
 * [Atelier](https://github.com/atelierbram/base16-atelier-schemes) maintained by [atelierbram](https://github.com/atelierbram)
 * [Atlas](https://github.com/ajlende/base16-atlas-scheme) maintained by [ajlende](https://github.com/ajlende)
 * [Black Metal](https://github.com/metalelf0/base16-black-metal-scheme) maintained by [metalelf0](https://github.com/metalelf0)
@@ -93,6 +94,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Codeschool](https://github.com/blockloop/base16-codeschool-scheme) maintained by [blockloop](https://github.com/blockloop)
 * [Colors](https://github.com/hakatashi/base16-colors-scheme) maintained by [hakatashi](https://github.com/hakatashi)
 * [Cupertino](https://github.com/Defman21/base16-cupertino) maintained by [Defman21](https://github.com/Defman21)
+* [Darcula](https://github.com/casonadams/base16-darcula-scheme) maintained by [casonadams](https://github.com/casonadams)
 * [Darkviolet](https://github.com/ruler501/base16-darkviolet-scheme) maintained by [ruler501](https://github.com/ruler501)
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Dracula](https://github.com/dracula/base16-dracula-scheme) maintained by [mikebarkmin](https://github.com/mikebarkmin)
