@@ -128,6 +128,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Porple](https://github.com/AuditeMarlow/base16-porple-scheme) maintained by [AuditeMarlow](https://github.com/AuditeMarlow)
 * [Purpledream](https://github.com/archmalet/base16-purpledream-scheme) maintained by [archmalet](https://github.com/archmalet)
 * [Rebecca](https://github.com/vic/base16-rebecca) maintained by [vic](https://github.com/vic)
+* [Rosé Pine](https://github.com/edunfelt/base16-rose-pine-scheme) maintained by [edunfelt](https://github.com/edunfelt)
 * [Sagelight](https://github.com/cveldy/base16-sagelight-scheme) maintained by [cveldy](https://github.com/cveldy)
 * [Sandcastle](https://github.com/gessig/base16-sandcastle-scheme) maintained by [gessig](https://github.com/gessig)
 * [Silk](https://github.com/Misterio77/base16-silk-scheme) maintained by [Misterio77](https://github.com/misterio77)
