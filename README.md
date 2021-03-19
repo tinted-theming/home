@@ -137,6 +137,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Summercamp](https://github.com/zoefiri/base16-summercamp) maintained by [zoe firi](https://github.com/zoefiri)
 * [Summerfruit](https://github.com/cscorley/base16-summerfruit-scheme) maintained by [cscorley](https://github.com/cscorley)
 * [Synth Midnight](https://github.com/michael-ball/base16-synth-midnight-scheme) maintained by [michael-ball](https://github.com/michael-ball)
+* [Tender](https://github.com/DanManN/base16-tender-scheme) maintained by [DanManN](https://github.com/DanManN)
 * [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
 * [Twilight](https://github.com/hartbit/base16-twilight-scheme) maintained by [hartbit](https://github.com/hartbit)
 * [Unikitty](https://github.com/joshwlewis/base16-unikitty) maintained by [joshwlewis](https://github.com/joshwlewis)
