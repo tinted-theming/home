@@ -94,6 +94,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Codeschool](https://github.com/blockloop/base16-codeschool-scheme) maintained by [blockloop](https://github.com/blockloop)
 * [Colors](https://github.com/hakatashi/base16-colors-scheme) maintained by [hakatashi](https://github.com/hakatashi)
 * [Cupertino](https://github.com/Defman21/base16-cupertino) maintained by [Defman21](https://github.com/Defman21)
+* [DanQing](https://github.com/CosmosAtlas/base16-danqing-scheme) maintained by [CosmoAtlas](https://github.com/CosmosAtlas)
 * [Darcula](https://github.com/casonadams/base16-darcula-scheme) maintained by [casonadams](https://github.com/casonadams)
 * [Darkviolet](https://github.com/ruler501/base16-darkviolet-scheme) maintained by [ruler501](https://github.com/ruler501)
 * [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
