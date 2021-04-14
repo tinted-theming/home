@@ -140,6 +140,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Rebecca](https://github.com/vic/base16-rebecca) maintained by [vic](https://github.com/vic)
 * [Rosé Pine](https://github.com/edunfelt/base16-rose-pine-scheme) maintained by [edunfelt](https://github.com/edunfelt)
 * [Sagelight](https://github.com/cveldy/base16-sagelight-scheme) maintained by [cveldy](https://github.com/cveldy)
+* [Sakura](https://github.com/Misterio77/base16-sakura-scheme) maintained by [Misterio77](https://github.com/Misterio77)
 * [Sandcastle](https://github.com/gessig/base16-sandcastle-scheme) maintained by [gessig](https://github.com/gessig)
 * [Shades of Purple](https://github.com/ahmadawais/base16-shades-of-purple) maintained by [Ahmad Awais](https://github.com/ahmadawais) and [Demartini](https://github.com/demartini)
 * [Silk](https://github.com/Misterio77/base16-silk-scheme) maintained by [Misterio77](https://github.com/misterio77)
