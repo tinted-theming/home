@@ -140,6 +140,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Rosé Pine](https://github.com/edunfelt/base16-rose-pine-scheme) maintained by [edunfelt](https://github.com/edunfelt)
 * [Sagelight](https://github.com/cveldy/base16-sagelight-scheme) maintained by [cveldy](https://github.com/cveldy)
 * [Sandcastle](https://github.com/gessig/base16-sandcastle-scheme) maintained by [gessig](https://github.com/gessig)
+* [Shades of Purple](https://github.com/ahmadawais/base16-shades-of-purple) maintained by [Ahmad Awais](https://github.com/ahmadawais) and [Demartini](https://github.com/demartini)
 * [Silk](https://github.com/Misterio77/base16-silk-scheme) maintained by [Misterio77](https://github.com/misterio77)
 * [Snazzy](https://github.com/h404bi/base16-snazzy-scheme) maintained by [h404bi](https://github.com/h404bi)
 * [Solarflare](https://github.com/mnussbaum/base16-solarflare-scheme) maintained by [mnussbaum](https://github.com/mnussbaum)
@@ -226,4 +227,3 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [Duotone-base16](https://github.com/davidosomething/duotone-base16/) - A Duotone scheme to Base16 convertor.
 * [terminal.sexy](https://terminal.sexy/) - Terminal Color Scheme Designer
 * [Just-Colors](https://github.com/andreyvpng/just-colors) - Simple configuration file generator
-
