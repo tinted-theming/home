@@ -229,3 +229,4 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [Duotone-base16](https://github.com/davidosomething/duotone-base16/) - A Duotone scheme to Base16 convertor.
 * [terminal.sexy](https://terminal.sexy/) - Terminal Color Scheme Designer
 * [Just-Colors](https://github.com/andreyvpng/just-colors) - Simple configuration file generator
+* [Highlight.js](https://highlightjs.org) - JavaScript syntax highlighter
