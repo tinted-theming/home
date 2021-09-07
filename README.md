@@ -37,7 +37,6 @@ To add your own template, submit a pull request to https://github.com/chriskemps
   * [Xshell](https://github.com/h404bi/base16-xshell) maintained by [h404bi](https://github.com/h404bi)
   * [Xresources](https://github.com/binaryplease/base16-xresources) maintained by [binaryplease](https://github.com/binaryplease)
 * Editor:
-  * [Binary Ninja](https://github.com/evanrichter/base16-binary-ninja) maintained by [evanrichter](https://github.com/evanrichter)
   * [Emacs](https://github.com/belak/base16-emacs) maintained by [belak](https://github.com/belak)
   * [Frescobaldi](https://github.com/rkubosz/base16-frescobaldi) maintained by [rkubosz](https://github.com/rkubosz)
   * [Godot](https://github.com/Calinou/base16-godot) maintained by [Calinou](https://github.com/Calinou)
@@ -77,6 +76,7 @@ To add your own template, submit a pull request to https://github.com/chriskemps
   * [Window Maker](https://github.com/d-torrance/base16-wmaker) maintained by [d-torrance](https://github.com/d-torrance)
   * [Wofi](https://hg.sr.ht/~scoopta/wofi) maintained by [knezi](https://sr.ht/~knezi)
 * Programming:
+  * [Binary Ninja](https://github.com/evanrichter/base16-binary-ninja) maintained by [evanrichter](https://github.com/evanrichter)
   * [C Header](https://github.com/m1sports20/base16-c_header) maintained by [m1sports20](https://github.com/m1sports20)
   * [CSS, Less, Sass/Scss & Stylus](https://github.com/samme/base16-styles) maintained by [samme](https://github.com/samme)
   * [GTK+ FlatColor](https://github.com/Misterio77/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77)
