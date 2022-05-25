@@ -12,6 +12,36 @@ An architecture for building themes based on carefully chosen syntax highlightin
 
 To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-[template-name]** (with dashes as separators).
 
+### Official Templates
+
+As a part of the Base16 Project, we maintain a number of templates. Each has
+been sponsored by at least one base16 project member who is committed to
+maintaining that template.
+
+We are open to accepting new projects, though they must still be sponsored by a
+base16 project member and have some level of activity.
+
+* [Emacs](https://github.com/base16-project/base16-emacs) maintained by [belak](https://github.com/belak)
+* [Shell](https://github.com/base16-project/base16-shell) maintained by [belak](https://github.com/belak)
+* [Vim](https://github.com/base16-project/base16-vim) maintained by [belak](https://github.com/belak)
+
+### Contrib Templates
+
+In order to prevent ownership issues, we're introducing the concept of contrib
+templates. These are templates which have been handed over to the
+base16-project, but either aren't sponsored by a base16-project member or don't
+have enough usage to warrent including with our official templates.
+
+Submitting a repository to [base16-project-contrib](https://github.com/base16-project-contrib)
+and continuing to work on it is a great way to get involved and get noticed as a
+maintainer so you can work towards getting added to the base16-project team.
+
+### Unofficial Templates
+
+If you have a template you maintain, but don't want to submit it to the contrib
+repositories, feel free to add a link to the repository here to add it to this
+list. These are community maintained templates and may not be updated often.
+
 * [Alacritty](https://github.com/aarowill/base16-alacritty) maintained by [aarowill](https://github.com/aarowill)
 * [Amfora](https://github.com/jo1gi/base16-amfora) maintained by [jo1gi](https://github.com/jo1gi)
 * [Binary Ninja](https://github.com/evanrichter/base16-binary-ninja) maintained by [evanrichter](https://github.com/evanrichter)
@@ -24,7 +54,6 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [Crosh](https://github.com/philj56/base16-crosh) maintained by [philj56](https://github.com/philj56)
 * [CSS, Less, Sass/Scss & Stylus](https://github.com/samme/base16-styles) maintained by [samme](https://github.com/samme)
 * [Dunst](https://github.com/khamer/base16-dunst) maintained by [khamer](https://github.com/khamer)
-* [Emacs](https://github.com/belak/base16-emacs) maintained by [belak](https://github.com/belak)
 * [Frescobaldi](https://github.com/rkubosz/base16-frescobaldi) maintained by [rkubosz](https://github.com/rkubosz)
 * [fzf](https://github.com/fnune/base16-fzf) maintained by [fnune](https://github.com/fnune)
 * [Gnome Terminal](https://github.com/aarowill/base16-gnome-terminal) maintained by [aarowill](https://github.com/aarowill)
@@ -59,7 +88,6 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [qutebrowser](https://github.com/theova/base16-qutebrowser) maintaned by [theova](https://github.com/theova)
 * [Rofi](https://gitlab.com/0xdec/base16-rofi) maintained by [0xdec](https://gitlab.com/0xdec)
 * [Scide](https://github.com/brunoro/base16-scide) maintained by [brunoro](https://github.com/brunoro)
-* [Shell](https://github.com/chriskempson/base16-shell) maintained by [chriskempson](https://github.com/chriskempson)
 * [st](https://github.com/honza/base16-st) maintained by [honza](https://github.com/honza)
 * [StumpWM](https://github.com/tpine/base16-stumpwm) maintained by [tpine](https://github.com/tpine)
 * [Sway](https://github.com/rkubosz/base16-sway) maintained by [rkubosz](https://github.com/rkubosz)
@@ -69,7 +97,6 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate) maintained by [chriskempson](https://github.com/chriskempson)
 * [Tilix](https://github.com/karlding/base16-tilix) maintained by [karlding](https://github.com/karlding)
 * [Vim-airline](https://github.com/dawikur/base16-vim-airline-themes) maintained by [dawikur](https://github.com/dawikur)
-* [Vim](https://github.com/chriskempson/base16-vim) maintained by [chriskempson](https://github.com/chriskempson)
 * [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch/)
 * [Vis](https://github.com/pshevtsov/base16-vis) maintained by [pshevtsov](https://github.com/pshevtsov)
 * [VSCode](https://github.com/golf1052/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
@@ -84,94 +111,37 @@ To add your own template, submit a pull request to https://github.com/chriskemps
 * [Xshell](https://github.com/h404bi/base16-xshell) maintained by [h404bi](https://github.com/h404bi)
 * [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
 
-## Scheme Repositories
+## Schemes
 
-To add your own scheme, submit a pull request to https://github.com/chriskempson/base16-schemes-source and add your repository to the list below. **Repository naming scheme: base16-[scheme-name]-scheme** (with dashes as separators).
+To add your own scheme, submit a pull request to the [base16-schemes repo](https://github.com/base16-project/base16-schemes) and add your scheme.
 
-* [Apprentice](https://github.com/casonadams/base16-apprentice-scheme) maintained by [casonadams](https://github.com/casonadams)
-* [Atelier](https://github.com/atelierbram/base16-atelier-schemes) maintained by [atelierbram](https://github.com/atelierbram)
-* [Atlas](https://github.com/ajlende/base16-atlas-scheme) maintained by [ajlende](https://github.com/ajlende)
-* [Black Metal](https://github.com/metalelf0/base16-black-metal-scheme) maintained by [metalelf0](https://github.com/metalelf0)
-* [Brogrammer](https://github.com/piggyslasher/base16-brogrammer-scheme) maintained by [piggyslasher](https://github.com/piggyslasher)
-* [Brush Trees](https://github.com/whiteabelincoln/base16-brushtrees-scheme) maintained by [whiteabelincoln](https://github.com/whiteabelincoln)
-* [Circus](https://github.com/stepchowfun/base16-circus-scheme) maintained by [stepchowfun](https://github.com/stepchowfun) and [ewang12](https://github.com/ewang12)
-* [Classic](https://github.com/detly/base16-classic-scheme) maintained by [detly](https://github.com/detly)
-* [Codeschool](https://github.com/blockloop/base16-codeschool-scheme) maintained by [blockloop](https://github.com/blockloop)
-* [Colors](https://github.com/hakatashi/base16-colors-scheme) maintained by [hakatashi](https://github.com/hakatashi)
-* [Cupertino](https://github.com/Defman21/base16-cupertino) maintained by [Defman21](https://github.com/Defman21)
-* [DanQing](https://github.com/CosmosAtlas/base16-danqing-scheme) maintained by [CosmoAtlas](https://github.com/CosmosAtlas)
-* [Darcula](https://github.com/casonadams/base16-darcula-scheme) maintained by [casonadams](https://github.com/casonadams)
-* [Darkviolet](https://github.com/ruler501/base16-darkviolet-scheme) maintained by [ruler501](https://github.com/ruler501)
-* [Default](https://github.com/chriskempson/base16-default-scheme) maintained by [chriskempson](https://github.com/chriskempson)
-* [Dracula](https://github.com/dracula/base16-dracula-scheme) maintained by [mikebarkmin](https://github.com/mikebarkmin)
-* [Equilibrium](https://github.com/carloabelli/base16-equilibrium-scheme) maintained by [carloabelli](https://github.com/carloabelli)
-* [Espresso](https://github.com/alexmirrington/base16-espresso-scheme) maintained by [alexmirrington](https://github.com/alexmirrington)
-* [Eva](https://github.com/kjakapat/base16-eva-scheme) maintained by [kjakapat](https://github.com/kjakapat)
-* [Framer](https://github.com/jssee/base16-framer-scheme) maintained by [jssee](https://github.com/jssee)
-* [Fruit Soda](https://github.com/jozip/base16-fruit-soda-scheme) maintained by [jozip](https://github.com/jozip)
-* [Gigavolt](https://github.com/Whillikers/base16-gigavolt-scheme) maintained by [Whillikers](https://github.com/Whillikers)
-* [Github](https://github.com/Defman21/base16-github-scheme) maintained by [Defman21](https://github.com/Defman21)
-* [Gruvbox](https://github.com/dawikur/base16-gruvbox-scheme) maintained by [dawikur](https://github.com/dawikur)
-* [Hardcore](https://github.com/callerc1/base16-hardcore-scheme) maintained by [callerc1](https://github.com/callerc1)
-* [Helios](https://github.com/reyemxela/base16-helios-scheme) maintained by [reyemxela](https://github.com/reyemxela)
-* [Heetch](https://github.com/tealeg/base16-heetch-scheme) maintained by [tealeg](https://github.com/tealeg)
-* [Horizon](https://github.com/michael-ball/base16-horizon-scheme) maintained by [michael-ball](https://github.com/michael-ball)
-* [Humanoid](https://github.com/humanoid-colors/base16-humanoid-schemes) maintained by [tasmo](https://github.com/tasmo)
-* [iA](https://github.com/aramisgithub/base16-ia-scheme) maintained by [aramisgithub](https://github.com/aramisgithub)
-* [Icy](https://github.com/icyphox/base16-icy-scheme) maintained by [icyphox](https://github.com/icyphox)
-* [Kimber](https://github.com/akhsiM/base16-kimber-scheme) maintained by [Mishka](https://github.com/akhsiM)
-* [Materia](https://github.com/Defman21/base16-materia) maintained by [Defman21](https://github.com/Defman21)
-* [Material Theme](https://github.com/ntpeters/base16-materialtheme-scheme) maintained by [ntpeters](https://github.com/ntpeters)
-* [Material Vivid](https://github.com/joshyrobot/base16-material-vivid-scheme) maintained by [joshyrobot](https://github.com/joshyrobot)
-* [Mellow](https://github.com/gidsi/base16-mellow-scheme) maintained by [gidsi](https://github.com/gidsi)
-* [Mexico-Light](https://github.com/drzel/base16-mexico-light-scheme) maintained by [drzel](https://github.com/drzel)
-* [Nebula](https://github.com/Misterio77/base16-nebula-scheme) maintained by [Misterio77](https://github.com/Misterio77)
-* [Nord](https://github.com/8-uh/base16-nord-scheme) maintained by [8-uh](https://github.com/8-uh)
-* [Nova](https://github.com/gessig/base16-nova-scheme) maintained by [gessig](https://github.com/gessig)
-* [One Light](https://github.com/purpleKarrot/base16-one-light-scheme) maintained by [purpleKarrot](https://github.com/purpleKarrot)
-* [Onedark](https://github.com/tilal6991/base16-onedark-scheme) maintained by [tilal6991](https://github.com/tilal6991)
-* [Outrun](https://github.com/hugodelahousse/base16-outrun-schemes) maintained by [hugodelahousse](https://github.com/hugodelahousse)
-* [PaperColor](https://github.com/jonleopard/base16-papercolor-scheme) maintained by [jonleopard](https://github.com/jonleopard)
-* [Pasque](https://github.com/Misterio77/base16-pasque-scheme) maintained by [Misterio77](https://github.com/Misterio77)
-* [pinky](https://github.com/b3nj5m1n/base16-pinky-scheme) maintained by [b3nj5m1n](https://github.com/b3nj5m1n)
-* [Porple](https://github.com/AuditeMarlow/base16-porple-scheme) maintained by [AuditeMarlow](https://github.com/AuditeMarlow)
-* [Purpledream](https://github.com/archmalet/base16-purpledream-scheme) maintained by [archmalet](https://github.com/archmalet)
-* [Qualia](https://github.com/isaacwhanson/base16-qualia-scheme) maintained by [isaacwhanson](https://github.com/isaacwhanson)
-* [Rebecca](https://github.com/vic/base16-rebecca) maintained by [vic](https://github.com/vic)
-* [Rosé Pine](https://github.com/edunfelt/base16-rose-pine-scheme) maintained by [edunfelt](https://github.com/edunfelt)
-* [Sagelight](https://github.com/cveldy/base16-sagelight-scheme) maintained by [cveldy](https://github.com/cveldy)
-* [Sakura](https://github.com/Misterio77/base16-sakura-scheme) maintained by [Misterio77](https://github.com/Misterio77)
-* [Sandcastle](https://github.com/gessig/base16-sandcastle-scheme) maintained by [gessig](https://github.com/gessig)
-* [Shades of Purple](https://github.com/ahmadawais/base16-shades-of-purple) maintained by [Ahmad Awais](https://github.com/ahmadawais) and [Demartini](https://github.com/demartini)
-* [Silk](https://github.com/Misterio77/base16-silk-scheme) maintained by [Misterio77](https://github.com/misterio77)
-* [Snazzy](https://github.com/h404bi/base16-snazzy-scheme) maintained by [h404bi](https://github.com/h404bi)
-* [Solarflare](https://github.com/mnussbaum/base16-solarflare-scheme) maintained by [mnussbaum](https://github.com/mnussbaum)
-* [Solarized](https://github.com/aramisgithub/base16-solarized-scheme) maintained by [aramisgithub](https://github.com/aramisgithub)
-* [Summercamp](https://github.com/zoefiri/base16-summercamp) maintained by [zoe firi](https://github.com/zoefiri)
-* [Summerfruit](https://github.com/cscorley/base16-summerfruit-scheme) maintained by [cscorley](https://github.com/cscorley)
-* [Synth Midnight](https://github.com/michael-ball/base16-synth-midnight-scheme) maintained by [michael-ball](https://github.com/michael-ball)
-* [Tender](https://github.com/DanManN/base16-tender-scheme) maintained by [DanManN](https://github.com/DanManN)
-* [Tomorrow](https://github.com/chriskempson/base16-tomorrow-scheme) maintained by [chriskempson](https://github.com/chriskempson)
-* [Twilight](https://github.com/hartbit/base16-twilight-scheme) maintained by [hartbit](https://github.com/hartbit)
-* [Unikitty](https://github.com/joshwlewis/base16-unikitty) maintained by [joshwlewis](https://github.com/joshwlewis)
-* [Vice](https://github.com/Thomashighbaugh/base16-vice-scheme) maintained by [Thomashighbaugh](https://github.com/Thomashighbaugh)
-* [Windows](https://github.com/C-Fergus/base16-windows-scheme) maintained by [C-Fergus](https://github.com/C-Fergus)
-* [Woodland](https://github.com/jcornwall/base16-woodland-scheme) maintained by [jcornwall](https://github.com/jcornwall)
-* [Zenburn](https://github.com/elnawe/base16-zenburn-scheme) maintained by [elnawe](https://github.com/elnawe)
-* [XCode Dust](https://github.com/gonsie/base16-xcode-dusk-scheme) maintained by [gonsie](https://github.com/gonsie)
-* [Old Unclaimed Schemes](https://github.com/chriskempson/base16-unclaimed-schemes) - If your scheme is in this repository, please give it a new home!
+## Builders
 
-## Builder Repositories
+Normally end-users should not need to use builders, as they're primarily meant
+for maintainers - both scheme and template maintainers. These are tools used to
+build templates with all the currently submitted schemes.
 
-**Repository naming scheme: base16-builder-[language]** (with dashes as separators). The separate headings are the latest versions of the spec supported by each builder.
+### Official Builder Repositories
 
-### 0.10.0 (Mar 20, 2021)
-
-- Simplify repo structure and builder responsibilities
+Similar to our split between official and unofficial templates, we also have a
+similar split for builders. Spec changes will not be merged until there is
+consensus among maintainers and a pull request ready for implementing that spec
+version in each builder. Because of this, official builders will always support
+the latest stable version of the spec.
 
 * [Base 16 Builder Go](https://github.com/belak/base16-builder-go) maintained by [belak](https://github.com/belak)
 
-### 0.9.1 (Jun 15, 2019)
+### Unofficial Builder Repositories
+
+**Repository naming scheme: base16-builder-[language]** (with dashes as separators). The separate headings are the latest versions of the spec supported by each builder.
+
+### Changelog
+
+#### 0.10.0 (Mar 20, 2021)
+
+- Simplify repo structure and builder responsibilities
+
+#### 0.9.1 (Jun 15, 2019)
 
 - Make baseXX-hex-bgr variables available to templates
 - Warn when a template file has been overwritten
@@ -181,7 +151,7 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Base 16 Builder Python](https://github.com/InspectorMustache/base16-builder-python) maintained by [InspectorMustache](https://github.com/InspectorMustache)
 * [Base 16 Builder Rust](https://github.com/ilpianista/base16-builder-rust) maintained by [ilpianista](https://github.com/ilpianista)
 
-### 0.9.0 (Jul 6, 2017)
+#### 0.9.0 (Jul 6, 2017)
 
 - Add decimal color variables
 
@@ -190,14 +160,14 @@ To add your own scheme, submit a pull request to https://github.com/chriskempson
 * [Base 16 Builder Ruby](https://github.com/obahareth/base16-builder-ruby) maintained by [obahareth](https://github.com/obahareth)
 * [Base 16 Builder Typescript](https://github.com/golf1052/base16-builder-typescript) maintained by [golf1052](https://github.com/golf1052)
 
-### 0.8.1 (Dec 29, 2016)
+#### 0.8.1 (Dec 29, 2016)
 
 - Clarify theme filename generation
 - Various clarifications
 
 * [Base 16 Builder Perl](https://github.com/loomer/base16-builder-perl) maintained by [loomer](https://github.com/loomer)
 
-### 0.8.0 (Aug 27, 2016)
+#### 0.8.0 (Aug 27, 2016)
 
 - Drop support for HSL variables
 
@@ -214,7 +184,6 @@ The following is a list of useful resources for anyone creating a Base16 scheme 
 ## Tools for using Base16
 
 If you've written a tool for base16 feel free to add it to the list below:
-
 
 * [auto-base16-theme](https://github.com/makuto/auto-base16-theme) - A command line tool to create a base16 theme from an input image's color palette.
 * [base16-manager](https://github.com/AuditeMarlow/base16-manager) - A command line tool to install base16 templates and set themes globally.
