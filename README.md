@@ -22,8 +22,8 @@ We are open to accepting new projects, though they must still be sponsored by a
 base16 project member and have some level of activity.
 
 * [Emacs](https://github.com/base16-project/base16-emacs) maintained by [belak](https://github.com/belak)
-* [Shell](https://github.com/base16-project/base16-shell) maintained by [belak](https://github.com/belak)
-* [Vim](https://github.com/base16-project/base16-vim) maintained by [belak](https://github.com/belak)
+* [Shell](https://github.com/base16-project/base16-shell) maintained by [belak](https://github.com/belak) and [JamyGolden](https://github.com/JamyGolden)
+* [Vim](https://github.com/base16-project/base16-vim) maintained by [belak](https://github.com/belak) and [JamyGolden](https://github.com/JamyGolden)
 
 ### Contrib Templates
 
@@ -125,11 +125,11 @@ build templates with all the currently submitted schemes.
 
 Similar to our split between official and unofficial templates, we also have a
 similar split for builders. Spec changes will not be merged until there is
-consensus among maintainers and a pull request ready for implementing that spec
-version in each builder. Because of this, official builders will always support
-the latest stable version of the spec.
+consensus among maintainers and at least one builder with a pull request ready
+for implementing that spec version.
 
-* [Base 16 Builder Go](https://github.com/belak/base16-builder-go) maintained by [belak](https://github.com/belak)
+* [Base 16 Builder Go](https://github.com/base16-project/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
+* [Base16 Builder Node](https://github.com/base16-project/base16-builder-node) maintained by [JoshGoebel](https://github.com/JoshGoebel) - currently supports 0.9.1
 
 ### Unofficial Builder Repositories
 
@@ -140,6 +140,7 @@ the latest stable version of the spec.
 #### 0.10.0 (Mar 20, 2021)
 
 - Simplify repo structure and builder responsibilities
+- Clarify that using a hash as a part of the color is allowed
 
 #### 0.9.1 (Jun 15, 2019)
 
