@@ -22,8 +22,9 @@ We are open to accepting new projects, though they must still be sponsored by a
 base16 project member and have some level of activity.
 
 * [Emacs](https://github.com/base16-project/base16-emacs) maintained by [belak](https://github.com/belak)
-* [Shell](https://github.com/base16-project/base16-shell) maintained by [belak](https://github.com/belak) and [JamyGolden](https://github.com/JamyGolden)
-* [Vim](https://github.com/base16-project/base16-vim) maintained by [belak](https://github.com/belak) and [JamyGolden](https://github.com/JamyGolden)
+* [FZF](https://github.com/base16-project/base16-fzf) maintained by [fnune](https://github.com/fnune)
+* [Shell](https://github.com/base16-project/base16-shell) maintained by [belak](https://github.com/belak), [fnune](https://github.com/fnune), and [JamyGolden](https://github.com/JamyGolden)
+* [Vim](https://github.com/base16-project/base16-vim) maintained by [fnune](https://github.com/fnune), [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
 
 ### Contrib Templates
 
@@ -55,7 +56,6 @@ list. These are community maintained templates and may not be updated often.
 * [CSS, Less, Sass/Scss & Stylus](https://github.com/samme/base16-styles) maintained by [samme](https://github.com/samme)
 * [Dunst](https://github.com/khamer/base16-dunst) maintained by [khamer](https://github.com/khamer)
 * [Frescobaldi](https://github.com/rkubosz/base16-frescobaldi) maintained by [rkubosz](https://github.com/rkubosz)
-* [fzf](https://github.com/fnune/base16-fzf) maintained by [fnune](https://github.com/fnune)
 * [Gnome Terminal](https://github.com/aarowill/base16-gnome-terminal) maintained by [aarowill](https://github.com/aarowill)
 * [Godot](https://github.com/Calinou/base16-godot) maintained by [Calinou](https://github.com/Calinou)
 * [GTK+ FlatColor](https://github.com/Misterio77/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77/)
