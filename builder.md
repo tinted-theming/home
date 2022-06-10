@@ -25,7 +25,7 @@ The first thing a builder needs to do is parse all the scheme files from the sch
 
 When building a target template repository, a base16 builder should first clear out any old output. Next, for all templates defined in the template repo's config file (located at `/templates/config.yaml`), the builder should iterate through all the defined schemes and output matching files. The built filename should look like `[output-dir]/base16-[slug][extension]`, where the slug is taken from the scheme filename made lowercase with spaces replaced with dashes and both the extension and output-dir are taken from `/template/config.yaml`.
 
-In the case where schemes share the same slug, a builder will overwrite files perviously generated from the template. Should this happen, a builder should show warning messages listing the overwritten files.
+In the case where schemes share the same slug, a builder will overwrite files previously generated from the template. Should this happen, a builder should show warning messages listing the overwritten files.
 
 ## Template Variables
 A builder should provide the following variables to a template file:
