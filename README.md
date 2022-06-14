@@ -3,7 +3,11 @@
 An architecture for building themes based on carefully chosen syntax
 highlighting using a base of sixteen colors.
 
-It allows users to have a consistent look across different programs.
+It allows users to choose a color scheme they know will be available for all
+their applications (both GUIs and terminal applications).
+
+It allows color scheme designers to select a palette of 16 colors once and then
+instantly generate theme files for many different applications.
 
 See the [List of supported programs](#template-repositories) on how to apply
 base16 themes on your favorate program.
