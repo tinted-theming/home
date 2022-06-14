@@ -4,9 +4,9 @@ An architecture for building themes based on carefully chosen syntax highlightin
 
 ## Documentation
 
-* [Styling Guidelines](https://github.com/chriskempson/base16/blob/master/styling.md)
-* [Builder Guidelines](https://github.com/chriskempson/base16/blob/master/builder.md)
-* [File Guidelines](https://github.com/chriskempson/base16/blob/master/file.md)
+* [Styling Guidelines](https://github.com/base16-project/base16/blob/master/styling.md)
+* [Builder Guidelines](https://github.com/base16-project/base16/blob/master/builder.md)
+* [File Guidelines](https://github.com/base16-project/base16/blob/master/file.md)
 
 ## Template Repositories
 
