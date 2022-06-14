@@ -8,6 +8,10 @@ An architecture for building themes based on carefully chosen syntax highlightin
 * [Builder Guidelines](https://github.com/chriskempson/base16/blob/master/builder.md)
 * [File Guidelines](https://github.com/chriskempson/base16/blob/master/file.md)
 
+## Template Repositories
+
+To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-[template-name]** (with dashes as separators).
+
 ### Official Templates
 
 As a part of the Base16 Project, we maintain a number of templates. Each has
