@@ -3,9 +3,10 @@
 An architecture for building themes based on carefully chosen syntax
 highlighting using a base of sixteen colors.
 
-It allows user to have a consistent look across different programs.
+It allows users to have a consistent look across different programs.
 
-See the [List of supported programs](#template-repositories) on how to apply base16 themes on your favorate program.
+See the [List of supported programs](#template-repositories) on how to apply
+base16 themes on your favorate program.
 
 ## Documentation and Specification
 
@@ -43,7 +44,10 @@ The file specification is in [Template section in File Guidelines](/file.md#temp
 
 ## Template Repositories
 
-To add your own template, submit a pull request to https://github.com/chriskempson/base16-templates-source and add your repository to the list below. **Repository naming scheme: base16-[template-name]** (with dashes as separators).
+To add your own template, submit a pull request to this repository to add your
+repository to the "Unofficial Templates" list below in the relevant category.
+**Recommended repository naming scheme: base16-[template-name]** (with dashes as
+separators).
 
 ### Official Templates
 
@@ -86,6 +90,7 @@ list. These are community maintained templates and may not be updated often.
 * [Console2](https://github.com/AFulgens/base16-console2) maintained by [AFulgens](https://github.com/AFulgens)
 * [ConsoleZ](https://github.com/AFulgens/base16-consolez) maintained by [AFulgens](https://github.com/AFulgens)
 * [Crosh](https://github.com/philj56/base16-crosh) maintained by [philj56](https://github.com/philj56)
+* [fish](https://github.com/tomyun/base16-fish) maintained by [tomyun](https://github.com/tomyun)
 * [Gnome Terminal](https://github.com/aarowill/base16-gnome-terminal) maintained by [aarowill](https://github.com/aarowill)
 * [iTerm2](https://github.com/martinlindhe/base16-iterm2) maintained by [martinlindhe](https://github.com/martinlindhe)
 * [kermit](https://github.com/orhun/base16-kermit) maintained by [orhun](https://github.com/orhun)
@@ -120,8 +125,10 @@ list. These are community maintained templates and may not be updated often.
 * [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate) maintained by [chriskempson](https://github.com/chriskempson)
 * [Vim-airline](https://github.com/dawikur/base16-vim-airline-themes) maintained by [dawikur](https://github.com/dawikur)
 * [Vis](https://github.com/pshevtsov/base16-vis) maintained by [pshevtsov](https://github.com/pshevtsov)
+* [vtrgb](https://github.com/coderonline/base16-vtrgb) maintained by [coderonline](https://github.com/coderonline)
 * [VSCode](https://github.com/golf1052/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
 * [Xcode](https://github.com/kreeger/base16-xcode) maintained by [kreeger](https://github.com/kreeger)
+* [ZOC Terminal](https://github.com/balthild/base16-zoc) maintained by [Balthild](https://github.com/balthild)
 
 </p>
 </details>
@@ -135,12 +142,13 @@ list. These are community maintained templates and may not be updated often.
   * [i3status-rust](https://github.com/mystfox/base16-i3status-rust) maintained by [mystfox](https://github.com/mystfox)
 * [mako](https://github.com/Eluminae/base16-mako) maintained by [Eluminae](https://github.com/Eluminae)
 * [Polybar](https://github.com/Misterio77/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
-* [Rofi](https://gitlab.com/0xdec/base16-rofi) maintained by [0xdec](https://gitlab.com/0xdec)
+* [Rofi](https://gitlab.com/jordiorlando/base16-rofi) maintained by [jordiorlando](https://gitlab.com/jordiorlando)
 * [StumpWM](https://github.com/tpine/base16-stumpwm) maintained by [tpine](https://github.com/tpine)
 * [Sway](https://github.com/rkubosz/base16-sway) maintained by [rkubosz](https://github.com/rkubosz)
 * [Waybar](https://github.com/mnussbaum/base16-waybar) maintained by [mnussbaum](https://github.com/mnussbaum)
 * [Window Maker](https://github.com/d-torrance/base16-wmaker) maintained by [d-torrance](https://github.com/d-torrance)
-* [Wofi](https://hg.sr.ht/~scoopta/wofi) maintained by [knezi](https://sr.ht/~knezi)
+* [Wofi](https://sr.ht/~knezi/base16-wofi) maintained by [knezi](https://sr.ht/~knezi)
+* [Wofi colors file](https://github.com/agausmann/base16-wofi-colors) maintained by [agausmann](https://github.com/agausmann)
 
 </p>
 </details>
@@ -258,6 +266,7 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [flavours](https://github.com/misterio77/flavours) - A command line tool to manage and globally apply base16 templates by specifying a scheme name.
 * [Themix/Oomox](https://github.com/themix-project/oomox/) - Graphical application for generating different color variations of a Arc, Materia and Oomox themes (GTK2, GTK3 and others), Archdroid, Gnome-Colors and Numix icons, and terminal palette. Base16 plugin allows to open Base16 YAML files a export both Base16 and its own themes using Base16 Mustache templates.
 * [base16-spectrum-generator](https://github.com/alexmirrington/base16-spectrum-generator) - A Python script for generating `.png` files showcasing the colours in a base16 theme.
+* [base16.nix](https://github.com/SenchoPens/base16.nix) - a NixOS / home-manager module to set base16 / base24 schemes and use templates.
 
 ## Projects using Base16
 
