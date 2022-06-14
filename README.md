@@ -43,7 +43,8 @@ If you have a template you maintain, but don't want to submit it to the contrib
 repositories, feel free to add a link to the repository here to add it to this
 list. These are community maintained templates and may not be updated often.
 
-<details><summary><b>Terminal</b></summary>
+<details><summary><b>Terminals</b> - terminal and shell related templates</summary>
+<p>
 
 * [Alacritty](https://github.com/aarowill/base16-alacritty) maintained by [aarowill](https://github.com/aarowill)
 * [Blink](https://github.com/niklaas/base16-blink) maintained by [niklaas](https://github.com/niklaas)
@@ -68,9 +69,11 @@ list. These are community maintained templates and may not be updated often.
 * [Xshell](https://github.com/h404bi/base16-xshell) maintained by [h404bi](https://github.com/h404bi)
 * [Xresources](https://github.com/binaryplease/base16-xresources) maintained by [binaryplease](https://github.com/binaryplease)
 
+</p>
 </details>
 
-<details><summary><b>Editor</b></summary>
+<details><summary><b>Editors</b> - templates for use in code editors and IDEs</summary>
+<p>
 
 * [Frescobaldi](https://github.com/rkubosz/base16-frescobaldi) maintained by [rkubosz](https://github.com/rkubosz)
 * [Godot](https://github.com/Calinou/base16-godot) maintained by [Calinou](https://github.com/Calinou)
@@ -80,28 +83,18 @@ list. These are community maintained templates and may not be updated often.
 * [MonoDevelop](https://github.com/netpyoung/base16-monodevelop) maintained by [netpyoung](https://github.com/netpyoung)
 * [QOwnNotes](https://github.com/themix-project/base16-template-qOwnNotes) maintained by [themix-project](https://github.com/themix-project)
 * [Scide](https://github.com/brunoro/base16-scide) maintained by [brunoro](https://github.com/brunoro)
-* [Textadept](https://github.com/rgieseke/base16-textadept) maintained by [rgieseke]( https://github.com/rgieseke)
+* [Textadept](https://github.com/rgieseke/base16-textadept) maintained by [rgieseke](https://github.com/rgieseke)
 * [TextMate & Sublime Text](https://github.com/chriskempson/base16-textmate) maintained by [chriskempson](https://github.com/chriskempson)
 * [Vim-airline](https://github.com/dawikur/base16-vim-airline-themes) maintained by [dawikur](https://github.com/dawikur)
 * [Vis](https://github.com/pshevtsov/base16-vis) maintained by [pshevtsov](https://github.com/pshevtsov)
 * [VSCode](https://github.com/golf1052/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
 * [Xcode](https://github.com/kreeger/base16-xcode) maintained by [kreeger](https://github.com/kreeger)
 
+</p>
 </details>
 
-<details><summary><b>Application</b></summary>
-
-* [Amfora](https://github.com/jo1gi/base16-amfora) maintained by [jo1gi](https://github.com/jo1gi)
-* [HexChat](https://github.com/Diablo-D3/base16-hexchat) maintained by [Diablo-D3](https://github.com/Diablo-D3)
-* [LuaKit](https://github.com/twnaing/base16-luakit) maintained by [twnaing](https://github.com/twnaing)
-* [qutebrowser](https://github.com/theova/base16-qutebrowser) maintaned by [theova](https://github.com/theova)
-* [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch)
-* [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
-* [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
-
-</details>
-
-<details><summary><b>Window manager</b></summary>
+<details><summary><b>Window Managers</b> - window managers and related utilities</summary>
+<p>
 
 * [Dunst](https://github.com/khamer/base16-dunst) maintained by [khamer](https://github.com/khamer)
 * [i3](https://github.com/khamer/base16-i3) maintained by [khamer](https://github.com/khamer)
@@ -116,9 +109,11 @@ list. These are community maintained templates and may not be updated often.
 * [Window Maker](https://github.com/d-torrance/base16-wmaker) maintained by [d-torrance](https://github.com/d-torrance)
 * [Wofi](https://hg.sr.ht/~scoopta/wofi) maintained by [knezi](https://sr.ht/~knezi)
 
+</p>
 </details>
 
-<details><summary><b>Programming</b></summary>
+<details><summary><b>Programming</b> - defaults and utils for use when programming</summary>
+<p>
 
 * [Binary Ninja](https://github.com/evanrichter/base16-binary-ninja) maintained by [evanrichter](https://github.com/evanrichter)
 * [C Header](https://github.com/m1sports20/base16-c_header) maintained by [m1sports20](https://github.com/m1sports20)
@@ -133,6 +128,21 @@ list. These are community maintained templates and may not be updated often.
 * [Pygments](https://github.com/mohd-akram/base16-pygments) maintained by [mohd-akram](https://github.com/mohd-akram)
 * [Qt Creator](https://github.com/ilpianista/base16-qtcreator) maintained by [ilpianista](https://github.com/ilpianista)
 
+</p>
+</details>
+
+<details><summary><b>Other</b> - various applications which don't fit in other categories</summary>
+<p>
+
+* [Amfora](https://github.com/jo1gi/base16-amfora) maintained by [jo1gi](https://github.com/jo1gi)
+* [HexChat](https://github.com/Diablo-D3/base16-hexchat) maintained by [Diablo-D3](https://github.com/Diablo-D3)
+* [LuaKit](https://github.com/twnaing/base16-luakit) maintained by [twnaing](https://github.com/twnaing)
+* [qutebrowser](https://github.com/theova/base16-qutebrowser) maintaned by [theova](https://github.com/theova)
+* [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch)
+* [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
+* [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
+
+</p>
 </details>
 
 ## Schemes
@@ -196,8 +206,6 @@ for implementing that spec version.
 
 - Drop support for HSL variables
 
-* [Base 16 Builder Node.js](https://github.com/richardneililagan/base16-builder-node) maintained by [richardneililagan](https://github.com/richardneililagan)
-
 ## Scheme and Template Author Resources
 
 The following is a list of useful resources for anyone creating a Base16 scheme and or template:
@@ -229,3 +237,7 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [terminal.sexy](https://terminal.sexy) - Terminal Color Scheme Designer
 * [Just-Colors](https://github.com/andreyvpng/just-colors) - Simple configuration file generator
 * [Highlight.js](https://highlightjs.org) - JavaScript syntax highlighter
+
+## Credits
+
+Thanks to [Chris Kempson](https://github.com/chriskempson) for the original concept and implementation.
