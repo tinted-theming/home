@@ -65,6 +65,7 @@ base16 project member and have some level of activity.
 * [Emacs](https://github.com/base16-project/base16-emacs) maintained by [belak](https://github.com/belak)
 * [FZF](https://github.com/base16-project/base16-fzf) maintained by [fnune](https://github.com/fnune)
 * [Shell](https://github.com/base16-project/base16-shell) maintained by [belak](https://github.com/belak), [fnune](https://github.com/fnune), and [JamyGolden](https://github.com/JamyGolden)
+* [TextMate/Sublime](https://github.com/base16-project/base16-textmate) maintained by [JamyGolden](https://github.com/JamyGolden)
 * [Vim](https://github.com/base16-project/base16-vim) maintained by [fnune](https://github.com/fnune), [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
 
 ### Contrib Templates
