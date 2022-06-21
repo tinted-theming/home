@@ -289,6 +289,7 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [terminal.sexy](https://terminal.sexy) - Terminal Color Scheme Designer
 * [Just-Colors](https://github.com/andreyvpng/just-colors) - Simple configuration file generator
 * [Highlight.js](https://highlightjs.org) - JavaScript syntax highlighter
+* [nix-colors](https://github.com/Misterio77/nix-colors) - Designed to help with Nix(OS) theming.
 
 ## Non-template Base16 Themes
 
