@@ -18,8 +18,12 @@ A scheme is a color palette that consists of 16 colors (hence the name). For
 example: [the solarized scheme](https://github.com/base16-project/base16-schemes/blob/main/solarized-dark.yaml)
 
 Builders are designed for lower-level ("plumbing") usage, specifically for
-scripting and as component to build more complex base16 applications, designed
-for end users ("porcelain").
+scripting and as component to build more complex base16 applications.
+
+The more complex apps designed for end users ("porcelain") are usually referred
+to as **managers**, and they don't need to follow any standard besides helping
+with base16 theming somehow, in a way that makes sense for their intended
+usecase.
 
 Template maintainers SHOULD provide built versions (with all existing scheme)
 so the end user doesn't need to be aware of the builder.
