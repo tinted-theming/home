@@ -1,41 +1,118 @@
 # Builder Guidelines
-**Version 0.10.0**
+**Version 0.11.0**
 
-A base16 builder is an application that can build syntax highlighting definition files for text editors by using base16 scheme files which contain a collection of colours and base16 template files which contain syntax highlighting rules.
+*The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
+interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-Builders are designed for theme maintainers' ease of use. Theme maintainers should provide built versions of their theme so the end user doesn't need to be aware of the builder.
+## Introduction
 
-## File Structure
+A base16 builder is, essentially, an application that can build base16
+templates with base16 [schemes](./styling.md).
 
-### Schemes Repository
+A template is a "blueprint" that specifies a file representing how to use the
+16 base16 colors with that specific software/format. For example: a
+[colorscheme template for vim](https://github.com/base16-project/base16-vim).
 
-The schemes repo should either be stored in a common location (perhaps referred to by environment variable or command line flag) or dynamically embedded in the builder.
+A scheme is a color palette that consists of 16 colors (hence the name). For
+example: [the solarized scheme](https://github.com/base16-project/base16-schemes/blob/main/solarized-dark.yaml)
 
-- `/*.yaml`
+Builders are designed for lower-level ("plumbing") usage, specifically for
+scripting and as component to build more complex base16 applications, designed
+for end users ("porcelain").
 
-### Template Repository
+Template maintainers SHOULD provide built versions (with all existing scheme)
+so the end user doesn't need to be aware of the builder.
 
-Each template repository should have a templates folder containing a config.yaml and any needed mustache template files.
+## Interface
 
-- `/templates/*.mustache` - A template file (there may be multiples of these)
-- `/templates/config.yaml` - A template configuration file
+All base16 builders MUST provide a single feature: building a template using 1 or more schemes.
 
-## Workflow
-The first thing a builder needs to do is parse all the scheme files from the schemes repository (as defined in the [file guidelines](https://github.com/chriskempson/base16/blob/master/file.md)). All files matching the pattern `*.yaml` should be loaded from the root of the schemes repository.
+### CLI
 
-When building a target template repository, a base16 builder should first clear out any old output. Next, for all templates defined in the template repo's config file (located at `/templates/config.yaml`), the builder should iterate through all the defined schemes and output matching files. The built filename should look like `[output-dir]/base16-[slug][extension]`, where the slug is taken from the scheme filename made lowercase with spaces replaced with dashes and both the extension and output-dir are taken from `/template/config.yaml`.
+It is REQUIRED that that this functionality is exposed as binary CLI executable
+with the exact interface described below.
 
-In the case where schemes share the same slug, a builder will overwrite files previously generated from the template. Should this happen, a builder should show warning messages listing the overwritten files.
+To be fully compliant, a builder CLI interface MUST NOT include any other
+feature, option, argument, or deviance from the expected interface and
+behaviour of the program.
+
+<!-- TODO: For convenience, we make a manpage and set of tests available. All
+compliant builders MUST fully conform to these two. -->
+
+The CLI interface MUST work without relying on any network connection.
+
+```bash
+base16 TEMPLATES-DIRECTORY SCHEME-FILE ...
+```
+
+`TEMPLATES-DIRETORY` being a directory containing a `config.yaml`, as well as at
+least one `.mustache` template. These are usually named `templates` on all
+base16 template repositories.
+
+`SCHEME-FILE` being one or more `.yaml` scheme file. The main source for these
+is the [base16-schemes](https://github.com/base16-project/base16-schemes)
+repository.
+
+The program MAY offer a single `--debug | -d` option for increasing log
+verbosity. These are considered implementation detail and each author SHOULD
+implement them as they see fit.
+
+### Library
+
+The compliant base16 builder software MAY also expose a software library other
+developers may use to assist developing more complex base16-compatible
+software.
+
+This exposed library, or any internal code, has no required structure or usage.
+
+The author MAY choose how they will expose these functionalities to the caller,
+according to their preferences and SHOULD follow best practices on their
+respective programming languages.
+
+It is RECOMMENDED that builders follow semantic versioning for their library
+interface.
+
+The author MAY implement additional features that are exposed through the
+library, as long as it does not affect the CLI functionality compliance.
+
+## Output and behaviour
+
+**Note**: As the CLI is not intended for usual human usage, all outputted text
+messages are considered implementation detail, so the author MAY output
+whatever they prefer (or no message at all). If needed, scripts using the
+builder SHOULD check for return codes (specified below) instead of messages.
+
+For all templates defined in the template config file (`config.yaml`, inside
+the specified template directory), the builder MUST iterate through all the
+defined schemes and output matching files.
+
+The built filename should look like [output-dir]/base16-[slug][extension],
+where the slug is taken from the scheme filename made lowercase with spaces
+replaced with dashes and both the extension and output-dir are taken from
+`config.yaml`.
+
+The builder MUST check for the (unusual) case where schemes share the same
+slug, in this case the program MUST exit with code `1` and MAY output an error
+message.
+
+If the build fails for whatever other reasons, the program MUST exit with code
+`2` and MAY output an error message.
 
 ## Template Variables
-A builder should provide the following variables to a template file:
+A builder MUST provide the following variables to the template files it
+processes:
 
 - `scheme-name` - obtained from the scheme file
 - `scheme-author` - obtained from the scheme file
 - `scheme-slug` - obtained from the scheme filename, as described above
+
+- `base00-hex` to `base0F-hex` - obtained from the scheme file e.g "7cafc2"
 - `base00-hex-r` to `base0F-hex-r` - built from the hex value in the scheme file e.g "7c"
 - `base00-hex-g` to `base0F-hex-g` - built from the hex value in the scheme file e.g "af"
 - `base00-hex-b` to `base0F-hex-b` - built from the hex value in the scheme file e.g "c2"
+- `base00-hex-bgr` to `base0F-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
+
 - `base00-rgb-r` to `base0F-rgb-r` - converted from the hex value in the scheme file e.g "124"
 - `base00-rgb-g` to `base0F-rgb-g` - converted from the hex value in the scheme file e.g "175"
 - `base00-rgb-b` to `base0F-rgb-b` - converted from the hex value in the scheme file e.g "194"
@@ -43,15 +120,16 @@ A builder should provide the following variables to a template file:
 - `base00-dec-g` to `base0F-dec-g` - converted from the rgb value in the scheme file e.g "0.50..."
 - `base00-dec-b` to `base0F-dec-b` - converted from the rgb value in the scheme file e.g "0.21..."
 
-Builders should also provide the following variables for convenience:
-
-- `base00-hex` to `base0F-hex` - obtained from the scheme file e.g "7cafc2"
-- `base00-hex-bgr` to `base0F-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
-
-## Code Structure
-There is no outline for a recommended code structure that a base16 theme builder should follow but a design goal should be to keep the application as simple as possible providing only the functionality described in this document. If you feel you have a great idea for additional functionality please raise an issue in the [base16 repository](https://github.com/chriskempson/base16).
-
 ## Considerations
-Mustache was chosen as the templating language due to its simplicity and widespread adoption across languages. YAML was chosen to describe scheme and configuration files for the same reasons.
+Mustache was chosen as the templating language due to its simplicity and
+widespread adoption across languages. YAML was chosen to describe scheme and
+configuration files for the same reasons.
 
-The core scheme repository was based off the single scheme repository so builders supporting v0.8-v0.9 of the spec can continue to function without changes.
+The core scheme repository was based off the single scheme repository so
+builders supporting v0.8-v0.9 of the spec can continue to function without
+changes.
+
+The revised builder functionality specification introduced in v0.11 did not
+introduce any changes to schemes or templates, so no changes to these are
+needed Older builders will continue to work, but authors are encouraged to
+implement the new, simpler and more consistent, specification.
