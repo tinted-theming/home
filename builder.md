@@ -33,6 +33,9 @@ All base16 builders MUST provide a single feature: building a template using 1 o
 It is REQUIRED that that this functionality is exposed as binary CLI executable
 with the exact interface described below.
 
+The binary name SHOULD contain `base16`, but is otherwise left as a choice to
+the author.
+
 To be fully compliant, a builder CLI interface MUST NOT include any other
 feature, option, argument, or deviance from the expected interface and
 behaviour of the program.
