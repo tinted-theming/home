@@ -107,8 +107,8 @@ If the build fails for whatever other reasons, the program MUST exit with code
 `2` and MAY output an error message.
 
 ## Template Variables
-A builder MUST provide the following variables to the template files it
-processes:
+A builder MUST provide the following, and no others, variables to the template
+files it processes:
 
 - `scheme-name` - obtained from the scheme file
 - `scheme-author` - obtained from the scheme file
