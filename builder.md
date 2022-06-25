@@ -61,9 +61,16 @@ base16 template repositories.
 is the [base16-schemes](https://github.com/base16-project/base16-schemes)
 repository.
 
-The program MAY offer a single `--debug | -d` option for increasing log
-verbosity. These are considered implementation detail and each author SHOULD
-implement them as they see fit.
+The program MAY also offer the following options:
+
+- `--debug | -d` option(s) for increasing log verbosity;
+- `--version | -v` option to output its current running version;
+- `--help | -h` option to output usage information directly or by opening the
+  manpage.
+
+These three options have output that is considered implementation detail, not
+intended to be scripted with. Thus each author SHOULD implement them as they
+see fit.
 
 ### Library
 
