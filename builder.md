@@ -138,5 +138,5 @@ changes.
 
 The revised builder functionality specification introduced in v0.11 did not
 introduce any changes to schemes or templates, so no changes to these are
-needed Older builders will continue to work, but authors are encouraged to
+needed. Older builders will continue to work, but authors are encouraged to
 implement the new, simpler and more consistent, specification.
