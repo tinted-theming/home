@@ -53,7 +53,7 @@ The CLI interface MUST work without relying on any network connection.
 base16 TEMPLATES-DIRECTORY SCHEME-FILE ...
 ```
 
-`TEMPLATES-DIRETORY` being a directory containing a `config.yaml`, as well as at
+`TEMPLATES-DIRECTORY` being a directory containing a `config.yaml`, as well as at
 least one `.mustache` template. These are usually named `templates` on all
 base16 template repositories.
 
