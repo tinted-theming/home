@@ -44,6 +44,7 @@ template files it processes:
 - `scheme-name` - obtained from the scheme file
 - `scheme-author` - obtained from the scheme file
 - `scheme-slug` - obtained from the scheme filename, as described above
+- `scheme-kind` - either "light" or "dark", calculated from the `base00` color <!-- TODO: This is a candidate for inclusion, let me know your thoughts -->
 
 - `base00-hex` to `base0F-hex` - obtained from the scheme file e.g "7cafc2"
 - `base00-hex-r` to `base0F-hex-r` - built from the hex value in the scheme file e.g "7c"
@@ -79,13 +80,14 @@ To be fully compliant, a builder CLI interface MUST NOT include any other
 feature, option, argument, or deviance from the expected interface and
 behaviour of the program.
 
+#### 3.1.1 CLI Arguments and options
 <!-- TODO: For convenience, we make a manpage and set of tests available. All
 compliant builders MUST fully conform to these two. -->
 
 The CLI interface MUST work without relying on any network connection.
 
 ```bash
-base16 TEMPLATES-DIRECTORY SCHEME-FILE ...
+base16 <TEMPLATES-DIRECTORY> <SCHEME-FILE> ...
 ```
 
 `TEMPLATES-DIRECTORY` being a directory containing a `config.yaml`, as well as at
@@ -107,6 +109,41 @@ These three options have output that is considered implementation detail, not
 intended to be scripted with. Thus each author SHOULD implement them as they
 see fit.
 
+#### 3.1.2. CLI output and behaviour
+
+**Note**: All text outputted by the CLI binary is considered implementation
+detail, so the author MAY output whatever they prefer (or no message at all).
+If needed, scripts using the builder SHOULD check for return codes (specified
+below) instead of messages.
+
+For all templates defined in the template config file (`config.yaml`, inside
+the specified `TEMPLATES-DIRECTORY`), the builder MUST iterate through all the
+specified schemes and output matching files.
+
+The built filenames MUST be relative to the directory where the command is
+executed, and MUST look like `<output-dir>/base16-<slug><extension>`, where the
+`SLUG` is taken from the scheme filename made lowercase with spaces replaced
+with dashes and both the extension and `output-dir` are taken from
+`config.yaml`.
+
+If the build fails for any reasons, the program MUST exit with code `1` and MAY
+output an error message. This is not exhaustive and new exit codes might be
+added in the future to account for specific errors, so scripters catching
+generic errors SHOULD check for non-zero status.
+
+Otherwise, the program MUST exit with code `0` and an OPTIONAL success message.
+
+#### 3.1.3 CLI example:
+
+```bash
+git clone https://github.com/base16-project/base16-vim.git
+git clone https://github.com/base16-project/base16-schemes.git
+base16 base16-vim/templates base16-schemes/*.yaml
+```
+
+Should create a `colors` (on the current directory) containing `base16-XXX.vim`
+files.
+
 ### 3.2. Library
 
 The other option is exposing a software library other developers may use to
@@ -116,37 +153,15 @@ As above, the library MUST a single feature: building templates.
 
 This exposed library, or any internal code, has no specific required structure.
 
-The author MAY choose how (through a class, single function, etc) they will
-expose these functionalities to the caller, according to their judegment.
+The author MAY choose how (through a class, function that operates on file
+paths, etc) they will expose the builder functionality to the caller, according
+to their judgement.
 
-They SHOULD try to achieve an ergonomical interface and follow the best
-practices on their respective programming languages.
+They SHOULD try to achieve an ergonomical and powerful interface and follow the
+best practices on their respective programming languages.
 
 Official reference implementations will follow semantic versioning matching
 this spec, in the format: `<base16-version>-builder_revision`.
-
-## 4. Output and behaviour
-
-**Note**: All text outputted by the CLI binary is considered implementation
-detail, so the author MAY output whatever they prefer (or no message at all).
-If needed, scripts using the builder SHOULD check for return codes (specified
-below) instead of messages.
-
-For all templates defined in the template config file (`config.yaml`, inside
-the specified template directory), the builder MUST iterate through all the
-defined schemes and output matching files.
-
-The built filename MUST look like `<output-dir>/base16-<slug><extension>`,
-where the slug is taken from the scheme filename made lowercase with spaces
-replaced with dashes and both the extension and output-dir are taken from
-`config.yaml`.
-
-If the build fails for any reasons, the program MUST exit with code `1` and MAY
-output an error message. This is not exhaustive and new exit codes might be
-added in the future to account for specific errors, so scripters catching
-generic errors SHOULD check for non-zero status.
-
-Otherwise, the program MUST exit with code `0` and an OPTIONAL success message.
 
 ## 5. Considerations
 Mustache was chosen as the templating language due to its simplicity and
