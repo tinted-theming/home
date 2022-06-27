@@ -81,11 +81,12 @@ To be fully compliant, a builder CLI interface MUST NOT include any other
 feature, option, argument, or deviance from the expected interface and
 behaviour of the program.
 
-#### 3.1.1 CLI Arguments and options
 <!-- TODO: For convenience, we make a manpage and set of tests available. All
 compliant builders MUST fully conform to these two. -->
 
 The CLI interface MUST work without relying on any network connection.
+
+#### 3.1.1 CLI Arguments and options
 
 ```bash
 base16 <TEMPLATES-DIRECTORY> <SCHEME-FILE> ...
