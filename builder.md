@@ -10,32 +10,41 @@ interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc
 "Building" refers to replacing placeholders on base16 _[template
 files](./file.md)_ with colors from base16 _[schemes](./styling.md)_.
 
-A template is a mustache file that acts as a "blueprint": it represents how to
-output the scheme into other file formats, or (more commonly) how to output a
-configuration file to theme a specific software. For example: a [vim
+A template is a mustache file that acts as a blueprint; it represents how to
+output the scheme into other file formats. For example: a [vim
 template](https://github.com/base16-project/base16-vim/blob/main/templates/default.mustache).
 
-A scheme is a yaml file that represents a palette of 16 colors: to be replaced
-on the placeholders the template files hold. For example: the [solarized
+A scheme is a yaml file that represents a palette of 16 colors, for use in
+template files. For example: the [solarized
 scheme](https://github.com/base16-project/base16-schemes/blob/main/solarized-dark.yaml)
 
-A base16 builder is, essentially, an application that somehow implements the
+A base16 builder is essentially an application that somehow implements the
 _building_ feature specification: filling the placeholders on templates with
 scheme colors.
 
-Builders are categorized into:
+The spec is composed of three parts:
 
-- _reference tooling_: These follow the spec closely and are
-  designed for unopinionated lower-level ("plumbing") usage, specifically for
-  scripting and as component to build more complex base16 applications. High
-  quality reference builders will usually be adopted by the base16-project
-  organization;
+- _The main base16 (template variables) spec_: This is a specification REQUIRED for full
+  compatibility with base16 templates. All base16 tooling aiming for 100%
+  compliance MUST follow it. It includes template and variables specifications.
+- _The standardized CLI spec_: This is a specification REQUIRED for
+  reference tooling where exposing a CLI is relevant. For non-reference tools,
+  all the clauses in this specification are to be considered optional.
+
+With that said, builders are categorized into:
+
+- _reference tooling_: These MUST follow the main spec and either expose a
+  command-line or a software library interface, for "plumbing" usage with
+  scripts or when building other, more complex, base16 tools. High quality
+  reference builders will usually be adopted by the base16-project
+  organization.
 - _extended tooling_: These are built for end users and are usually tailored
-  for a usecase. This includes GUI apps, ergonomical CLI tools, scheme
-  managers, web apps, and more. These apps are encouraged to use (or create)
-  reference implementations as libraries, but may also implement the builder
-  feature themselves. All of the following `MUST`s can be replaced by `SHOULD`s
-  when writing this kind of tooling.
+  for a specific usecase. This means that they MUST follow _only_ the main
+  base16 (template variables) spec to attain full compliance. These include GUI
+  apps, ergonomical CLI tools, scheme managers, web apps, and more. Authors are
+  encouraged to use (or create) reference implementations as libraries, but may
+  also implement the builder feature themselves. Specs besides the template
+  variables are to be considered optional.
 
 ## 2. Template variables spec
 
@@ -45,6 +54,7 @@ template files it processes:
 - `scheme-name` - obtained from the scheme file
 - `scheme-author` - obtained from the scheme file
 - `scheme-slug` - obtained from the scheme filename, as described above
+- `scheme-slug-underscored` - same as `scheme-slug`, but with dashes replaced with underscores
 - `scheme-kind` - either "light" or "dark", calculated from the `base00` color <!-- TODO: This is a candidate for inclusion, let me know your thoughts -->
 
 - `base00-hex` to `base0F-hex` - obtained from the scheme file e.g "7cafc2"
@@ -74,8 +84,8 @@ It is REQUIRED that this functionality is exposed by one (or both) of the follow
 
 ### 3.1. CLI
 
-The binary name SHOULD contain `base16`, but is otherwise left as a choice to
-the author.
+The binary name SHOULD contain `base16-builder`, but is otherwise left as a
+choice to the author.
 
 To be fully compliant, a builder CLI interface MUST NOT include any other
 feature, option, argument, or deviance from the expected interface and
@@ -107,14 +117,13 @@ The program MAY also offer the following options:
 - `--help | -h` option to output usage information directly or by opening the
   manpage.
 
-These three options have output that is considered implementation detail, not
-intended to be scripted with. Thus each author SHOULD implement them as they
-see fit.
+These three options have output that is implementation specific, not intended
+to be scripted with. Thus each author SHOULD implement them as they see fit.
 
 #### 3.1.2. CLI output and behaviour
 
 **Note**: All text outputted by the CLI binary is considered implementation
-detail, so the author MAY output whatever they prefer (or no message at all).
+specific, so the author MAY output whatever they prefer (or no message at all).
 If needed, scripts using the builder SHOULD check for return codes (specified
 below) instead of messages.
 
@@ -128,10 +137,15 @@ executed, and MUST look like `<output-dir>/base16-<slug><extension>`, where the
 with dashes and both the extension and `output-dir` are taken from
 `config.yaml`.
 
-If the build fails for any reasons, the program MUST exit with code `1` and MAY
-output an error message. This is not exhaustive and new exit codes might be
-added in the future to account for specific errors, so scripters catching
-generic errors SHOULD check for non-zero status.
+Build failures are mostly related to faulty schemes and/or templates:
+- when failling to parse a scheme, the program MUST exit with code `1`;
+- when failling to parse a template file, the program MUST exit with code `2`;
+- otherwise, the program MUST exit with code `3`.
+
+All of these errors MAY be accompanied by OPTIONAL error messages.
+
+The exit codes are not exhaustive and new ones might be added in the future, so
+scripters catching generic errors SHOULD check for non-zero status.
 
 Otherwise, the program MUST exit with code `0` and an OPTIONAL success message.
 
@@ -170,11 +184,5 @@ Mustache was chosen as the templating language due to its simplicity and
 widespread adoption across languages. YAML was chosen to describe scheme and
 configuration files for the same reasons.
 
-The core scheme repository was based off the single scheme repository so
-builders supporting v0.8-v0.9 of the spec can continue to function without
-changes.
-
-The revised builder functionality specification introduced in v0.11 did not
-introduce any changes to schemes or templates, so no changes to these are
-needed. Older builders will continue to work, but authors are encouraged to
-implement the new, simpler and more consistent, specification.
+Spec upgrades should be backwards compatible with existing templates and
+schemes.
