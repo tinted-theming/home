@@ -20,7 +20,8 @@ on the placeholders the template files hold. For example: the [solarized
 scheme](https://github.com/base16-project/base16-schemes/blob/main/solarized-dark.yaml)
 
 A base16 builder is, essentially, an application that somehow implements the
-_building_ feature specification.
+_building_ feature specification: filling the placeholders on templates with
+scheme colors.
 
 Builders are categorized into:
 
