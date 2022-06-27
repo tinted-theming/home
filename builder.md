@@ -63,8 +63,10 @@ template files it processes:
 All base16 reference builders MUST provide a single feature: building a
 template using 1 or more schemes.
 
-This section is not relevant to extended tooling, which will have its own
-interface fitting their intended usecases. You should jump to section `4`.
+This section (`3`) is not relevant to extended tooling, which will have its own
+interface fitting their intended usecases, altough they MAY expose the
+reference CLI interface (through a `build` subcommand, for example) and/or a
+library, if desired.
 
 It is REQUIRED that this functionality is exposed by one (or both) of the following:
 
