@@ -12,6 +12,10 @@ instantly generate theme files for many different applications.
 See the [List of supported programs](#template-repositories) on how to apply
 base16 themes on your favorate program.
 
+## Gallery
+
+We currently host 200+ color palletes. You can check out them at [Base16 Gallery](https://base16-project.github.io/base16-gallery).
+
 ## Documentation and Specification
 
 Base16 provides a set of guidelines detailing how to style syntax and how to
