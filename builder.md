@@ -151,7 +151,7 @@ files.
 The other option is exposing a software library other developers may use to
 assist developing more complex base16-compatible tooling.
 
-As above, the library MUST a single feature: building templates.
+As above, the library MUST implement single feature: building templates.
 
 This exposed library, or any internal code, has no specific required structure.
 
