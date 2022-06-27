@@ -165,7 +165,7 @@ best practices on their respective programming languages.
 Official reference implementations will follow semantic versioning matching
 this spec, in the format: `<base16-version>-builder_revision`.
 
-## 5. Considerations
+## 4. Considerations
 Mustache was chosen as the templating language due to its simplicity and
 widespread adoption across languages. YAML was chosen to describe scheme and
 configuration files for the same reasons.
