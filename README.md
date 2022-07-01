@@ -218,7 +218,7 @@ consensus among maintainers and at least one builder with a pull request ready
 for implementing that spec version.
 
 * [Base 16 Builder Go](https://github.com/base16-project/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
-* [Base16 Builder Node](https://github.com/base16-project/base16-builder-node) maintained by [JoshGoebel](https://github.com/JoshGoebel) - currently supports 0.9.1
+* [Base16 Builder Node](https://github.com/base16-project/base16-builder-node) maintained by [JoshGoebel](https://github.com/JoshGoebel) - currently supports 0.10.0
 
 ### Unofficial Builder Repositories
 
