@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.10.0**
+**Version 0.10.1**
 
 A base16 builder is an application that can build syntax highlighting definition files for text editors by using base16 scheme files which contain a collection of colours and base16 template files which contain syntax highlighting rules.
 
