@@ -32,6 +32,7 @@ A builder should provide the following variables to a template file:
 
 - `scheme-name` - obtained from the scheme file
 - `scheme-author` - obtained from the scheme file
+- `scheme-description` - obtained from the scheme file
 - `scheme-slug` - obtained from the scheme filename, as described above
 - `base00-hex-r` to `base0F-hex-r` - built from the hex value in the scheme file e.g "7c"
 - `base00-hex-g` to `base0F-hex-g` - built from the hex value in the scheme file e.g "af"
