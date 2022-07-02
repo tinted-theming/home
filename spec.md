@@ -31,14 +31,15 @@ defined by the _template_.
 ## 2. Repositories and ecossystem
 
 The main base16 ecossystem is currently composed of:
-- A single repository containing all provided _schemes_.
+- [A single repository containing all provided _schemes_](https://github.com/base16-project/base16-schemes).
     - Most tooling would want access to all available schemes, so these were
       grouped to a single repository in version 0.8.
     - Scheme creators are free to create their own curated scheme repositories,
       but are encouraged to contribute their new schemes back to the main one.
 - Repositories containing a _template set_.
-    - Template sets deemed more important will be officially supported by and
-      listed on the [base16-project org](https://github.com/base16-project).
+    - Templates sponsored by base16 project members will be adopted and listed
+      [listed](https://github.com/base16-project/base16#official-templates) on
+      the [base16-project org](https://github.com/base16-project).
 - Repositories containing _builder_ software.
     - Some builders will also be officially supported by and listed on the org.
 
