@@ -10,41 +10,43 @@ It allows color scheme designers to select a palette of 16 colors once and then
 instantly generate theme files for many different applications.
 
 See the [List of supported programs](#template-repositories) on how to apply
-base16 themes on your favorate program.
+base16 themes on your favorite program.
 
 ## Documentation and Specification
 
-Base16 provides a set of guidelines detailing how to style syntax and how to
-code a _builder_ for compiling Base16 _schemes_ and _templates_.
+Base16 provides a [detailed specification](/spec.md) about _schemes_ and
+_templates_, as well as on how to create a _builder_ tool for compiling them. A
+[styling guideline](/styling.md) is available to help choosing colors when
+creating schemes and templates.
 
 ### Scheme
 
-A scheme is a list of 16 colors to be used as a base to build themes. To make
-base16 look consistent, each color will be used for similar purpose in different
-programs. See [Styling Guidelines](/styling.md) for more information on how each
-color should be used.
+A scheme is a set of 16 colors to be used as a base to build themes. To make
+base16 look consistent, each color will be used for similar purpose in
+different programs. See the [styling guidelines](/styling.md) for more
+information on how each color should be used.
 
-A scheme is defined using a yaml file. The file specification is in
-[File Guidelines](/file.md#scheme-files)
+A scheme is defined using a simple yaml file. [The
+specification](/spec.md#3--schemes) has more information about the format.
+
+### Template
+
+A template set defines how theme file(s) should be generated for a specific
+program or format.
+
+A template repository typically defines a template set, which will be used by
+builder applications to generate themes. Information is available in the
+[template section](/spec.md#4--templates)
+
+Built templates are typically installed (either manually or automatically) by
+end users to use base16 with different programs.
 
 ### Builder
 
 A builder is a build tool used by various template repositories to generate
-files based on scheme file and template file.
-
-[Builder Guidelines](/builder.md)
-
-### Template
-
-A template defines how theme file(s) should be generated for a specific program.
-
-It is typically installed directly by end user to use different base16 themes.
-
-A template repository typically defines a template file, then uses a builder to
-generate program specific theme files with the template file.
-
-A template file will be used by builder to generate them.
-The file specification is in [Template section in File Guidelines](/file.md#template-config-files)
+theme files based on schemes and templates, as well as when creating more
+complex base16 tooling. Information on their functionality is available in the
+[building process section](/spec.md#5--building-process).
 
 ## Template Repositories
 
@@ -221,6 +223,11 @@ for implementing that spec version.
 **Repository naming scheme: base16-builder-[language]** (with dashes as separators). The separate headings are the latest versions of the spec supported by each builder.
 
 ### Changelog
+
+#### 0.11.0 (July 1st, 2022)
+
+- Reword and restructure specification
+- Simplify builder responsibilities further
 
 #### 0.10.0 (Mar 20, 2021)
 
