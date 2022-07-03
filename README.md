@@ -29,7 +29,7 @@ programs. See [Styling Guidelines](/styling.md) for more information on how each
 color should be used.
 
 A scheme is defined using a yaml file. The file specification is in
-[File Guidelines](/file.md#scheme-files)
+the [Builder Guidelines](/builder.md#schemes-repository)
 
 ### Builder
 
@@ -226,6 +226,10 @@ for implementing that spec version.
 
 ### Changelog
 
+#### 0.10.1 (Jul 3, 2022)
+
+- Add the `scheme-description` variable
+
 #### 0.10.0 (Mar 20, 2021)
 
 - Simplify repo structure and builder responsibilities
@@ -233,7 +237,7 @@ for implementing that spec version.
 
 #### 0.9.1 (Jun 15, 2019)
 
-- Make baseXX-hex-bgr variables available to templates
+- Make `baseXX-hex-bgr` variables available to templates
 - Warn when a template file has been overwritten
 
 * [Base 16 Builder Ansible](https://github.com/mnussbaum/base16-builder-ansible) maintained by [mnussbaum](https://github.com/mnussbaum)
