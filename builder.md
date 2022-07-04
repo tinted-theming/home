@@ -5,7 +5,7 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-A base16 builder is an application that can build syntax highlighting definition files for text editors by using base16 scheme files (which contain a collection of colors) and base16 template files (which contain syntax highlighting rules).
+A base16 builder is an application that builds application specific themeing configurations. It does this by using base16 scheme files (containing a collection of colors) and base16 template files (instructions concerning how to build the application specific files).
 
 Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of the builder.
 
@@ -32,9 +32,9 @@ defined by the _template_.
 
 ### Schemes Repository
 
-Convenient access to schemes in the [schemes repository](https://github.com/base16-project/base16-schemes) SHOULD be provided. The builder SHOULD store the repo in a common location (perhaps referred to by environment variable or command line flag), dynamically embed the schemes in the builder, or provide an alternate method of accessing the schemes.
+The builder MUST provide a method of loading one or more schemes for use in building templates. The builder MAY provide a method of loading a full directory of schemes at one time. Convenient access to schemes in the [schemes repository](https://github.com/base16-project/base16-schemes) MAY also be provided.
 
-This repo contains _scheme files_ for all Base16 schemes.
+This repo contains _scheme files_ for all base16 schemes.
 
 - `/*.yaml`
 
@@ -70,7 +70,7 @@ Scheme files have the following structure:
 
 ### Template Repository
 
-Each template repository should have a templates folder containing a config.yaml and any needed mustache template files.
+Each template repository MUST have a templates folder containing a config.yaml and any needed mustache template files.
 
 - `/templates/*.mustache` - A template file (there may be more than one of these)
 - `/templates/config.yaml` - A template configuration file
