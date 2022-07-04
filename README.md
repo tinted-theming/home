@@ -299,6 +299,10 @@ If you've written a tool for base16 feel free to add it to the list below:
 
 * [base16-mutt](https://github.com/josephholsten/base16-mutt) - a config file for mutt which uses base16 colors from the terminal
 
+## Project Chat
+
+Have something you want to discuss, but you're not sure it warrants an issue? Feel free to stop by the #base16 channel on [Libera Chat](https://libera.chat/) to talk about it.
+
 ## Credits
 
 Thanks to [Chris Kempson](https://github.com/chriskempson) for the original concept and implementation.
