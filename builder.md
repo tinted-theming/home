@@ -7,18 +7,18 @@ interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc
 
 A base16 builder is an application that can build syntax highlighting definition files for text editors by using base16 scheme files (which contain a collection of colors) and base16 template files (which contain syntax highlighting rules).
 
-Builders are generally designed for theme maintainers' ease of use. Theme maintainers SHOULD provide built versions of their theme so the end user doesn't need to be aware of the builder.
+Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of the builder.
 
 ## Definitions
 
-A _base16 scheme_ is a yaml file that represents a palette of 16 colors. For
+A _base16 scheme_ is a YAML file that represents a palette of 16 colors. For
 example: the [solarized
 scheme](https://github.com/base16-project/base16-schemes/blob/main/solarized-dark.yaml)
 
 A _base16 template_ is a mustache file that acts as a blueprint; it represents
-how to output the scheme into other file formats. For example: a [vim
-template](https://github.com/base16-project/base16-vim/blob/main/templates/default.mustache),
-to convert a _base16 scheme_ into a vim colorscheme.
+how to translate the scheme into an application's desired format. For example: the [vim
+template](https://github.com/base16-project/base16-vim/blob/main/templates/default.mustache)
+is used to convert a _base16 scheme_ into a vim colorscheme.
 
 A _base16 builder_ is an application that implements the full _building_
 feature specification, but MAY include additional functionality. These are
@@ -41,7 +41,7 @@ This repo contains _scheme files_ for all Base16 schemes.
 <details>
   <summary>Scheme Files Spec</summary>
 
-Scheme files have the following example structure:
+Scheme files have the following structure:
 
     scheme: "Scheme Name"
     author: "Scheme Author"
@@ -63,7 +63,8 @@ Scheme files have the following example structure:
     base0E: "eeeeee"
     base0F: "ffffff"
 
-Hexadecimal color values may optionally be preceded by a "#".
+- Hexadecimal color values may optionally be preceded by a "#".
+- Hexadecimal color values are case insensitive.
 
 </details>
 
@@ -77,7 +78,7 @@ Each template repository should have a templates folder containing a config.yaml
 <details>
   <summary>Template Config Spec</summary>
 
-These files have the following example structure:
+These files have the following structure:
 
     default:
         extension: .file-extension
