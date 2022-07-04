@@ -210,7 +210,7 @@ Normally end-users should not need to use builders, as they're primarily meant
 for maintainers - both scheme and template maintainers. These are tools used to
 build templates with all the currently submitted schemes.
 
-Spec changes will not be merged until there is consensus among maintainers and
+Spec changes will not be released until there is consensus among maintainers and
 at least one builder with a pull request ready for implementing that spec
 version.
 
