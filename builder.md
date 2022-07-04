@@ -5,7 +5,7 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-A base16 builder is an application that builds application specific themeing configurations. It does this by using base16 scheme files (containing a collection of colors) and base16 template files (instructions concerning how to build the application specific files).
+A base16 builder is a tool that builds application specific themeing configurations. It does this by using base16 scheme files (containing a collection of colors) and base16 template files (instructions concerning how to build the application specific files).
 
 Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of the builder.
 
