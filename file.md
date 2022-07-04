@@ -19,6 +19,7 @@ Scheme files have the following example structure:
 
     scheme: "Scheme Name"
     author: "Scheme Author"
+    description: "a short description of the scheme"
     base00: "000000"
     base01: "111111"
     base02: "222222"

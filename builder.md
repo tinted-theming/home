@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.10.0**
+**Version 0.10.1**
 
 A base16 builder is an application that can build syntax highlighting definition files for text editors by using base16 scheme files which contain a collection of colours and base16 template files which contain syntax highlighting rules.
 
@@ -32,6 +32,7 @@ A builder should provide the following variables to a template file:
 
 - `scheme-name` - obtained from the scheme file
 - `scheme-author` - obtained from the scheme file
+- `scheme-description` - obtained from the scheme file (fallback value: `scheme-name`)
 - `scheme-slug` - obtained from the scheme filename, as described above
 - `base00-hex-r` to `base0F-hex-r` - built from the hex value in the scheme file e.g "7c"
 - `base00-hex-g` to `base0F-hex-g` - built from the hex value in the scheme file e.g "af"
