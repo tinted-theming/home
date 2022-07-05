@@ -182,6 +182,7 @@ list. These are community maintained templates and may not be updated often.
 * [prompt-toolkit & ipython](https://github.com/memeplex/base16-prompt-toolkit) maintained by [memeplex](https://github.com/memeplex)
 * [Pygments](https://github.com/mohd-akram/base16-pygments) maintained by [mohd-akram](https://github.com/mohd-akram)
 * [Qt Creator](https://github.com/ilpianista/base16-qtcreator) maintained by [ilpianista](https://github.com/ilpianista)
+* [PyRadio](https://github.com/coderholic/pyradio) maintained by [edunfelt](https://github.com/edunfelt)
 
 </p>
 </details>
