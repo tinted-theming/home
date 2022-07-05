@@ -29,7 +29,7 @@ programs. See [Styling Guidelines](/styling.md) for more information on how each
 color should be used.
 
 A scheme is defined using a yaml file. The file specification is in
-[File Guidelines](/file.md#scheme-files)
+the [Builder Guidelines](/builder.md#schemes-repository)
 
 ### Builder
 
