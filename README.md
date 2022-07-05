@@ -1,16 +1,16 @@
 # ![Base16](logo.png)
 
-An architecture for building themes based on carefully chosen syntax
-highlighting using a base of sixteen colors.
+An architecture for crafting color schemes and easily translating them to
+your favorite apps - based on carefully chosen syntax highlighting using a
+base of sixteen colors.
 
 It allows users to choose a color scheme they know will be available for all
 their applications (both GUIs and terminal applications).
 
-It allows color scheme designers to select a palette of 16 colors once and then
-instantly generate theme files for many different applications.
+It allows color scheme designers to select a palette of 16 colors once and then instantly generate support for many different applications.
 
 See the [List of supported programs](#template-repositories) on how to apply
-base16 themes on your favorate program.
+base16 schemes on your favorate program.
 
 ## Gallery
 
@@ -23,7 +23,7 @@ code a _builder_ for compiling Base16 _schemes_ and _templates_.
 
 ### Scheme
 
-A scheme is a list of 16 colors to be used as a base to build themes. To make
+A scheme is a list of 16 colors to be used as a base to build application specific files. To make
 base16 look consistent, each color will be used for similar purpose in different
 programs. See [Styling Guidelines](/styling.md) for more information on how each
 color should be used.
@@ -40,12 +40,12 @@ files based on scheme file and template file.
 
 ### Template
 
-A template defines how theme file(s) should be generated for a specific program.
+A template defines how a scheme should be transformed to support a specific program.
 
-It is typically installed directly by end user to use different base16 themes.
+Templates often include ready-to-use pre-built versions of every scheme. These are typically installed directly by end users to use base16 schemes in different applications.
 
 A template repository typically defines a template file, then uses a builder to
-generate program specific theme files with the template file.
+generate program specific files using the template file.
 
 A template file will be used by builder to generate them.
 The file specification is in [Template section in File Guidelines](/file.md#template-config-files)
