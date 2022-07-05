@@ -196,7 +196,7 @@ list. These are community maintained templates and may not be updated often.
 * [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch)
 * [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
 * [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
-* [PyRadio](https://github.com/coderholic/pyradio) maintained by [edunfelt](https://github.com/edunfelt)
+* [PyRadio](https://github.com/edunfelt/base16-pyradio) maintained by [edunfelt](https://github.com/edunfelt)
 
 </p>
 </details>
