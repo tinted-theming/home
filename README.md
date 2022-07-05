@@ -23,7 +23,7 @@ code a _builder_ for compiling Base16 _schemes_ and _templates_.
 
 ### Scheme
 
-A scheme is a list of 16 colors to be used as a base to build application specific  files. To make
+A scheme is a list of 16 colors to be used as a base to build application specific files. To make
 base16 look consistent, each color will be used for similar purpose in different
 programs. See [Styling Guidelines](/styling.md) for more information on how each
 color should be used.
