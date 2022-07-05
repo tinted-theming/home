@@ -182,7 +182,6 @@ list. These are community maintained templates and may not be updated often.
 * [prompt-toolkit & ipython](https://github.com/memeplex/base16-prompt-toolkit) maintained by [memeplex](https://github.com/memeplex)
 * [Pygments](https://github.com/mohd-akram/base16-pygments) maintained by [mohd-akram](https://github.com/mohd-akram)
 * [Qt Creator](https://github.com/ilpianista/base16-qtcreator) maintained by [ilpianista](https://github.com/ilpianista)
-* [PyRadio](https://github.com/coderholic/pyradio) maintained by [edunfelt](https://github.com/edunfelt)
 
 </p>
 </details>
@@ -197,6 +196,7 @@ list. These are community maintained templates and may not be updated often.
 * [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch)
 * [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
 * [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
+* [PyRadio](https://github.com/coderholic/pyradio) maintained by [edunfelt](https://github.com/edunfelt)
 
 </p>
 </details>
