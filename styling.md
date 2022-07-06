@@ -109,21 +109,25 @@ Extended themes MAY specify additional aliases that will override the original b
 
 ### How to specify an alias
 
-Aliases may refer to base colors (`baseXX`), literal hex color values, or even other aliases.
+The value a given color may refer to a literal hex color value, another base colors (`baseXX`), or even another alias.
 
 An example:
 
  ```yaml
-base05: "ff0000"         # red
-name_variable: "ff0000"  # red
-constant: "base05"       # more red
-string: "constant"         # still red
+string: "constant"        # still red
+constant: "base05"        # more red
+base05: "ff0000"          # red
+name_variable: "ff0000"   # red
 ```
 
-- `base05` refers to the hex color red
-- `name_variable` refers to the hex color red
-- `constant` refers to `base05`, which itself refers to red.
-- `string` refers to `constant`, which refers to `base05`, which finally refers to red (`#ff0000`).
+All the above resolve to red.
+
+- `string` refers to `constant`
+- `constant` refers to `base05`
+- `base05` refers to the literal hex color red
+- `name_variable` also refers to the literal hex color red
+
+Note: The ordering does not matter, you can refer to an alias before that alias has been defined.
 
 
 ### Custom Aliases
