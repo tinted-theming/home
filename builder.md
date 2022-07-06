@@ -112,6 +112,21 @@ A builder MUST provide the following variables to template files:
 - `base00-dec-g` to `base0F-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
 - `base00-dec-b` to `base0F-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
 
+A builder MUST also provide official named alias variables to template files.  Custom named aliases should not be provided as variables.
+
+- `[official_alias_name]-hex` - 6-digit hex color value obtained from the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
+- `[official_alias_name]-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
+- `[official_alias_name]-hex-r` - red component of the hex color value. e.g "7c"
+- `[official_alias_name]-hex-g` - green component of the hex color value. e.g "af"
+- `[official_alias_name]-hex-b` - blue component of the hex color value. e.g "c2"
+- `[official_alias_name]-rgb-r` - red component as a value between `0` and `255`. e.g "124"
+- `[official_alias_name]-rgb-g` - green component as a value between `0` and `255`. e.g "175"
+- `[official_alias_name]-rgb-b` - blue component as a value between `0` and `255` e.g "194"
+- `[official_alias_name]-dec-r` - red component as a value between `0` and `1.0`. e.g "0.4863"
+- `[official_alias_name]-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
+- `[official_alias_name]-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
+
+
 ## Considerations
 
 Mustache was chosen as the templating language due to its simplicity and widespread adoption across languages. YAML was chosen to describe scheme and configuration files for the same reasons.
