@@ -1,13 +1,25 @@
-# Styling Guidelines
+# Base17 Style Guide
+
 **Version 0.9.0-dev**
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-The accent colors for the default Base16 scheme were chosen to be pleasing and visualy distinctive, but scheme designers may chose whichever colours they desire, e.g. `base0B` (green in default) might be swapped for yellow. By default similar language constructs are grouped within a single color "slot". For example numbers (floats, integers, etc.) by default are grouped into slot `base09`.
+The accent colors for the default Base17 scheme were chosen to be pleasing and visualy distinctive, but scheme designers may chose whichever colours they desire, e.g. `base0B` (green in default) might be swapped for yellow. By default similar language constructs are grouped within a single color "slot". For example numbers (floats, integers, etc.) by default are grouped into slot `base09`.
 
 Describing syntax highlighting can be tricky - please see [base16-vim](https://github.com/base16-project/base16-vim/) and [base16-emacs](https://github.com/base16-project/base16-emacs/) for some real-life examples. It should be noted that each editor will have it's own idiosyncrasies due to having different syntax highlighting engines.
+
+**Compatibility**
+
+Base17 is an evolution of [Base16 v0.2](https://github.com/chriskempson/base16/blob/main/styling.md).
+
+- All Base16 v0.2 schemes are forwards compatible with Base17.
+  - _Every Base16 scheme is a fully valid Base17 scheme._
+- Base17 schemes may not be backwards compatible with Base16.
+
+To upgrade a scheme from Base16 just start using Base17 features in your scheme and build using a Base17 aware builder.
+
 
 **Guidelines**
 
@@ -16,17 +28,10 @@ Describing syntax highlighting can be tricky - please see [base16-vim](https://g
 	- For a light scheme, these slots typically span from lightest to darkest. (`base00` is the lightest)
 - Slots `base08` to `base0F` typically hold individual accent colors used for syntax highlighting (types, operators, classes, variables, etc.)
 
-**Compatibility**
 
-- Base16 0.2 schemes are forwards compatible with Base17.
-  - _Every Base16 scheme is a valid Base17 scheme._
+### The Default Slots
 
-To upgrade from Base16 just start using the newer Base17 features in your scheme and build with a Base17 aware builder.
-
-
-### The Default "Base" 16 Slots
-
-The default slots and their default uses:
+The default slots and their intended use:
 
 - **base00** - Default Background
 - **base01** - Lighter Background (Used for status bars, line number and folding marks)
@@ -47,8 +52,8 @@ The default slots and their default uses:
 
 **Keep in Mind**
 
-- every scheme MUST specify the default Base 16 slots
-- older templates may only support the default Base 16 slots (ignoring any named slots)
+- every scheme MUST specify the default Base slots
+- older templates may only support the default slots (ignoring any named slots)
 - for convenience custom slots by always be used to organize your scheme
 
 ### Built-in Slots
@@ -164,3 +169,47 @@ base0d: $mr_blue_sky
 ### You are still limited to a max of 16 colors.
 
 The number of colors per scheme is still limited to 16.  If you (via slots) create more than 16 unique hex colors an error will be thrown during the build process.
+
+## Examples
+
+**skittles.yaml**
+
+```yaml
+scheme: "Skittles (dark)"
+author: "Josh Goebel"
+
+# skittle variables
+$lemon: "#D7CA04"
+$orange: "#EE641C"
+$grape: "#6D5473"
+$raspberry: "#05538B"
+$strawberry: "#9A1518"
+$green_apple: "#28B109"
+$pineapple_passion: "#0098CB"
+$stawberry_starfruit: "#DD7EB2"
+
+# make sure diff is always green/red
+diff_inserted: $green_apple
+diff_changed: fg_darker
+diff_deleted: $strawberry
+
+# bg/fg/ui
+base00: "#1C2023" # ----
+base01: "#393F45" # ---
+base02: "#565E65" # --
+base03: "#747C84" # -
+base04: "#ADB3BA" # +
+base05: "#C7CCD1" # ++
+base06: "#DFE2E5" # +++
+base07: "#F3F4F5" # ++++
+
+# accent colors
+base08: $strawberry
+base09: $orange
+base0A: $lemon
+base0B: $green_apple
+base0C: $pineapple_passion
+base0D: $raspberry
+base0E: $strawberry_starfruit
+base0F: $grape
+```
