@@ -12,7 +12,7 @@ Describing syntax highlighting can be tricky - please see [base16-vim](https://g
 
 **Compatibility**
 
-Base17 is an evolution of [Base16 v0.2](https://github.com/chriskempson/base16/blob/main/styling.md).
+Base17 is an evolution of [Base16 v0.2 spec](https://github.com/chriskempson/base16/blob/main/styling.md).  It still includes 16 colors.
 
 - All Base16 v0.2 schemes are forwards compatible with Base17.
   - _Every Base16 scheme is a fully valid Base17 scheme._
@@ -31,30 +31,46 @@ To upgrade a scheme from Base16 just start using Base17 features in your scheme 
 
 ### The Default Slots
 
-The default slots and their intended use:
+The default slots, their intended usage, and the built-in slots they fill by default.  For example `background` defaults to `base00` if it is not explicitely specified by name.
 
 - **base00** - Default Background
+ - `background`
 - **base01** - Lighter Background (Used for status bars, line number and folding marks)
+  - `bg_lighter`, `folding_marks`
 - **base02** - Selection Background
+  - `bg_selection`, `bg_????`
 - **base03** - Comments, Invisibles, Line Highlighting
+	- `comment`, `invisible`, `line_highlighting`
 - **base04** - Dark Foreground (Used for status bars)
+  - `fg_darker`, `dark_status_bar`
 - **base05** - Default Foreground, Caret, Delimiters, Operators
+  - `foreground`, `caret`, `delimiter`, `operator`
 - **base06** - Light Foreground
+	- `fg_lighter`
 - **base07** - Lightest Foreground
+	- `fg_brightest`
 - **base08** - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+  - `variable`, `xml_tag`, `markup_link_text`, `markup_list`, `diff_deleted`
 - **base09** - Integers, Boolean, Constants, XML Attributes, Markup Link Url
+	- `literal`, `constant`, `xml_attribute`, `markup_link_url`
 - **base0A** - Classes, Markup Bold, Search Text Background
+  - `name_class`, `markup_bold` `bg_search_text`
 - **base0B** - Strings, Inherited Class, Markup Code, Diff Inserted
+  - `string`, `name_class_inherited`, `markup_code`, `diff_inserted`
 - **base0C** - Support, Regular Expressions, Escape Characters, Markup Quotes
+  - `support`, `regex`, `escape`, `markup_quotes`
 - **base0D** - Functions, Methods, Attribute IDs, Headings
+	- `function`, `attribute_id`, `heading`
 - **base0E** - Keywords, Storage, Selector, Markup Italic, Diff Changed
+	- `keyword`, `storage`, `selector`, `markup_italic`, `diff_changed`
 - **base0F** - Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
 
 **Keep in Mind**
 
-- every scheme MUST specify the default Base slots
+- every scheme MUST specify all default Base slots
 - older templates may only support the default slots (ignoring any named slots)
 - for convenience custom slots by always be used to organize your scheme
+
 
 ### Built-in Slots
 
@@ -81,6 +97,7 @@ Schemes MAY use built-in slots to precisely fine tune how their color palette wi
 - `dark_status_bar` - `base04` by default
 - `light_status_bar` - `base01` by default
 - `caret` - `base05` by default
+- `folding_marks` - `base01` by default
 
 #### Diff
 
@@ -100,9 +117,9 @@ Schemes MAY use built-in slots to precisely fine tune how their color palette wi
 
 #### Editor / Source
 
-- `delimiters` - `base05` by default
+- `delimiter` - `base05` by default
 - `operator` - `base05` by default
-- `comments` - `base03` (as a FG color) by default
+- `comment` - `base03` (as a FG color) by default
 - `invisibles` - `base03` (as foreground) by default
 - `name_class` - `base0A` by default
 - `name_class_inherited` - `base0B` by default
@@ -125,32 +142,38 @@ Schemes MAY use built-in slots to precisely fine tune how their color palette wi
 - `selector` - `base0E` by default
 - `deprecated` - `base0F` by default
 
-### How to Reference a Slot
 
-The value any slot may refer to a literal hex color value, a base slot (`baseXX`), or even a built-in slot, or a variable slot.
+### Slot Values
+
+The value of any slot may be a literal hex color value or a reference to another slot.
 
 An example:
 
  ```yaml
-string: "constant"        # still red
-constant: "base05"        # more red
-base05: "ff0000"          # red
-name_variable: "ff0000"   # red
+$red: "ff0000"
+string: "constant"
+constant: $red
+number: "constant"
+boolean: "constant"
+base05: "ff0000"
+diff_deleted: $red
 ```
 
-All the above resolve to red.
+All the above slots resolve to the color red.
 
-- `string` refers to `constant`
-- `constant` refers to `base05`
+- `string` refers to the slot `constant`
+- `constant` refers to the variable slot `$red`
+- `$red` refers to the literal hex color red, `#ff0000`
 - `base05` refers to the literal hex color red
-- `name_variable` also refers to the literal hex color red
+- `diff_deleted` also refers to the literal hex color red
+
 
 Note: The ordering does not matter, you can refer to a slot before that slot has been defined.
 
 
 ### Variable Slots
 
-You may also define variable slots to make your schemes easier to author and maintain. For example if your hues are visually distinct it could be helpful to name them:
+Variable slots make schemes easier to author and maintain. For example if your hues are visually distinct it could be helpful to name them and reference them later by name:
 
 ```yaml
 scheme: "Fun Colors"
@@ -164,11 +187,13 @@ base0d: $mr_blue_sky
 
 - all variable slot names must start with `$`
 
+
 ## Notes
 
 ### You are still limited to a max of 16 colors.
 
 The number of colors per scheme is still limited to 16.  If you (via slots) create more than 16 unique hex colors an error will be thrown during the build process.
+
 
 ## Examples
 
