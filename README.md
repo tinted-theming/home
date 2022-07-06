@@ -1,6 +1,6 @@
 <!-- # ![Base16](logo.png) -->
 
-# BaseEverywhere
+# Formely base16-project (new name is coming)
 
 Smart build tooling for crafting high fidelity color schemes and easily translating them to all your favorite apps.  Originally based on the amazing work of [Chris Kempson](https://github.com/chriskempson/) and his [Base16 project](https://github.com/chriskempson/base16).
 
@@ -8,7 +8,7 @@ Smart build tooling for crafting high fidelity color schemes and easily translat
 
 **Features**
 
-- Seamless builder support for _multiple_ style guides/architectures ([Base16](), [Base24](), etc.)
+- Seamless builder support for _multiple_ style guides/architectures ([Base16](), [Base17](), [Base24](), etc.)
 - Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://base16-project.github.io/base16-gallery).
 - Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
 - Allows end users to choose a color scheme they know will be available _everywhere_.

@@ -1,5 +1,5 @@
 # Styling - Base17 Spec
 
-**Version 0.1 DRAFT**
+**Version 0.5 DRAFT**
 
 Placeholder.
