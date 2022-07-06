@@ -22,7 +22,7 @@ The _builder_ and _styling_ specs detail how to compile _schemes_ and _templates
 
 ### Scheme
 
-A scheme is simply a fixed palette of named colors.
+A scheme is a fixed palette of named colors.
 
 
 ### Style
