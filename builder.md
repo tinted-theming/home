@@ -126,6 +126,8 @@ A builder MUST also provide official named alias variables to template files.  C
 - `[official_alias_name]-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
 - `[official_alias_name]-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
 
+The complete list of official named aliases may be found in the style spec.
+
 
 ## Considerations
 
