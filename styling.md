@@ -5,15 +5,15 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-The colors for the default Base16 scheme were chosen to be pleasing and visualy distinctive,  but scheme designers may chose whichever colours they desire, e.g. `base0B` (green in the default scheme) might be swapped for yellow. Base16 (by default) groups similar language constructs within a single color "slot". For example numbers (such as floats, ints, and doubles) would all belong to the same color slot `base09`.
+The accent colors for the default Base16 scheme were chosen to be pleasing and visualy distinctive, but scheme designers may chose whichever colours they desire, e.g. `base0B` (green in default) might be swapped for yellow. By default similar language constructs are grouped within a single color "slot". For example numbers (floats, integers, etc.) by default are grouped into slot `base09`.
 
 Describing syntax highlighting can be tricky - please see [base16-vim](https://github.com/base16-project/base16-vim/) and [base16-emacs](https://github.com/base16-project/base16-emacs/) for some real-life examples. It should be noted that each editor will have it's own idiosyncrasies due to having different syntax highlighting engines.
 
 **Guidelines**
 
 - Slots `base00` to `base07` typically capture a wide gradient of a single hue. These slots are used for foreground and background, status bars, line highlighting and such.
-	- For a dark scheme, these slots should span from darkest to lightest. (`base00` is the darkest)
-	- For a light scheme, these slots should span from lightest to darkest. (`base00` is the lightest)
+	- For a dark scheme, these slots typically span from darkest to lightest. (`base00` is the darkest)
+	- For a light scheme, these slots typically span from lightest to darkest. (`base00` is the lightest)
 - Slots `base08` to `base0F` typically hold individual accent colors used for syntax highlighting (types, operators, classes, variables, etc.)
 
 ### The Default "Base" 16 Slots
@@ -37,9 +37,15 @@ The default semantic meaning/mappings(s) of each slot (for syntax highighlightin
 - **base0E** - Keywords, Storage, Selector, Markup Italic, Diff Changed
 - **base0F** - Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
 
-### Named Slots (Aliases)
+Details
 
-Schemes MAY use additional named slots (aliases) to override individual base slot mappings.  For example if you don't want variables and xml tags to use the same color (`base08`): use the `name_variable` and `xml_tag` slots to specify different colors.
+- every scheme MUST specify the base 16 slots
+- older templates may only support the base 16 slots (ignoring any named slots)
+- custom slots by always be used (for convenience)
+
+### Named Slots
+
+Schemes MAY use named slots to individually override individual means of the base slots.  For example if you don't wish variables and xml tags to share the same color (`base08`): use the `name_variable` and `xml_tag` slots to specify different colors.
 
 
 #### Foreground / Background
@@ -107,9 +113,9 @@ Schemes MAY use additional named slots (aliases) to override individual base slo
 - selector - `base0E` by default
 - deprecated - `base0F` by default
 
-### How to specify an alias
+### How to Reference a Slot
 
-The value a given color may refer to a literal hex color value, another base colors (`baseXX`), or even another alias.
+The value any slot may refer to a literal hex color value, a base slot (`baseXX`), or even a different named slot.
 
 An example:
 
@@ -127,7 +133,7 @@ All the above resolve to red.
 - `base05` refers to the literal hex color red
 - `name_variable` also refers to the literal hex color red
 
-Note: The ordering does not matter, you can refer to an alias before that alias has been defined.
+Note: The ordering does not matter, you can refer to a slot before that slot has been defined.
 
 
 ### Custom Slots
