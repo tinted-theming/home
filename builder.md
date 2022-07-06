@@ -41,30 +41,57 @@ This repo contains _scheme files_ for all base16 schemes.
 <details>
   <summary>Scheme Files Spec</summary>
 
-Scheme files have the following structure:
+Scheme files use only the simplest key/value features of YAML and have the following structure:
 
-    scheme: "Scheme Name"
-    author: "Scheme Author"
-    description: "a short description of the scheme"
-    base00: "000000"
-    base01: "111111"
-    base02: "222222"
-    base03: "333333"
-    base04: "444444"
-    base05: "555555"
-    base06: "666666"
-    base07: "777777"
-    base08: "888888"
-    base09: "999999"
-    base0A: "aaaaaa"
-    base0B: "bbbbbb"
-    base0C: "cccccc"
-    base0D: "dddddd"
-    base0E: "eeeeee"
-    base0F: "ffffff"
+```yaml
+scheme: "Scheme Name"
+author: "Scheme Author"
+description: "a short description of the scheme"
+comments: "999999"  # an official named slot
+white: "ffffff"     # a custom named slot
+grey: "777777"
+base00: "000000"
+base01: "111111"
+base02: "222222"
+base03: "333333"
+base04: "444444"
+base05: "555555"
+base06: "666666"
+base07: "grey"      # reference to the "grey" slot
+base08: "888888"
+base09: "999999"
+base0A: "aaaaaa"
+base0B: "bbbbbb"
+base0C: "cccccc"
+base0D: "dddddd"
+base0E: "eeeeee"
+base0F: "white"     # reference to the "white" slot
+```
 
 - Hexadecimal color values may optionally be preceded by a "#".
 - Hexadecimal color values are case insensitive.
+- Any color value may be a reference a slot instead (such as `base0F` above).
+
+
+#### Resolving Hex Color Values
+
+Any slot may reference another slot, even several layers deep.  A builder should attempt to resolve slots to a depth of 10 before giving up. (this limit also prevents infinite/circular slot references)
+
+An example:
+
+ ```yaml
+string: "constant"
+constant: "base05"
+base05: "red"
+red: "ff0000"
+```
+
+- `string` slot refers to the `constant` slot.
+- `constant` slot refers to the `base05` slot.
+- `base05` slot refers to the `red` slot
+- `red` slot finally resolves to a literal hex color (red)
+
+So all the above slots ultimately resolve to the color red.
 
 </details>
 
@@ -92,6 +119,8 @@ This example specifies that a Builder is to parse two template files: `templates
 
 </details>
 
+
+
 ## Template Variables
 
 A builder MUST provide the following variables to template files:
@@ -100,7 +129,7 @@ A builder MUST provide the following variables to template files:
 - `scheme-author` - obtained from the `author` key of the scheme file
 - `scheme-description` - obtained from the `description` key of the scheme file (fallback value: `scheme-name`)
 - `scheme-slug` - the scheme filename made lowercase with spaces, not including the `.yaml` extension
-- `base00-hex` to `base0F-hex` - 6-digit hex color value obtained from the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
+- `base00-hex` to `base0F-hex` - 6-digit hex color value obtained from the default 16 slots in the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
 - `base00-hex-bgr` to `base0F-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
 - `base00-hex-r` to `base0F-hex-r` - red component of the hex color value. e.g "7c"
 - `base00-hex-g` to `base0F-hex-g` - green component of the hex color value. e.g "af"

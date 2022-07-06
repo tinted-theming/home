@@ -1,5 +1,5 @@
 # Styling Guidelines
-**Version 0.3-dev**
+**Version 0.9.0-dev**
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
@@ -18,7 +18,7 @@ Describing syntax highlighting can be tricky - please see [base16-vim](https://g
 
 ### The Default "Base" 16 Slots
 
-The default semantic meaning/mappings(s) of each slot (for syntax highighlighting) are listed below.
+The default slots and their default uses:
 
 - **base00** - Default Background
 - **base01** - Lighter Background (Used for status bars, line number and folding marks)
@@ -37,15 +37,15 @@ The default semantic meaning/mappings(s) of each slot (for syntax highighlightin
 - **base0E** - Keywords, Storage, Selector, Markup Italic, Diff Changed
 - **base0F** - Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
 
-Details
+**Keep in Mind**
 
-- every scheme MUST specify the base 16 slots
-- older templates may only support the base 16 slots (ignoring any named slots)
-- custom slots by always be used (for convenience)
+- every scheme MUST specify the default Base 16 slots
+- older templates may only support the default Base 16 slots (ignoring any named slots)
+- for convenience custom slots by always be used to organize your scheme
 
 ### Named Slots
 
-Schemes MAY use named slots to individually override individual means of the base slots.  For example if you don't wish variables and xml tags to share the same color (`base08`): use the `name_variable` and `xml_tag` slots to specify different colors.
+Schemes MAY use named slots to individually override individual means of the base slots.  For example if you don't wish variable names and xml tags to share the same color (slot `base08`): use the `name_variable` and `xml_tag` slots to specify different colors.
 
 
 #### Foreground / Background
@@ -154,4 +154,4 @@ base0d: mr_blue_sky
 
 ### You are still limited to a max of 16 colors.
 
-The number of colors per scheme is still limited to 16.  If you (via aliases) use more than 16 unique hex colors an error will be thrown during the build process.
+The number of colors per scheme is still limited to 16.  If you (via slots) create more than 16 unique hex colors an error will be thrown during the build process.
