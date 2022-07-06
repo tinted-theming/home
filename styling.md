@@ -44,12 +44,12 @@ Extended themes MAY specify additional aliases that will override the original b
 
 #### Foreground / Background
 
-- bg_default - `base00` by default
+- background - `base00` by default
 - bg_lighter - `base01` by default
 - bg_???? - `base02` by default
 - bg_???? - `base03` by default
 - fg_darker - `base04` by default
-- fg_default - `base05` by default
+- foreground - `base05` by default
 - fg_lighter - `base06` by default
 - fg_very_light - `base07` by default
 
