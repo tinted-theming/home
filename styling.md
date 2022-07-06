@@ -16,6 +16,14 @@ Describing syntax highlighting can be tricky - please see [base16-vim](https://g
 	- For a light scheme, these slots typically span from lightest to darkest. (`base00` is the lightest)
 - Slots `base08` to `base0F` typically hold individual accent colors used for syntax highlighting (types, operators, classes, variables, etc.)
 
+**Compatibility**
+
+- Base16 0.2 schemes are forwards compatible with Base17.
+  - _Every Base16 scheme is a valid Base17 scheme._
+
+To upgrade from Base16 just start using the newer Base17 features in your scheme and build with a Base17 aware builder.
+
+
 ### The Default "Base" 16 Slots
 
 The default slots and their default uses:
