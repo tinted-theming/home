@@ -1,13 +1,15 @@
-# ![Base16](logo.png)
+<!-- # ![Base16](logo.png) -->
 
-An architecture for crafting color schemes and easily translating them to
-your favorite apps - based on carefully chosen syntax highlighting using a
-base of sixteen (or 24) colors.
+# BaseEverywhere
+
+Smart build tooling for crafting high fidelity color schemes and easily translating them to all your favorite apps.  Originally based on the amazing work of [Chris Kempson](https://github.com/chriskempson/) and the [Base16 project](https://github.com/chriskempson/base16).
+
 
 
 **Features**
 
-- Over 230 beautiful and ready-to-use colors schemes. [View the Base16 Gallery](https://base16-project.github.io/base16-gallery).
+- Seamless builder support for multiple style guides/architectures ([Base16](), [Base24](), etc.)
+- Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://base16-project.github.io/base16-gallery).
 - Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
 - Allows end users to choose a color scheme they know will be available _everywhere_.
 - Allows color scheme designers to craft a palette of colors once, instantly supporting for many different apps.
@@ -15,20 +17,25 @@ base of sixteen (or 24) colors.
 
 ## Documentation and Specification
 
-Base16 provides a set of guidelines detailing how to style syntax and how to
-code a _builder_ for compiling Base16 _schemes_ and _templates_.
+The _builder_ and _styling_ specs detail how to compile _schemes_ and _templates_ into application specific configurations.
+
 
 ### Scheme
 
-A scheme is a set of colors to be used as a foundation to build application specific files. Each color is used consistently for similar purposes across all your different
-applications. See the styling guidelines for more information on how each
-color should be used.
+A scheme is simply a fixed palette of named colors.
 
-- [Base16 Styling Guidelines](/styling.md)
-- [Base24 Styling Guidelines](https://github.com/Base24/base24/blob/master/styling.md)
 
-A scheme is defined using a [YAML](https://yaml.org/) file. The file specification is in
-the [Builder Guidelines](/builder.md#schemes-repository)
+### Style
+
+A style spec provides rules and guidelines governing how a palette should be applied within an app.  This means each color is used consistently for similar purposes across all your apps.  Individual styling guides often support different sized pallets and have different ideas about how those colors should be deployed.
+
+See the individual styling guides for more information on each:
+
+- [Base16 Styling](/styling.md)
+- [Base24 Styling](https://github.com/Base24/base24/blob/master/styling.md)
+
+
+A scheme is defined using a [YAML](https://yaml.org/) file. The file specification is in the [Builder Guidelines](/builder.md#schemes-repository)
 
 ### Builder
 
@@ -50,8 +57,8 @@ Supported applications are applications for which a template exists.
 
 ### Official Templates
 
-As a part of the Base16 Project, we maintain a number of templates. Each has
-been sponsored by at least one base16 project member who is committed to
+As a part of the Project, we maintain a number of templates. Each has
+been sponsored by at least one project member who is committed to
 maintaining that template.
 
 We are open to accepting new projects, though they must still be sponsored by a
@@ -77,7 +84,7 @@ have enough usage to warrent including with our official templates.
 
 Submitting a repository to [base16-project-contrib](https://github.com/base16-project-contrib)
 and continuing to work on it is a great way to get involved and get noticed as a
-maintainer so you can work towards getting added to the base16-project team.
+maintainer so you can work towards getting added to the project team.
 
 ### Unofficial Templates
 
@@ -197,12 +204,12 @@ list. These are community maintained templates and may not be updated often.
 
 To add your own template, submit a pull request to this repository to add your
 repository to the "Unofficial Templates" list below in the relevant category.
-**Recommended repository naming scheme: base16-[template-name]** (with dashes as
+**Recommended repository naming scheme: [style-name]-[template-name]** (with dashes as
 separators).
 
 ## Schemes
 
-To add your own scheme, submit a pull request to the [base16-schemes repo](https://github.com/base16-project/base16-schemes) and add your scheme.
+To add a Base16 scheme, simply submit a pull request to the [base16-schemes repo](https://github.com/base16-project/base16-schemes) and add your scheme.
 
 ## Builders
 
