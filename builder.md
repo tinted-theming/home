@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.10.1**
+**Version 0.10.1-dev**
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
@@ -112,7 +112,7 @@ A builder MUST provide the following variables to template files:
 - `base00-dec-g` to `base0F-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
 - `base00-dec-b` to `base0F-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
 
-A builder MUST also provide official named alias variables to template files.  Custom named aliases should not be provided as variables.
+A builder MUST also provide ALL official named alias variables to template files.  Custom named aliases should not be provided as variables.
 
 - `[official_alias_name]-hex` - 6-digit hex color value obtained from the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
 - `[official_alias_name]-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"

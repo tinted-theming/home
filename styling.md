@@ -11,14 +11,14 @@ Describing syntax highlighting can be tricky - please see [base16-vim](https://g
 
 **Guidelines**
 
-- Colors `base00` to `base07` are typically variations of a single hue and run from darkest to lightest. These colors are used for foreground and background, status bars, line highlighting and such.
+- Colors `base00` to `base07` are typically a wide gradient of a single hue. These colors are used for foreground and background, status bars, line highlighting and such.
+	- For a dark scheme, these colors should span from darkest to lightest. (`base00` is the darkest)
+	- For a light scheme, these colours should span from lightest to darkest. (`base00` is the lightest)
 - Colors `base08` to `base0F` are typically individual acddent colors used for syntax highlighting (types, operators, classes, variables, etc.)
-- To create a dark scheme, colors `base00` to `base07` should span from darkest to lightest.
-  - For a light scheme, these colours should span from lightest to darkest.
 
-### Classic Schemes
+### Base16 - The Default "Base" 16 Slots
 
-Classic schemes specify only the original 16 base colors.  The semantic meaning of each base color (when syntax highighlighting) is listed below.
+The default semantic meaning/mappings(s) of each slot (for syntax highighlighting) are listed below.
 
 - **base00** - Default Background
 - **base01** - Lighter Background (Used for status bars, line number and folding marks)
@@ -26,8 +26,8 @@ Classic schemes specify only the original 16 base colors.  The semantic meaning 
 - **base03** - Comments, Invisibles, Line Highlighting
 - **base04** - Dark Foreground (Used for status bars)
 - **base05** - Default Foreground, Caret, Delimiters, Operators
-- **base06** - Light Foreground (Not often used)
-- **base07** - Light Background (Not often used)
+- **base06** - Light Foreground
+- **base07** - Lightest Foreground
 - **base08** - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
 - **base09** - Integers, Boolean, Constants, XML Attributes, Markup Link Url
 - **base0A** - Classes, Markup Bold, Search Text Background
@@ -37,9 +37,9 @@ Classic schemes specify only the original 16 base colors.  The semantic meaning 
 - **base0E** - Keywords, Storage, Selector, Markup Italic, Diff Changed
 - **base0F** - Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
 
-### Extended Schemes
+### Named Slots (Aliases)
 
-Extended themes MAY specify additional aliases that will override the original base colors.  For example if you didn't want "variables" and "xml tags" to use the same color (`base08`) you would use the aliase `name_variable` or `xml_tag` to specify a different color.
+Schemes MAY use additional named slots (aliases) to override individual base slot mappings.  For example if you don't want variables and xml tags to use the same color (`base08`): use the `name_variable` and `xml_tag` slots to specify different colors.
 
 
 #### Foreground / Background
@@ -130,23 +130,22 @@ All the above resolve to red.
 Note: The ordering does not matter, you can refer to an alias before that alias has been defined.
 
 
-### Custom Aliases
+### Custom Slots
 
-You may also define custom alises to make your scheme easier to author/maintain. For example, it may be helpful to use custom aliases to describe your hues:
+You may also define custom slots to make your scheme easier to author/maintain. For example if you hues are visually distinct it may be helpful to use custom slots to name them:
 
 ```yaml
-super_vibrant_purple: "ee00ee"
-red: "ff0000"
-blue: "0000ff"
-green: "00ff00"
-base0b: super_vibrant_purple
-base0c: red
-base0d: blue
-base0e: green
+scheme: "Fun Colors"
+lightsaber_purple: "fe00ef"
+granny_smith_red: "ee1122"
+mr_blue_sky: "336699"
+base0b: lightsaber_purple
+base0c: granny_smith_red
+base0d: mr_blue_sky
 ```
 
 ## Notes
 
-### You may still use only 16 colors.
+### You are still limited to a max of 16 colors.
 
 The number of colors per scheme is still limited to 16.  If you (via aliases) use more than 16 unique hex colors an error will be thrown during the build process.
