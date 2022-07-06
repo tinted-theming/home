@@ -2,19 +2,16 @@
 
 An architecture for crafting color schemes and easily translating them to
 your favorite apps - based on carefully chosen syntax highlighting using a
-base of sixteen colors.
+base of sixteen (or 24) colors.
 
-It allows users to choose a color scheme they know will be available for all
-their applications (both GUIs and terminal applications).
 
-It allows color scheme designers to select a palette of 16 colors once and then instantly generate support for many different applications.
+**Features**
 
-See the [List of supported programs](#template-repositories) on how to apply
-base16 schemes on your favorate program.
+- Over 230 beautiful and ready-to-use colors schemes. [View the Base16 Gallery](https://base16-project.github.io/base16-gallery).
+- Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
+- Allows end users to choose a color scheme they know will be available _everywhere_.
+- Allows color scheme designers to craft a palette of colors once, instantly supporting for many different apps.
 
-## Gallery
-
-We currently host 200+ color palletes. You can check out them at [Base16 Gallery](https://base16-project.github.io/base16-gallery).
 
 ## Documentation and Specification
 
@@ -23,12 +20,14 @@ code a _builder_ for compiling Base16 _schemes_ and _templates_.
 
 ### Scheme
 
-A scheme is a list of 16 colors to be used as a base to build application specific files. To make
-base16 look consistent, each color will be used for similar purpose in different
-programs. See [Styling Guidelines](/styling.md) for more information on how each
+A scheme is a set of colors to be used as a foundation to build application specific files. Each color is used consistently for similar purposes across all your different
+applications. See the styling guidelines for more information on how each
 color should be used.
 
-A scheme is defined using a yaml file. The file specification is in
+- [Base16 Styling Guidelines](/styling.md)
+- [Base24 Styling Guidelines](https://github.com/Base24/base24/blob/master/styling.md)
+
+A scheme is defined using a [YAML](https://yaml.org/) file. The file specification is in
 the [Builder Guidelines](/builder.md#schemes-repository)
 
 ### Builder
@@ -36,26 +35,18 @@ the [Builder Guidelines](/builder.md#schemes-repository)
 A builder is a build tool used by various template repositories to generate
 files based on scheme file and template file.
 
-[Builder Guidelines](/builder.md)
+- [Builder Guidelines](/builder.md)
 
 ### Template
 
-A template defines how a scheme should be transformed to support a specific program.
+A template describes how a scheme should be transformed to support a specific application.  A template repository defines a template file, then uses a builder to generate application specific files using the template.
 
 Templates often include ready-to-use pre-built versions of every scheme. These are typically installed directly by end users to use base16 schemes in different applications.
 
-A template repository typically defines a template file, then uses a builder to
-generate program specific files using the template file.
 
-A template file will be used by builder to generate them.
-The file specification is in [Template section in File Guidelines](/file.md#template-config-files)
+## Supported Applications
 
-## Template Repositories
-
-To add your own template, submit a pull request to this repository to add your
-repository to the "Unofficial Templates" list below in the relevant category.
-**Recommended repository naming scheme: base16-[template-name]** (with dashes as
-separators).
+Supported applications are applications for which a template exists.
 
 ### Official Templates
 
@@ -201,6 +192,13 @@ list. These are community maintained templates and may not be updated often.
 
 </p>
 </details>
+
+### Adding Support for a New Application
+
+To add your own template, submit a pull request to this repository to add your
+repository to the "Unofficial Templates" list below in the relevant category.
+**Recommended repository naming scheme: base16-[template-name]** (with dashes as
+separators).
 
 ## Schemes
 
