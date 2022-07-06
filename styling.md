@@ -1,15 +1,24 @@
 # Styling Guidelines
 **Version 0.3-dev**
 
-Base16 aims to group similar language constructs with a single color. For example, floats, ints, and doubles would belong to the same colour group. The colors for the default scheme were chosen to be easily separable, but scheme designers should pick whichever colours they desire, e.g. base0B (green by default) could be replaced with red. There are, however, some general guidelines below that stipulate which base0B should be used to highlight each construct when designing templates for editors.
+*The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
+interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-Since describing syntax highlighting can be tricky, please see [base16-vim](https://github.com/base16-project/base16-vim/) and [base16-emacs](https://github.com/base16-project/base16-emacs/) for reference. Though it should be noted that each editor will have some discrepancies due the fact that editors generally have different syntax highlighting engines.
+The colors for the default Base16 scheme were chosen to be pleasing and visualy distinctive,  but scheme designers may chose whichever colours they desire, e.g. `base0B` (green in the default scheme) might be swapped for yellow. Base16 (by default) groups similar language constructs within a single color. For example numbers (such as floats, ints, and doubles) would all belong to the same colour group (`base09`).
 
-Colors base00 to base07 are typically variations of a shade and run from darkest to lightest. These colors are used for foreground and background, status bars, line highlighting and such. Colors base08 to base0F are typically individual colors used for types, operators, names and variables. In order to create a dark scheme, colors base00 to base07 should span from dark to light. For a light scheme, these colours should span from light to dark.
+Describing syntax highlighting can be tricky - please see [base16-vim](https://github.com/base16-project/base16-vim/) and [base16-emacs](https://github.com/base16-project/base16-emacs/) for some real-life examples. It should be noted that each editor will have it's own idiosyncrasies due to having different syntax highlighting engines.
+
+**Guidelines**
+
+- Colors `base00` to `base07` are typically variations of a single hue and run from darkest to lightest. These colors are used for foreground and background, status bars, line highlighting and such.
+- Colors `base08` to `base0F` are typically individual acddent colors used for syntax highlighting (types, operators, classes, variables, etc.)
+- To create a dark scheme, colors `base00` to `base07` should span from darkest to lightest.
+  - For a light scheme, these colours should span from lightest to darkest.
 
 ### Classic Schemes
 
-Classic schemes MUST specify only the original 16 base colors.  The semantic meaning of each base color is listed below.
+Classic schemes specify only the original 16 base colors.  The semantic meaning of each base color (when syntax highighlighting) is listed below.
 
 - **base00** - Default Background
 - **base01** - Lighter Background (Used for status bars, line number and folding marks)
@@ -30,7 +39,7 @@ Classic schemes MUST specify only the original 16 base colors.  The semantic mea
 
 ### Extended Schemes
 
-Extended themes MAY specify additional context sensative aliases that when specified supercede the original base colors.  For example if you don't want "variables" and "xml tags" to both be the same color (`base08`) you can specify either (or both) as alises - and assign a different color.
+Extended themes MAY specify additional aliases that will override the original base colors.  For example if you didn't want "variables" and "xml tags" to use the same color (`base08`) you would use the aliase `name_variable` or `xml_tag` to specify a different color.
 
 
 #### Foreground / Background
@@ -100,21 +109,21 @@ Extended themes MAY specify additional context sensative aliases that when speci
 
 ### How to specify an alias
 
-Aliases may refer to hex color values, base colors (`baseXX`), or even other aliases.
+Aliases may refer to base colors (`baseXX`), literal hex color values, or even other aliases.
 
 An example:
 
  ```yaml
-base05: "ff0000" # red
-name_variable: "ff0000" # red
-constant: "base05"
-string: "number"
+base05: "ff0000"         # red
+name_variable: "ff0000"  # red
+constant: "base05"       # more red
+string: "constant"         # still red
 ```
 
 - `base05` refers to the hex color red
 - `name_variable` refers to the hex color red
 - `constant` refers to `base05`, which itself refers to red.
-- `string` refers to `constant`, which refers to `base05`, which again refers to red.
+- `string` refers to `constant`, which refers to `base05`, which finally refers to red (`#ff0000`).
 
 
 ### Custom Aliases
@@ -122,9 +131,11 @@ string: "number"
 You may also define custom alises to make your scheme easier to author/maintain. For example, it may be helpful to use custom aliases to describe your hues:
 
 ```yaml
+super_vibrant_purple: "ee00ee"
 red: "ff0000"
 blue: "0000ff"
 green: "00ff00"
+base0b: super_vibrant_purple
 base0c: red
 base0d: blue
 base0e: green
@@ -132,6 +143,6 @@ base0e: green
 
 ## Notes
 
-### You may still only use 16 colors.
+### You may still use only 16 colors.
 
 The number of colors per scheme is still limited to 16.  If you (via aliases) use more than 16 unique hex colors an error will be thrown during the build process.
