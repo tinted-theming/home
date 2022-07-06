@@ -8,7 +8,7 @@ Smart build tooling for crafting high fidelity color schemes and easily translat
 
 **Features**
 
-- Seamless builder support for multiple style guides/architectures ([Base16](), [Base24](), etc.)
+- Seamless builder support for _multiple_ style guides/architectures ([Base16](), [Base24](), etc.)
 - Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://base16-project.github.io/base16-gallery).
 - Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
 - Allows end users to choose a color scheme they know will be available _everywhere_.
@@ -27,15 +27,17 @@ A scheme is simply a fixed palette of named colors.
 
 ### Style
 
-A style spec provides rules and guidelines governing how a palette should be applied within an app.  This means each color is used consistently for similar purposes across all your apps.  Individual styling guides often support different sized pallets and have different ideas about how those colors should be deployed.
+A style guide provides rules governing how a scheme's palette should be applied within apps.  This means each color is used consistently for similar purposes across all your apps.  Individual styling guides often support different sized pallets and have different ideas about how those colors should be deployed.
 
 See the individual styling guides for more information on each:
 
-- [Base16 Styling](/styling.md)
-- [Base24 Styling](https://github.com/Base24/base24/blob/master/styling.md)
+- [Base16](/styling.md) - the original, 16 colors with very fixed semantic meanings.
+- [Base17](/styling_base17.md) - still 16 colors, but far more power and flexibility to create higher fidelity themes and templates.
+- [Base24](https://github.com/Base24/base24/blob/master/styling.md) - an extra 8  colors for full ANSI support in your terminals.
 
 
 A scheme is defined using a [YAML](https://yaml.org/) file. The file specification is in the [Builder Guidelines](/builder.md#schemes-repository)
+
 
 ### Builder
 
@@ -44,11 +46,12 @@ files based on scheme file and template file.
 
 - [Builder Guidelines](/builder.md)
 
+
 ### Template
 
 A template describes how a scheme should be transformed to support a specific application.  A template repository defines a template file, then uses a builder to generate application specific files using the template.
 
-Templates often include ready-to-use pre-built versions of every scheme. These are typically installed directly by end users to use base16 schemes in different applications.
+Templates often include ready-to-use pre-built versions of every scheme. These are typically installed directly by end users to use the schemes in different applications.
 
 
 ## Supported Applications
@@ -62,7 +65,7 @@ been sponsored by at least one project member who is committed to
 maintaining that template.
 
 We are open to accepting new projects, though they must still be sponsored by a
-base16 project member and have some level of activity.
+project member and have some level of activity.
 
 * [Emacs](https://github.com/base16-project/base16-emacs) maintained by [belak](https://github.com/belak)
 * [FZF](https://github.com/base16-project/base16-fzf) maintained by [fnune](https://github.com/fnune)
