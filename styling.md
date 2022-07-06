@@ -43,79 +43,78 @@ The default slots and their default uses:
 - older templates may only support the default Base 16 slots (ignoring any named slots)
 - for convenience custom slots by always be used to organize your scheme
 
-### Named Slots
+### Built-in Slots
 
-Schemes MAY use named slots to individually override individual means of the base slots.  For example if you don't wish variable names and xml tags to share the same color (slot `base08`): use the `name_variable` and `xml_tag` slots to specify different colors.
+Schemes MAY use built-in slots to precisely fine tune how their color palette will be applied in applications.  For example if you don't desite variable names and xml tags to share the same color (slot `base08`) then you can use the `name_variable` and `xml_tag` built-in slots to specify different colors.
 
 
 #### Foreground / Background
 
-- background - `base00` by default
-- bg_lighter - `base01` by default
-- bg_???? - `base02` by default
-- bg_???? - `base03` by default
-- fg_darker - `base04` by default
-- foreground - `base05` by default
-- fg_lighter - `base06` by default
-- fg_very_light - `base07` by default
+- `background` - `base00` by default
+- `bg_lighter` - `base01` by default
+- `bg_????` - `base02` by default
+- `bg_brightest` - `base03` by default
+- `fg_darker` - `base04` by default
+- `foreground` - `base05` by default
+- `fg_lighter` - `base06` by default
+- `fg_brightest` - `base07` by default
 
 
 #### UI
 
-- bg_selection - `base02` by default
-- bg_line_highlight - `base03` by default
-- bg_search_text - `base0A` by default
-- dark_status_bar - `base04` by default
-- light_status_bar - `base01` by default
+- `bg_selection` - `base02` by default
+- `bg_line_highlight` - `base03` by default
+- `bg_search_text` - `base0A` by default
+- `dark_status_bar` - `base04` by default
+- `light_status_bar` - `base01` by default
+- `caret` - `base05` by default
 
 #### Diff
 
-- diff_inserted - `base0B` by default
-- diff_changed - `base0E` by default
-- diff_deleted - `base08` by default
+- `diff_inserted` - `base0B` by default
+- `diff_changed` - `base0E` by default
+- `diff_deleted` - `base08` by default
 
 #### Markup
 
-- markup_link_text - `base08` by default
-- markup_link_url - `base09` by default
-- markup_list - `base08` by default
-- markup_code - `base0B` by default
-- markup_italic - `base0E` by default
-- markup_bold - `base0A` by default
-- markup_quoted - `base0C` by default
+- `markup_link_text` - `base08` by default
+- `markup_link_url` - `base09` by default
+- `markup_list` - `base08` by default
+- `markup_code` - `base0B` by default
+- `markup_italic` - `base0E` by default
+- `markup_bold` - `base0A` by default
+- `markup_quoted` - `base0C` by default
 
-#### Source / Other
+#### Editor / Source
 
-- caret - `base05` by default
-- delimiters - `base05` by default
-- operator - `base05` by default
-- comments - `base03` (as a FG color) by default
-- invisibles - `base03` (as foreground) by default
-- name_class - `base0A` by default
-- name_class_inherited - `base0B` by default
-- name_function - `base0D` by default
-- name_method  - `base0D` by default
-- name_support - `base0C` by default
-- name_variable  - `base08` by default
-- xml_tag  - `base08` by default
-- xml_attribute - `base09` by default
-- embed_tag - `base0F` by default
-- number - `base09` by default
-- boolean - `base09` by default
-- constant - `base09` by default
-- string - `base0B` by default
-- regex - - `base0C` by default
-- escape_chars - `base0C` by default
-- attribute_id - `base0D` by default
-- heading - `base0D` by default
-- keyword - `base0E` by default
-- storage - `base0E` by default
-- selector - `base0E` by default
-- deprecated - `base0F` by default
+- `delimiters` - `base05` by default
+- `operator` - `base05` by default
+- `comments` - `base03` (as a FG color) by default
+- `invisibles` - `base03` (as foreground) by default
+- `name_class` - `base0A` by default
+- `name_class_inherited` - `base0B` by default
+- `name_function` - `base0D` by default
+- `name_support` - `base0C` by default
+- `name_variable` - `base08` by default
+- `xml_tag` - `base08` by default
+- `xml_attribute` - `base09` by default
+- `embed_tag` - `base0F` by default
+- `constant` - `base09` by default
+- `number` - `base09` by default
+- `boolean` - `base09` by default
+- `string` - `base0B` by default
+- `regex` - `base0C` by default
+- `escape_chars` - `base0C` by default
+- `attribute_id` - `base0D` by default
+- `heading` - `base0D` by default
+- `keyword` - `base0E` by default
+- `storage` - `base0E` by default
+- `selector` - `base0E` by default
+- `deprecated` - `base0F` by default
 
 ### How to Reference a Slot
 
-The value any slot may refer to a literal hex color value, a base slot (`baseXX`), or even a different named slot.
+The value any slot may refer to a literal hex color value, a base slot (`baseXX`), or even a built-in slot, or a variable slot.
 
 An example:
 
@@ -136,19 +135,21 @@ All the above resolve to red.
 Note: The ordering does not matter, you can refer to a slot before that slot has been defined.
 
 
-### Custom Slots
+### Variable Slots
 
-You may also define custom slots to make your scheme easier to author/maintain. For example if you hues are visually distinct it may be helpful to use custom slots to name them:
+You may also define variable slots to make your schemes easier to author and maintain. For example if your hues are visually distinct it could be helpful to name them:
 
 ```yaml
 scheme: "Fun Colors"
-lightsaber_purple: "fe00ef"
-granny_smith_red: "ee1122"
-mr_blue_sky: "336699"
-base0b: lightsaber_purple
-base0c: granny_smith_red
-base0d: mr_blue_sky
+$lightsaber_purple: "fe00ef"
+$granny_smith_red: "ee1122"
+$mr_blue_sky: "336699"
+base0b: $lightsaber_purple
+base0c: $granny_smith_red
+base0d: $mr_blue_sky
 ```
+
+- all variable slot names must start with `$`
 
 ## Notes
 
