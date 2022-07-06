@@ -39,7 +39,6 @@ Extended themes MAY specify additional context sensative aliases that when speci
 - bg_lighter - `base01` by default
 - bg_???? - `base02` by default
 - bg_???? - `base03` by default
-
 - fg_darker - `base04` by default
 - fg_default - `base05` by default
 - fg_lighter - `base06` by default
@@ -116,3 +115,23 @@ string: "number"
 - `name_variable` refers to the hex color red
 - `constant` refers to `base05`, which itself refers to red.
 - `string` refers to `constant`, which refers to `base05`, which again refers to red.
+
+
+### Custom Aliases
+
+You may also define custom alises to make your scheme easier to author/maintain. For example, it may be helpful to use custom aliases to describe your hues:
+
+```yaml
+red: "ff0000"
+blue: "0000ff"
+green: "00ff00"
+base0c: red
+base0d: blue
+base0e: green
+```
+
+## Notes
+
+### You may still only use 16 colors.
+
+The number of colors per scheme is still limited to 16.  If you (via aliases) use more than 16 unique hex colors an error will be thrown during the build process.
