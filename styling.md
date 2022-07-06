@@ -6,7 +6,9 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-The accent colors for the default Base17 scheme were chosen to be pleasing and visualy distinctive, but scheme designers may chose whichever colours they desire, e.g. `base0B` (green in default) might be swapped for yellow. By default similar language constructs are grouped within a single color "slot". For example numbers (floats, integers, etc.) by default are grouped into slot `base09`.
+The eight accent colors for a Base17 scheme should strive to be pleasing and visualy distinctive. Designers may chose any accent colours they desire. _Slots in the palette should not correspond to any particular hue - nor is it advised that you use copy other schemes hue ordering._ This results in [sameness](#sameness).
+
+By default, similar language constructs are assigned to a single color "slot". For example literals (numbers, booleans, etc) by default are assigned to slot `base09`.
 
 Describing syntax highlighting can be tricky - please see [base16-vim](https://github.com/base16-project/base16-vim/) and [base16-emacs](https://github.com/base16-project/base16-emacs/) for some real-life examples. It should be noted that each editor will have it's own idiosyncrasies due to having different syntax highlighting engines.
 
@@ -31,10 +33,30 @@ To upgrade a scheme from Base16 just start using Base17 features in your scheme 
 
 ### The Default Slots
 
-The default slots, their intended usage, and the built-in slots they fill by default.  For example `background` defaults to `base00` if it is not explicitely specified by name.
+The default slots, their intended usage, and the built-in slots they fill by default.
 
+
+| Slot       | Usage  | Fills slot by default... |
+| :-- | :-- | :-- |
+| _base00_ | Default Background  | `background` |
+| _base01_ | Lighter Background | `bg_lighter`, `folding_marks`, `line_numbers` |
+| _base03_ | Comments, Invisibles, Line Highlighting | `comment`, `invisible`, `line_highlighting` |
+| _base04_ | Dark Foreground (Used for status bars) | `fg_darker`, `dark_status_bar` |
+| _base05_ | Default Foreground, Caret, Delimiters, Operators | `foreground`, `caret`, `delimiter`, `operator` |
+| _base06_ | Light Foreground | `fg_lighter` |
+| _base07_ | Lightest Foreground | `fg_brightest` |
+| _base08_ | Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted| `variable`, `xml_tag`, `markup_link_text`, `markup_list`, `diff_deleted` |
+| _base09_ | Integers, Boolean, Constants, XML Attributes, Markup Link Url| `literal`, `constant`, `xml_attribute`, `markup_link_url` |
+| _base0A_ | Classes, Markup Bold, Search Text Background| `name_class`, `markup_bold` `bg_search_text` |
+| _base0B_ | Strings, Inherited Class, Markup Code, Diff Inserted| `string`, `name_class_inherited`, `markup_code`, `diff_inserted` |
+| _base0C_ | Support, Regular Expressions, Escape Characters, Markup Quotes| `support`, `regex`, `escape`, `markup_quotes` |
+| _base0D_ | Functions, Methods, Attribute IDs, Headings| `function`, `attribute_id`, `heading` |
+| _base0E_ | Keywords, Storage, Selector, Markup Italic, Diff Changed| `keyword`, `storage`, `selector`, `markup_italic`, `diff_changed` |
+| _base0F_ | Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>` | `deprecated`, `embed_tags` |
+
+<!--
 - **base00** - Default Background
- - `background`
+  - `background`
 - **base01** - Lighter Background (Used for status bars, line number and folding marks)
   - `bg_lighter`, `folding_marks`
 - **base02** - Selection Background
@@ -49,6 +71,9 @@ The default slots, their intended usage, and the built-in slots they fill by def
 	- `fg_lighter`
 - **base07** - Lightest Foreground
 	- `fg_brightest`
+
+
+
 - **base08** - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
   - `variable`, `xml_tag`, `markup_link_text`, `markup_list`, `diff_deleted`
 - **base09** - Integers, Boolean, Constants, XML Attributes, Markup Link Url
@@ -65,11 +90,27 @@ The default slots, their intended usage, and the built-in slots they fill by def
 	- `keyword`, `storage`, `selector`, `markup_italic`, `diff_changed`
 - **base0F** - Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
 
-**Keep in Mind**
+-->
 
-- every scheme MUST specify all default Base slots
-- older templates may only support the default slots (ignoring any named slots)
-- for convenience custom slots by always be used to organize your scheme
+- every scheme MUST assign all default Base slots
+- older templates may only support the default slots (named slots will be ignored)
+- variable slots may always be used to organize your scheme (regardless of template)
+
+### Common Slot Gotchas
+
+**Don't let a single use case for a slot dictate that slots color.**
+
+You'll notice `base08` by default fills `diff_deleted`.  Red is a nice shade for removals.  You may be briefly tempted to make `base08` red.  Pause first and ask yourself: _Do you ALSO want variables, XML tags, markup link text, and markup lists to be red?_  Often red is only desired for `diff_delted`, not the whole of `base08`.
+
+This problem is easy to avoid:
+
+```yaml
+# assuming we've defined $blue and $red variables
+base08: $blue
+diff_deleted: $red
+```
+
+Now _only deleted diffs will appear red_, the other uses of base08 will be that pretty blue color you picked.
 
 
 ### Built-in Slots
@@ -195,6 +236,26 @@ base0d: $mr_blue_sky
 The number of colors per scheme is still limited to 16.  If you (via slots) create more than 16 unique hex colors an error will be thrown during the build process.
 
 
+### Some of the issues with Base16 that Base17 attempts to solve
+
+Base16 is awesome at what it's managed to accomplish, but it's not without flaws.
+
+#### Sameness
+
+Too often Base16 hues [stick frustratingly close the default scheme hues](https://github.com/base16-project/base16/issues/10#issuecomment-1171593477).  We think this may be because many designers start with the default palette as a base. This could also be influenced by semantic pairing.  The end result: a lot of themes look visually similar and there is less diversity in Base16 schemes than you find in other ecosystems.
+
+_Base17 has no default scheme and explicitly discourages designers from trying to hue match other themes (without reason)._
+
+
+#### Semantic Pairing
+
+With Base16 `base08` is used for both variables and diff deleted.  If you want deleted lines in diffs to be colored red you're stuck with red variables also, nothing you can do about it.  [Base16 themes include a lot of red variables.](https://github.com/base16-project/base16/issues/10)
+
+This also tends to entirely break the fidelity of some themes (like Nord) that are ported from ecosystems without any such restrictions.
+
+_Base17 allows you to override the default pairings and easily define two individual colors._ Variables blue, diff deleted red, you got it.
+
+
 ## Examples
 
 **skittles.yaml**
@@ -213,6 +274,7 @@ $green_apple: "#28B109"
 $pineapple_passion: "#0098CB"
 $stawberry_starfruit: "#DD7EB2"
 
+# adjust the default highlighting just a bit
 # make sure diff is always green/red
 diff_inserted: $green_apple
 diff_changed: fg_darker
