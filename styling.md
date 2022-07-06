@@ -5,18 +5,18 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-The colors for the default Base16 scheme were chosen to be pleasing and visualy distinctive,  but scheme designers may chose whichever colours they desire, e.g. `base0B` (green in the default scheme) might be swapped for yellow. Base16 (by default) groups similar language constructs within a single color. For example numbers (such as floats, ints, and doubles) would all belong to the same colour group (`base09`).
+The colors for the default Base16 scheme were chosen to be pleasing and visualy distinctive,  but scheme designers may chose whichever colours they desire, e.g. `base0B` (green in the default scheme) might be swapped for yellow. Base16 (by default) groups similar language constructs within a single color "slot". For example numbers (such as floats, ints, and doubles) would all belong to the same color slot `base09`.
 
 Describing syntax highlighting can be tricky - please see [base16-vim](https://github.com/base16-project/base16-vim/) and [base16-emacs](https://github.com/base16-project/base16-emacs/) for some real-life examples. It should be noted that each editor will have it's own idiosyncrasies due to having different syntax highlighting engines.
 
 **Guidelines**
 
-- Colors `base00` to `base07` are typically a wide gradient of a single hue. These colors are used for foreground and background, status bars, line highlighting and such.
-	- For a dark scheme, these colors should span from darkest to lightest. (`base00` is the darkest)
-	- For a light scheme, these colours should span from lightest to darkest. (`base00` is the lightest)
-- Colors `base08` to `base0F` are typically individual acddent colors used for syntax highlighting (types, operators, classes, variables, etc.)
+- Slots `base00` to `base07` typically capture a wide gradient of a single hue. These slots are used for foreground and background, status bars, line highlighting and such.
+	- For a dark scheme, these slots should span from darkest to lightest. (`base00` is the darkest)
+	- For a light scheme, these slots should span from lightest to darkest. (`base00` is the lightest)
+- Slots `base08` to `base0F` typically hold individual accent colors used for syntax highlighting (types, operators, classes, variables, etc.)
 
-### Base16 - The Default "Base" 16 Slots
+### The Default "Base" 16 Slots
 
 The default semantic meaning/mappings(s) of each slot (for syntax highighlighting) are listed below.
 
