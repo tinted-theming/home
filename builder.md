@@ -99,7 +99,7 @@ A builder MUST provide the following variables to template files:
 - `scheme-name` - obtained from the `name` key of the scheme file
 - `scheme-author` - obtained from the `author` key of the scheme file
 - `scheme-description` - obtained from the `description` key of the scheme file (fallback value: `scheme-name`)
-- `scheme-slug` - the scheme filename made lowercase with spaces, not including the `.yaml` extension
+- `scheme-slug` - the scheme filename made lowercase, not including the `.yaml` extension
 - `base00-hex` to `base0F-hex` - 6-digit hex color value obtained from the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
 - `base00-hex-bgr` to `base0F-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
 - `base00-hex-r` to `base0F-hex-r` - red component of the hex color value. e.g "7c"
