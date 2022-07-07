@@ -34,7 +34,7 @@ defined by the _template_ and _template config_.
 
 The builder MUST provide a method of loading one or more schemes for use in building templates. The builder MAY provide a method of loading multiple schemes at one time. Convenient access to schemes in the [schemes repository](https://github.com/base16-project/base16-schemes) MAY also be provided.
 
-This repo contains _scheme files_ for all official schemes. We store scheme styles in different folders, but this is not a guarantee.
+This repo contains _scheme files_ for all official schemes. We store scheme styles in different directories, but this is not a guarantee.
 
 - `/base16/*.yaml`
 - `/base24/*.yaml`
