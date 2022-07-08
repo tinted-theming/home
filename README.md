@@ -1,8 +1,7 @@
-<!-- # ![Base16](logo.png) -->
+# All your themes, everywhere.
+ <img alt="Color wheel" src="./color_wheel.png" width="100" align="right" style="padding-top:0.6rem;">
 
-# base16-project (new name is coming) <img alt="Color wheel" src="./color_wheel.png" width="100" align="right" style="padding-top:0.6rem;">
-
-Smart build tooling and style systems for crafting high fidelity color schemes and easily translating them to all your favorite apps.  Originally based on the amazing work of [Chris Kempson](https://github.com/chriskempson/) and [Base16](https://github.com/chriskempson/base16).
+ Style systems and smart build tooling and for crafting high fidelity color schemes and easily using them in all your favorite apps.  Originally based on the amazing work of [Chris Kempson](https://github.com/chriskempson/) and his [Base16](https://github.com/chriskempson/base16) system.
 
 
 
@@ -11,7 +10,7 @@ Smart build tooling and style systems for crafting high fidelity color schemes a
 - Seamless builder support for _multiple_ style systems ([Base16](https://github.com/chriskempson/base16), [Base17 DRAFT](https://github.com/base16-project/base17), [Base24](https://github.com/Base24/base24/), etc.)
 - Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://base16-project.github.io/base16-gallery).
 - Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
-- Allows end users to choose a color scheme they know will be available _everywhere_.
+- Allows end users to choose a color scheme and know it will be available _everywhere_.
 - Allows color scheme designers to craft a palette of colors once, instantly supporting for many different apps.
 
 
@@ -60,7 +59,7 @@ Supported applications are applications for which a template exists.
 
 ### Official Templates
 
-As a part of the Project, we maintain a number of templates. Each has
+We maintain a number of templates. Each has
 been sponsored by at least one project member who is committed to
 maintaining that template.
 
