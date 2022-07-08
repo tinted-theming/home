@@ -21,7 +21,7 @@ The _builder_ and _styling_ specs detail how to compile _schemes_ and _templates
 
 ### Scheme
 
-A scheme is a fixed palette of named colors.
+A scheme is a fixed palette of named colors and (optionally) instructions for how those colors should be used by apps.
 
 
 ### Style
@@ -31,7 +31,7 @@ A style guide provides rules governing how a scheme's palette should be applied 
 See the individual styling guides for more information on each:
 
 - [Base16](/styling.md) - the original, 16 colors with very fixed semantic meanings.
-- [Base17](/styling_base17.md) - still 16 colors, but far more power and flexibility to create higher fidelity themes and templates.
+- [Base17 DRAFT](https://github.com/base16-project/base17) - still 16 colors, but far more power and flexibility to create higher fidelity themes and templates.
 - [Base24](https://github.com/Base24/base24/blob/master/styling.md) - an extra 8  colors for full ANSI support in your terminals.
 
 
