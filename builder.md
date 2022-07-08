@@ -34,7 +34,7 @@ defined by the _template_ and _template config_.
 
 The builder MUST provide a method of loading one or more schemes for use in building templates. The builder MAY provide a method of loading multiple schemes at one time. Convenient access to schemes in the [schemes repository](https://github.com/base16-project/base16-schemes) MAY also be provided.
 
-This repo contains _scheme files_ for all official schemes. We store scheme styles in different directories, but this is not a guarantee.
+This repo contains _scheme files_ for all official schemes. We store scheme files for different systems in separate directories, but this is not a guarantee.
 
 - `/base16/*.yaml`
 - `/base24/*.yaml`
@@ -51,7 +51,7 @@ Scheme files have the following structure:
     scheme: "Scheme Name"
     author: "Scheme Author"
     description: "a short description of the scheme"
-    style: base16
+    system: base16
     colors:
       base00: "#000000"
       base01: "#111111"
@@ -72,7 +72,7 @@ Scheme files have the following structure:
 
 - Hexadecimal color values MUST be preceded by a "#".
 - Hexadecimal color values are case insensitive.
-- If style is not provided it will default to "base16".
+- If `system` is not provided it will default to "base16".
 - In previous versions of the spec, all the base16 colors were defined as top-level keys, so builders SHOULD support old style base16 schemes as well.
 
 </details>
@@ -94,10 +94,10 @@ These files have the following structure:
       output: output-directory-name
 
     additional:
-      styles: [base16]
-      filename: "output-directory-name/{{ scheme-style }}-{{ scheme-slug }}.file-extension"
+      supported-systems: [base16]
+      filename: "output-directory-name/{{ scheme-system }}-{{ scheme-slug }}.file-extension"
 
-This example specifies that a Builder is to parse two template files: `templates/default.mustache` and `templates/additional.mustache`. `extension` defines the extension of the file that will be produced by a Builder, e.g. `base16-default-dark.file-extension`, and `output` defines the output directory that will be created within the template repository's root directory where the processed templates will be created, e.g. `output-directory-name/base16-default-dark.file-extension`. The `styles` key defaults to an array containing only `base16` and limits which schemes will be built for these templates.
+This example specifies that a Builder is to parse two template files: `templates/default.mustache` and `templates/additional.mustache`. `extension` defines the extension of the file that will be produced by a Builder, e.g. `base16-default-dark.file-extension`, and `output` defines the output directory that will be created within the template repository's root directory where the processed templates will be created, e.g. `output-directory-name/base16-default-dark.file-extension`. The `supported-systems` key defaults to an array containing only `base16` and limits which schemes will be built for these templates.
 
 If more control over the output filename is needed, `filename` can be used. It defines a mustache template which returns a filename relative to the template repository's root directory. All the template variables listed below are available.
 
@@ -111,7 +111,7 @@ A builder MUST provide the following variables to template files:
 - `scheme-author` - obtained from the `author` key of the scheme file
 - `scheme-description` - obtained from the `description` key of the scheme file (fallback value: `scheme-name`)
 - `scheme-slug` - the scheme filename made lowercase, not including the `.yaml` extension
-- `scheme-style` - obtained from the `style` key of the scheme file (fallback value: "base16")
+- `scheme-system` - obtained from the `system` key of the scheme file (fallback value: "base16")
 
 Additionally, a builder MUST provide the following variables for each defined color:
 
