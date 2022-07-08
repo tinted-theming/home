@@ -5,7 +5,7 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-A theme builder is a tool that builds application specific themeing configurations. It does this by using scheme files (containing a collection of colors) and template files (instructions concerning how to build the application specific files).
+A theme builder is a tool that builds application specific themeing configurations. It does this by using scheme files (containing a palette of colors) and template files (instructions concerning how to build the application specific files).
 
 Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of the builder.
 
@@ -52,7 +52,7 @@ Scheme files have the following structure:
     author: "Scheme Author"
     description: "a short description of the scheme"
     system: base16
-    colors:
+    palette:
       base00: "#000000"
       base01: "#111111"
       base02: "#222222"
