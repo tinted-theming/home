@@ -90,16 +90,23 @@ Each template repository MUST have a templates folder containing a config.yaml a
 These files have the following structure:
 
     default:
-      extension: .file-extension
-      output: output-directory-name
-
-    additional:
       supported-systems: [base16]
       filename: "output-directory-name/{{ scheme-system }}-{{ scheme-slug }}.file-extension"
 
-This example specifies that a Builder is to parse two template files: `templates/default.mustache` and `templates/additional.mustache`. `extension` defines the extension of the file that will be produced by a Builder, e.g. `base16-default-dark.file-extension`, and `output` defines the output directory that will be created within the template repository's root directory where the processed templates will be created, e.g. `output-directory-name/base16-default-dark.file-extension`. The `supported-systems` key defaults to an array containing only `base16` and limits which schemes will be built for these templates.
+    additional:
+      extension: .another-extension
+      output: output-directory-name
 
-If more control over the output filename is needed, `filename` can be used. It defines a mustache template which returns a filename relative to the template repository's root directory. All the template variables listed below are available.
+This example specifies that a Builder is to parse two template files: `templates/default.mustache` and `templates/additional.mustache`.
+
+`filename` defines a mustache template which returns a filename relative to the template repository's root directory. All the [template variables](#template-variables) listed below are available.
+
+`extension` and `output` are legacy options and SHOULD NOT be used by templates. If `filename` is not specified, the output filename will be `{{ output }}/{{ scheme-system }}-{{ scheme-slug }}.{{ extension }}` and will also be relative to the template repository's root directory.
+
+As an example, the above config will output the following files for the `base16` `default-dark` color scheme:
+
+- `output-directory-name/base16-default-dark.file-extension`, built from `default.mustache`
+- `output-directory-name/base16-default-dark.another-extension`, built from `additional.mustache`.
 
 </details>
 
