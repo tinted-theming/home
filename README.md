@@ -35,7 +35,7 @@ See the individual styling guides for more information on each:
 - [Base24](https://github.com/Base24/base24/blob/master/styling.md) - an extra 8  colors for full ANSI support in your terminals.
 
 
-A scheme is defined using a [YAML](https://yaml.org/) file. The file specification is in the [Builder Guidelines](/builder.md#schemes-repository)
+A scheme is defined using a [YAML](https://yaml.org/) file. The file specification is in the [Builder Guidelines](/builder.md#schemes-repository).
 
 
 ### Builder
