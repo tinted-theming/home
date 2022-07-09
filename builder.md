@@ -121,7 +121,7 @@ As an example, the above config will output the following files for the `base16`
 
 A builder MUST provide the following variables to template files:
 
-- `scheme-name` - obtained from the `scheme` key of the scheme file
+- `scheme-name` - obtained from the `name` key of the scheme file
 - `scheme-author` - obtained from the `author` key of the scheme file
 - `scheme-description` - obtained from the `description` key of the scheme file (fallback value: `scheme-name`)
 - `scheme-slug` - the scheme filename made lowercase, not including the `.yaml` extension
