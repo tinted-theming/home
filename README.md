@@ -271,4 +271,6 @@ Have something you want to discuss, but you're not sure it warrants an issue? Fe
 
 ## Credits
 
-Thanks to [Chris Kempson](https://github.com/chriskempson) for the original concept and implementation.
+- Thanks to [Chris Kempson](https://github.com/chriskempson) for the original concept and implementation.
+- Color wheel icon thanks to [Color icons created by Nikita Golubev - Flaticon](https://www.flaticon.com/free-icons/color).
+
