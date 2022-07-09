@@ -80,9 +80,9 @@ Terminals:
 ### Contrib Templates
 
 In order to prevent ownership issues, we're introducing the concept of contrib
-templates. These are templates which have been handed over to the
-base16-project, but either aren't sponsored by a base16-project member or don't
-have enough usage to warrent including with our official templates.
+templates. These are templates which have been transferred to the
+organization, but either aren't sponsored by an org member or don't
+have enough usage to warrent inclusion with our official templates.
 
 Submitting a repository to [base16-project-contrib](https://github.com/base16-project-contrib)
 and continuing to work on it is a great way to get involved and get noticed as a
@@ -226,8 +226,8 @@ version.
 See the [CHANGELOG](/CHANGELOG.md) for more information about changes in the
 spec.
 
-* [Base 16 Builder Go](https://github.com/base16-project/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
-* [Base16 Builder Node](https://github.com/base16-project/base16-builder-node) maintained by [JoshGoebel](https://github.com/JoshGoebel) - currently supports 0.10.0
+* [Base16 Builder Go](https://github.com/base16-project/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
+* [Base16 Builder Node](https://github.com/base16-project/base16-builder-node) maintained by [joshgoebel](https://github.com/joshgoebel) - currently supports 0.10.0
 
 ## Scheme and Template Author Resources
 
@@ -236,9 +236,9 @@ The following is a list of useful resources for anyone creating a Base16 scheme 
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com) - An online editor for themes in tmTheme format.
 * [Base16 Template Converter](https://github.com/ntpeters/base16-template-converter) - A script to automatically convert Base16 templates written in the old Embedded Ruby style to the new Mustache style.
 
-## Tools for using Base16
+## Tools
 
-If you've written a tool for base16 feel free to add it to the list below:
+If you've written a tool feel free to add it to the list below:
 
 * [auto-base16-theme](https://github.com/makuto/auto-base16-theme) - A command line tool to create a base16 theme from an input image's color palette.
 * [base16-manager](https://github.com/AuditeMarlow/base16-manager) - A command line tool to install base16 templates and set themes globally.
@@ -249,7 +249,7 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [base16-spectrum-generator](https://github.com/alexmirrington/base16-spectrum-generator) - A Python script for generating `.png` files showcasing the colours in a base16 theme.
 * [base16.nix](https://github.com/SenchoPens/base16.nix) - a NixOS / home-manager module to set base16 / base24 schemes and use templates.
 
-## Projects using Base16
+## Projects
 
 * [Visual Studio Code](https://code.visualstudio.com) - Code Editor
 * [Atom Editor](https://atom.io) - Code Editor
@@ -262,7 +262,7 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [Highlight.js](https://highlightjs.org) - JavaScript syntax highlighter
 * [nix-colors](https://github.com/Misterio77/nix-colors) - Designed to help with Nix(OS) theming.
 
-## Non-template Base16 Themes
+## Non-template Themes
 
 * [base16-mutt](https://github.com/josephholsten/base16-mutt) - a config file for mutt which uses base16 colors from the terminal
 
