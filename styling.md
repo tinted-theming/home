@@ -1,11 +1,15 @@
-# Styling Guidelines
+_The canonical version of this spec can be found at [chriskempson/base16](https://github.com/chriskempson/base16/blob/main/styling.md).  The document is reproduced here for both convenience and archival purposes. Minor formatting changes have been made to improve readability._
+
+---
+
+# Base16 Styling Guidelines
 **Version 0.2**
 
-Base16 aims to group similar language constructs with a single color. For example, floats, ints, and doubles would belong to the same colour group. The colors for the default scheme were chosen to be easily separable, but scheme designers should pick whichever colours they desire, e.g. base0B (green by default) could be replaced with red. There are, however, some general guidelines below that stipulate which base0B should be used to highlight each construct when designing templates for editors.
+Base16 aims to group similar language constructs with a single color. For example, floats, ints, and doubles would belong to the same colour group. The colors for the default scheme were chosen to be easily separable, but scheme designers should pick whichever colours they desire, e.g. `base0B` (green by default) could be replaced with red. There are, however, some general guidelines below that stipulate which `base0B` should be used to highlight each construct when designing templates for editors.
 
 Since describing syntax highlighting can be tricky, please see [base16-vim](https://github.com/base16-project/base16-vim/) and [base16-emacs](https://github.com/base16-project/base16-emacs/) for reference. Though it should be noted that each editor will have some discrepancies due the fact that editors generally have different syntax highlighting engines.
 
-Colors base00 to base07 are typically variations of a shade and run from darkest to lightest. These colors are used for foreground and background, status bars, line highlighting and such. Colors base08 to base0F are typically individual colors used for types, operators, names and variables. In order to create a dark scheme, colors base00 to base07 should span from dark to light. For a light scheme, these colours should span from light to dark.
+Colors `base00` to `base07` are typically variations of a shade and run from darkest to lightest. These colors are used for foreground and background, status bars, line highlighting and such. Colors `base08` to `base0F` are typically individual colors used for types, operators, names and variables. In order to create a dark scheme, colors base00 to `base07` should span from dark to light. For a light scheme, these colours should span from light to dark.
 
 - **base00** - Default Background
 - **base01** - Lighter Background (Used for status bars, line number and folding marks)
