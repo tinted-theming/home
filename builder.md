@@ -72,7 +72,7 @@ Scheme files have the following structure:
 
 - Hexadecimal color values MUST be preceded by a "#".
 - Hexadecimal color values are case insensitive.
-- If `system` is not provided it will default to "base16".
+- If `system` is not provided the builder will assume `base16`. (note: `base16` is not a valid system to specify though since the base16 spec itself does not allow for a `system` key)
 - In previous versions of the spec, all the base16 colors were defined as top-level keys, so builders SHOULD support old style base16 schemes as well.
 
 </details>
