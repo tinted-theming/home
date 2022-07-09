@@ -73,9 +73,14 @@ Scheme files have the following structure:
 - Hexadecimal color values MUST be preceded by a "#". (except in `base16` where this is optional)
 - Hexadecimal color values are case insensitive.
 - If `system` is not provided the builder will assume `base16`. (note: `base16` is not a valid system to specify though since the base16 spec itself does not allow for a `system` key)
-- If `system` is detected as `base16` the `palette` keys MUST all be top-level, not within a `palette` key.
-- If `system` is detected as `base16` the `name` key is instead named `scheme`.
 
+#### Other `base16` system caveats
+
+If `system` is detected as `base16`:
+
+- the `palette` children MUST all be top-level, there MUST not be a `palette` key.
+- the scheme name MUST be specified using `scheme`, not `name`.
+- the `description` key is not valid and MUST not be included.
 
 </details>
 
@@ -116,7 +121,7 @@ As an example, the above config will output the following files for the `base16`
 
 A builder MUST provide the following variables to template files:
 
-- `scheme-name` - obtained from the `name` key of the scheme file
+- `scheme-name` - obtained from the `scheme` key of the scheme file
 - `scheme-author` - obtained from the `author` key of the scheme file
 - `scheme-description` - obtained from the `description` key of the scheme file (fallback value: `scheme-name`)
 - `scheme-slug` - the scheme filename made lowercase, not including the `.yaml` extension
