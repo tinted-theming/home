@@ -1,70 +1,70 @@
-# ![Base16](logo.png)
+# All your themes, everywhere.
+ <img alt="Color wheel" src="./color_wheel.png" width="100" align="right" style="padding-top:0.6rem;">
 
-An architecture for crafting color schemes and easily translating them to
-your favorite apps - based on carefully chosen syntax highlighting using a
-base of sixteen colors.
+ Style systems and smart build tooling for crafting high fidelity color schemes and easily using them in all your favorite apps.  Originally based on the amazing work of [Chris Kempson](https://github.com/chriskempson/) and his [Base16](https://github.com/chriskempson/base16) system.
 
-It allows users to choose a color scheme they know will be available for all
-their applications (both GUIs and terminal applications).
 
-It allows color scheme designers to select a palette of 16 colors once and then instantly generate support for many different applications.
 
-See the [List of supported programs](#template-repositories) on how to apply
-base16 schemes on your favorate program.
+**Features**
 
-## Gallery
+- Seamless builder support for _multiple_ style systems ([Base16](https://github.com/chriskempson/base16), [Base17 DRAFT](https://github.com/base16-project/base17), [Base24](https://github.com/Base24/base24/), etc.)
+- Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://base16-project.github.io/base16-gallery).
+- Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
+- Allows end users to choose a color scheme and know it will be available _everywhere_.
+- Allows color scheme designers to craft a palette of colors once, instantly supporting for many different apps.
 
-We currently host 200+ color palletes. You can check out them at [Base16 Gallery](https://base16-project.github.io/base16-gallery).
 
 ## Documentation and Specification
 
-Base16 provides a set of guidelines detailing how to style syntax and how to
-code a _builder_ for compiling Base16 _schemes_ and _templates_.
+The _builder_ and _styling_ specs detail how to compile _schemes_ and _templates_ into application specific configurations.
+
 
 ### Scheme
 
-A scheme is a list of 16 colors to be used as a base to build application specific files. To make
-base16 look consistent, each color will be used for similar purpose in different
-programs. See [Styling Guidelines](/styling.md) for more information on how each
-color should be used.
+A scheme is a fixed palette of named colors and (optionally) instructions for how those colors should be used by apps.
 
-A scheme is defined using a yaml file. The file specification is in
-the [Builder Guidelines](/builder.md#schemes-repository)
+
+### Style
+
+A style guide provides rules governing how a scheme's palette should be applied within apps.  This means each color is used consistently for similar purposes across all your apps.  Individual styling guides often support different sized pallets and have different ideas about how those colors should be deployed.
+
+See the individual styling guides for more information on each:
+
+- [Base16](/styling.md) - the original, 16 colors with very fixed semantic meanings.
+- [Base17 DRAFT](https://github.com/base16-project/base17) - still 16 colors, but far more power and flexibility to create higher fidelity themes and templates.
+- [Base24](https://github.com/Base24/base24/blob/master/styling.md) - an extra 8  colors for full ANSI support in your terminals.
+
+
+A scheme is defined using a [YAML](https://yaml.org/) file. The file specification is in the [Builder Guidelines](/builder.md#schemes-repository).
+
 
 ### Builder
 
 A builder is a build tool used by various template repositories to generate
 files based on scheme file and template file.
 
-[Builder Guidelines](/builder.md)
+- [Builder Guidelines](/builder.md)
+
 
 ### Template
 
-A template defines how a scheme should be transformed to support a specific program.
+A template describes how a scheme should be transformed to support a specific application.  A template repository defines a template file, then uses a builder to generate application specific files using the template.
 
-Templates often include ready-to-use pre-built versions of every scheme. These are typically installed directly by end users to use base16 schemes in different applications.
+Templates often include ready-to-use pre-built versions of every scheme. These are typically installed directly by end users to use the schemes in different applications.
 
-A template repository typically defines a template file, then uses a builder to
-generate program specific files using the template file.
 
-A template file will be used by builder to generate them.
-The file specification is in [Template section in File Guidelines](/file.md#template-config-files)
+## Supported Applications
 
-## Template Repositories
-
-To add your own template, submit a pull request to this repository to add your
-repository to the "Unofficial Templates" list below in the relevant category.
-**Recommended repository naming scheme: base16-[template-name]** (with dashes as
-separators).
+Supported applications are applications for which a template exists.
 
 ### Official Templates
 
-As a part of the Base16 Project, we maintain a number of templates. Each has
-been sponsored by at least one base16 project member who is committed to
+We maintain a number of templates. Each has
+been sponsored by at least one project member who is committed to
 maintaining that template.
 
 We are open to accepting new projects, though they must still be sponsored by a
-base16 project member and have some level of activity.
+project member and have some level of activity.
 
 * [Emacs](https://github.com/base16-project/base16-emacs) maintained by [belak](https://github.com/belak)
 * [FZF](https://github.com/base16-project/base16-fzf) maintained by [fnune](https://github.com/fnune)
@@ -80,13 +80,13 @@ Terminals:
 ### Contrib Templates
 
 In order to prevent ownership issues, we're introducing the concept of contrib
-templates. These are templates which have been handed over to the
-base16-project, but either aren't sponsored by a base16-project member or don't
-have enough usage to warrent including with our official templates.
+templates. These are templates which have been transferred to the
+organization, but either aren't sponsored by an org member or don't
+have enough usage to warrent inclusion with our official templates.
 
 Submitting a repository to [base16-project-contrib](https://github.com/base16-project-contrib)
 and continuing to work on it is a great way to get involved and get noticed as a
-maintainer so you can work towards getting added to the base16-project team.
+maintainer so you can work towards getting added to the project team.
 
 ### Unofficial Templates
 
@@ -202,9 +202,16 @@ list. These are community maintained templates and may not be updated often.
 </p>
 </details>
 
+### Adding Support for a New Application
+
+To add your own template, submit a pull request to this repository to add your
+repository to the "Unofficial Templates" list below in the relevant category.
+**Recommended repository naming scheme: [style-name]-[template-name]** (with dashes as
+separators).
+
 ## Schemes
 
-To add your own scheme, submit a pull request to the [base16-schemes repo](https://github.com/base16-project/base16-schemes) and add your scheme.
+To add a Base16 scheme, simply submit a pull request to the [base16-schemes repo](https://github.com/base16-project/base16-schemes) and add your scheme.
 
 ## Builders
 
@@ -219,8 +226,8 @@ version.
 See the [CHANGELOG](/CHANGELOG.md) for more information about changes in the
 spec.
 
-* [Base 16 Builder Go](https://github.com/base16-project/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
-* [Base16 Builder Node](https://github.com/base16-project/base16-builder-node) maintained by [JoshGoebel](https://github.com/JoshGoebel) - currently supports 0.10.0
+* [Base16 Builder Go](https://github.com/base16-project/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
+* [Base16 Builder Node](https://github.com/base16-project/base16-builder-node) maintained by [joshgoebel](https://github.com/joshgoebel) - currently supports 0.10.0
 
 ## Scheme and Template Author Resources
 
@@ -229,9 +236,9 @@ The following is a list of useful resources for anyone creating a Base16 scheme 
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com) - An online editor for themes in tmTheme format.
 * [Base16 Template Converter](https://github.com/ntpeters/base16-template-converter) - A script to automatically convert Base16 templates written in the old Embedded Ruby style to the new Mustache style.
 
-## Tools for using Base16
+## Tools
 
-If you've written a tool for base16 feel free to add it to the list below:
+If you've written a tool feel free to add it to the list below:
 
 * [auto-base16-theme](https://github.com/makuto/auto-base16-theme) - A command line tool to create a base16 theme from an input image's color palette.
 * [base16-manager](https://github.com/AuditeMarlow/base16-manager) - A command line tool to install base16 templates and set themes globally.
@@ -242,7 +249,7 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [base16-spectrum-generator](https://github.com/alexmirrington/base16-spectrum-generator) - A Python script for generating `.png` files showcasing the colours in a base16 theme.
 * [base16.nix](https://github.com/SenchoPens/base16.nix) - a NixOS / home-manager module to set base16 / base24 schemes and use templates.
 
-## Projects using Base16
+## Projects
 
 * [Visual Studio Code](https://code.visualstudio.com) - Code Editor
 * [Atom Editor](https://atom.io) - Code Editor
@@ -255,7 +262,7 @@ If you've written a tool for base16 feel free to add it to the list below:
 * [Highlight.js](https://highlightjs.org) - JavaScript syntax highlighter
 * [nix-colors](https://github.com/Misterio77/nix-colors) - Designed to help with Nix(OS) theming.
 
-## Non-template Base16 Themes
+## Non-template Themes
 
 * [base16-mutt](https://github.com/josephholsten/base16-mutt) - a config file for mutt which uses base16 colors from the terminal
 
