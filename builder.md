@@ -127,19 +127,19 @@ A builder MUST provide the following variables to template files:
 - `scheme-slug` - the scheme filename made lowercase, not including the `.yaml` extension
 - `scheme-system` - obtained from the `system` key of the scheme file (fallback value: "base16")
 
-Additionally, a builder MUST provide the following variables for each defined color:
+Additionally, a builder MUST provide the following variables for each defined palette entry (eg `base00`):
 
-- `{{ color-name }}-hex` - 6-digit hex color value obtained from the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
-- `{{ color-name }}-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
-- `{{ color-name }}-hex-r` - red component of the hex color value. e.g "7c"
-- `{{ color-name }}-hex-g` - green component of the hex color value. e.g "af"
-- `{{ color-name }}-hex-b` - blue component of the hex color value. e.g "c2"
-- `{{ color-name }}-rgb-r` - red component as a value between `0` and `255`. e.g "124"
-- `{{ color-name }}-rgb-g` - green component as a value between `0` and `255`. e.g "175"
-- `{{ color-name }}-rgb-b` - blue component as a value between `0` and `255` e.g "194"
-- `{{ color-name }}-dec-r` - red component as a value between `0` and `1.0`. e.g "0.4863"
-- `{{ color-name }}-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
-- `{{ color-name }}-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
+- `{{ entry-name }}-hex` - 6-digit hex color value obtained from the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
+- `{{ entry-name }}-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
+- `{{ entry-name }}-hex-r` - red component of the hex color value. e.g "7c"
+- `{{ entry-name }}-hex-g` - green component of the hex color value. e.g "af"
+- `{{ entry-name }}-hex-b` - blue component of the hex color value. e.g "c2"
+- `{{ entry-name }}-rgb-r` - red component as a value between `0` and `255`. e.g "124"
+- `{{ entry-name }}-rgb-g` - green component as a value between `0` and `255`. e.g "175"
+- `{{ entry-name }}-rgb-b` - blue component as a value between `0` and `255` e.g "194"
+- `{{ entry-name }}-dec-r` - red component as a value between `0` and `1.0`. e.g "0.4863"
+- `{{ entry-name }}-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
+- `{{ entry-name }}-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
 
 ## Considerations
 
