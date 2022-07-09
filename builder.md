@@ -51,7 +51,7 @@ Scheme files have the following structure:
     scheme: "Scheme Name"
     author: "Scheme Author"
     description: "a short description of the scheme"
-    system: base16
+    system: base17
     palette:
       base00: "#000000"
       base01: "#111111"
