@@ -46,7 +46,7 @@ This could alternatively be expressed as this:
 <details>
   <summary>Scheme Files Spec</summary>
 
-Scheme files have the following structure:
+Scheme files (excluding `base16`) have the following structure:
 
     name: "Scheme Name"
     author: "Scheme Author"
@@ -81,6 +81,27 @@ If `system` is detected as `base16`:
 - the `palette` children MUST all be top-level, there MUST not be a `palette` key.
 - the scheme name MUST be specified using `scheme`, not `name`.
 - the `description` key is not valid and MUST not be included.
+
+#### Stucture of a `base16` scheme
+
+    scheme: "Scheme Name"
+    author: "Scheme Author"
+    base00: "000000"
+    base01: "111111"
+    base02: "222222"
+    base03: "333333"
+    base04: "444444"
+    base05: "555555"
+    base06: "666666"
+    base07: "777777"
+    base08: "888888"
+    base09: "999999"
+    base0A: "aaaaaa"
+    base0B: "bbbbbb"
+    base0C: "cccccc"
+    base0D: "dddddd"
+    base0E: "eeeeee"
+    base0F: "ffffff"
 
 </details>
 
