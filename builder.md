@@ -72,17 +72,11 @@ Scheme files (excluding `base16`) have the following structure:
 
 - Hexadecimal color values MUST be preceded by a "#". (except in `base16` where this is optional)
 - Hexadecimal color values are case insensitive.
-- If `system` is not provided the builder will assume `base16`. (note: `base16` is not a valid system to specify though since the base16 spec itself does not allow for a `system` key)
+- If `system` is not provided the builder will assume `base16`. (note: `base16` is not a valid system to specify though since the base16 spec itself does not allow a `system` key)
 
-#### Other `base16` system caveats
+**Base16 Scheme Files**
 
-If `system` is detected as `base16`:
-
-- the `palette` children MUST all be top-level, there MUST not be a `palette` key.
-- the scheme name MUST be specified using `scheme`, not `name`.
-- the `description` key is not valid and MUST not be included.
-
-#### Stucture of a `base16` scheme
+Base16 Scheme files have the following structure:
 
     scheme: "Scheme Name"
     author: "Scheme Author"
@@ -102,6 +96,13 @@ If `system` is detected as `base16`:
     base0D: "dddddd"
     base0E: "eeeeee"
     base0F: "ffffff"
+
+When `system` is detected as `base16`:
+
+- Hexadecimal color values MAY be preceded by a "#".
+- the `palette` children MUST all be top-level, there MUST not be a `palette` key.
+- the scheme name MUST be specified using `scheme`, not `name`.
+- the `description` key is not valid and MUST not be included.
 
 </details>
 
