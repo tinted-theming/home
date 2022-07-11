@@ -49,6 +49,7 @@ This could alternatively be expressed as this:
 Scheme files (excluding `base16`) have the following structure:
 
     name: "Scheme Name"
+    slug: "scheme-name"
     author: "Scheme Author"
     description: "a short description of the scheme"
     system: base17
@@ -70,6 +71,7 @@ Scheme files (excluding `base16`) have the following structure:
       base0E: "#eeeeee"
       base0F: "#ffffff"
 
+- If `slug` is not provided, it can be obtained by taking the scheme name, replacing any unicode characters with their ASCII aproximations, replacing spaces with the `-` character, and dropping all non-alpha-numeric and non-dash characters.
 - Hexadecimal color values MUST be preceded by a "#". (except in `base16` where this is optional)
 - Hexadecimal color values are case insensitive.
 - If `system` is not provided the builder will assume `base16`. (note: `base16` is not a valid system to specify though since the base16 spec itself does not allow a `system` key)
@@ -146,7 +148,7 @@ A builder MUST provide the following variables to template files:
 - `scheme-name` - obtained from the `name` key of the scheme file
 - `scheme-author` - obtained from the `author` key of the scheme file
 - `scheme-description` - obtained from the `description` key of the scheme file (fallback value: `scheme-name`)
-- `scheme-slug` - the scheme filename made lowercase, not including the `.yaml` extension
+- `scheme-slug` - obtained from the `slug` key of the scheme file (fallback value: `scheme-name`, but normalized as described above)
 - `scheme-system` - obtained from the `system` key of the scheme file (fallback value: "base16")
 
 Additionally, a builder MUST provide the following variables for each defined palette entry (eg `base00`):
