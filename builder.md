@@ -5,43 +5,29 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-A theme builder is a tool that builds application specific themeing configurations. It does this by using scheme files (containing a palette of colors) and template files (instructions concerning how to build the application specific files).
+A theme builder is a tool that builds application specific themes. It does this by using scheme files (containing a palette of colors) and template files (instructions concerning how to build the application specific files).
 
 Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of the builder.
 
-## Definitions
+## Glossary
 
-A _scheme_ is a YAML file which represents a palette of colors. For
-example: the [solarized
-scheme](https://github.com/base16-project/base16-schemes/blob/main/solarized-dark.yaml)
+A _scheme_ is a generally a YAML file representing metadata about a scheme and a palette of colors. For example: the [solarized base16 scheme](https://github.com/base16-project/base16-schemes/blob/main/solarized-dark.yaml)
 
-A _template_ is a mustache file which acts as a blueprint; it represents
-how to translate the scheme into an application's desired format. For example: the [base16-vim
-template](https://github.com/base16-project/base16-vim/blob/main/templates/default.mustache)
-is used to convert a _base16 scheme_ into a vim colorscheme.
+A _scheme system_ generally consists of a styling guide and schemes. For example [base17](https://github.com/base16-project/base17).
 
-A _theme builder_ is an application that implements the full _building_
-feature specification, but MAY include additional functionality. These are
-usually targeted at template maintainers or when building other theme-related tooling.
+A _template_ is a mustache file which acts as a blueprint; it represents how to translate the scheme into an application's desired format. For example: the [base16-vim template](https://github.com/base16-project/base16-vim/blob/main/templates/default.mustache) is used to convert a _base16 scheme_ into a vim colorscheme.
 
-_Building_ a _template_ is the process of replacing its variables (section 4.1)
-with ones extracted from a _scheme_; usually outputting it to a file, as
-defined by the _template_ and _template config_.
+A _theme builder_ is a tool which transforms color schemes and templates into application specific files. These are usually targeted at template maintainers or when building other theme-related tooling. There are two subcategories of _theme builders_.
+
+A _basic theme builder_ is an application that implements the palette-based portion of the _building_ feature specification. It can load the colors in the color scheme's palette, but does not handle semantic names for any scheme system.
+
+A _semantic theme builder_ is an application which implements the full _building_ feature specification for at least one scheme system. Any _semantic theme builder_ MUST also function as a _basic theme builder_.
+
+_Building a template_ is the process of replacing its variables with ones extracted from a _scheme_; usually outputting it to a file, as defined by the _template_ and _template config_.
 
 ## Inputs
 
-### Schemes Repository
-
-The builder MUST provide a method of loading one or more schemes for use in building templates. The builder MAY provide a method of loading multiple schemes at one time. Convenient access to schemes in the [schemes repository](https://github.com/base16-project/base16-schemes) MAY also be provided.
-
-This repo contains _scheme files_ for all official schemes. We store scheme files for different systems in separate directories, but this is not a guarantee.
-
-- `/base16/*.yaml`
-- `/base24/*.yaml`
-
-This could alternatively be expressed as this:
-
-- `**/*.yaml`
+### Schemes
 
 <details>
   <summary>Scheme Files Spec</summary>
@@ -70,15 +56,19 @@ Scheme files (excluding `base16`) have the following structure:
       base0D: "#dddddd"
       base0E: "#eeeeee"
       base0F: "#ffffff"
+    mappings:
+      diff_added_bg: base0B
 
-- If `slug` is not provided, it can be obtained by taking the scheme name, replacing any unicode characters with their ASCII aproximations, replacing spaces with the `-` character, and dropping all non-alpha-numeric and non-dash characters.
+- If `system` is not provided, the scheme MUST be loaded as a Legacy Base16 Scheme as described below.
+- If `slug` is not provided, it can be inferred by starting with the scheme name, replacing any unicode characters with their ASCII aproximations, replacing spaces with the `-` character, and dropping all non-alphanumeric and non-dash characters.
 - Hexadecimal color values MUST be preceded by a "#". (except in `base16` where this is optional)
 - Hexadecimal color values are case insensitive.
 - If `system` is not provided the builder will assume `base16`. (note: `base16` is not a valid system to specify though since the base16 spec itself does not allow a `system` key)
+- `mappings` create color aliases and always reference a slot in the palette by name. Default mappings are often specified by the given scheme system and can be overridden here.
 
-**Base16 Scheme Files**
+**Legacy Base16 Scheme Files**
 
-Base16 Scheme files have the following structure:
+Base16 (and Base24) Scheme files have the following structure:
 
     scheme: "Scheme Name"
     author: "Scheme Author"
@@ -99,8 +89,9 @@ Base16 Scheme files have the following structure:
     base0E: "eeeeee"
     base0F: "ffffff"
 
-When `system` is detected as `base16`:
+When scheme is loaded in legacy mode, the following changes apply:
 
+- `system` will be inferred as as either `base16` or `base24` depending on which bases are provided
 - Hexadecimal color values MAY be preceded by a "#".
 - the `palette` children MUST all be top-level, there MUST not be a `palette` key.
 - the scheme name MUST be specified using `scheme`, not `name`.
@@ -148,10 +139,10 @@ A builder MUST provide the following variables to template files:
 - `scheme-name` - obtained from the `name` key of the scheme file
 - `scheme-author` - obtained from the `author` key of the scheme file
 - `scheme-description` - obtained from the `description` key of the scheme file (fallback value: `scheme-name`)
-- `scheme-slug` - obtained from the `slug` key of the scheme file (fallback value: `scheme-name`, but normalized as described above)
+- `scheme-slug` - obtained from the `slug` key of the scheme file (fallback value: `scheme-name`, but normalized as described in the Scheme Files Spec section)
 - `scheme-system` - obtained from the `system` key of the scheme file (fallback value: "base16")
 
-Additionally, a builder MUST provide the following variables for each defined palette entry (eg `base00`):
+Additionally, a builder MUST provide the following variables for each defined palette entry and semantic mapping (eg `base00` and `diff_added_bg`):
 
 - `{{ entry-name }}-hex` - 6-digit hex color value obtained from the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
 - `{{ entry-name }}-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
