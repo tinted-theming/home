@@ -149,6 +149,20 @@ Additionally, a builder MUST provide the following variables for each defined to
 - `{{ token-name }}-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
 - `{{ token-name }}-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
 
+## Slugify
+
+Slugify is simplest to implement in a number of passes:
+
+* Start with your input value, replacing any Unicode characters with their ASCII aproximations (as an example é would become e). On a technical level, this can be done by normalizing the string to the Unicode NFD form (which is the decomposed version), and then dropping any combining characters.
+* Replace spaces with the `-` character
+* Drop all non-alphanumeric and non-dash characters
+
+*Examples:*
+
+* `Tomorrow Night` -> `tomorrow-night`
+* `Rosé Pine` -> `rose-pine`
+* `Default (Dark)` -> `default-dark`
+
 ## Considerations
 
 Mustache was chosen as the templating language due to its simplicity and widespread adoption across languages. YAML was chosen to describe scheme and configuration files for the same reasons.
