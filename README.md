@@ -1,4 +1,4 @@
-# All your themes, everywhere. <img alt="Color wheel" src="./color_wheel.png" width="100" align="right" style="padding-top:0.6rem;">
+# All your themes, everywhere.
 
 Style systems and smart build tooling for crafting high fidelity color schemes and easily using them in all your favorite apps.
 
@@ -14,7 +14,7 @@ Style systems and smart build tooling for crafting high fidelity color schemes a
 
 ## Documentation and Specification
 
-Each _style system_ details which color cokens it provides, while the _builder_ spec details which variables are provided to _templates_ during the _building_ process.
+Each _style system_ details which color tokens it provides to the _builder_, while the _builder_ spec details which variables are provided to _templates_ during the _building_ process.
 
 
 ### Scheme
@@ -64,7 +64,7 @@ spec.
 
 ## Projects
 
-These are projects which may not be directly related to Base16, but are theming related.
+These are projects which may not be directly related to Base16 Project, but are still theming related.
 
 * [terminal.sexy](https://terminal.sexy) - Terminal Color Scheme Designer
 * [Just-Colors](https://github.com/andreyvpng/just-colors) - Simple configuration file generator
@@ -77,8 +77,8 @@ These are projects which may not be directly related to Base16, but are theming 
 
 Have something you want to discuss, but you're not sure it warrants an issue? Feel free to stop by the [#base16 channel](https://web.libera.chat/#base16) on [Libera Chat](https://libera.chat/) or the [bridged Matrix channel](https://matrix.to/#/#base16:libera.chat) to talk about it.
 
+
 ## Credits
 
 - Thanks to [Chris Kempson](https://github.com/chriskempson) for the original concept and implementation.
-- Color wheel icon thanks to [Color icons created by Nikita Golubev - Flaticon](https://www.flaticon.com/free-icons/color).
 
