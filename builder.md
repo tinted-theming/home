@@ -5,7 +5,7 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-A theme builder is a tool that builds application specific themes. It does this by using scheme files (containing a palette of colors) and template files (instructions concerning how to build the application specific files).
+A theme builder is a tool that builds application specific themes. It does this by using scheme files (containing a palette of colors) and template files (instructions concerning how to build the application specific configuration).
 
 Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of the builder.
 
@@ -17,7 +17,7 @@ A _scheme system_ generally consists of a styling guide and schemes. For example
 
 A _template_ is a mustache file which acts as a blueprint; it represents how to translate the scheme into an application's desired format. For example: the [base16-vim template](https://github.com/base16-project/base16-vim/blob/main/templates/default.mustache) is used to convert a _base16 scheme_ into a vim colorscheme.
 
-A _theme builder_ is a tool which transforms color schemes and templates into application specific files. These are usually targeted at template maintainers or when building other theme-related tooling.
+A _theme builder_ is a tool which transforms color schemes and templates into application specific configuration. These are usually targeted at template maintainers or when building other theme-related tooling.
 
 _Building a template_ is the process of replacing its variables with ones extracted from a _scheme_; usually outputting it to a file, as defined by the _template_ and _template config_.
 
@@ -95,13 +95,13 @@ These files have the following structure:
 
 This example specifies that a Builder is to parse two template files: `templates/default.mustache` and `templates/additional.mustache`.
 
-`filename` defines a mustache template which returns a filename relative to the template repository's root directory. All the [template variables](#template-variables) listed below are available.
+`filename` defines a mustache template which returns a filename relative to the template repository's root directory. All the [template variables](#template-variables) listed below are available. Builders MUST error if multiple files will be written with the same name.
 
 `extension` and `output` are legacy options and SHOULD NOT be used by templates. If `filename` is not specified, the output filename will be `{{ output }}/{{ scheme-system }}-{{ scheme-slug }}.{{ extension }}` and will also be relative to the template repository's root directory.
 
 As an example, the above config will output the following files for the `base16` `default-dark` color scheme:
 
-- `output-directory-name/base16-default-dark.file-extension`, built from `default.mustache`
+- `output-directory-name/base16-default-dark.file-extension`, built from `default.mustache`.
 - `output-directory-name/base16-default-dark.another-extension`, built from `additional.mustache`.
 
 </details>

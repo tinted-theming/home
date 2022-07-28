@@ -2,7 +2,6 @@
 
 Style systems and smart build tooling for crafting high fidelity color schemes and easily using them in all your favorite apps.
 
-
 **Features**
 
 - Seamless builder support for _multiple_ style systems ([Base16](https://github.com/chriskempson/base16), [Base17](https://github.com/base16-project/base17), [Base24](https://github.com/Base24/base24/), [BaseNext](https://github.com/base16-project/basenext), etc.)
@@ -11,16 +10,13 @@ Style systems and smart build tooling for crafting high fidelity color schemes a
 - Allows end users to choose a color scheme and know it will be available _everywhere_.
 - Allows color scheme designers to craft a palette of colors once, instantly supporting for many different apps.
 
-
 ## Documentation and Specification
 
 Each _style system_ details which color tokens it provides to the _builder_, while the _builder_ spec details which variables are provided to _templates_ during the _building_ process.
 
-
 ### Scheme
 
 A scheme is a fixed palette of named colors and (optionally) instructions for how those colors should be used by apps.
-
 
 ### Style Systems
 
@@ -41,13 +37,11 @@ A builder is a build tool used by various template repositories to generate file
 
 - [Builder Guidelines](/builder.md)
 
-
 ### Template
 
 A template describes how a scheme should be transformed to support a specific application.  A template repository defines template files, then uses a builder to generate application specific files using the templates.
 
 Template repositories often include pre-built versions of every scheme to make it easier to use. These are typically installed directly by end users to use the schemes in different applications.
-
 
 ## Builders
 
@@ -61,7 +55,6 @@ spec.
 * [Base16 Builder Go](https://github.com/base16-project/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
 * [Base16 Builder Node](https://github.com/base16-project/base16-builder-node) maintained by [joshgoebel](https://github.com/joshgoebel) - currently supports 0.10.0
 
-
 ## Projects
 
 These are projects which may not be directly related to Base16 Project, but are still theming related.
@@ -72,13 +65,10 @@ These are projects which may not be directly related to Base16 Project, but are 
 * [nix-colors](https://github.com/Misterio77/nix-colors) - Designed to help with Nix(OS) theming.
 * [TmTheme Editor](http://tmtheme-editor.herokuapp.com) - An online editor for themes in tmTheme format. This is a useful resource for anyone creating a scheme and/or template.
 
-
 ## Project Chat
 
 Have something you want to discuss, but you're not sure it warrants an issue? Feel free to stop by the [#base16 channel](https://web.libera.chat/#base16) on [Libera Chat](https://libera.chat/) or the [bridged Matrix channel](https://matrix.to/#/#base16:libera.chat) to talk about it.
 
-
 ## Credits
 
 - Thanks to [Chris Kempson](https://github.com/chriskempson) for the original concept and implementation.
-
