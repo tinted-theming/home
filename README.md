@@ -2,26 +2,21 @@
 
  Style systems and smart build tooling for crafting high fidelity color schemes and easily using them in all your favorite apps.  Originally based on the amazing work of [Chris Kempson](https://github.com/chriskempson/) and his [Base16](https://github.com/chriskempson/base16) system.
 
-
-
 **Features**
 
-- Seamless builder support for _multiple_ style systems ([Base16](https://github.com/chriskempson/base16), [Base17 DRAFT](https://github.com/base16-project/base17), [Base24](https://github.com/Base24/base24/), etc.)
+- Seamless builder support for _multiple_ style systems ([Base16](https://github.com/chriskempson/base16), [Base17](https://github.com/base16-project/base17), [Base24](https://github.com/Base24/base24/), [BaseNext DRAFT](https://github.com/base16-project/basenext), etc.)
 - Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://base16-project.github.io/base16-gallery).
 - Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
 - Allows end users to choose a color scheme and know it will be available _everywhere_.
 - Allows color scheme designers to craft a palette of colors once, instantly supporting for many different apps.
 
-
 ## Documentation and Specification
 
 The _builder_ and _styling_ specs detail how to compile _schemes_ and _templates_ into application specific configurations.
 
-
 ### Scheme
 
 A scheme is a fixed palette of named colors and (optionally) instructions for how those colors should be used by apps.
-
 
 ### Style
 
@@ -30,20 +25,17 @@ A style guide provides rules governing how a scheme's palette should be applied 
 See the individual styling guides for more information on each:
 
 - [Base16](/styling.md) - the original, 16 colors with very fixed semantic meanings.
-- [Base17 DRAFT](https://github.com/base16-project/base17) - still 16 colors, but far more power and flexibility to create higher fidelity themes and templates.
+- [Base17](https://github.com/base16-project/base17) - our evolution of Base16. It's still 16 colors, but far more power and flexibility to create higher fidelity themes and templates.
 - [Base24](https://github.com/Base24/base24/blob/master/styling.md) - an extra 8  colors for full ANSI support in your terminals.
-
+- [BaseNext DRAFT](https://github.com/base16-project/basenext) - as many colors as you want, along with the flexibility and complexity.
 
 A scheme is defined using a [YAML](https://yaml.org/) file. The file specification is in the [Builder Guidelines](/builder.md#schemes-repository).
 
-
 ### Builder
 
-A builder is a build tool used by various template repositories to generate
-files based on scheme file and template file.
+A builder is a build tool used by various template repositories to generate files based on scheme file and template file.
 
 - [Builder Guidelines](/builder.md)
-
 
 ### Template
 
@@ -51,47 +43,46 @@ A template describes how a scheme should be transformed to support a specific ap
 
 Templates often include ready-to-use pre-built versions of every scheme. These are typically installed directly by end users to use the schemes in different applications.
 
-
 ## Supported Applications
 
 Supported applications are applications for which a template exists.
 
 ### Official Templates
 
-We maintain a number of templates. Each has
-been sponsored by at least one project member who is committed to
-maintaining that template.
+We maintain a number of templates. Each has been sponsored by at least one project member who is committed to maintaining that template.
 
-We are open to accepting new projects, though they must still be sponsored by a
-project member and have some level of activity.
+We are open to accepting new projects, though they must still be sponsored by a project member and have some level of activity. If a project becomes inactive for more than a year, the repo will be archived as inactive. It can be unarchived if another maintainer steps up.
+
+Editors:
 
 * [Emacs](https://github.com/base16-project/base16-emacs) maintained by [belak](https://github.com/belak)
-* [FZF](https://github.com/base16-project/base16-fzf) maintained by [fnune](https://github.com/fnune)
-* [Shell](https://github.com/base16-project/base16-shell) maintained by [belak](https://github.com/belak), [fnune](https://github.com/fnune), and [JamyGolden](https://github.com/JamyGolden)
-* [Tmux](https://github.com/base16-project/base16-tmux) maintained by [mattdavis90](https://github.com/mattdavis90)
+* [JetBrains](https://github.com/base16-project/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa)
+* [Helix](https://github.com/base16-project/base16-helix) maintained by [krgn](https://github.com/krgn)
 * [Vim](https://github.com/base16-project/base16-vim) maintained by [fnune](https://github.com/fnune), [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
+* [VSCode](https://github.com/base16-project/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
 
 Terminals:
 
 * [ConEmu](https://github.com/base16-project/base16-conemu) maintained by [martinlindhe](https://github.com/martinlindhe)
+* [Foot](https://github.com/base16-project/base16-foot) maintained by [h4-n1](https://github.com/h4-n1)
 * [iTerm2](https://github.com/base16-project/base16-iterm2) maintained by [martinlindhe](https://github.com/martinlindhe)
+* [PuTTY](https://github.com/base16-project/base16-putty) maintained by [benjojo](https://github.com/benjojo)
+* [XFCE Terminal](https://github.com/base16-project/base16-xfce4-terminal) maintained by [afq984](https://github.com/afq984)
 
-### Contrib Templates
+Other:
 
-In order to prevent ownership issues, we're introducing the concept of contrib
-templates. These are templates which have been transferred to the
-organization, but either aren't sponsored by an org member or don't
-have enough usage to warrent inclusion with our official templates.
-
-Submitting a repository to [base16-project-contrib](https://github.com/base16-project-contrib)
-and continuing to work on it is a great way to get involved and get noticed as a
-maintainer so you can work towards getting added to the project team.
+* [GTK FlatColor](https://github.com/base16-project/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77)
+* [FZF](https://github.com/base16-project/base16-fzf) maintained by [fnune](https://github.com/fnune)
+* [HexChat](https://github.com/base16-project/base16-hexchat) maintained by [Diablo-D3](https://github.com/Diablo-D3)
+* [Polybar](https://github.com/base16-project/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
+* [qutebrowser](https://github.com/base16-project/base16-qutebrowser) maintained by [theova](https://github.com/theova)
+* [Rofi](https://github.com/base16-project/base16-rofi) maintained by [jordiorlando](https://github.com/jordiorlando)
+* [Shell](https://github.com/base16-project/base16-shell) maintained by [belak](https://github.com/belak), [fnune](https://github.com/fnune), and [JamyGolden](https://github.com/JamyGolden)
+* [Tmux](https://github.com/base16-project/base16-tmux) maintained by [mattdavis90](https://github.com/mattdavis90)
 
 ### Unofficial Templates
 
-If you have a template you maintain, but don't want to submit it to the contrib
-repositories, feel free to add a link to the repository here to add it to this
-list. These are community maintained templates and may not be updated often.
+If you have a template you maintain, but don't want to submit it to this org, feel free to add a link to the repository here to add it to this list. These are community maintained templates and may not be updated often.
 
 <details><summary><b>Terminals</b> - terminal and shell related templates</summary>
 <p>
@@ -109,7 +100,6 @@ list. These are community maintained templates and may not be updated often.
 * [kitty](https://github.com/kdrag0n/base16-kitty) maintained by [kdrag0n](https://github.com/kdrag0n)
 * [Konsole](https://github.com/cskeeters/base16-konsole) maintained by [cskeeters](https://github.com/cskeeters)
 * [MinTTY](https://github.com/geoffstokes/base16-mintty) maintained by [geoffstokes](https://github.com/geoffstokes)
-* [PuTTY](https://github.com/benjojo/base-16-putty) maintained by [benjojo](https://github.com/benjojo)
 * [st](https://github.com/honza/base16-st) maintained by [honza](https://github.com/honza)
 * [Termite](https://github.com/khamer/base16-termite) maintained by [khamer](https://github.com/khamer)
 * [Termux](https://github.com/kdrag0n/base16-termux) maintained by [kdrag0n](https://github.com/kdrag0n)
@@ -128,7 +118,6 @@ list. These are community maintained templates and may not be updated often.
 * [Frescobaldi](https://github.com/rkubosz/base16-frescobaldi) maintained by [rkubosz](https://github.com/rkubosz)
 * [Godot](https://github.com/Calinou/base16-godot) maintained by [Calinou](https://github.com/Calinou)
 * [gtksourceview3](https://github.com/GarkGarcia/base16-gtksourceview3) maintained by [GarkGarcia](https://github.com/GarkGarcia)
-* [Jetbrains](https://github.com/adilosa/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa)
 * [Jetbrains IDE](https://github.com/ShiromMakkad/base16-jetbrains-ide) maintained by [ShiromMakkad](https://github.com/ShiromMakkad)
 * [JOE](https://github.com/jjjordan/base16-joe) maintained by [jjjordan](https://github.com/jjjordan)
 * [Kakoune](https://github.com/leira/base16-kakoune) maintained by [leira](https://github.com/leira)
@@ -154,9 +143,7 @@ list. These are community maintained templates and may not be updated often.
   * [i3status](https://github.com/Eluminae/base16-i3status) maintained by [Eluminae](https://github.com/Eluminae)
   * [i3status-rust](https://github.com/mystfox/base16-i3status-rust) maintained by [mystfox](https://github.com/mystfox)
 * [mako](https://github.com/Eluminae/base16-mako) maintained by [Eluminae](https://github.com/Eluminae)
-* [Polybar](https://github.com/Misterio77/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
 * [qt5ct](https://github.com/mnussbaum/base16-qt5ct) maintained by [mnussbaum](https://github.com/mnussbaum)
-* [Rofi](https://gitlab.com/jordiorlando/base16-rofi) maintained by [jordiorlando](https://gitlab.com/jordiorlando)
 * [StumpWM](https://github.com/tpine/base16-stumpwm) maintained by [tpine](https://github.com/tpine)
 * [Sway](https://github.com/rkubosz/base16-sway) maintained by [rkubosz](https://github.com/rkubosz)
 * [Swaylock](https://git.michaelball.name/gid/base16-swaylock-template) maintained by [michael-ball](https://git.michaelball.name)
@@ -190,23 +177,20 @@ list. These are community maintained templates and may not be updated often.
 <p>
 
 * [Amfora](https://github.com/jo1gi/base16-amfora) maintained by [jo1gi](https://github.com/jo1gi)
-* [HexChat](https://github.com/Diablo-D3/base16-hexchat) maintained by [Diablo-D3](https://github.com/Diablo-D3)
 * [LuaKit](https://github.com/twnaing/base16-luakit) maintained by [twnaing](https://github.com/twnaing)
-* [qutebrowser](https://github.com/theova/base16-qutebrowser) maintaned by [theova](https://github.com/theova)
-* [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch)
-* [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
-* [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
 * [PyRadio](https://github.com/edunfelt/base16-pyradio) maintained by [edunfelt](https://github.com/edunfelt)
+* [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch)
+* [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
+* [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
 
 </p>
 </details>
 
 ### Adding Support for a New Application
 
-To add your own template, submit a pull request to this repository to add your
-repository to the "Unofficial Templates" list below in the relevant category.
-**Recommended repository naming scheme: [style-name]-[template-name]** (with dashes as
-separators).
+To add your own template, submit a pull request to this repository to add your repository to the "Unofficial Templates" list below in the relevant category.
+
+**Recommended repository naming scheme: [style-name]-[template-name]** (with dashes as separators).
 
 ## Schemes
 
@@ -214,13 +198,9 @@ To add a Base16 scheme, simply submit a pull request to the [base16-schemes repo
 
 ## Builders
 
-Normally end-users should not need to use builders, as they're primarily meant
-for maintainers - both scheme and template maintainers. These are tools used to
-build templates with all the currently submitted schemes.
+Normally end-users should not need to use builders, as they're primarily meant for maintainers - both scheme and template maintainers. These are tools used to build templates with all the currently submitted schemes.
 
-Spec changes will not be released until there is consensus among maintainers and
-at least one builder with a pull request ready for implementing that spec
-version.
+Spec changes will not be released until there is consensus among maintainers and at least one builder with a pull request ready for implementing that spec version.
 
 See the [CHANGELOG](/CHANGELOG.md) for more information about changes in the
 spec.
@@ -273,4 +253,3 @@ Have something you want to discuss, but you're not sure it warrants an issue? Fe
 
 - Thanks to [Chris Kempson](https://github.com/chriskempson) for the original concept and implementation.
 - Color wheel icon thanks to [Color icons created by Nikita Golubev - Flaticon](https://www.flaticon.com/free-icons/color).
-
