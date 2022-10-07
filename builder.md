@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.10.1**
+**Version 0.11.0-dev**
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
@@ -46,6 +46,7 @@ Scheme files have the following structure:
     scheme: "Scheme Name"
     author: "Scheme Author"
     description: "a short description of the scheme"
+    variant: "'light' or 'dark'"
     base00: "000000"
     base01: "111111"
     base02: "222222"
@@ -99,6 +100,8 @@ A builder MUST provide the following variables to template files:
 - `scheme-name` - obtained from the `scheme` key of the scheme file
 - `scheme-author` - obtained from the `author` key of the scheme file
 - `scheme-description` - obtained from the `description` key of the scheme file (fallback value: `scheme-name`)
+- `scheme-variant` - obtained from the `variant` key of the scheme file.
+- `is_{{variant}}_variant` - dynamic value obtained from the `variant` key of the scheme file. e.g. `variant: "light"` provides `is_light_variant` with a value of `true`. (fallback value: `is_dark_variant` with a value of `true`). Officially supported values are `light` and `dark`, but any string could theoretically be used.
 - `scheme-slug` - the scheme filename made lowercase, not including the `.yaml` extension
 - `base00-hex` to `base0F-hex` - 6-digit hex color value obtained from the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
 - `base00-hex-bgr` to `base0F-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
