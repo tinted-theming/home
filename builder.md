@@ -13,11 +13,11 @@ Builders are generally designed for template maintainers' ease of use. Template 
 
 A _base16 scheme_ is a YAML file that represents a palette of 16 colors. For
 example: the [solarized
-scheme](https://github.com/base16-project/base16-schemes/blob/main/solarized-dark.yaml)
+scheme](https://github.com/tinted-theming/base16-schemes/blob/main/solarized-dark.yaml)
 
 A _base16 template_ is a mustache file that acts as a blueprint; it represents
 how to translate the scheme into an application's desired format. For example: the [vim
-template](https://github.com/base16-project/base16-vim/blob/main/templates/default.mustache)
+template](https://github.com/tinted-theming/base16-vim/blob/main/templates/default.mustache)
 is used to convert a _base16 scheme_ into a vim colorscheme.
 
 A _base16 builder_ is an application that implements the full _building_
@@ -32,7 +32,7 @@ defined by the _template_.
 
 ### Schemes Repository
 
-The builder MUST provide a method of loading one or more schemes for use in building templates. The builder MAY provide a method of loading a full directory of schemes at one time. Convenient access to schemes in the [schemes repository](https://github.com/base16-project/base16-schemes) MAY also be provided.
+The builder MUST provide a method of loading one or more schemes for use in building templates. The builder MAY provide a method of loading a full directory of schemes at one time. Convenient access to schemes in the [schemes repository](https://github.com/tinted-theming/base16-schemes) MAY also be provided.
 
 This repo contains _scheme files_ for all base16 schemes.
 

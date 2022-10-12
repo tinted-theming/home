@@ -1,11 +1,11 @@
-# All your themes, everywhere. <img alt="Color wheel" src="./color_wheel.png" width="100" align="right" style="padding-top:0.6rem;">
+# Tinted Theming: all your themes, everywhere. <img alt="Color wheel" src="./color_wheel.png" width="100" align="right" style="padding-top:0.6rem;">
 
  Style systems and smart build tooling for crafting high fidelity color schemes and easily using them in all your favorite apps.  Originally based on the amazing work of [Chris Kempson](https://github.com/chriskempson/) and his [Base16](https://github.com/chriskempson/base16) system.
 
 **Features**
 
-- Seamless builder support for _multiple_ style systems ([Base16](https://github.com/chriskempson/base16), [Base17](https://github.com/base16-project/base17), [Base24](https://github.com/Base24/base24/), [BaseNext DRAFT](https://github.com/base16-project/basenext), etc.)
-- Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://base16-project.github.io/base16-gallery).
+- Seamless builder support for _multiple_ style systems ([Base16](https://github.com/chriskempson/base16), [Base17](https://github.com/tinted-theming/base17), [Base24](https://github.com/tinted-theming/base24/), [BaseNext DRAFT](https://github.com/tinted-theming/basenext), etc.)
+- Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://tinted-theming.github.io/base16-gallery).
 - Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
 - Allows end users to choose a color scheme and know it will be available _everywhere_.
 - Allows color scheme designers to craft a palette of colors once, instantly supporting for many different apps.
@@ -25,9 +25,9 @@ A style guide provides rules governing how a scheme's palette should be applied 
 See the individual styling guides for more information on each:
 
 - [Base16](/styling.md) - the original, 16 colors with very fixed semantic meanings.
-- [Base17](https://github.com/base16-project/base17) - our evolution of Base16. It's still 16 colors, but far more power and flexibility to create higher fidelity themes and templates.
-- [Base24](https://github.com/Base24/base24/blob/master/styling.md) - an extra 8  colors for full ANSI support in your terminals.
-- [BaseNext DRAFT](https://github.com/base16-project/basenext) - as many colors as you want, along with the flexibility and complexity.
+- [Base17](https://github.com/tinted-theming/base17) - our evolution of Base16. It's still 16 colors, but far more power and flexibility to create higher fidelity themes and templates.
+- [Base24](https://github.com/tinted-theming/base24/blob/master/styling.md) - an extra 8  colors for full ANSI support in your terminals.
+- [BaseNext DRAFT](https://github.com/tinted-theming/basenext) - as many colors as you want, along with the flexibility and complexity.
 
 A scheme is defined using a [YAML](https://yaml.org/) file. The file specification is in the [Builder Guidelines](/builder.md#schemes-repository).
 
@@ -55,30 +55,30 @@ We are open to accepting new projects, though they must still be sponsored by a 
 
 Editors:
 
-* [Emacs](https://github.com/base16-project/base16-emacs) maintained by [belak](https://github.com/belak)
-* [JetBrains](https://github.com/base16-project/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa)
-* [Helix](https://github.com/base16-project/base16-helix) maintained by [krgn](https://github.com/krgn)
-* [Vim](https://github.com/base16-project/base16-vim) maintained by [fnune](https://github.com/fnune), [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
-* [VSCode](https://github.com/base16-project/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
+* [Emacs](https://github.com/tinted-theming/base16-emacs) maintained by [belak](https://github.com/belak)
+* [JetBrains](https://github.com/tinted-theming/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa)
+* [Helix](https://github.com/tinted-theming/base16-helix) maintained by [krgn](https://github.com/krgn)
+* [Vim](https://github.com/tinted-theming/base16-vim) maintained by [fnune](https://github.com/fnune), [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
+* [VSCode](https://github.com/tinted-theming/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
 
 Terminals:
 
-* [ConEmu](https://github.com/base16-project/base16-conemu) maintained by [martinlindhe](https://github.com/martinlindhe)
-* [Foot](https://github.com/base16-project/base16-foot) maintained by [h4-n1](https://github.com/h4-n1)
-* [iTerm2](https://github.com/base16-project/base16-iterm2) maintained by [martinlindhe](https://github.com/martinlindhe)
-* [PuTTY](https://github.com/base16-project/base16-putty) maintained by [benjojo](https://github.com/benjojo)
-* [XFCE Terminal](https://github.com/base16-project/base16-xfce4-terminal) maintained by [afq984](https://github.com/afq984)
+* [ConEmu](https://github.com/tinted-theming/base16-conemu) maintained by [martinlindhe](https://github.com/martinlindhe)
+* [Foot](https://github.com/tinted-theming/base16-foot) maintained by [h4-n1](https://github.com/h4-n1)
+* [iTerm2](https://github.com/tinted-theming/base16-iterm2) maintained by [martinlindhe](https://github.com/martinlindhe)
+* [PuTTY](https://github.com/tinted-theming/base16-putty) maintained by [benjojo](https://github.com/benjojo)
+* [XFCE Terminal](https://github.com/tinted-theming/base16-xfce4-terminal) maintained by [afq984](https://github.com/afq984)
 
 Other:
 
-* [GTK FlatColor](https://github.com/base16-project/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77)
-* [FZF](https://github.com/base16-project/base16-fzf) maintained by [fnune](https://github.com/fnune)
-* [HexChat](https://github.com/base16-project/base16-hexchat) maintained by [Diablo-D3](https://github.com/Diablo-D3)
-* [Polybar](https://github.com/base16-project/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
-* [qutebrowser](https://github.com/base16-project/base16-qutebrowser) maintained by [theova](https://github.com/theova)
-* [Rofi](https://github.com/base16-project/base16-rofi) maintained by [jordiorlando](https://github.com/jordiorlando)
-* [Shell](https://github.com/base16-project/base16-shell) maintained by [belak](https://github.com/belak), [fnune](https://github.com/fnune), and [JamyGolden](https://github.com/JamyGolden)
-* [Tmux](https://github.com/base16-project/base16-tmux) maintained by [mattdavis90](https://github.com/mattdavis90)
+* [GTK FlatColor](https://github.com/tinted-theming/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77)
+* [FZF](https://github.com/tinted-theming/base16-fzf) maintained by [fnune](https://github.com/fnune)
+* [HexChat](https://github.com/tinted-theming/base16-hexchat) maintained by [Diablo-D3](https://github.com/Diablo-D3)
+* [Polybar](https://github.com/tinted-theming/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
+* [qutebrowser](https://github.com/tinted-theming/base16-qutebrowser) maintained by [theova](https://github.com/theova)
+* [Rofi](https://github.com/tinted-theming/base16-rofi) maintained by [jordiorlando](https://github.com/jordiorlando)
+* [Shell](https://github.com/tinted-theming/base16-shell) maintained by [belak](https://github.com/belak), [fnune](https://github.com/fnune), and [JamyGolden](https://github.com/JamyGolden)
+* [Tmux](https://github.com/tinted-theming/base16-tmux) maintained by [mattdavis90](https://github.com/mattdavis90)
 
 ### Unofficial Templates
 
@@ -194,7 +194,7 @@ To add your own template, submit a pull request to this repository to add your r
 
 ## Schemes
 
-To add a Base16 scheme, simply submit a pull request to the [base16-schemes repo](https://github.com/base16-project/base16-schemes) and add your scheme.
+To add a Base16 scheme, simply submit a pull request to the [base16-schemes repo](https://github.com/tinted-theming/base16-schemes) and add your scheme.
 
 ## Builders
 
@@ -205,8 +205,8 @@ Spec changes will not be released until there is consensus among maintainers and
 See the [CHANGELOG](/CHANGELOG.md) for more information about changes in the
 spec.
 
-* [Base16 Builder Go](https://github.com/base16-project/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
-* [Base16 Builder Node](https://github.com/base16-project/base16-builder-node) maintained by [joshgoebel](https://github.com/joshgoebel) - currently supports 0.10.0
+* [Base16 Builder Go](https://github.com/tinted-theming/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
+* [Base16 Builder Node](https://github.com/tinted-theming/base16-builder-node) maintained by [joshgoebel](https://github.com/joshgoebel) - currently supports 0.10.0
 
 ## Scheme and Template Author Resources
 

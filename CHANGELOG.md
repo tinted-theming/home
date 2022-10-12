@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.11.0-dev
+
+- Added `variant` to scheme files
+
 ## 0.10.0 (Mar 20, 2021)
 
 - Simplify repo structure and builder responsibilities
