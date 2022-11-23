@@ -79,6 +79,7 @@ Other:
 * [Rofi](https://github.com/tinted-theming/base16-rofi) maintained by [jordiorlando](https://github.com/jordiorlando)
 * [Shell](https://github.com/tinted-theming/base16-shell) maintained by [belak](https://github.com/belak), [fnune](https://github.com/fnune), and [JamyGolden](https://github.com/JamyGolden)
 * [Tmux](https://github.com/tinted-theming/base16-tmux) maintained by [mattdavis90](https://github.com/mattdavis90)
+* [Wob](https://github.com/tinted-theming/base16-wob) maintained by [h4-n1](https://github.com/h4-n1)
 
 ### Unofficial Templates
 
