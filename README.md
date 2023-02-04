@@ -104,6 +104,7 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [Termite](https://github.com/khamer/base16-termite) maintained by [khamer](https://github.com/khamer)
 * [Termux](https://github.com/kdrag0n/base16-termux) maintained by [kdrag0n](https://github.com/kdrag0n)
 * [Tilix](https://github.com/karlding/base16-tilix) maintained by [karlding](https://github.com/karlding)
+* [Tym](https://github.com/gnsfujiwara/base16-tym) maintained by [gnsfujiwara](https://github.com/gnsfujiwara)
 * [Windows Terminal](https://github.com/wuqs-net/base16-windows-terminal) maintained by [wuqs-net](https://github.com/wuqs-net)
 * [XFCE4 Terminal](https://github.com/afq984/base16-xfce4-terminal) maintained by [afq984](https://github.com/afq984)
 * [Xshell](https://github.com/h404bi/base16-xshell) maintained by [h404bi](https://github.com/h404bi)
