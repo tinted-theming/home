@@ -58,11 +58,14 @@ Editors:
 * [Emacs](https://github.com/tinted-theming/base16-emacs) maintained by [belak](https://github.com/belak)
 * [JetBrains](https://github.com/tinted-theming/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa)
 * [Helix](https://github.com/tinted-theming/base16-helix) maintained by [krgn](https://github.com/krgn)
-* [Vim](https://github.com/tinted-theming/base16-vim) maintained by [fnune](https://github.com/fnune), [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
+* [Vim](https://github.com/tinted-theming/base16-vim) maintained by [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
 * [VSCode](https://github.com/tinted-theming/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
+* [Kakoune](https://github.com/tinted-theming/base16-kakoune) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [Jetbrains] maintained by [adilosa](https://github.com/adilosa), and [JamyGolden](https://github.com/JamyGolden)
 
 Terminals:
 
+* [Shell](https://github.com/tinted-theming/base16-shell) (all shells) maintained by [belak](https://github.com/belak), and [JamyGolden](https://github.com/JamyGolden)
 * [ConEmu](https://github.com/tinted-theming/base16-conemu) maintained by [martinlindhe](https://github.com/martinlindhe)
 * [Foot](https://github.com/tinted-theming/base16-foot) maintained by [h4-n1](https://github.com/h4-n1)
 * [iTerm2](https://github.com/tinted-theming/base16-iterm2) maintained by [martinlindhe](https://github.com/martinlindhe)
@@ -72,13 +75,17 @@ Terminals:
 Other:
 
 * [GTK FlatColor](https://github.com/tinted-theming/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77)
-* [FZF](https://github.com/tinted-theming/base16-fzf) maintained by [fnune](https://github.com/fnune)
-* [HexChat](https://github.com/tinted-theming/base16-hexchat) maintained by [Diablo-D3](https://github.com/Diablo-D3)
-* [Polybar](https://github.com/tinted-theming/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
+* [FZF](https://github.com/tinted-theming/base16-fzf) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [HexChat](https://github.com/tinted-theming/base16-hexchat) maintained by [JamyGolden](https://github.com/JamyGolden
+)* [Polybar](https://github.com/tinted-theming/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
 * [qutebrowser](https://github.com/tinted-theming/base16-qutebrowser) maintained by [theova](https://github.com/theova)
 * [Rofi](https://github.com/tinted-theming/base16-rofi) maintained by [jordiorlando](https://github.com/jordiorlando)
-* [Shell](https://github.com/tinted-theming/base16-shell) maintained by [belak](https://github.com/belak), [fnune](https://github.com/fnune), and [JamyGolden](https://github.com/JamyGolden)
 * [Tmux](https://github.com/tinted-theming/base16-tmux) maintained by [mattdavis90](https://github.com/mattdavis90)
+* [Wob](https://github.com/tinted-theming/base16-wob) maintained by [h4-n1](https://github.com/h4-n1)
+* [Dunst](https://github.com/tinted-theming/base16-dunst) maintained by [khamer](https://github.com/khamer)
+* [i3](https://github.com/tinted-theming/base16-i3) maintained by [khamer](https://github.com/khamer)
+* [Termite](https://github.com/tinted-theming/base16-termite) maintained by [khamer](https://github.com/khamer)
+* [Xresources](https://github.com/tinted-theming/base16-xresources) maintained by [DanManN](https://github.com/orgs/tinted-theming/people/DanManN), and [pinpox](https://github.com/orgs/tinted-theming/people/pinpox)
 
 ### Unofficial Templates
 
@@ -101,13 +108,11 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [Konsole](https://github.com/cskeeters/base16-konsole) maintained by [cskeeters](https://github.com/cskeeters)
 * [MinTTY](https://github.com/geoffstokes/base16-mintty) maintained by [geoffstokes](https://github.com/geoffstokes)
 * [st](https://github.com/honza/base16-st) maintained by [honza](https://github.com/honza)
-* [Termite](https://github.com/khamer/base16-termite) maintained by [khamer](https://github.com/khamer)
 * [Termux](https://github.com/kdrag0n/base16-termux) maintained by [kdrag0n](https://github.com/kdrag0n)
 * [Tilix](https://github.com/karlding/base16-tilix) maintained by [karlding](https://github.com/karlding)
 * [Windows Terminal](https://github.com/wuqs-net/base16-windows-terminal) maintained by [wuqs-net](https://github.com/wuqs-net)
 * [XFCE4 Terminal](https://github.com/afq984/base16-xfce4-terminal) maintained by [afq984](https://github.com/afq984)
 * [Xshell](https://github.com/h404bi/base16-xshell) maintained by [h404bi](https://github.com/h404bi)
-* [Xresources](https://github.com/binaryplease/base16-xresources) maintained by [binaryplease](https://github.com/binaryplease)
 
 </p>
 </details>
@@ -128,7 +133,6 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [Vim-airline](https://github.com/dawikur/base16-vim-airline-themes) maintained by [dawikur](https://github.com/dawikur)
 * [Vis](https://github.com/pshevtsov/base16-vis) maintained by [pshevtsov](https://github.com/pshevtsov)
 * [vtrgb](https://github.com/coderonline/base16-vtrgb) maintained by [coderonline](https://github.com/coderonline)
-* [VSCode](https://github.com/golf1052/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
 * [Xcode](https://github.com/kreeger/base16-xcode) maintained by [kreeger](https://github.com/kreeger)
 * [ZOC Terminal](https://github.com/balthild/base16-zoc) maintained by [Balthild](https://github.com/balthild)
 
@@ -138,10 +142,8 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 <details><summary><b>Window Managers</b> - window managers and related utilities</summary>
 <p>
 
-* [Dunst](https://github.com/khamer/base16-dunst) maintained by [khamer](https://github.com/khamer)
-* [i3](https://github.com/khamer/base16-i3) maintained by [khamer](https://github.com/khamer)
-  * [i3status](https://github.com/Eluminae/base16-i3status) maintained by [Eluminae](https://github.com/Eluminae)
-  * [i3status-rust](https://github.com/mystfox/base16-i3status-rust) maintained by [mystfox](https://github.com/mystfox)
+* [i3status](https://github.com/Eluminae/base16-i3status) maintained by [Eluminae](https://github.com/Eluminae)
+* [i3status-rust](https://github.com/mystfox/base16-i3status-rust) maintained by [mystfox](https://github.com/mystfox)
 * [mako](https://github.com/Eluminae/base16-mako) maintained by [Eluminae](https://github.com/Eluminae)
 * [qt5ct](https://github.com/mnussbaum/base16-qt5ct) maintained by [mnussbaum](https://github.com/mnussbaum)
 * [StumpWM](https://github.com/tpine/base16-stumpwm) maintained by [tpine](https://github.com/tpine)
