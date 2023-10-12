@@ -56,35 +56,35 @@ We are open to accepting new projects, though they must still be sponsored by a 
 Editors:
 
 * [Emacs](https://github.com/tinted-theming/base16-emacs) maintained by [belak](https://github.com/belak)
-* [JetBrains](https://github.com/tinted-theming/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa)
 * [Helix](https://github.com/tinted-theming/base16-helix) maintained by [krgn](https://github.com/krgn)
-* [Vim](https://github.com/tinted-theming/base16-vim) maintained by [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
-* [VSCode](https://github.com/tinted-theming/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
-* [Kakoune](https://github.com/tinted-theming/base16-kakoune) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [JetBrains](https://github.com/tinted-theming/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa)
 * [Jetbrains] maintained by [adilosa](https://github.com/adilosa), and [JamyGolden](https://github.com/JamyGolden)
+* [Kakoune](https://github.com/tinted-theming/base16-kakoune) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [VSCode](https://github.com/tinted-theming/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
+* [Vim](https://github.com/tinted-theming/base16-vim) maintained by [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
 
 Terminals:
 
-* [Shell](https://github.com/tinted-theming/base16-shell) (all shells) maintained by [belak](https://github.com/belak), and [JamyGolden](https://github.com/JamyGolden)
 * [ConEmu](https://github.com/tinted-theming/base16-conemu) maintained by [martinlindhe](https://github.com/martinlindhe)
 * [Foot](https://github.com/tinted-theming/base16-foot) maintained by [h4-n1](https://github.com/h4-n1)
 * [iTerm2](https://github.com/tinted-theming/base16-iterm2) maintained by [martinlindhe](https://github.com/martinlindhe)
 * [PuTTY](https://github.com/tinted-theming/base16-putty) maintained by [benjojo](https://github.com/benjojo)
+* [Shell](https://github.com/tinted-theming/base16-shell) (all shells) maintained by [belak](https://github.com/belak), and [JamyGolden](https://github.com/JamyGolden)
 * [XFCE Terminal](https://github.com/tinted-theming/base16-xfce4-terminal) maintained by [afq984](https://github.com/afq984)
 
 Other:
 
-* [GTK FlatColor](https://github.com/tinted-theming/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77)
+* [Dunst](https://github.com/tinted-theming/base16-dunst) maintained by [khamer](https://github.com/khamer)
 * [FZF](https://github.com/tinted-theming/base16-fzf) maintained by [JamyGolden](https://github.com/JamyGolden)
-* [HexChat](https://github.com/tinted-theming/base16-hexchat) maintained by [JamyGolden](https://github.com/JamyGolden
-)* [Polybar](https://github.com/tinted-theming/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
+* [GTK FlatColor](https://github.com/tinted-theming/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77)
+* [i3](https://github.com/tinted-theming/base16-i3) maintained by [khamer](https://github.com/khamer)
+* [HexChat](https://github.com/tinted-theming/base16-hexchat) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [Polybar](https://github.com/tinted-theming/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
 * [qutebrowser](https://github.com/tinted-theming/base16-qutebrowser) maintained by [theova](https://github.com/theova)
 * [Rofi](https://github.com/tinted-theming/base16-rofi) maintained by [jordiorlando](https://github.com/jordiorlando)
+* [Termite](https://github.com/tinted-theming/base16-termite) maintained by [khamer](https://github.com/khamer)
 * [Tmux](https://github.com/tinted-theming/base16-tmux) maintained by [mattdavis90](https://github.com/mattdavis90)
 * [Wob](https://github.com/tinted-theming/base16-wob) maintained by [h4-n1](https://github.com/h4-n1)
-* [Dunst](https://github.com/tinted-theming/base16-dunst) maintained by [khamer](https://github.com/khamer)
-* [i3](https://github.com/tinted-theming/base16-i3) maintained by [khamer](https://github.com/khamer)
-* [Termite](https://github.com/tinted-theming/base16-termite) maintained by [khamer](https://github.com/khamer)
 * [Xresources](https://github.com/tinted-theming/base16-xresources) maintained by [DanManN](https://github.com/orgs/tinted-theming/people/DanManN), and [pinpox](https://github.com/orgs/tinted-theming/people/pinpox)
 
 ### Unofficial Templates
@@ -123,8 +123,8 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [Frescobaldi](https://github.com/rkubosz/base16-frescobaldi) maintained by [rkubosz](https://github.com/rkubosz)
 * [Godot](https://github.com/Calinou/base16-godot) maintained by [Calinou](https://github.com/Calinou)
 * [gtksourceview3](https://github.com/GarkGarcia/base16-gtksourceview3) maintained by [GarkGarcia](https://github.com/GarkGarcia)
-* [Jetbrains IDE](https://github.com/ShiromMakkad/base16-jetbrains-ide) maintained by [ShiromMakkad](https://github.com/ShiromMakkad)
 * [JOE](https://github.com/jjjordan/base16-joe) maintained by [jjjordan](https://github.com/jjjordan)
+* [Jetbrains IDE](https://github.com/ShiromMakkad/base16-jetbrains-ide) maintained by [ShiromMakkad](https://github.com/ShiromMakkad)
 * [Kakoune](https://github.com/leira/base16-kakoune) maintained by [leira](https://github.com/leira)
 * [MonoDevelop](https://github.com/netpyoung/base16-monodevelop) maintained by [netpyoung](https://github.com/netpyoung)
 * [QOwnNotes](https://github.com/themix-project/base16-template-qOwnNotes) maintained by [themix-project](https://github.com/themix-project)
