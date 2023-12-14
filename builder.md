@@ -32,6 +32,7 @@ Each scheme system MUST specify a way of obtaining the following information for
 * `slug` - the scheme's machine readable name. The slug SHOULD use dashes rather than underscores. If it is not provided, a builder MUST infer it by [slugifying](#slugify) the scheme's name.
 * `author` - the scheme's author.
 * `description` - optional. A short description of the scheme.
+* `variant` - optional, but recommended. Which variant of a given color scheme this qualifies as. Currently only "light" and "dark" are used, but this value could be anything.
 * `palette` - all colors used by a scheme, often loaded as HTML hex colors. Some scheme systems may place additional restrictions on the colors in the palette.
 
 <details>
@@ -46,6 +47,7 @@ These files have the following structure:
     scheme: "Scheme Name"
     author: "Scheme Author"
     description: "a short description of the scheme"
+    variant: "'light' or 'dark'"
     base00: "000000"
     base01: "111111"
     base02: "222222"
@@ -116,6 +118,8 @@ A builder MUST provide the following variables to template files:
 - `scheme-description` - obtained from the `description` key of the scheme input
 - `scheme-slug` - obtained from the `slug` key of the scheme input (fallback value: a [slugified](#slugify) `scheme-name`)
 - `scheme-system` - obtained from the `system` key of the scheme input
+- `scheme-variant` - obtained from the `variant` key of the scheme input
+- `is_{{variant}}_variant` - dynamic value built from the `variant` key of the scheme file. e.g. `variant: "light"` provides `is_light_variant` with a value of `true`.
 
 Additionally, a builder MUST provide the following template variables for each defined palette token:
 
