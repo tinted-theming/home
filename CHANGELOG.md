@@ -1,8 +1,11 @@
 # Changelog
 
-## 0.11.0-dev
+## 0.11.0 (Dec 15, 2023)
 
-- Add `variant` to scheme files
+- Create a new "common scheme format" with the following tweaks from the legacy base16 format:
+  - Add `system` to scheme files
+  - Add `slug` to scheme files, replacing using the filename as the slug
+  - Add `variant` to scheme files
 - Add `scheme-variant` as a template variable
 - Add `scheme-slug-underscored` as a template variable
 - Add `scheme-is-{{ variant }}-variant` as a template variable
