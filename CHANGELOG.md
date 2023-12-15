@@ -2,7 +2,13 @@
 
 ## 0.11.0-dev
 
-- Added `variant` to scheme files
+- Add `variant` to scheme files
+- Add `scheme-variant` as a template variable
+- Add `is_{{ variant }}_variant` as a template variable
+- Add `filename` to the template config
+- Add `supported-systems` to template config
+- Add specific definition of our slugify method which works with Unicode
+- Dropped specific language about repositories and repository layouts
 
 ## 0.10.0 (Mar 20, 2021)
 
