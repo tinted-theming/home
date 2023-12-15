@@ -5,43 +5,44 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-A base16 builder is a tool that builds application specific themeing configurations. It does this by using base16 scheme files (containing a collection of colors) and base16 template files (instructions concerning how to build the application specific files).
+This document describes the requirments and basic functionality of theme builders. Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of builders.
 
-Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of the builder.
+## Glossary
 
-## Definitions
+A _scheme_ (or color scheme) is a palette of colors along with some metadata, generally stored in a YAML file. For example: the [base16 solarized-dark scheme](https://github.com/tinted-theming/base16-schemes/blob/main/solarized-dark.yaml)
 
-A _base16 scheme_ is a YAML file that represents a palette of 16 colors. For
-example: the [solarized
-scheme](https://github.com/tinted-theming/base16-schemes/blob/main/solarized-dark.yaml)
+A _scheme system_ generally consists of a styling guide and schemes. For example the base16 [styling guide](./styling.md) and [schemes](https://github.com/tinted-theming/base16-schemes).
 
-A _base16 template_ is a mustache file that acts as a blueprint; it represents
-how to translate the scheme into an application's desired format. For example: the [vim
-template](https://github.com/tinted-theming/base16-vim/blob/main/templates/default.mustache)
-is used to convert a _base16 scheme_ into a vim colorscheme.
+A _template_ is a mustache file which acts as a blueprint; it represents how to translate the scheme into an application's desired format. For example: the [base16-emacs template](https://github.com/tinted-theming/base16-emacs/blob/main/templates/default.mustache) is used to convert a _base16 scheme_ into an Emacs theme.
 
-A _base16 builder_ is an application that implements the full _building_
-feature specification, but MAY include additional functionality. These are
-usually targeted at template maintainers or when building other base16 tooling.
+A _builder_ (or theme builder) is a tool which transforms color schemes and templates into application specific configuration. These are primarily targeted at template maintainers or users who build other theme-related tooling.
 
-_Building_ a _template_ is the process of replacing its variables (section 4.1)
-with ones extracted from a _scheme_; usually outputting it to a file, as
-defined by the _template_.
+_Building a template_ is the process of replacing its variables with ones extracted from a _scheme_; usually outputting it to a file, as defined by the _template_ and _template config_.
 
 ## Inputs
 
-### Schemes Repository
+Because the builder spec focuses on what template variables will be provided by the builder, the inputs are defined by the style systems, but must provide certain information to be functional. A common scheme format is provided here for any palette-based scheme systems.
 
-The builder MUST provide a method of loading one or more schemes for use in building templates. The builder MAY provide a method of loading a full directory of schemes at one time. Convenient access to schemes in the [schemes repository](https://github.com/tinted-theming/base16-schemes) MAY also be provided.
+### Schemes
 
-This repo contains _scheme files_ for all base16 schemes.
+Each scheme system MUST specify a way of obtaining the following information for a given scheme, often by reading from a yaml file or some method of dynamically generating it:
 
-- `/*.yaml`
+* `system` - which system this scheme supports. For compatability reasons, when loading from a legacy yaml file, if `system` is not provided, the builder MUST use the provided colors in the palette to determine if this is a legacy base16 scheme or a base24 scheme depending on which colors are provided.
+* `name` - the scheme's human readable name.
+* `slug` - the scheme's machine readable name. The slug SHOULD use dashes rather than underscores. If it is not provided, a builder MUST infer it by [slugifying](#slugify) the scheme's name.
+* `author` - the scheme's author.
+* `description` - optional. A short description of the scheme.
+* `variant` - optional, but recommended. Which variant of a given color scheme this qualifies as. Currently only "light" and "dark" are used, but this value could be anything.
+* `palette` - all colors used by a scheme, often loaded as HTML hex colors. Some scheme systems may place additional restrictions on the colors in the palette.
 
 <details>
-  <summary>Scheme Files Spec</summary>
+  <summary>Legacy Base16 Scheme Files</summary>
 
-Scheme files have the following structure:
+**Legacy Base16 Scheme Files**
+
+Legacy scheme files are currently used for the Base16 and Base24 scheme systems, though they are not limited to only those scheme systems.
+
+These files have the following structure:
 
     scheme: "Scheme Name"
     author: "Scheme Author"
@@ -64,14 +65,18 @@ Scheme files have the following structure:
     base0E: "eeeeee"
     base0F: "ffffff"
 
-- Hexadecimal color values may optionally be preceded by a "#".
-- Hexadecimal color values are case insensitive.
+When scheme is loaded from a legacy scheme file, the following changes apply:
+
+- `system` will be inferred to be either `base16` or `base24` depending on which bases are provided.
+- all color values MUST be in HTML hex format and MAY be preceded by a "#".
+- the `palette` children MUST all be top-level keys, there MUST NOT be a `palette` key.
+- the scheme name MUST be specified using `scheme`, not `name`.
 
 </details>
 
-### Template Repository
+### Template Config
 
-Each template repository MUST have a templates folder containing a config.yaml and any needed mustache template files.
+In order to be built using a standard builder, each template repository MUST have a templates folder containing a config.yaml and any referenced mustache template files.
 
 - `/templates/*.mustache` - A template file (there may be more than one of these)
 - `/templates/config.yaml` - A template configuration file
@@ -82,14 +87,25 @@ Each template repository MUST have a templates folder containing a config.yaml a
 These files have the following structure:
 
     default:
-        extension: .file-extension
-        output: output-directory-name
+      supported-systems: [base16]
+      filename: "output-directory-name/{{ scheme-system }}-{{ scheme-slug }}.file-extension"
 
     additional:
-        extension: .file-extension
-        output: output-directory-name
+      extension: .another-extension
+      output: output-directory-name
 
-This example specifies that a Builder is to parse two template files: `templates/default.mustache` and `templates/additional.mustache`. `extension` defines the extension of the file that will be produced by a Builder, e.g. `base16-default-dark.file-extension`, and `output` defines the output directory that will be created within the template repository's root directory where the processed templates will be created, e.g. `output-directory-name/base16-default-dark.file-extension`.
+This example specifies that a Builder is to parse two template files: `templates/default.mustache` and `templates/additional.mustache`.
+
+`supported-systems` is a list containing all scheme systems this template will work with. This defaults to an array containing only `base16`.
+
+`filename` defines a mustache template which returns a filename relative to the template repository's root directory. All the [template variables](#template-variables) listed below are available. Builders MUST error if multiple files will be written with the same name.
+
+`extension` and `output` are legacy options and SHOULD NOT be used by templates. If `filename` is not specified, the output filename will be `{{ output }}/{{ scheme-system }}-{{ scheme-slug }}.{{ extension }}`, relative to the template repository's root directory.
+
+As an example, the above config will output the following files for the `base16` `default-dark` color scheme:
+
+- `output-directory-name/base16-default-dark.file-extension`, built from `default.mustache`.
+- `output-directory-name/base16-default-dark.another-extension`, built from `additional.mustache`.
 
 </details>
 
@@ -97,26 +113,42 @@ This example specifies that a Builder is to parse two template files: `templates
 
 A builder MUST provide the following variables to template files:
 
-- `scheme-name` - obtained from the `scheme` key of the scheme file
-- `scheme-author` - obtained from the `author` key of the scheme file
-- `scheme-description` - obtained from the `description` key of the scheme file (fallback value: `scheme-name`)
-- `scheme-variant` - obtained from the `variant` key of the scheme file.
-- `is_{{variant}}_variant` - dynamic value obtained from the `variant` key of the scheme file. e.g. `variant: "light"` provides `is_light_variant` with a value of `true`. (fallback value: `is_dark_variant` with a value of `true`). Officially supported values are `light` and `dark`, but any string could theoretically be used.
-- `scheme-slug` - the scheme filename made lowercase, not including the `.yaml` extension
-- `base00-hex` to `base0F-hex` - 6-digit hex color value obtained from the scheme file. MUST NOT include a leading `#`. e.g "7cafc2".
-- `base00-hex-bgr` to `base0F-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
-- `base00-hex-r` to `base0F-hex-r` - red component of the hex color value. e.g "7c"
-- `base00-hex-g` to `base0F-hex-g` - green component of the hex color value. e.g "af"
-- `base00-hex-b` to `base0F-hex-b` - blue component of the hex color value. e.g "c2"
-- `base00-rgb-r` to `base0F-rgb-r` - red component as a value between `0` and `255`. e.g "124"
-- `base00-rgb-g` to `base0F-rgb-g` - green component as a value between `0` and `255`. e.g "175"
-- `base00-rgb-b` to `base0F-rgb-b` - blue component as a value between `0` and `255` e.g "194"
-- `base00-dec-r` to `base0F-dec-r` - red component as a value between `0` and `1.0`. e.g "0.4863"
-- `base00-dec-g` to `base0F-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
-- `base00-dec-b` to `base0F-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
+- `scheme-name` - obtained from the `name` key of the scheme input
+- `scheme-author` - obtained from the `author` key of the scheme input
+- `scheme-description` - obtained from the `description` key of the scheme input
+- `scheme-slug` - obtained from the `slug` key of the scheme input (fallback value: a [slugified](#slugify) `scheme-name`)
+- `scheme-system` - obtained from the `system` key of the scheme input
+- `scheme-variant` - obtained from the `variant` key of the scheme input
+- `is_{{variant}}_variant` - dynamic value built from the `variant` key of the scheme file. e.g. `variant: "light"` provides `is_light_variant` with a value of `true`.
+
+Additionally, a builder MUST provide the following template variables for each defined palette token:
+
+- `{{ token-name }}-hex` - 6-digit hex color value. This does not include a leading `#`. e.g "7cafc2".
+- `{{ token-name }}-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
+- `{{ token-name }}-hex-r` - red component of the hex color value. e.g "7c"
+- `{{ token-name }}-hex-g` - green component of the hex color value. e.g "af"
+- `{{ token-name }}-hex-b` - blue component of the hex color value. e.g "c2"
+- `{{ token-name }}-rgb-r` - red component as a value between `0` and `255`. e.g "124"
+- `{{ token-name }}-rgb-g` - green component as a value between `0` and `255`. e.g "175"
+- `{{ token-name }}-rgb-b` - blue component as a value between `0` and `255` e.g "194"
+- `{{ token-name }}-dec-r` - red component as a value between `0` and `1.0`. e.g "0.4863"
+- `{{ token-name }}-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
+- `{{ token-name }}-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
+
+## Slugify
+
+Slugify is simplest to implement in a number of passes:
+
+* Start with your input value, replacing any Unicode characters with their ASCII aproximations (as an example `é` would become `e`). On a technical level, this can be done by normalizing the string to the Unicode NFD form (which is the decomposed version), and then dropping any combining characters.
+* Replace spaces with the `-` character
+* Drop all non-alphanumeric and non-dash characters
+
+*Examples:*
+
+* `Tomorrow Night` -> `tomorrow-night`
+* `Rosé Pine` -> `rose-pine`
+* `Default (Dark)` -> `default-dark`
 
 ## Considerations
 
-Mustache was chosen as the templating language due to its simplicity and widespread adoption across languages. YAML was chosen to describe scheme and configuration files for the same reasons.
-
-The core scheme repository was based off the single scheme repository so builders supporting v0.8-v0.9 of the spec can continue to function without changes.
+Mustache was chosen as the templating language due to its simplicity and widespread adoption across languages. YAML was chosen to describe scheme and configuration files for the similar reasons.
