@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.11.0-dev**
+**Version 0.11.0**
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
@@ -27,27 +27,63 @@ Because the builder spec focuses on what template variables will be provided by 
 
 Each scheme system MUST specify a way of obtaining the following information for a given scheme, often by reading from a yaml file or some method of dynamically generating it:
 
-* `system` - which system this scheme supports. For compatability reasons, when loading from a legacy yaml file, if `system` is not provided, the builder MUST use the provided colors in the palette to determine if this is a legacy base16 scheme or a base24 scheme depending on which colors are provided.
+* `system` - which system this scheme supports. For compatability reasons, when loading from a legacy yaml file, if `system` is not provided, the builder MUST use the provided colors in the palette to determine if this is a legacy scheme in either base16 or base24 format depending on which colors are provided.
 * `name` - the scheme's human readable name.
-* `slug` - the scheme's machine readable name. The slug SHOULD use dashes rather than underscores. If it is not provided, a builder MUST infer it by [slugifying](#slugify) the scheme's name.
+* `slug` - optional. The scheme's machine readable name. The slug SHOULD use dashes rather than underscores. If it is not provided, a builder MUST infer it by [slugifying](#slugify) the scheme's name.
 * `author` - the scheme's author.
 * `description` - optional. A short description of the scheme.
 * `variant` - optional, but recommended. Which variant of a given color scheme this qualifies as. Currently only "light" and "dark" are used, but this value could be anything.
 * `palette` - all colors used by a scheme, often loaded as HTML hex colors. Some scheme systems may place additional restrictions on the colors in the palette.
 
 <details>
-  <summary>Legacy Base16 Scheme Files</summary>
+  <summary>Common Scheme Format</summary>
 
-**Legacy Base16 Scheme Files**
+The common scheme format is meant to be extensible so additional properties can be added in the future.
 
-Legacy scheme files are currently used for the Base16 and Base24 scheme systems, though they are not limited to only those scheme systems.
+These files have the following structure:
+
+    system: "base16"
+    name: "Scheme Name"
+    slug: "scheme-name"
+    author: "Scheme Author"
+    description: "a short description of the scheme"
+    variant: "'light' or 'dark'"
+    palette:
+      base00: "000000"
+      base01: "111111"
+      base02: "222222"
+      base03: "333333"
+      base04: "444444"
+      base05: "555555"
+      base06: "666666"
+      base07: "777777"
+      base08: "888888"
+      base09: "999999"
+      base0A: "aaaaaa"
+      base0B: "bbbbbb"
+      base0C: "cccccc"
+      base0D: "dddddd"
+      base0E: "eeeeee"
+      base0F: "ffffff"
+
+When scheme is loaded from a common scheme file, the following specifics apply:
+
+- all color values MUST be in HTML hex format and MAY be preceded by a `#`.
+
+</details>
+
+<details>
+  <summary>Legacy Base16 Scheme Format</summary>
+
+This format is deprecated and is included for backwards compatibility reasons. An archived version of all base16 schemes can be found [here](https://github.com/tinted-theming/base16-schemes).
+
+The legacy scheme format is a fallback meant only for the Base16 and Base24 scheme systems.
 
 These files have the following structure:
 
     scheme: "Scheme Name"
     author: "Scheme Author"
     description: "a short description of the scheme"
-    variant: "'light' or 'dark'"
     base00: "000000"
     base01: "111111"
     base02: "222222"
@@ -65,11 +101,11 @@ These files have the following structure:
     base0E: "eeeeee"
     base0F: "ffffff"
 
-When scheme is loaded from a legacy scheme file, the following changes apply:
+When scheme is loaded from a legacy scheme file, the following specifics apply:
 
 - `system` will be inferred to be either `base16` or `base24` depending on which bases are provided.
-- all color values MUST be in HTML hex format and MAY be preceded by a "#".
-- the `palette` children MUST all be top-level keys, there MUST NOT be a `palette` key.
+- all color values MUST be in HTML hex format and MAY be preceded by a `#`.
+- the `palette` children MUST all be top-level keys. It can be assumed that other than `scheme`, `author`, and `description` are `palette` color values.
 - the scheme name MUST be specified using `scheme`, not `name`.
 
 </details>
@@ -96,7 +132,7 @@ These files have the following structure:
 
 This example specifies that a Builder is to parse two template files: `templates/default.mustache` and `templates/additional.mustache`.
 
-`supported-systems` is a list containing all scheme systems this template will work with. This defaults to an array containing only `base16`.
+`supported-systems` defines a list containing all scheme systems this template should be rendered for. This defaults to an array containing only `base16`.
 
 `filename` defines a mustache template which returns a filename relative to the template repository's root directory. All the [template variables](#template-variables) listed below are available. Builders MUST error if multiple files will be written with the same name.
 
