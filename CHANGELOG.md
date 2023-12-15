@@ -2,17 +2,25 @@
 
 ## 0.11.0 (Dec 15, 2023)
 
-- Create a new "common scheme format" with the following tweaks from the legacy base16 format:
+- Create a new "common scheme format" with the following changes from the legacy base16 format:
   - Add `system` to scheme files
   - Add `slug` to scheme files, replacing using the filename as the slug
   - Add `variant` to scheme files
-- Add `scheme-variant` as a template variable
-- Add `scheme-slug-underscored` as a template variable
-- Add `scheme-is-{{ variant }}-variant` as a template variable
+- Add the following template variables:
+  - Add `scheme-variant` as a template variable
+  - Add `scheme-slug-underscored` as a template variable
+  - Add `scheme-is-{{ variant }}-variant` as a template variable
 - Add `filename` to the template config
 - Add `supported-systems` to template config
+- Specify that the `slug` should be calculated from the `name` rather than the filename when missing
 - Add specific definition of our slugify method which works with Unicode
-- Dropped specific language about repositories and repository layouts
+- Add information about the structure of the new [schemes repository](https://github.com/tinted-theming/schemes)
+
+All of these have the following impact:
+
+- Changes to scheme files can now be made without breaking old builders
+- New common scheme files are self-contained - the filename no longer matters
+- Additional palette-based systems can be added without changes to the spec
 
 ## 0.10.0 (Mar 20, 2021)
 
