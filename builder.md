@@ -117,9 +117,10 @@ A builder MUST provide the following variables to template files:
 - `scheme-author` - obtained from the `author` key of the scheme input
 - `scheme-description` - obtained from the `description` key of the scheme input
 - `scheme-slug` - obtained from the `slug` key of the scheme input (fallback value: a [slugified](#slugify) `scheme-name`)
+- `scheme-slug-underscored` - the `scheme-slug` template variable where dashes have been replaced with underscores
 - `scheme-system` - obtained from the `system` key of the scheme input
 - `scheme-variant` - obtained from the `variant` key of the scheme input
-- `is_{{variant}}_variant` - dynamic value built from the `variant` key of the scheme file. e.g. `variant: "light"` provides `is_light_variant` with a value of `true`.
+- `scheme-is-{{variant}}-variant` - dynamic value built from the `variant` key of the scheme file. e.g. `variant: "light"` provides `scheme-is-light-variant` with a value of `true`.
 
 Additionally, a builder MUST provide the following template variables for each defined palette token:
 

@@ -4,7 +4,8 @@
 
 - Add `variant` to scheme files
 - Add `scheme-variant` as a template variable
-- Add `is_{{ variant }}_variant` as a template variable
+- Add `scheme-slug-underscored` as a template variable
+- Add `scheme-is-{{ variant }}-variant` as a template variable
 - Add `filename` to the template config
 - Add `supported-systems` to template config
 - Add specific definition of our slugify method which works with Unicode
