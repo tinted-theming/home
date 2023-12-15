@@ -13,7 +13,7 @@ A _scheme_ (or color scheme) is a palette of colors along with some metadata, ge
 
 A _scheme system_ generally consists of a styling guide and schemes. For example the base16 [styling guide](./styling.md) and [schemes](https://github.com/tinted-theming/base16-schemes).
 
-A _template_ is a mustache file which acts as a blueprint; it represents how to translate the scheme into an application's desired format. For example: the [base16-vim template](https://github.com/tinted-theming/base16-vim/blob/main/templates/default.mustache) is used to convert a _base16 scheme_ into a vim colorscheme.
+A _template_ is a mustache file which acts as a blueprint; it represents how to translate the scheme into an application's desired format. For example: the [base16-emacs template](https://github.com/tinted-theming/base16-emacs/blob/main/templates/default.mustache) is used to convert a _base16 scheme_ into an Emacs theme.
 
 A _builder_ (or theme builder) is a tool which transforms color schemes and templates into application specific configuration. These are primarily targeted at template maintainers or users who build other theme-related tooling.
 
