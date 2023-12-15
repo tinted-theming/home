@@ -27,7 +27,7 @@ Because the builder spec focuses on what template variables will be provided by 
 
 Each scheme system MUST specify a way of obtaining the following information for a given scheme, often by reading from a yaml file or some method of dynamically generating it:
 
-* `system` - which system this scheme supports. For compatability reasons, when loading from a legacy yaml file, if `system` is not provided, the builder MUST use the provided colors in the palette to determine if this is a legacy scheme in either base16 or base24 format depending on which colors are provided.
+* `system` - which system this scheme supports. When loading from a yaml file, if `system` is not provided, the builder MUST use the provided colors in the palette to determine if this is a legacy scheme in either base16 or base24 format depending on which colors are provided.
 * `name` - the scheme's human readable name.
 * `slug` - optional. The scheme's machine readable name. The slug SHOULD use dashes rather than underscores. If it is not provided, a builder MUST infer it by [slugifying](#slugify) the scheme's name.
 * `author` - the scheme's author.
@@ -39,6 +39,8 @@ Each scheme system MUST specify a way of obtaining the following information for
   <summary>Common Scheme Format</summary>
 
 The common scheme format is meant to be extensible so additional properties can be added in the future.
+
+The [schemes repository](https://github.com/tinted-theming/schemes) provides branches for all backwards incompatible changes, so when a backwards incompatible change is made, the same repository can continue to be used. The main branch will always be the current stable spec. This repository has a separate folder for each scheme system, but it is valid to walk all yaml files and read them directly.
 
 These files have the following structure:
 
