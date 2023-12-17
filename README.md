@@ -57,8 +57,7 @@ Editors:
 
 * [Emacs](https://github.com/tinted-theming/base16-emacs) maintained by [belak](https://github.com/belak)
 * [Helix](https://github.com/tinted-theming/base16-helix) maintained by [krgn](https://github.com/krgn)
-* [JetBrains](https://github.com/tinted-theming/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa)
-* [Jetbrains] maintained by [adilosa](https://github.com/adilosa), and [JamyGolden](https://github.com/JamyGolden)
+* [JetBrains](https://github.com/tinted-theming/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa), and [JamyGolden](https://github.com/JamyGolden)
 * [Kakoune](https://github.com/tinted-theming/base16-kakoune) maintained by [JamyGolden](https://github.com/JamyGolden)
 * [VSCode](https://github.com/tinted-theming/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
 * [Vim](https://github.com/tinted-theming/base16-vim) maintained by [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
@@ -207,7 +206,7 @@ Spec changes will not be released until there is consensus among maintainers and
 See the [CHANGELOG](/CHANGELOG.md) for more information about changes in the
 spec.
 
-* [Base16 Builder Go](https://github.com/tinted-theming/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.10.0
+* [Base16 Builder Go](https://github.com/tinted-theming/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.11.0
 * [Base16 Builder Node](https://github.com/tinted-theming/base16-builder-node) maintained by [joshgoebel](https://github.com/joshgoebel) - currently supports 0.10.0
 
 ## Scheme and Template Author Resources
