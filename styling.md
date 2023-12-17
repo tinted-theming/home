@@ -1,9 +1,9 @@
-_The canonical version of this spec can be found at [chriskempson/base16](https://github.com/chriskempson/base16/blob/main/styling.md).  The document is reproduced here for both convenience and archival purposes. Minor formatting changes have been made to improve readability. An example has been added._
+_The original version of this spec can be found at [chriskempson/base16](https://github.com/chriskempson/base16/blob/main/styling.md). The document is reproduced here for both convenience and archival purposes. We have made minor formatting changes to improve readability, content changes to reflect how these guidelines are applied in practice, and added an example._
 
 ---
 
 # Base16 Styling Guidelines
-**Version 0.2**
+**Version 0.3**
 
 Base16 aims to group similar language constructs with a single color. For example, floats, ints, and doubles would belong to the same colour group. The colors for the default scheme were chosen to be easily separable, but scheme designers should pick whichever colours they desire, e.g. `base0B` (green by default) could be replaced with red. There are, however, some general guidelines below that stipulate which `base0B` should be used to highlight each construct when designing templates for editors.
 
@@ -18,7 +18,7 @@ Colors `base00` to `base07` are typically variations of a shade and run from dar
 - **base04** - Dark Foreground (Used for status bars)
 - **base05** - Default Foreground, Caret, Delimiters, Operators
 - **base06** - Light Foreground (Not often used)
-- **base07** - Light Background (Not often used)
+- **base07** - Brightest Foreground (Not often used)
 - **base08** - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
 - **base09** - Integers, Boolean, Constants, XML Attributes, Markup Link Url
 - **base0A** - Classes, Markup Bold, Search Text Background
