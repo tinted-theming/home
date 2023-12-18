@@ -1,0 +1,70 @@
+# Tinted Theming Code of Conduct
+
+## Our Commitment
+
+Tinted Theming is committed to providing a welcoming and inclusive community where everyone feels respected and valued. We expect all community members, including contributors, maintainers, and users, to adhere to this Code of Conduct.
+
+## Inclusivity and Respect
+
+We value diversity and believe that a wide range of perspectives and experiences enriches our community. We are committed to creating an environment free from discrimination, harassment, and disrespectful behavior.
+
+## Language and Communication
+
+We strive for a community where everyone communicates with respect and empathy. Language has power, and we must use it responsibly.
+
+### Understanding Slurs and Offensive Language
+
+It's important to be aware that certain words, even those that might seem commonplace, can be harmful. This includes slurs or derogatory language directed at any disadvanged and underrepresented group, whether based on race, ethnicity, gender, disability, sexual orientation, or other characteristics. Such language:
+
+- Contributes to a culture of exclusion.
+- Creates an unwelcoming environment for affected individuals and groups.
+- Contradicts our values of respect and inclusivity.
+
+## Expected Behavior
+
+We expect all members of the Tinted Theming community to:
+
+1. Be respectful and considerate of others, regardless of their background, identity, or beliefs.
+2. Use inclusive language and avoid derogatory or offensive comments. This includes refraining from any slurs or derogatory language. If you're unsure whether a word might be offensive, we encourage erring on the side of caution and choosing more neutral terms.
+3. Listen actively and be open to different viewpoints and ideas.
+4. Provide constructive feedback and criticism in a respectful manner.
+5. Be patient and supportive, especially with newcomers.
+6. Respect and protect the privacy of others.
+7. Respect others' pronouns and gender identities. Avoid making assumptions about anyone's gender identity. Use gender-neutral language or the pronouns that individuals have specified for themselves.
+8. Educate themselves on why certain words are harmful and strive to use language that respects all community members. Be open to learning and growing in their understanding of respectful communication. We also encourage open and respectful discussion about language and its impact, as we all play a role in creating a supportive community environment.
+
+### Pronoun Guidelines
+
+At Tinted Theming, we value inclusivity and respect for everyone's gender identity and pronouns. We encourage members to specify their pronouns in their profiles and use the pronouns others have specified for themselves, and resorting to gender-neutral pronouns like they/them if unsure. If someone uses the wrong pronoun for someone, it is encouraged to politely correct them.
+
+## Unacceptable Behavior
+
+Unacceptable behavior includes, but is not limited to:
+
+1. Harassment, intimidation, or discrimination based on race, ethnicity, gender, sexual orientation, disability, age, religion, or any other protected characteristic.
+2. Offensive, derogatory, or hurtful comments, jokes, or slurs.
+3. Personal attacks, trolling, or bullying.
+4. Posting or sharing inappropriate or offensive content.
+5. Unsolicited sexual advances or attention.
+6. Invasion of personal privacy, including sharing personal information without consent.
+7. Disruptive or aggressive behavior in community spaces.
+8. Violation of any applicable laws or regulations.
+
+## Reporting and Enforcement
+
+If you experience or witness behavior that violates this Code of Conduct, please report it to the Tinted Theming community moderators or administrators at [#tinted-theming:matrix.org](https://matrix.to/#/#tinted-theming:matrix.org).
+
+### Process
+
+When reporting a violation, include a detailed account of the incident with relevant information such as the date, time, and nature of the violation. All reports will be treated with strict confidentiality. Our team will review and investigate each report and respond within a few days. Depending on the severity of the violation, actions may include warnings, temporary suspensions, or permanent bans from the community.
+
+## Be Mindful
+
+Remember that your actions and words have an impact on others in the community. Be mindful of the community guidelines and strive to create a positive and inclusive environment for all.
+
+## Acknowledgment
+
+This Code of Conduct has been developed with guidance from general best practices observed in open-source and online community management. We extend our gratitude to the broader community for the collective wisdom that has shaped these standards, and to all those who strive to create inclusive, respectful online spaces.
+
+[Matrix]: https://matrix.org/
+[#tinted-theming:matrix.org]: https://matrix.to/#/#tinted-theming:matrix.org
