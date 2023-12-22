@@ -24,14 +24,14 @@ It's important to be aware that certain words, even those that might seem common
 
 We expect all members of the Tinted Theming community to:
 
+1. Assume positive intentions in their interactions with others. Approach conversations and actions with the belief that community members mean well and are acting in good faith.
 1. Be respectful and considerate of others, regardless of their background, identity, or beliefs.
-2. Use inclusive language and avoid derogatory or offensive comments. This includes refraining from any slurs or derogatory language. If you're unsure whether a word might be offensive, we encourage erring on the side of caution and choosing more neutral terms.
-3. Listen actively and be open to different viewpoints and ideas.
-4. Provide constructive feedback and criticism in a respectful manner.
-5. Be patient and supportive, especially with newcomers.
-6. Respect and protect the privacy of others.
-7. Respect others' pronouns and gender identities. Avoid making assumptions about anyone's gender identity. Use gender-neutral language or the pronouns that individuals have specified for themselves.
-8. Educate themselves on why certain words are harmful and strive to use language that respects all community members. Be open to learning and growing in their understanding of respectful communication. We also encourage open and respectful discussion about language and its impact, as we all play a role in creating a supportive community environment.
+1. Use inclusive language and avoid derogatory or offensive comments. This includes refraining from any slurs or derogatory language. If you're unsure whether a word might be offensive, we encourage erring on the side of caution and choosing more neutral terms.
+1. Listen actively and be open to different viewpoints and ideas.
+1. Provide constructive feedback and criticism in a respectful manner.
+1. Be patient and supportive, especially with newcomers.
+1. Respect and protect the privacy of others.
+1. Respect others' pronouns and gender identities. Avoid making assumptions about anyone's gender identity. Use gender-neutral language or the pronouns that individuals have specified for themselves.
 
 ### Pronoun Guidelines
 
