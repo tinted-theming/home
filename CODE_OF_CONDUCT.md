@@ -31,11 +31,7 @@ We expect all members of the Tinted Theming community to:
 1. Provide constructive feedback and criticism in a respectful manner.
 1. Be patient and supportive, especially with newcomers.
 1. Respect and protect the privacy of others.
-1. Respect others' pronouns and gender identities. Avoid making assumptions about anyone's gender identity. Use gender-neutral language or the pronouns that individuals have specified for themselves.
-
-### Pronoun Guidelines
-
-At Tinted Theming, we value inclusivity and respect for everyone's gender identity and pronouns. We encourage members to specify their pronouns in their profiles and use the pronouns others have specified for themselves, and resorting to gender-neutral pronouns like they/them if unsure. If someone uses the wrong pronoun for someone, it is encouraged to politely correct them.
+1. Respect others' pronouns and gender identities. We also encourage people to avoid making assumptions about anyone's pronouns and to use gender-neutral pronouns (they/them) when pronouns are unknown.
 
 ## Unacceptable Behavior
 
