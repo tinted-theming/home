@@ -38,13 +38,13 @@ We expect all members of the Tinted Theming community to:
 Unacceptable behavior includes, but is not limited to:
 
 1. Harassment, intimidation, or discrimination based on race, ethnicity, gender, sexual orientation, disability, age, religion, or any other protected characteristic.
-2. Offensive, derogatory, or hurtful comments, jokes, or slurs.
-3. Personal attacks, trolling, or bullying.
-4. Posting or sharing inappropriate or offensive content.
-5. Unsolicited sexual advances or attention.
-6. Invasion of personal privacy, including sharing personal information without consent.
-7. Disruptive or aggressive behavior in community spaces.
-8. Violation of any applicable laws or regulations.
+1. Offensive, derogatory, or hurtful comments, jokes, or slurs.
+1. Personal attacks, trolling, or bullying.
+1. Posting or sharing inappropriate or offensive content.
+1. Unsolicited sexual advances or attention.
+1. Invasion of personal privacy, including sharing personal information without consent.
+1. Disruptive or aggressive behavior in community spaces.
+1. Violation of any applicable laws or regulations.
 
 ## Reporting and Enforcement
 
