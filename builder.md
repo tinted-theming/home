@@ -179,8 +179,9 @@ Additionally, a builder MUST provide the following template variables for each d
 Slugify is simplest to implement in a number of passes:
 
 * Start with your input value, replacing any Unicode characters with their ASCII aproximations (as an example `é` would become `e`). On a technical level, this can be done by normalizing the string to the Unicode NFD form (which is the decomposed version), and then dropping any combining characters.
+* Lowercase all characters. (convert characters `A` to `Z`, to `a` to `z`.)
 * Replace spaces with the `-` character
-* Drop all non-alphanumeric and non-dash characters
+* Drop all characters that are neither alphanumeric nor dashes
 
 *Examples:*
 
