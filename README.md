@@ -176,6 +176,7 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 <p>
 
 * [Amfora](https://github.com/jo1gi/base16-amfora) maintained by [jo1gi](https://github.com/jo1gi)
+* [Discord](https://github.com/deathbeam/base16-discord) maintained by [deathbeam](https://github.com/deathbeam)
 * [LuaKit](https://github.com/twnaing/base16-luakit) maintained by [twnaing](https://github.com/twnaing)
 * [PyRadio](https://github.com/edunfelt/base16-pyradio) maintained by [edunfelt](https://github.com/edunfelt)
 * [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch)
