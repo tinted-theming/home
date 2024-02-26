@@ -25,17 +25,20 @@ following criteria:
 
 - Follows our [Code of Conduct] and contribution guidelines
 - Aligns with Tinted Theming's thematic and aesthetic standards
-- Includes, at least basic, documentation on theme usage
+- Includes at least basic documentation on theme usage
 
 ### Agreement
 
 When a repository is transferred to Tinted Theming, it then belongs to
 the Tinted Theming Github organization and community. The previous owner
 changes from being the owner of the repository to a maintainer of the
-repository. It is not mandatory to be a maintainer of transferring.
+repository. It is not mandatory to be a maintainer after transferring,
+but we recomment it.
 
-Becoming a Tinted Theming maintainer when transfering in a repository is
-optional.
+Due to how Github deals with redirects, we recommend not re-creating a
+Github repository with the same URL after transferring since it will
+break the redirect from the old repository URL to the newly transferred
+repository.
 
 ### Process
 
@@ -54,16 +57,17 @@ The steps on your side are now complete. Next steps an admin will take
 will be:
 
 1. Add you to a relevant Github team
-2. Add the team as the maintainer of the newly transfered repository
-3. If not already done, the primary branch will be set to `main`
-4. If the repository is a template repository, a PR will be created
-   which sets up [@tinted-theming-bot] to run [builder-go] on on the
-   repository once a week to make sure it is up to date with the [latest
-   schemes]
+1. Add the team as the maintainer of the newly transfered repository
+1. If not already done, the primary branch will be set to `main`
+1. If the repository is a theme template repository, a PR will be
+   created which sets up [@tinted-theming-bot] to run [builder] on on
+   the repository once a week to make sure it is up to date with the
+   [latest schemes]
 
 ### How to get in contact?
 
-Either [create a Github issue] or send us a message on [Matrix].
+File an issue in this repository, stating you would like to transfer a
+repository.
 
 ## Maintainer Obligations
 
@@ -84,7 +88,7 @@ obligations include but are not limited to the following:
 - **Continuous Improvement**: Where it makes sense, regularly update the
   repository with improvements, bug fixes, and enhancements to keep the
   themes relevant and functional across different platforms.
-- **Inclusivity**: Uphold the principles of our Code of Conduct by
+- **Inclusivity**: Uphold the principles of our [Code of Conduct] by
   promoting an inclusive and welcoming environment for all contributors
   and community members.
 
@@ -95,7 +99,11 @@ their time in nurturing their repositories and the community around
 them.
 
 To make sure we keep things in a good state, it's important for people
-to accept the above before becoming a maintainer.
+to understand and accept the above before becoming a maintainer.
+
+Maintainers who do not adhere to the obligations may be removed from the
+maintainer team. This does not mean they cannot reapply as maintainers
+in future.
 
 ## Support for Maintainers
 
@@ -114,7 +122,7 @@ questions or for more information on what the role entails. Together, we
 can continue to build a vibrant and diverse theming community.
 
 [@tinted-theming-bot]: https://github.com/tinted-theming-bot
-[builder-go]: https://github.com/tinted-theming/base16-builder-go
+[builder]: https://github.com/tinted-theming/base16-builder-go
 [latest schemes]: https://github.com/tinted-theming/schemes
 [create a Github issue]: https://github.com/tinted-theming/home/issues
 [Matrix]: https://matrix.to/#/#tinted-theming:matrix.org
