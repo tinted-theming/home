@@ -45,7 +45,9 @@ repository.
 The process for transferring a repository into Tinted Theming is as
 follows:
 
-1. You will receive an invite to join the organization
+1. [Contact us] about transferring the repository
+1. If your repository passes the [acceptance criteria] you will receive
+   an invite to join the organization
 1. Accept the invite
 1. Go to the Settings page of the repository you want to transfer and
    scroll to the bottom. You will see a "Danger Zone" section which
@@ -127,3 +129,5 @@ can continue to build a vibrant and diverse theming community.
 [create a Github issue]: https://github.com/tinted-theming/home/issues
 [Matrix]: https://matrix.to/#/#tinted-theming:matrix.org
 [Code of Conduct]: ./CODE_OF_CONDUCT.md
+[Contact us]: #how-to-get-in-contact
+[acceptance criteria]: #acceptance-criteria
