@@ -1,5 +1,7 @@
 # Tinted Theming: all your themes, everywhere. <img alt="Color wheel" src="./color_wheel.png" width="100" align="right" style="padding-top:0.6rem;">
 
+[![Matrix Chat](https://img.shields.io/matrix/tinted-theming:matrix.org)](https://matrix.to/#/#tinted-theming:matrix.org)
+
  Style systems and smart build tooling for crafting high fidelity color schemes and easily using them in all your favorite apps.  Originally based on the amazing work of [Chris Kempson](https://github.com/chriskempson/) and his [Base16](https://github.com/chriskempson/base16) system.
 
 **Features**
