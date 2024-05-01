@@ -229,6 +229,7 @@ If you've written a tool feel free to add it to the list below:
 * [Themix/Oomox](https://github.com/themix-project/oomox/) - Graphical application for generating different color variations of a Arc, Materia and Oomox themes (GTK2, GTK3 and others), Archdroid, Gnome-Colors and Numix icons, and terminal palette. Base16 plugin allows to open Base16 YAML files a export both Base16 and its own themes using Base16 Mustache templates.
 * [base16-spectrum-generator](https://github.com/alexmirrington/base16-spectrum-generator) - A Python script for generating `.png` files showcasing the colours in a base16 theme.
 * [base16.nix](https://github.com/SenchoPens/base16.nix) - a NixOS / home-manager module to set base16 / base24 schemes and use templates.
+* [base16-tailwind](https://github.com/donovanglover/base16-tailwind) - A Tailwind CSS plugin for using base16 / base24 color schemes in websites and web apps.
 
 ## Projects
 
