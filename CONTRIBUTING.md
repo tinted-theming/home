@@ -33,7 +33,7 @@ When a repository is transferred to Tinted Theming, it then belongs to
 the Tinted Theming Github organization and community. The previous owner
 changes from being the owner of the repository to a maintainer of the
 repository. It is not mandatory to be a maintainer after transferring,
-but we recomment it.
+but we recommend it.
 
 Due to how Github deals with redirects, we recommend not re-creating a
 Github repository with the same URL after transferring since it will
@@ -59,7 +59,7 @@ The steps on your side are now complete. Next steps an admin will take
 will be:
 
 1. Add you to a relevant Github team
-1. Add the team as the maintainer of the newly transfered repository
+1. Add the team as the maintainer of the newly transferred repository
 1. If not already done, the primary branch will be set to `main`
 1. If the repository is a theme template repository, a PR will be
    created which sets up [@tinted-theming-bot] to run [builder] on on

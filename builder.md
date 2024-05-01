@@ -5,7 +5,7 @@
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).*
 
-This document describes the requirments and basic functionality of theme builders. Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of builders.
+This document describes the requirements and basic functionality of theme builders. Builders are generally designed for template maintainers' ease of use. Template maintainers SHOULD provide built versions of their template so the end user doesn't need to be aware of builders.
 
 ## Glossary
 
@@ -178,7 +178,7 @@ Additionally, a builder MUST provide the following template variables for each d
 
 Slugify is simplest to implement in a number of passes:
 
-* Start with your input value, replacing any Unicode characters with their ASCII aproximations (as an example `é` would become `e`). On a technical level, this can be done by normalizing the string to the Unicode NFD form (which is the decomposed version), and then dropping any combining characters.
+* Start with your input value, replacing any Unicode characters with their ASCII approximations (as an example `é` would become `e`). On a technical level, this can be done by normalizing the string to the Unicode NFD form (which is the decomposed version), and then dropping any combining characters.
 * Lowercase all characters. (convert characters `A` to `Z`, to `a` to `z`.)
 * Replace spaces with the `-` character
 * Drop all characters that are neither alphanumeric nor dashes
