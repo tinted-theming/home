@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.11.0**
+**Version 0.12.0**
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
@@ -67,6 +67,54 @@ These files have the following structure:
       base0D: "dddddd"
       base0E: "eeeeee"
       base0F: "ffffff"
+    overrides:
+      default-background: base00
+      lighter-background: base01
+      selection-background: base02
+      comments: base03
+      invisibles: base03
+      line: base03
+      highlighting: base03
+      dark-foreground: base04
+      default-foreground: base05
+      caret: base05
+      delimiters: base05
+      operators: base05
+      light-foreground: base06
+      brightest-foreground: base07
+      variables: base08
+      xml-tags: base08
+      markup-link-text: base08
+      markup-lists: base08
+      diff-deleted: base08
+      integers: base09
+      boolean: base09
+      constants: base09
+      xml-attributes: base09
+      markup-link-url: base09
+      classes: base0A
+      markup-bold: base0A
+      search-text-background: base0A
+      strings: base0B
+      inherited-class: base0B
+      markup-code: base0B
+      diff-inserted: base0B
+      support: base0C
+      regular-expressions: base0C
+      regular-expressions: base0C
+      escape-characters: base0C
+      markup-quotes: base0C
+      functions: base0D
+      methods: base0D
+      attribute-ids: base0D
+      headings: base0D
+      keywords: base0E
+      storage: base0E
+      selector: base0E
+      markup-italics: base0E
+      diff-changes: base0E
+      deprecated-section: base0F
+      embedded-language-tags: base0F
 
 When scheme is loaded from a common scheme file, the following specifics apply:
 
@@ -159,6 +207,7 @@ A builder MUST provide the following variables to template files:
 - `scheme-system` - obtained from the `system` key of the scheme input
 - `scheme-variant` - obtained from the `variant` key of the scheme input
 - `scheme-is-{{variant}}-variant` - dynamic value built from the `variant` key of the scheme file. e.g. `variant: "light"` provides `scheme-is-light-variant` with a value of `true`.
+- `scheme-overrides.*` - obtained from the `overrides` key of the scheme input
 
 Additionally, a builder MUST provide the following template variables for each defined palette token:
 
@@ -173,6 +222,10 @@ Additionally, a builder MUST provide the following template variables for each d
 - `{{ token-name }}-dec-r` - red component as a value between `0` and `1.0`. e.g "0.4863"
 - `{{ token-name }}-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
 - `{{ token-name }}-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
+
+## Overrides
+
+These values can be optionally used to style in templates instead of referencing the base00-base0F values.
 
 ## Slugify
 
