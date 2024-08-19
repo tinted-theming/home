@@ -8,7 +8,7 @@ this theming driven community.
 
 The Tinted Theming project is currently governed by three admins:
 
-- [@balek], who has been actively involved in the community since the
+- [@belak], who has been actively involved in the community since the
   original base16 theming project.
 - [@JamyGolden], who has been actively involved in the formation of
   base16-project and tinted-theming.
