@@ -12,7 +12,8 @@ The Tinted Theming project is currently governed by three admins:
   original base16 theming project.
 - [@JamyGolden], who has been actively involved in the formation of
   base16-project and tinted-theming.
-- [@FredHappyface], who recently joined the administration team.
+- [@FredHappyface], who created base24 and recently joined
+  the administration team.
 
 **Final Say:** The three admins collectively have the final say on all
 matters related to the overall direction, policies, and major decisions
