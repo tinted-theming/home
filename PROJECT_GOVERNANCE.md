@@ -76,14 +76,49 @@ The process in such cases will be as follows:
    - Appoint a temporary or new maintainer if the original maintainer is
      no longer active.
 
-### Succession Planning
+### Succession Planning and Admin Changes
 
-To prevent prolonged unresponsiveness, it is advisable to periodically
-review the activity of admins and maintainers. If an admin becomes
-permanently inactive, the remaining admins may appoint a replacement
-from active community members. Similarly, inactive maintainers may be
-replaced or supplemented by other contributors with a track record of
-involvement in the project.
+To ensure the smooth operation of the project and prevent prolonged
+unresponsiveness, it is important to periodically review the activity of
+admins and maintainers. When an admin becomes permanently inactive,
+steps must be taken to maintain effective leadership. This may involve
+appointing a replacement from active community members or making other
+necessary changes.
+
+Admins may also step down voluntarily or be asked to step down by a
+majority of the other admins. In either case, the following process will
+be followed:
+
+#### 1. Notifying the Community
+
+The other admins and the community should be notified as soon as
+possible.
+
+#### 2. Choosing a New Admin
+
+The remaining admins, with input welcome from the community, will select
+a new admin. Candidates should be contributors who have shown commitment
+to the project.
+
+The selection process will involve consensus or a majority vote among
+the remaining admins.
+
+#### 3. Transition Period
+
+During the transition, the outgoing admin will be offboarded by having
+admin access removed from GitHub and other services.
+
+#### 4. Final Steps
+
+Once the new admin is appointed and the transition is complete, the
+outgoing admin will officially step down. The change should be
+documented, and the community will be informed.
+
+#### 5. Post-Departure Involvement
+
+Former admins are welcome to remain involved in the project in any
+capacity they choose, whether as contributors, advisors, or in another
+role.
 
 ## 2. Template-Specific Governance
 
