@@ -154,7 +154,7 @@ contribution processes within the Tinted Theming organization. Thank you
 for your involvement and contributions!
 
 For any further questions, please feel free to reach out to the admins
-[@balek], [@JamyGolden] and [@FredHappyface] on Github or on [Matrix
+[@belak], [@JamyGolden] and [@FredHappyface] on Github or on [Matrix
 Chat].
 
 [@balek]: https://github.com/balek
