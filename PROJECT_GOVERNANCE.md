@@ -25,28 +25,6 @@ Project-wide decisions are typically made through consensus among the
 admins. In cases where consensus cannot be reached, a majority vote
 among the admins will determine the final decision.
 
-### Unresponsive Maintainers
-
-If a template maintainer does not respond to an issue or pull request
-(PR) within a **reasonable timeframe** (typically **3 weeks**), the
-admins may step in to make a decision on behalf of the maintainer. This
-ensures that the project continues to move forward and that
-contributions are not stalled unnecessarily.
-
-The process in such cases will be as follows:
-
-1. **Initial Attempt:** Contributors should first try to contact the
-   maintainer via the issue or PR thread.
-2. **Escalation:** If there is no response after **3 weeks**, the issue
-   or PR can be escalated by tagging the admins in a comment;
-   @tinted-theming/admins to tag all admins.
-3. **Admin Decision:** Admins will review the situation and may:
-   - Reach out to the maintainer through other means.
-   - Make a decision on the issue or PR if the maintainer remains
-     unresponsive.
-   - Appoint a temporary or new maintainer if the original maintainer is
-     no longer active.
-
 ### Unresponsive Admins
 
 In cases where the admins are unresponsive (e.g., no response for **4
@@ -75,6 +53,28 @@ the community should follow the steps outlined above.
 extended period, they are encouraged to notify the community in advance,
 if possible, to arrange for temporary coverage or decision-making
 processes.
+
+### Unresponsive Maintainers
+
+If a template maintainer does not respond to an issue or pull request
+(PR) within a **reasonable timeframe** (typically **3 weeks**), the
+admins may step in to make a decision on behalf of the maintainer. This
+ensures that the project continues to move forward and that
+contributions are not stalled unnecessarily.
+
+The process in such cases will be as follows:
+
+1. **Initial Attempt:** Contributors should first try to contact the
+   maintainer via the issue or PR thread.
+2. **Escalation:** If there is no response after **3 weeks**, the issue
+   or PR can be escalated by tagging the admins in a comment;
+   @tinted-theming/admins to tag all admins.
+3. **Admin Decision:** Admins will review the situation and may:
+   - Reach out to the maintainer through other means.
+   - Make a decision on the issue or PR if the maintainer remains
+     unresponsive.
+   - Appoint a temporary or new maintainer if the original maintainer is
+     no longer active.
 
 ### Succession Planning
 
@@ -114,9 +114,10 @@ criteria:
   goals and philosophy of the Tinted Theming organization.
 - **Code Quality:** The code should be clean, well-documented, and
   follow the project's coding standards.
-- **No Breaking Changes:** PRs should not introduce breaking changes
-  unless absolutely necessary. If a breaking change is required, it must
-  be well-documented, and a clear migration path should be provided.
+- **No Breaking Changes:** PRs should not introduce breaking changes for
+  users unless absolutely necessary. If a breaking change is required,
+  it must be well-documented, and a clear migration path should be
+  provided.
 - **Community Feedback:** PRs should consider feedback from the
   community where appropriate. If significant concerns are raised by the
   community, they should be addressed before the PR is merged.
