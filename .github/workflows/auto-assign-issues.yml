@@ -1,18 +1,43 @@
-name: Auto assignment for issues
+name: "Auto assignment for issues"
 
 on:
   issues:
-    types: [opened]
+    types: ["opened"]
 
 jobs:
   auto-assign:
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     permissions:
-      issues: write
+      issues: "write"
+    outputs:
+      codeowners: ${{ steps.codeowners.outputs.value }}
     steps:
-      - name: 'Auto-assign issue'
-        uses: pozil/auto-assign-issue@v2
+      - uses: actions/checkout@v4
+      - name: "Get teams from CODEOWNERS file"
+        id: "codeowners"
+        run: |
+          result=""
+          first_item=true
+
+          while IFS= read -r line; do
+            if [ "$first_item" = true ]; then
+              result="${line#* @tinted-theming/}"
+              first_item=false
+            else
+              result="$result, ${line#* @tinted-theming/}"
+            fi
+          done < .github/CODEOWNERS
+
+          if [ -z "$result" ]; then
+            echo "Error: unable to determine teams from .github/CODEOWNERS file"
+            exit 1
+          fi
+
+          echo "value=$result" >> $GITHUB_OUTPUT
+
+      - name: "Auto-assign issue"
+        uses: "pozil/auto-assign-issue@v2"
         with:
-          repo-token: ${{ secrets.BOT_ACCESS_TOKEN }}
-          teams: admins
+          repo-token: "${{ secrets.BOT_ACCESS_TOKEN }}"
+          teams: "${{ steps.codeowners.outputs.value }}"
           numOfAssignee: 3
