@@ -3,56 +3,79 @@ _The original version of this spec can be found at [chriskempson/base16](https:/
 ---
 
 # Base16 Styling Guidelines
-**Version 0.3**
+**Version 0.4**
 
 Base16 aims to group similar language constructs with a single color. For example, floats, ints, and doubles would belong to the same colour group. The colors for the default scheme were chosen to be easily separable, but scheme designers should pick whichever colours they desire, e.g. `base0B` (green by default) could be replaced with red. There are, however, some general guidelines below that stipulate which `base0B` should be used to highlight each construct when designing templates for editors.
 
 Since describing syntax highlighting can be tricky, please see [base16-vim](https://github.com/tinted-theming/base16-vim/) and [base16-emacs](https://github.com/tinted-theming/base16-emacs/) for reference. Though it should be noted that each editor will have some discrepancies due the fact that editors generally have different syntax highlighting engines.
 
-Colors `base00` to `base07` are typically variations of a shade and run from darkest to lightest. These colors are used for foreground and background, status bars, line highlighting and such. Colors `base08` to `base0F` are typically individual colors used for types, operators, names and variables. In order to create a dark scheme, colors base00 to `base07` should span from dark to light. For a light scheme, these colours should span from light to dark.
+Colors `base00` to `base07` are typically variations of a shade and run from darkest to lightest for dark themes. These colors are used for foreground and background, status bars, line highlighting and such. Colors `base08` to `base0F` are typically individual colors used for types, operators, names and variables. In order to create a dark scheme, colors base00 to `base07` should span from dark to light. For a light scheme, these colours should span from light to dark.
 
-- **base00** - Default Background
-- **base01** - Lighter Background (Used for status bars, line number and folding marks)
-- **base02** - Selection Background
-- **base03** - Comments, Invisibles, Line Highlighting
-- **base04** - Dark Foreground (Used for status bars)
-- **base05** - Default Foreground, Caret, Delimiters, Operators
-- **base06** - Light Foreground (Not often used)
-- **base07** - Brightest Foreground (Not often used)
-- **base08** - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-- **base09** - Integers, Boolean, Constants, XML Attributes, Markup Link Url
-- **base0A** - Classes, Markup Bold, Search Text Background
-- **base0B** - Strings, Inherited Class, Markup Code, Diff Inserted
-- **base0C** - Support, Regular Expressions, Escape Characters, Markup Quotes
-- **base0D** - Functions, Methods, Attribute IDs, Headings
-- **base0E** - Keywords, Storage, Selector, Markup Italic, Diff Changed
-- **base0F** - Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`
+## Usage Guidelines
+
+We offer guidelines for both dark and light themes:
+
+### Dark
+
+- Colours from base00 to base07 should range from dark to light.
+
+### Light
+
+- Colours from base00 to base07 should range from light to dark.
+
+## Specific Colours and Their Usages
+
+  Each colour (base0X) serves a specific purpose or use case, such as background, foreground, variables, errors, etc. Here's a breakdown using the "One Dark" scheme colors:
+
+|Color|base0X|Ansi|Terminal|Text Editor|
+|---|---|---|---|---|
+|![#](https://placehold.it/25/282c34/000000?text=+)|base00|-|Background|Default Background|
+|![#](https://placehold.it/25/3f4451/000000?text=+)|base01|0|Black|Lighter Background(Used for status bars)|
+|![#](https://placehold.it/25/4f5666/000000?text=+)|base02|8|Bright Black|Selection Background|
+|![#](https://placehold.it/25/545862/000000?text=+)|base03|-|NA|Comments, Invisibles, Line Highlighting|
+|![#](https://placehold.it/25/9196a1/000000?text=+)|base04|-|NA|Dark Foreground (Used for status bars)|
+|![#](https://placehold.it/25/abb2bf/000000?text=+)|base05|-|Foreground|Default Foreground, Caret, Delimiters, Operators|
+|![#](https://placehold.it/25/e6e6e6/000000?text=+)|base06|7|White|Light Foreground|
+|![#](https://placehold.it/25/ffffff/000000?text=+)|base07|15|Bright White|The Lightest Foreground|
+|![#](https://placehold.it/25/e06c75/000000?text=+)|base08|1 and 9|Red|Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted|
+|![#](https://placehold.it/25/d19a66/000000?text=+)|base09|3|Orange|Integers, Boolean, Constants, XML Attributes, Markup Link Url|
+|![#](https://placehold.it/25/e5c07b/000000?text=+)|base0A|11|Yellow|Classes, Markup Bold, Search Text Background|
+|![#](https://placehold.it/25/98c379/000000?text=+)|base0B|2 and 10|Green|Strings, Inherited Class, Markup Code, Diff Inserted|
+|![#](https://placehold.it/25/56b6c2/000000?text=+)|base0C|6 and 14|Cyan|Support, Regular Expressions, Escape Characters, Markup Quotes|
+|![#](https://placehold.it/25/61afef/000000?text=+)|base0D|4 and 12|Blue|Functions, Methods, Attribute IDs, Headings|
+|![#](https://placehold.it/25/c678dd/000000?text=+)|base0E|5 and 13|Purple|Keywords, Storage, Selector, Markup Italic, Diff Changed|
+|![#](https://placehold.it/25/be5046/000000?text=+)|base0F|-|Brown|Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>`|
+
+Note: These are just guidelines and will most often provide best results when the they are followed.
+
+## YAML scheme example
+
+**ayu-dark.yaml**
+
+```yaml
+system: "base16"
+name: "Ayu Dark"
+author: "Khue Nguyen <Z5483Y@gmail.com>"
+variant: "dark"
+palette:
+  base00: "0f1419" # ---- dark
+  base01: "131721" # ---
+  base02: "272d38" # --
+  base03: "3e4b59" # -
+  base04: "bfbdb6" # +
+  base05: "e6e1cf" # ++
+  base06: "e6e1cf" # +++
+  base07: "f3f4f5" # ++++ light
+  base08: "f07178" # red
+  base09: "ff8f40" # orange
+  base0A: "ffb454" # yellow
+  base0B: "b8cc52" # green
+  base0C: "95e6cb" # cyan
+  base0D: "59c2ff" # blue
+  base0E: "d2a6ff" # purple
+  base0F: "e6b673" # brown
+```
 
 _SPEC END_
 
 ---
-
-Here is an example of a typical Base16 scheme:
-
-**ashes.yaml**
-
-```yaml
-scheme: "Ashes"
-author: "Jannik Siebert (https://github.com/janniks)"
-base00: "1C2023" # ---- dark
-base01: "393F45" # ---
-base02: "565E65" # --
-base03: "747C84" # -
-base04: "ADB3BA" # +
-base05: "C7CCD1" # ++
-base06: "DFE2E5" # +++
-base07: "F3F4F5" # ++++ light
-base08: "C7AE95" # orange
-base09: "C7C795" # yellow
-base0A: "AEC795" # poison green
-base0B: "95C7AE" # turquois
-base0C: "95AEC7" # aqua
-base0D: "AE95C7" # purple
-base0E: "C795AE" # pink
-base0F: "C79595" # light red
-```
