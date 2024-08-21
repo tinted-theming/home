@@ -1,0 +1,54 @@
+name: "Auto assignment for issues"
+
+on:
+  workflow_call:
+    secrets:
+      token:
+        description: "GitHub Access Token"
+        required: true
+
+jobs:
+  auto-assign:
+    runs-on: "ubuntu-latest"
+    permissions:
+      issues: "write"
+    outputs:
+      codeowners: ${{ steps.codeowners.outputs.value }}
+    steps:
+      - name: "Check token value"
+        run: |
+          token="${{ secrets.token }}"
+          if [ -z "$token" ]; then
+            echo "'secrets.token' not provided."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+      - name: "Get teams from CODEOWNERS file"
+        id: "codeowners"
+        run: |
+          result=""
+          first_item=true
+
+          while IFS= read -r line; do
+            if [ "$first_item" = true ]; then
+              result="${line#* @tinted-theming/}"
+              first_item=false
+            else
+              result="$result, ${line#* @tinted-theming/}"
+            fi
+          done < .github/CODEOWNERS
+
+          if [ -z "$result" ]; then
+            echo "Error: unable to determine teams from .github/CODEOWNERS file"
+            exit 1
+          fi
+
+          echo "value=$result" >> $GITHUB_OUTPUT
+
+      - name: "Auto-assign issue"
+        uses: "pozil/auto-assign-issue@v2"
+        with:
+          repo-token: "${{ secrets.token }}"
+          teams: "${{ steps.codeowners.outputs.value }}"
+          numOfAssignee: 3
