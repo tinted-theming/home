@@ -23,7 +23,7 @@ jobs:
             exit 1
           fi
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08 # v4.1.7
       - name: "Get teams from CODEOWNERS file"
         id: "codeowners"
         run: |
@@ -47,7 +47,7 @@ jobs:
           echo "value=$result" >> $GITHUB_OUTPUT
 
       - name: "Auto-assign issue"
-        uses: "pozil/auto-assign-issue@v2"
+        uses: "pozil/auto-assign-issue@9fe872bb72487df4637d1eacd434c2fa97703230" # v2.0.0
         with:
           repo-token: "${{ secrets.token }}"
           teams: "${{ steps.codeowners.outputs.value }}"
