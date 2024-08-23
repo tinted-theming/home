@@ -1,0 +1,35 @@
+name: "Build template and commit theme updates"
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: "Git hash reference"
+        type: "string"
+        required: true
+    secrets:
+      token:
+        description: "GitHub Access Token"
+        required: true
+
+jobs:
+  run:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Fetch the repository code"
+        uses: "actions/checkout@9a9194f87191a7e9055e3e9b95b8cfb13023bb08" # 4.1.7
+        with:
+          token: ${{ secrets.token }}
+          ref: ${{ inputs.ref }}
+
+      - name: "Update schemes"
+        uses: "tinted-theming/tinted-builder-rust@latest"
+
+      - name: "Commit the changes, if any"
+        uses: "stefanzweifel/git-auto-commit-action@be823a7e51f116fecebc222b8307716921375992" # 5.0.1
+        with:
+          commit_message: "Update with the latest tinted-theming colorschemes"
+          branch: ${{ inputs.ref }}
+          commit_user_name: "tinted-theming-bot"
+          commit_user_email: "tintedtheming@proton.me"
+          commit_author: "tinted-theming-bot <tintedtheming@proton.me>"
