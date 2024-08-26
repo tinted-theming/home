@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.11.1 (Aug 25, 2024)
+
+- Clarify that hidden files and folders should be ignored
+
 ## 0.11.0 (Dec 15, 2023)
 
 - Create a new "common scheme format" with the following changes from the legacy base16 format:

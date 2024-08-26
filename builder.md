@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.11.0**
+**Version 0.11.1**
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
@@ -40,7 +40,7 @@ Each scheme system MUST specify a way of obtaining the following information for
 
 The common scheme format is meant to be extensible so additional properties can be added in the future.
 
-The [schemes repository](https://github.com/tinted-theming/schemes) provides branches for all backwards incompatible changes, so when a backwards incompatible change is made, the same repository can continue to be used. The main branch will always be the current stable spec. This repository has a separate folder for each scheme system, but it is valid to walk all yaml files and read them directly.
+The [schemes repository](https://github.com/tinted-theming/schemes) provides branches for all backwards incompatible changes, so when a backwards incompatible change is made, the same repository can continue to be used. The main branch will always be the current stable spec. This repository has a separate folder for each scheme system, but it is valid to walk all yaml files and read them directly. All files starting with a `.` and the contents of all directories starting with a `.` MUST be ignored.
 
 These files have the following structure:
 
