@@ -27,8 +27,8 @@ We offer guidelines for both dark and light themes:
 
   Each colour (base0X) serves a specific purpose or use case, such as background, foreground, variables, errors, etc. Here's a breakdown using the "One Dark" scheme colors:
 
-| Color                                              | base0X | Ansi     | Terminal               | Text Editor |
-| -------------------------------------------------- | ------ | -------- | ---------------------- | ----------- |
+| Color                                              | base0X | Ansi     | Terminal                 | Text Editor |
+| -------------------------------------------------- | ------ | -------- | ------------------------ | ----------- |
 | ![#](https://placehold.it/25/282c34/000000?text=+) | base00 | -        | Background               | Default Background |
 | ![#](https://placehold.it/25/3f4451/000000?text=+) | base01 | 0        | Black                    | Lighter Background (Used for status bars) |
 | ![#](https://placehold.it/25/4f5666/000000?text=+) | base02 | 8        | Bright Black             | Selection Background |
