@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.11.1**
+**Version 0.11.2**
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
@@ -170,6 +170,9 @@ Additionally, a builder MUST provide the following template variables for each d
 - `{{ token-name }}-rgb-r` - red component as a value between `0` and `255`. e.g "124"
 - `{{ token-name }}-rgb-g` - green component as a value between `0` and `255`. e.g "175"
 - `{{ token-name }}-rgb-b` - blue component as a value between `0` and `255` e.g "194"
+- `{{ token-name }}-rgb16-r` - 16 bit red component as a value between `0` and `65_535`. e.g "15000"
+- `{{ token-name }}-rgb16-g` - 16 bit green component as a value between `0` and `65_535`. e.g "30000"
+- `{{ token-name }}-rgb16-b` - 16 bit blue component as a value between `0` and `65_535` e.g "60000"
 - `{{ token-name }}-dec-r` - red component as a value between `0` and `1.0`. e.g "0.4863"
 - `{{ token-name }}-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
 - `{{ token-name }}-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
