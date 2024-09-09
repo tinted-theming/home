@@ -240,7 +240,7 @@ A builder MUST provide the following variables to template files:
 - `scheme-is-{{variant}}-variant` - dynamic value built from the `variant` key of the scheme file. e.g. `variant: "light"` provides `scheme-is-light-variant` with a value of `true`.
 - `scheme-override-*` - obtained from the key within `overrides` object within the scheme yaml
 
-Additionally, a builder MUST provide the following template variables for each defined palette token:
+Additionally, a builder MUST provide the following template variables for each defined palette token and override name:
 
 - `{{ token-name }}-hex` - 6-digit hex color value. This does not include a leading `#`. e.g "7cafc2".
 - `{{ token-name }}-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
