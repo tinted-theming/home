@@ -259,7 +259,7 @@ Additionally, a builder MUST provide the following template variables for each d
 
 ## Overrides
 
-These values can be optionally used to style in templates instead of referencing the base00-base0F values.
+These values can optionally be used in templates to style instead of referencing the `base00`-`base0F` values.
 
 ## Slugify
 
