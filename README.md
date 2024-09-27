@@ -184,6 +184,8 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch)
 * [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
 * [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
+* [nwg-dock](https://git.sr.ht/~blueingreen/base16-nwg-dock) maintained by [blueingreen68](https://github.com/BlueInGreen68)
+* [wlr-which-key](https://git.sr.ht/~blueingreen/base16-wlr-which-key) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 
 </p>
 </details>
