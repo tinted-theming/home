@@ -186,6 +186,7 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
 * [nwg-dock](https://git.sr.ht/~blueingreen/base16-nwg-dock) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 * [wlr-which-key](https://git.sr.ht/~blueingreen/base16-wlr-which-key) maintained by [blueingreen68](https://github.com/BlueInGreen68)
+* [btop](https://git.sr.ht/~blueingreen/base16-btop) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 
 </p>
 </details>
