@@ -187,6 +187,7 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [nwg-dock](https://git.sr.ht/~blueingreen/base16-nwg-dock) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 * [wlr-which-key](https://git.sr.ht/~blueingreen/base16-wlr-which-key) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 * [btop](https://git.sr.ht/~blueingreen/base16-btop) maintained by [blueingreen68](https://github.com/BlueInGreen68)
+* [lazygit](https://git.sr.ht/~blueingreen/base16-lazygit) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 
 </p>
 </details>
