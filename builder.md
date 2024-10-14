@@ -33,7 +33,7 @@ Each scheme system MUST specify a way of obtaining the following information for
 * `author` - the scheme's author.
 * `description` - optional. A short description of the scheme.
 * `variant` - optional, but recommended. Which variant of a given color scheme this qualifies as. Currently only "light" and "dark" are used, but this value could be anything.
-* `palette` - all colors used by a scheme, often loaded as HTML hex colors. Some scheme systems may place additional restrictions on the colors in the palette.
+* `palette` - all hex colors used by a scheme, often loaded as HTML hex colors. Some scheme systems may place additional restrictions on the colors in the palette. Hex values must begin with a hash `#`, eg: `base00: "#000000"`.
 
 <details>
   <summary>Common Scheme Format</summary>
