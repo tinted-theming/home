@@ -103,6 +103,7 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [fish](https://github.com/tomyun/base16-fish) maintained by [tomyun](https://github.com/tomyun)
 * [fish-shell](https://github.com/FabioAntunes/base16-fish-shell) maintained by [FabioAntunes](https://github.com/FabioAntunes)
 * [Gnome Terminal](https://github.com/aarowill/base16-gnome-terminal) maintained by [aarowill](https://github.com/aarowill)
+* [Halloy](https://github.com/4e554c4c/base16-halloy) maintained by [4e554c4c](https://github.com/4e554c4c)
 * [kermit](https://github.com/orhun/base16-kermit) maintained by [orhun](https://github.com/orhun)
 * [kitty](https://github.com/kdrag0n/base16-kitty) maintained by [kdrag0n](https://github.com/kdrag0n)
 * [Konsole](https://github.com/cskeeters/base16-konsole) maintained by [cskeeters](https://github.com/cskeeters)
