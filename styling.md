@@ -37,13 +37,13 @@ We offer guidelines for both dark and light themes:
 | ![#](https://placehold.co/25/abb2bf/000000?text=%2B) | base05 | -        | Foreground               | Default Foreground, Caret, Delimiters, Operators |
 | ![#](https://placehold.co/25/e6e6e6/000000?text=%2B) | base06 | 7        | White                    | Light Foreground |
 | ![#](https://placehold.co/25/ffffff/000000?text=%2B) | base07 | 15       | Bright White             | The Lightest Foreground |
-| ![#](https://placehold.co/25/e06c75/000000?text=%2B) | base08 | 9  and 1 | Bright Red and Red       | Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted |
+| ![#](https://placehold.co/25/e06c75/000000?text=%2B) | base08 | 1 and 9  | Red and Bright Red       | Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted |
 | ![#](https://placehold.co/25/d19a66/000000?text=%2B) | base09 | ~3       | (Orange)                 | Integers, Boolean, Constants, XML Attributes, Markup Link Url |
-| ![#](https://placehold.co/25/e5c07b/000000?text=%2B) | base0A | 11 and 3 | Bright Yellow and Yellow | Classes, Markup Bold, Search Text Background |
-| ![#](https://placehold.co/25/98c379/000000?text=%2B) | base0B | 10 and 2 | Bright Green and Green   | Strings, Inherited Class, Markup Code, Diff Inserted |
-| ![#](https://placehold.co/25/56b6c2/000000?text=%2B) | base0C | 14 and 6 | Bright Cyan and Cyan     | Support, Regular Expressions, Escape Characters, Markup Quotes |
-| ![#](https://placehold.co/25/61afef/000000?text=%2B) | base0D | 12 and 4 | Bright Blue and Blue     | Functions, Methods, Attribute IDs, Headings |
-| ![#](https://placehold.co/25/c678dd/000000?text=%2B) | base0E | 13 and 5 | Bright Purple and Purple | Keywords, Storage, Selector, Markup Italic, Diff Changed |
+| ![#](https://placehold.co/25/e5c07b/000000?text=%2B) | base0A | 3 and 11 | Yellow and Bright Yellow | Classes, Markup Bold, Search Text Background |
+| ![#](https://placehold.co/25/98c379/000000?text=%2B) | base0B | 2 and 10 | Green and Bright Green   | Strings, Inherited Class, Markup Code, Diff Inserted |
+| ![#](https://placehold.co/25/56b6c2/000000?text=%2B) | base0C | 6 and 14 | Cyan and Bright Cyan     | Support, Regular Expressions, Escape Characters, Markup Quotes |
+| ![#](https://placehold.co/25/61afef/000000?text=%2B) | base0D | 4 and 12 | Blue and Bright Blue     | Functions, Methods, Attribute IDs, Headings |
+| ![#](https://placehold.co/25/c678dd/000000?text=%2B) | base0E | 5 and 13 | Purple and Bright Purple | Keywords, Storage, Selector, Markup Italic, Diff Changed |
 | ![#](https://placehold.co/25/be5046/000000?text=%2B) | base0F | -        | (Dark Red or Brown)      | Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>` |
 
 **Notes**:
