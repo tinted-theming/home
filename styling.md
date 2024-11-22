@@ -29,10 +29,10 @@ We offer guidelines for both dark and light themes:
 
 | Color                                              | base0X   | ANSI     | Terminal                 | Text Editor |
 | -------------------------------------------------- | -------  | -------- | ------------------------ | ----------- |
-| ![#](https://placehold.co/25/282c34/000000?text=%2B) | base00 | 18       | Background               | Default Background |
-| ![#](https://placehold.co/25/3f4451/000000?text=%2B) | base01 | 0        | Black                    | Lighter Background (Used for status bars) |
-| ![#](https://placehold.co/25/4f5666/000000?text=%2B) | base02 | 8        | Bright Black             | Selection Background |
-| ![#](https://placehold.co/25/545862/000000?text=%2B) | base03 | 19       | (Gray)                   | Comments, Invisibles, Line Highlighting |
+| ![#](https://placehold.co/25/282c34/000000?text=%2B) | base00 | 0        | Black (Background)       | Default Background |
+| ![#](https://placehold.co/25/3f4451/000000?text=%2B) | base01 | 18       | (Darkest Gray)           | Lighter Background (Used for status bars) |
+| ![#](https://placehold.co/25/4f5666/000000?text=%2B) | base02 | 19       | (Dark Gray)              | Selection Background |
+| ![#](https://placehold.co/25/545862/000000?text=%2B) | base03 | 8        | Bright Black (Gray)      | Comments, Invisibles, Line Highlighting |
 | ![#](https://placehold.co/25/9196a1/000000?text=%2B) | base04 | 20       | (Light Gray)             | Dark Foreground (Used for status bars) |
 | ![#](https://placehold.co/25/abb2bf/000000?text=%2B) | base05 | 21       | Foreground               | Default Foreground, Caret, Delimiters, Operators |
 | ![#](https://placehold.co/25/e6e6e6/000000?text=%2B) | base06 | 7        | White                    | Light Foreground |
