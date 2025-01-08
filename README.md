@@ -7,7 +7,7 @@
 **Features**
 
 - Seamless builder support for _multiple_ style systems ([Base16](https://github.com/chriskempson/base16), [Base24](https://github.com/tinted-theming/base24/), etc.)
-- Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://tinted-theming.github.io/base16-gallery).
+- Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://tinted-theming.github.io/tinted-gallery).
 - Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
 - Allows end users to choose a color scheme and know it will be available _everywhere_.
 - Allows color scheme designers to craft a palette of colors once, instantly supporting for many different apps.
