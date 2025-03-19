@@ -129,6 +129,7 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [ConCfg](https://github.com/h404bi/base16-concfg) maintained by [h404bi](https://github.com/h404bi)
 * [Console2](https://github.com/AFulgens/base16-console2) maintained by [AFulgens](https://github.com/AFulgens)
 * [ConsoleZ](https://github.com/AFulgens/base16-consolez) maintained by [AFulgens](https://github.com/AFulgens)
+* [Contour](https://github.com/adre5577/contour-tinted) maintained by [adre5577](https://github.com/adre5577)
 * [Crosh](https://github.com/philj56/base16-crosh) maintained by [philj56](https://github.com/philj56)
 * [fish](https://github.com/tomyun/base16-fish) maintained by [tomyun](https://github.com/tomyun)
 * [fish-shell](https://github.com/FabioAntunes/base16-fish-shell) maintained by [FabioAntunes](https://github.com/FabioAntunes)
