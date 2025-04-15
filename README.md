@@ -66,6 +66,7 @@ Editors:
 * [SublimeText](https://github.com/tinted-theming/tinted-sublime-text) maintained by[JamyGolden](https://github.com/JamyGolden) 
 * [VSCode](https://github.com/tinted-theming/tinted-vscode) maintained by[JamyGolden](https://github.com/JamyGolden)
 * [Vim/NeoVim](https://github.com/tinted-theming/tinted-vim) maintained by [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
+* [NeoVim](https://github.com/tinted-theming/tinted-nvim) maintained by [JamyGolden](https://github.com/JamyGolden), and [bezhermoso](https://github.com/bezhermoso)
 
 Terminals:
 
