@@ -27,24 +27,24 @@ We offer guidelines for both dark and light themes:
 
   Each colour (base0X) serves a specific purpose or use case, such as background, foreground, variables, errors, etc. Here's a breakdown using the "One Dark" scheme colors:
 
-| Color                                              | base0X   | ANSI     | Terminal                 | Text Editor |
-| -------------------------------------------------- | -------  | -------- | ------------------------ | ----------- |
-| ![#](https://placehold.co/25/282c34/000000?text=%2B) | base00 | 0        | Black (Background)       | Default Background |
-| ![#](https://placehold.co/25/3f4451/000000?text=%2B) | base01 | 18       | (Darkest Gray)           | Lighter Background (Used for status bars) |
-| ![#](https://placehold.co/25/4f5666/000000?text=%2B) | base02 | 19       | (Dark Gray)              | Selection Background |
-| ![#](https://placehold.co/25/545862/000000?text=%2B) | base03 | 8        | Bright Black (Gray)      | Comments, Invisibles, Line Highlighting |
-| ![#](https://placehold.co/25/9196a1/000000?text=%2B) | base04 | 20       | (Light Gray)             | Dark Foreground (Used for status bars) |
-| ![#](https://placehold.co/25/abb2bf/000000?text=%2B) | base05 | 21       | Foreground               | Default Foreground, Caret, Delimiters, Operators |
-| ![#](https://placehold.co/25/e6e6e6/000000?text=%2B) | base06 | 7        | White                    | Light Foreground |
-| ![#](https://placehold.co/25/ffffff/000000?text=%2B) | base07 | 15       | Bright White             | The Lightest Foreground |
-| ![#](https://placehold.co/25/e06c75/000000?text=%2B) | base08 | 1 and 9  | Red and Bright Red       | Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted |
-| ![#](https://placehold.co/25/d19a66/000000?text=%2B) | base09 | 16       | (Orange)                 | Integers, Boolean, Constants, XML Attributes, Markup Link Url |
-| ![#](https://placehold.co/25/e5c07b/000000?text=%2B) | base0A | 3 and 11 | Yellow and Bright Yellow | Classes, Markup Bold, Search Text Background |
-| ![#](https://placehold.co/25/98c379/000000?text=%2B) | base0B | 2 and 10 | Green and Bright Green   | Strings, Inherited Class, Markup Code, Diff Inserted |
-| ![#](https://placehold.co/25/56b6c2/000000?text=%2B) | base0C | 6 and 14 | Cyan and Bright Cyan     | Support, Regular Expressions, Escape Characters, Markup Quotes |
-| ![#](https://placehold.co/25/61afef/000000?text=%2B) | base0D | 4 and 12 | Blue and Bright Blue     | Functions, Methods, Attribute IDs, Headings |
-| ![#](https://placehold.co/25/c678dd/000000?text=%2B) | base0E | 5 and 13 | Purple and Bright Purple | Keywords, Storage, Selector, Markup Italic, Diff Changed |
-| ![#](https://placehold.co/25/be5046/000000?text=%2B) | base0F | 17       | (Dark Red or Brown)      | Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>` |
+| Color                                              | base0X   | ANSI     | Terminal                   | Text Editor |
+| -------------------------------------------------- | -------  | -------- | -------------------------- | ----------- |
+| ![#](https://placehold.co/25/282c34/000000?text=%2B) | base00 | 0        | Black (Background)         | Default Background |
+| ![#](https://placehold.co/25/3f4451/000000?text=%2B) | base01 | 18       | (Darkest Gray)             | Lighter Background (Used for status bars) |
+| ![#](https://placehold.co/25/4f5666/000000?text=%2B) | base02 | 19       | (Dark Gray)                | Selection Background |
+| ![#](https://placehold.co/25/545862/000000?text=%2B) | base03 | 8        | Bright Black (Gray)        | Comments, Invisibles, Line Highlighting |
+| ![#](https://placehold.co/25/9196a1/000000?text=%2B) | base04 | 20       | (Light Gray)               | Dark Foreground (Used for status bars) |
+| ![#](https://placehold.co/25/abb2bf/000000?text=%2B) | base05 | 21       | Foreground                 | Default Foreground, Caret, Delimiters, Operators |
+| ![#](https://placehold.co/25/e6e6e6/000000?text=%2B) | base06 | 7        | White                      | Light Foreground |
+| ![#](https://placehold.co/25/ffffff/000000?text=%2B) | base07 | 15       | Bright White               | The Lightest Foreground |
+| ![#](https://placehold.co/25/e06c75/000000?text=%2B) | base08 | 1 and 9  | Red and Bright Red         | Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted |
+| ![#](https://placehold.co/25/d19a66/000000?text=%2B) | base09 | 16       | (Orange)                   | Integers, Boolean, Constants, XML Attributes, Markup Link Url |
+| ![#](https://placehold.co/25/e5c07b/000000?text=%2B) | base0A | 3 and 11 | Yellow and Bright Yellow   | Classes, Markup Bold, Search Text Background |
+| ![#](https://placehold.co/25/98c379/000000?text=%2B) | base0B | 2 and 10 | Green and Bright Green     | Strings, Inherited Class, Markup Code, Diff Inserted |
+| ![#](https://placehold.co/25/56b6c2/000000?text=%2B) | base0C | 6 and 14 | Cyan and Bright Cyan       | Support, Regular Expressions, Escape Characters, Markup Quotes |
+| ![#](https://placehold.co/25/61afef/000000?text=%2B) | base0D | 4 and 12 | Blue and Bright Blue       | Functions, Methods, Attribute IDs, Headings |
+| ![#](https://placehold.co/25/c678dd/000000?text=%2B) | base0E | 5 and 13 | Magenta and Bright Magenta | Keywords, Storage, Selector, Markup Italic, Diff Changed |
+| ![#](https://placehold.co/25/be5046/000000?text=%2B) | base0F | 17       | (Dark Red or Brown)        | Deprecated, Opening/Closing Embedded Language Tags, e.g. `<?php ?>` |
 
 **Notes**:
 
