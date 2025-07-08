@@ -90,6 +90,7 @@ Other:
 * [GTK FlatColor](https://github.com/tinted-theming/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77)
 * [i3](https://github.com/tinted-theming/base16-i3) maintained by [khamer](https://github.com/khamer)
 * [HexChat](https://github.com/tinted-theming/base16-hexchat) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [Matlab](https://github.com/tinted-theming/tinted-matlab) maintained by [auxym](https://github.com/auxym)
 * [Polybar](https://github.com/tinted-theming/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
 * [qutebrowser](https://github.com/tinted-theming/base16-qutebrowser) maintained by [theova](https://github.com/theova)
 * [Rofi](https://github.com/tinted-theming/base16-rofi) maintained by [jordiorlando](https://github.com/jordiorlando)
