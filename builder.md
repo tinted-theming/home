@@ -1,5 +1,5 @@
 # Builder Guidelines
-**Version 0.11.2**
+**Version 0.12.0**
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
@@ -43,7 +43,7 @@ The common scheme format is meant to be extensible so additional properties can 
 The [schemes repository](https://github.com/tinted-theming/schemes) provides branches for all backwards incompatible changes, so when a backwards incompatible change is made, the same repository can continue to be used. The main branch will always be the current stable spec. This repository has a separate folder for each scheme system, but it is valid to walk all yaml files and read them directly. All files starting with a `.` and the contents of all directories starting with a `.` MUST be ignored.
 
 These files have the following structure:
-
+```yaml
     system: "base16"
     name: "Scheme Name"
     slug: "scheme-name"
@@ -67,6 +67,85 @@ These files have the following structure:
       base0D: "dddddd"
       base0E: "eeeeee"
       base0F: "ffffff"
+    overrides:
+      # Defaults to base00
+      default-background: base00
+
+      # Defaults to base01
+      lighter-background: base01
+
+      # Defaults to base02
+      selection-background: base02
+
+      # Defaults to base03
+      comments: base03
+      highlighting: base03
+      invisibles: base03
+      line: base03
+
+      # Defaults to base04
+      dark-foreground: base04
+
+      # Defaults to base05
+      caret: base05
+      default-foreground: base05
+      delimiters: base05
+      operators: base05
+
+      # Defaults to base06
+      light-foreground: base06
+
+      # Defaults to base07
+      brightest-foreground: base07
+
+      # Defaults to base08
+      diff-deleted: base08
+      markup-link-text: base08
+      markup-lists: base08
+      variables: base08
+      xml-tags: base08
+
+      # Defaults to base09
+      boolean: base09
+      classes: base0A
+      constants: base09
+      integers: base09
+      markup-link-url: base09
+      xml-attributes: base09
+
+      # Defaults to base0A
+      markup-bold: base0A
+      search-text-background: base0A
+
+      # Defaults to base0B
+      diff-inserted: base0B
+      inherited-class: base0B
+      markup-code: base0B
+      strings: base0B
+
+      # Defaults to base0C
+      escape-characters: base0C
+      markup-quotes: base0C
+      regular-expressions: base0C
+      support: base0C
+
+      # Defaults to base0D
+      attribute-ids: base0D
+      functions: base0D
+      headings: base0D
+      methods: base0D
+
+      # Defaults to base0E
+      diff-changes: base0E
+      keywords: base0E
+      markup-italics: base0E
+      selector: base0E
+      storage: base0E
+
+      # Defaults to base0F
+      embedded-language-tags: base0F
+      deprecated-section: base0F
+```
 
 When scheme is loaded from a common scheme file, the following specifics apply:
 
@@ -159,8 +238,9 @@ A builder MUST provide the following variables to template files:
 - `scheme-system` - obtained from the `system` key of the scheme input
 - `scheme-variant` - obtained from the `variant` key of the scheme input
 - `scheme-is-{{variant}}-variant` - dynamic value built from the `variant` key of the scheme file. e.g. `variant: "light"` provides `scheme-is-light-variant` with a value of `true`.
+- `scheme-override-*` - obtained from the key within `overrides` object within the scheme yaml
 
-Additionally, a builder MUST provide the following template variables for each defined palette token:
+Additionally, a builder MUST provide the following template variables for each defined palette token and override name:
 
 - `{{ token-name }}-hex` - 6-digit hex color value. This does not include a leading `#`. e.g "7cafc2".
 - `{{ token-name }}-hex-bgr` - built from a reversed version of all the hex values e.g "c2af7c"
@@ -176,6 +256,10 @@ Additionally, a builder MUST provide the following template variables for each d
 - `{{ token-name }}-dec-r` - red component as a value between `0` and `1.0`. e.g "0.4863"
 - `{{ token-name }}-dec-g` - green component as a value between `0` and `1.0`. e.g "0.6863"
 - `{{ token-name }}-dec-b` - blue component as a value between `0` and `1.0`. e.g "0.7608"
+
+## Overrides
+
+These values can optionally be used in templates to style instead of referencing the `base00`-`base0F` values.
 
 ## Slugify
 
