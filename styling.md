@@ -1,4 +1,4 @@
-_The original version of this spec can be found at [chriskempson/base16](https://github.com/chriskempson/base16/blob/main/styling.md). The document is reproduced here for both convenience and archival purposes. We have made minor formatting changes to improve readability, content changes to reflect how these guidelines are applied in practice, and added an example._
+_The original version 0.2 of this spec can be found at [chriskempson/base16](https://github.com/chriskempson/base16/blob/main/styling.md). The document is reproduced here for both convenience and archival purposes. We have made minor formatting changes to improve readability, content changes to reflect how these guidelines are applied in practice, and added an example with notes about legacy format._
 
 ---
 
@@ -52,9 +52,41 @@ We offer guidelines for both dark and light themes:
 - Items in parenthesis in the Terminal column do not have an identified terminal use and are a more generic color description.
 - Most terminals allow to set extended ANSI colors, but not all. It can't be assumed that the extended ANSI colors are set when using a tinted-theming terminal template theme.
 
-## YAML scheme example
+## YAML scheme examples
 
-**ayu-dark.yaml**
+Tinted theming supports both the legacy format specified in the original spec as well as the enhanced Tinted theming spec
+
+### Legacy ayu-dark.yaml
+
+As described in [chriskempson/base16](https://github.com/chriskempson/base16/blob/main/styling.md).
+
+```yaml
+name: "Ayu Dark"
+slug: ayu-dark
+author: "Khue Nguyen <Z5483Y@gmail.com>"
+base00: "0f1419" # ---- dark
+base01: "131721" # ---
+base02: "272d38" # --
+base03: "3e4b59" # -
+base04: "bfbdb6" # +
+base05: "e6e1cf" # ++
+base06: "e6e1cf" # +++
+base07: "f3f4f5" # ++++ light
+base08: "f07178" # red
+base09: "ff8f40" # orange
+base0A: "ffb454" # yellow
+base0B: "b8cc52" # green
+base0C: "95e6cb" # cyan
+base0D: "59c2ff" # blue
+base0E: "d2a6ff" # purple
+base0F: "e6b673" # brown
+```
+
+
+### ayu-dark.yaml
+
+See https://github.com/tinted-theming/home/blob/main/builder.md#schemes for detailed schema information.
+NOTE both this and the legacy format above is supported by tinted theming.
 
 ```yaml
 system: "base16"
