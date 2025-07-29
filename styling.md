@@ -3,7 +3,7 @@ _The original version `0.2` of this spec can be found at [chriskempson/base16](h
 ---
 
 # Base16 Styling Guidelines
-**Version 0.4.2**
+**Version 0.4.2** The latest version of this spec can be obtained from [tinted-theming/styling](https://github.com/tinted-theming/home/blob/main/styling.md)
 
 Base16 aims to group similar language constructs with a single color. For example, floats, ints, and doubles would belong to the same color group. The colors for the default scheme were chosen to be easily separable, but scheme designers should pick whichever colors they desire, e.g. `base0B` (green by default) could be replaced with red. There are, however, some general guidelines below that stipulate which `base0B` should be used to highlight each construct when designing templates for editors.
 
