@@ -1,4 +1,4 @@
-_The original version 0.2 of this spec can be found at [chriskempson/base16](https://github.com/chriskempson/base16/blob/main/styling.md). The document is reproduced here for both convenience and archival purposes. We have made minor formatting changes to improve readability, content changes to reflect how these guidelines are applied in practice, and added an example with notes about legacy format._
+_The original version `0.2` of this spec can be found at [chriskempson/base16](https://github.com/chriskempson/base16/blob/main/styling.md). The document is reproduced here for both convenience and archival purposes. We have made minor formatting changes to improve readability, content changes to reflect how these guidelines are applied in practice, and added an example with notes about legacy format._
 
 ---
 
@@ -58,7 +58,7 @@ Tinted theming supports both the legacy format specified in the original spec as
 
 ### Legacy ayu-dark.yaml
 
-As described in [chriskempson/base16](https://github.com/chriskempson/base16/blob/main/styling.md).
+As described in [chriskempson/base16](https://github.com/tinted-theming/home/blob/7c5b859b5ef07d40dd95c402c634b311ef66a0b6/styling.md).
 
 ```yaml
 name: "Ayu Dark"
@@ -86,7 +86,6 @@ base0F: "e6b673" # brown
 ### ayu-dark.yaml
 
 See https://github.com/tinted-theming/home/blob/main/builder.md#schemes for detailed schema information.
-NOTE both this and the legacy format above is supported by tinted theming.
 
 ```yaml
 system: "base16"
