@@ -63,23 +63,23 @@ Editors:
 * [Helix](https://github.com/tinted-theming/base16-helix) maintained by [krgn](https://github.com/krgn)
 * [JetBrains](https://github.com/tinted-theming/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa), and [JamyGolden](https://github.com/JamyGolden)
 * [Kakoune](https://github.com/tinted-theming/tinted-kakoune) maintained by [JamyGolden](https://github.com/JamyGolden)
-* [SublimeText](https://github.com/tinted-theming/tinted-sublime-text) maintained by[JamyGolden](https://github.com/JamyGolden) 
-* [VSCode](https://github.com/tinted-theming/tinted-vscode) maintained by[JamyGolden](https://github.com/JamyGolden)
+* [SublimeText](https://github.com/tinted-theming/tinted-sublime-text) maintained by [JamyGolden](https://github.com/JamyGolden) 
+* [VSCode](https://github.com/tinted-theming/tinted-vscode) maintained by [JamyGolden](https://github.com/JamyGolden)
 * [Vim/NeoVim](https://github.com/tinted-theming/tinted-vim) maintained by [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
 * [NeoVim](https://github.com/tinted-theming/tinted-nvim) maintained by [JamyGolden](https://github.com/JamyGolden), and [bezhermoso](https://github.com/bezhermoso)
 
 Terminals:
 
-* [Alacritty](https://github.com/tinted-theming/tinted-terminal) maintained by[JamyGolden](https://github.com/JamyGolden) 
+* [Alacritty](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden) 
 * [ConEmu](https://github.com/tinted-theming/tinted-terminal) maintained by [martinlindhe](https://github.com/martinlindhe)
 * [Foot](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden)
 * [Ghostty](https://github.com/tinted-theming/tinted-terminal) maintained by [bezhermoso](https://github.com/bezhermoso)
 * [Kermit](https://github.com/tinted-theming/tinted-terminal) maintained by [orhun](https://github.com/orhun)
 * [Kitty](https://github.com/tinted-theming/tinted-terminal) maintained by [martinlindhe](https://github.com/martinlindhe)
 * [PuTTY](https://github.com/tinted-theming/tinted-terminal) maintained by [abravalheri](https://github.com/abravalheri)
-* [Rio](https://github.com/tinted-theming/tinted-terminal) maintained by[JamyGolden](https://github.com/JamyGolden) 
+* [Rio](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden) 
 * [Shell](https://github.com/tinted-theming/tinted-shell) (POSIX and Fish) maintained by [belak](https://github.com/belak), and [JamyGolden](https://github.com/JamyGolden)
-* [Termite](https://github.com/tinted-theming/tinted-terminal) maintained by[JamyGolden](https://github.com/JamyGolden) 
+* [Termite](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden) 
 * [XFCE Terminal](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden)
 * [iTerm2](https://github.com/tinted-theming/tinted-terminal) maintained by [martinlindhe](https://github.com/martinlindhe), and [JamyGolden](https://github.com/JamyGolden)
 
