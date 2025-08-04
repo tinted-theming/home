@@ -34,8 +34,8 @@ We offer guidelines for both dark and light themes:
 | ![#](https://placehold.co/25/4f5666/000000?text=%2B) | base02 | 19       | (Dark Gray)                | Selection Background |
 | ![#](https://placehold.co/25/545862/000000?text=%2B) | base03 | 8        | Bright Black (Gray)        | Comments, Invisibles, Line Highlighting |
 | ![#](https://placehold.co/25/9196a1/000000?text=%2B) | base04 | 20       | (Light Gray)               | Dark Foreground (Used for status bars) |
-| ![#](https://placehold.co/25/abb2bf/000000?text=%2B) | base05 | 21       | Foreground                 | Default Foreground, Caret, Delimiters, Operators |
-| ![#](https://placehold.co/25/e6e6e6/000000?text=%2B) | base06 | 7        | White                      | Light Foreground |
+| ![#](https://placehold.co/25/abb2bf/000000?text=%2B) | base05 | 7        | White                      | Default Foreground, Caret, Delimiters, Operators |
+| ![#](https://placehold.co/25/e6e6e6/000000?text=%2B) | base06 | 21       | (Lighter White)            | Light Foreground |
 | ![#](https://placehold.co/25/ffffff/000000?text=%2B) | base07 | 15       | Bright White               | The Lightest Foreground |
 | ![#](https://placehold.co/25/e06c75/000000?text=%2B) | base08 | 1 and 9  | Red and Bright Red         | Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted |
 | ![#](https://placehold.co/25/d19a66/000000?text=%2B) | base09 | 16       | (Orange)                   | Integers, Boolean, Constants, XML Attributes, Markup Link Url |
