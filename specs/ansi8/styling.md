@@ -3,6 +3,8 @@
 **Version 0.1.0** The latest version of this spec can be obtained from
 [tinted-theming/specs/ansi8/styling](https://github.com/tinted-theming/home/blob/main/specs/ansi8/styling.md)
 
+**Note**: This spec is currently unstable due to development.
+
 ANSI8 aims to make it very simple to style terminal based applications, but can
 be heavily expanded to style complex GUI applications. ANSI8 simplifies the
 process of creating a color scheme by asking the user to only specify the 8
@@ -13,28 +15,34 @@ In this model, the core 8 ANSI colors represent a palette, and the builder
 handles the generation of other necessary colors. The design follows a basic
 rule where:
 
-- `ansi0` to `ansi7` are the primary 8 ANSI colors (user-defined).
-- Bright variants and dim variants of these 8 colors are automatically
-  generated.
-- Grayscale gradients from "Black" to "White" are calculated based on `ansi0`
-  and `ansi7` for smooth transitions.
-- Gradient generation starts from `ansi0` ("Black") to `ansi7` ("White"), and this
-  gradient is used in various areas like backgrounds, text, and status bars.
+- `palette.<black|red|green|yellow|blue|magenta|cyan|white>` are the 8 user-defined colors.
+- Bright and Dim variants of each color are automatically generated.
+- `gray` and `brown` colors are automatically generated.
 
+ANSI8 allows scheme authors to style specific theme properties. This is done by
+setting override properties and adds a lot of optional flexibility.
 
-## Usage Guidelines
+## Scheme properties
 
-We offer guidelines for both dark and light themes:
+### System (required)
 
-### Dark
+Must contain the property value `ansi8`.
 
-- `ansi0` should be dark and `ansi7` should be light.
+### Variant (required)
 
-### Light
+Currently only `dark` and `light` are supported variants. The builder will
+adjust theme backgrounds and foregrounds based on the `dark` and `light` values
+here.
 
-- `ansi7` should be light and `ansi0` should be dark.
+### Name (required)
 
-## Provided colors
+The name of the scheme.
+
+### Author (optional)
+
+Who authored the scheme?
+
+## Required Colors
 
 | Color Name                                                             | ANSI Color | Description                           |
 | ---------------------------------------------------------------------- | ---------- | ------------------------------------- |
@@ -44,53 +52,12 @@ We offer guidelines for both dark and light themes:
 | palette.yellow (![#](https://placehold.co/25/e5c07b/000000?text=%2B))  | 3          | Used for constants, warnings          |
 | palette.blue (![#](https://placehold.co/25/61afef/000000?text=%2B))    | 4          | Used for functions, method names      |
 | palette.magenta (![#](https://placehold.co/25/c678dd/000000?text=%2B)) | 5          | Used for keywords, selectors          |
-| paletta.cyan (![#](https://placehold.co/25/56b6c2/000000?text=%2B))    | 6          | Used for support, regex patterns      |
+| palette.cyan (![#](https://placehold.co/25/56b6c2/000000?text=%2B))    | 6          | Used for support, regex patterns      |
 | palette.white (![#](https://placehold.co/25/be5046/000000?text=%2B))   | 7          | Used for text and light backgrounds   |
 
-These 8 colors will be used as the foundation. The builder will automatically
-generate:
+### Sample TOML Scheme
 
-- **Standard variants**: These map to the provided values in the `.toml` file.
-- **Bright variants**: These are brightened versions of each standard color.
-- **Dim variants**: These are darker versions of each standard color.
-- **Gray color**: A gray is generated from the midpoint of the `palette.black`
-  and `palette.white` color. This is considered the "Standard" variant and will
-  have Bright and Dim variants too.
-
-## Generated colors
-
-| Color Name      | ANSI Color | Description                           |
-| --------------- | ---------- | ------------------------------------- |
-| black_dim       | 0          | Default background color (dark theme) |
-| black_default   | 0          | Default background color (dark theme) |
-| black_bright    | 0          | Default background color (dark theme) |
-| red_dim         | 1          | error messages                        |
-| red_default     | 1          | error messages                        |
-| red_bright      | 1          | error messages                        |
-| green_dim       | 2          | Used for strings, success messages    |
-| green_default   | 2          | Used for strings, success messages    |
-| green_bright    | 2          | Used for strings, success messages    |
-| yellow_dim      | 3          | Used for constants, warnings          |
-| yellow_default  | 3          | Used for constants, warnings          |
-| yellow_bright   | 3          | Used for constants, warnings          |
-| blue_dim        | 4          | Used for functions, method names      |
-| blue_default    | 4          | Used for functions, method names      |
-| blue_bright     | 4          | Used for functions, method names      |
-| magenta_dim     | 5          | Used for keywords, selectors          |
-| magenta_default | 5          | Used for keywords, selectors          |
-| magenta_bright  | 5          | Used for keywords, selectors          |
-| cyan_dim        | 6          | Used for support, regex patterns      |
-| cyan_default    | 6          | Used for support, regex patterns      |
-| cyan_bright     | 6          | Used for support, regex patterns      |
-| white_dim       | 7          | Used for text and light backgrounds   |
-| white_default   | 7          | Used for text and light backgrounds   |
-| white_bright    | 7          | Used for text and light backgrounds   |
-| gray_dim        | 7          | Used for text and light backgrounds   |
-| gray_default    | 7          | Used for text and light backgrounds   |
-| gray_bright     | 7          | Used for text and light backgrounds   |
-
-Sample YAML Scheme
-Here’s how the ANSI8 specification would look in YAML format:
+Here's what the ANSI8 specification would look like in TOML format:
 
 ```toml
 system = "ansi8"
@@ -99,19 +66,91 @@ author = "User <user@example.com>"
 variant = "dark"
 
 [palette]
-black   = "#131721"  # Black
-red     = "#f07178"  # Red
-green   = "#b8cc52"  # Green
-yellow  = "#ffb454"  # Yellow
-blue    = "#59c2ff"  # Blue
-magenta = "#d2a6ff"  # Magenta
-cyan    = "#95e6cb"  # Cyan
-white   = "#e6e1cf"  # White
+black   = "#131721"
+red     = "#f07178"
+green   = "#b8cc52"
+yellow  = "#ffb454"
+blue    = "#59c2ff"
+magenta = "#d2a6ff"
+cyan    = "#95e6cb"
+white   = "#e6e1cf"
 ```
 
 **Dev Notes**: Thoughts here could be to give the builder access to a dark and
 light variant of a theme to allow it to solve things like this:
 https://github.com/tinted-theming/tinted-terminal/issues/14
+
+## Optional Colors
+
+Code templates will largely pull colors from the variables in the table below.
+These variables are set by automatically using the `<color>_<variant>` values
+generated by the builder, but can be modified directly by the scheme author
+using the `override` properties.
+
+**Note**: Have a look at `specs/ansi8/builder.md` for more information about
+`<color>_<variant>` values.
+
+| Override Property                   | Default Color   | Description |
+| ----------------------------------- | --------------- | ----------- |
+| override.comment                    | gray_dim        | Color used for comments in the code, usually for non-executable text providing context or explanation. |
+| override.string.quoted              | green_default   | Color used for quoted strings, such as text enclosed in double or single quotes. |
+| override.string.regexp              | cyan_default    | Color for regular expressions, which are patterns used to match character combinations in strings. |
+| override.constant.language.boolean  | yellow_bright   | Color used for boolean constants like `true` or `false` in code. |
+| override.character.entity           | red_default     | Color used for special character entities, like `&amp;` or `&lt;` in HTML. |
+| override.entity.name.class          | yellow_default  | Color for class names in object-oriented languages.    |
+| override.entity.name.function       | blue_default    | Color used for function names in code. |
+| override.entity.name.tag            | red_default     | Color for HTML or XML tag names, such as `<div>` or `<a>`. |
+| override.entity.name.variable       | red_default     | Color for variable names in code. |
+| override.entity.other.attributeName | yellow_bright   | Color for attribute names, commonly used in HTML, XML, or other markup languages. |
+| override.keyword.control            | magenta_default | Color for control keywords such as `if`, `else`, `while`, or `for` that define the program's flow. |
+| override.keyword.declaration        | magenta_default | Color for declaration keywords like `let`, `const`, `var`, or `function` used to define variables or functions. |
+| override.markup.bold                | yellow_default  | Color for bold text in markup languages (e.g., `<b>` or `<strong>`). |
+| override.markup.code                | green_default   | Color for inline code or code blocks in markup (e.g., `<code>` or `<pre>` tags). |
+| override.markup.italic              | magenta_default | Color for italic text in markup languages (e.g., `<i>` or `<em>`). |
+| override.markup.quote               | cyan_default    | Color for quoted text in markup languages (e.g., `<blockquote>` or `<q>`). |
+| override.diff.added                 | green_bright    | Color indicating added lines in a diff view, typically representing new code or content. |
+| override.diff.changed               | magenta_bright  | Color indicating changed lines in a diff view, typically representing modified content. |
+| override.diff.deleted               | red_bright      | Color indicating deleted lines in a diff view, typically representing removed code or content. |
+| override.ui.background              | black_default   | Color for the general background of the user interface. |
+| override.ui.backgroundDark          | black_dim       | Color for darker background areas, typically used for sidebars, footers, or other sections. |
+| override.ui.backgroundLight         | black_bright    | Color for lighter background areas, typically used for light modes or highlighting. |
+| override.ui.deprecated              | brown_default   | Color for deprecated or outdated UI elements, signaling that they are no longer recommended. |
+| override.ui.foreground              | white_default   | Color for general text in the user interface. |
+| override.ui.foregroundDark          | gray_bright     | Color for text in dark-themed UI areas or sections where a lighter font is needed. |
+| override.ui.foregroundLight         | white_bright    | Color for light-colored text in the UI, often used in headings or highlighted sections. |
+| override.ui.lineBackground          | gray_dim        | Color for the background of lines in the user interface, such as list items or code lines. |
+| override.ui.searchText              | yellow_default  | Color for text in search results or highlighted search terms. |
+| override.ui.selectionBackground     | black_bright    | Color for the background of selected items in the user interface (e.g., highlighted text or options). |
+
+For more information about how these values should be used in templates, have a
+look at `specs/ansi8/template.md`.
+
+### Sample TOML scheme
+
+```toml
+system = "ansi8"
+name = "Ayu"
+author = "User <user@example.com>"
+variant = "dark"
+
+[palette]
+black   = "#131721"
+red     = "#f07178"
+green   = "#b8cc52"
+yellow  = "#ffb454"
+blue    = "#59c2ff"
+magenta = "#d2a6ff"
+cyan    = "#95e6cb"
+white   = "#e6e1cf"
+
+[override]
+comment = "#555555"
+
+[override.diff]
+added = "#00ff00"
+changed = "#0000ff"
+deleted = "#ff0000"
+```
 
 _SPEC END_
 
