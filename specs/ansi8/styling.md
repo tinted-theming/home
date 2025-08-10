@@ -55,25 +55,24 @@ Who authored the scheme?
 | palette.cyan (![#](https://placehold.co/25/56b6c2/000000?text=%2B))    | 6          | Used for support, regex patterns      |
 | palette.white (![#](https://placehold.co/25/be5046/000000?text=%2B))   | 7          | Used for text and light backgrounds   |
 
-### Sample TOML Scheme
+### Sample YAML Scheme
 
-Here's what the ANSI8 specification would look like in TOML format:
+Here's what the ANSI8 specification would look like in YAML format:
 
-```toml
-system = "ansi8"
-name = "Ayu"
-author = "User <user@example.com>"
-variant = "dark"
-
-[palette]
-black   = "#131721"
-red     = "#f07178"
-green   = "#b8cc52"
-yellow  = "#ffb454"
-blue    = "#59c2ff"
-magenta = "#d2a6ff"
-cyan    = "#95e6cb"
-white   = "#e6e1cf"
+```yaml
+system: "ansi8"
+name: "Ayu"
+author: "User <user@example.com>"
+variant: "dark"
+palette:
+  black: "#131721"
+  red: "#f07178"
+  green: "#b8cc52"
+  yellow: "#ffb454"
+  blue: "#59c2ff"
+  magenta: "#d2a6ff"
+  cyan: "#95e6cb"
+  white: "#e6e1cf"
 ```
 
 **Dev Notes**: Thoughts here could be to give the builder access to a dark and
@@ -125,31 +124,30 @@ using the `override` properties.
 For more information about how these values should be used in templates, have a
 look at `specs/ansi8/template.md`.
 
-### Sample TOML scheme
+### Sample YAML scheme
 
-```toml
-system = "ansi8"
-name = "Ayu"
-author = "User <user@example.com>"
-variant = "dark"
+```yaml
+system: "ansi8"
+name: "Ayu"
+author: "User <user@example.com>"
+variant: "dark"
 
-[palette]
-black   = "#131721"
-red     = "#f07178"
-green   = "#b8cc52"
-yellow  = "#ffb454"
-blue    = "#59c2ff"
-magenta = "#d2a6ff"
-cyan    = "#95e6cb"
-white   = "#e6e1cf"
+palette:
+  black: "#131721"
+    red: "#f07178"
+    green: "#b8cc52"
+    yellow: "#ffb454"
+    blue: "#59c2ff"
+    magenta: "#d2a6ff"
+    cyan: "#95e6cb"
+    white: "#e6e1cf"
 
-[override]
-comment = "#555555"
-
-[override.diff]
-added = "#00ff00"
-changed = "#0000ff"
-deleted = "#ff0000"
+override:
+  comment: "#555555"
+  diff:
+    added = "#00ff00"
+    changed = "#0000ff"
+    deleted = "#ff0000"
 ```
 
 _SPEC END_
