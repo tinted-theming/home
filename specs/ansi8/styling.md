@@ -1,12 +1,12 @@
-# ANSI8 Styling Guidelines
+# Tinted8 Styling Guidelines
 
 **Version 0.1.0** The latest version of this spec can be obtained from
-[tinted-theming/specs/ansi8/styling](https://github.com/tinted-theming/home/blob/main/specs/ansi8/styling.md)
+[tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 **Note**: This spec is currently unstable due to development.
 
-ANSI8 aims to make it very simple to style terminal based applications, but can
-be heavily expanded to style complex GUI applications. ANSI8 simplifies the
+Tinted8 aims to make it very simple to style terminal based applications, but can
+be heavily expanded to style complex GUI applications. Tinted8 simplifies the
 process of creating a color scheme by asking the user to only specify the 8
 basic ANSI colors. The builder will then generate all additional colors,
 including bright variants, "Black" to "White" gradients, and dim variants.
@@ -15,78 +15,99 @@ In this model, the core 8 ANSI colors represent a palette, and the builder
 handles the generation of other necessary colors. The design follows a basic
 rule where:
 
-- `palette.<black|red|green|yellow|blue|magenta|cyan|white>` are the 8 user-defined colors.
+- `palette.<black|red|green|yellow|blue|magenta|cyan|white>` are the 8
+  user-defined colors.
 - Bright and Dim variants of each color are automatically generated.
 - `gray` and `brown` colors are automatically generated.
 
-ANSI8 allows scheme authors to style specific theme properties. This is done by
+Tinted8 allows scheme authors to style specific theme properties. This is done by
 setting override properties and adds a lot of optional flexibility.
 
 ## Scheme properties
 
-### System (required)
+| Scheme property | Required | Description                                             |
+|-----------------|----------|---------------------------------------------------------|
+| `system`        | Yes      | Must contain the property value `tinted8`.              |
+| `name`          | Yes      | Name of the scheme.                                     |
+| `author`        | Yes      | Who authored the scheme?                                |
+| `is-dark`       | Yes      | Currently only `dark` and `light` are supported<br> variants. The builder will adjust theme backgrounds<br> and foregrounds based on the `dark` and `light`<br> values here. |
+| `variant`       | No       |  Some themse can have different variants, such as <br> "Ayu Dark", "Ayu Light" and "Ayu Mirage". The <br> `variant` property allows users to add `dark`, <br> `light` and `mirage` (in this example) and builders <br> can understand that these are different variants of <br> the same theme. |
+| `theme-author`  | No       | Who authored the original theme?                        |
+| `palette`       | Yes      | A list of required scheme colors.                       |
 
-Must contain the property value `ansi8`.
+### Required scheme `palette` colors
 
-### Variant (required)
+|ANSI Mapping |  Color Name                                                             | Description                           |
+|------------ |  ---------------------------------------------------------------------- | ------------------------------------- |
+|0            |  palette.black (![#](https://placehold.co/25/282c34/000000?text=%2B))   | Default background color (dark theme) |
+|1            |  palette.red (![#](https://placehold.co/25/e06c75/000000?text=%2B))     | error messages                        |
+|2            |  palette.green (![#](https://placehold.co/25/98c379/000000?text=%2B))   | Used for strings, success messages    |
+|3            |  palette.yellow (![#](https://placehold.co/25/e5c07b/000000?text=%2B))  | Used for constants, warnings          |
+|4            |  palette.blue (![#](https://placehold.co/25/61afef/000000?text=%2B))    | Used for functions, method names      |
+|5            |  palette.magenta (![#](https://placehold.co/25/c678dd/000000?text=%2B)) | Used for keywords, selectors          |
+|6            |  palette.cyan (![#](https://placehold.co/25/56b6c2/000000?text=%2B))    | Used for support, regex patterns      |
+|7            |  palette.white (![#](https://placehold.co/25/be5046/000000?text=%2B))   | Used for text and light backgrounds   |
 
-Currently only `dark` and `light` are supported variants. The builder will
-adjust theme backgrounds and foregrounds based on the `dark` and `light` values
-here.
+### Optional scheme `palette` colors
 
-### Name (required)
-
-The name of the scheme.
-
-### Author (optional)
-
-Who authored the scheme?
-
-## Required Colors
-
-| Color Name                                                             | ANSI Color | Description                           |
-| ---------------------------------------------------------------------- | ---------- | ------------------------------------- |
-| palette.black (![#](https://placehold.co/25/282c34/000000?text=%2B))   | 0          | Default background color (dark theme) |
-| palette.red (![#](https://placehold.co/25/e06c75/000000?text=%2B))     | 1          | error messages                        |
-| palette.green (![#](https://placehold.co/25/98c379/000000?text=%2B))   | 2          | Used for strings, success messages    |
-| palette.yellow (![#](https://placehold.co/25/e5c07b/000000?text=%2B))  | 3          | Used for constants, warnings          |
-| palette.blue (![#](https://placehold.co/25/61afef/000000?text=%2B))    | 4          | Used for functions, method names      |
-| palette.magenta (![#](https://placehold.co/25/c678dd/000000?text=%2B)) | 5          | Used for keywords, selectors          |
-| palette.cyan (![#](https://placehold.co/25/56b6c2/000000?text=%2B))    | 6          | Used for support, regex patterns      |
-| palette.white (![#](https://placehold.co/25/be5046/000000?text=%2B))   | 7          | Used for text and light backgrounds   |
+| ANSI Mapping | Color Name                                                                    | Description |
+| ------------ | ----------------------------------------------------------------------------- | ----------- |
+| 8            | palette.black-bright (![#](https://placehold.co/25/282c34/000000?text=%2B))   | n/a         |
+| 9            | palette.red-bright (![#](https://placehold.co/25/ff7b86/000000?text=%2B))     | n/a         |
+| 10           | palette.green-bright (![#](https://placehold.co/25/b1e18b/000000?text=%2B))   | n/a         |
+| 11           | palette.yellow-bright (![#](https://placehold.co/25/efb074/000000?text=%2B))  | n/a         |
+| 12           | palette.blue-bright (![#](https://placehold.co/25/67cdff/000000?text=%2B))    | n/a         |
+| 13           | palette.magenta-bright (![#](https://placehold.co/25/e48bff/000000?text=%2B)) | n/a         |
+| 14           | palette.cyan-bright (![#](https://placehold.co/25/63d4e0/000000?text=%2B))    | n/a         |
+| 15           | palette.white-bright (![#](https://placehold.co/25/be5046/000000?text=%2B))   | n/a         |
+| n/a          | palette.black-dim (![#](https://placehold.co/25/282c34/000000?text=%2B))      | n/a         |
+| n/a          | palette.red-dim (![#](https://placehold.co/25/e06c75/000000?text=%2B))        | n/a         |
+| n/a          | palette.green-dim (![#](https://placehold.co/25/98c379/000000?text=%2B))      | n/a         |
+| n/a          | palette.yellow-dim (![#](https://placehold.co/25/e5c07b/000000?text=%2B))     | n/a         |
+| n/a          | palette.blue-dim (![#](https://placehold.co/25/61afef/000000?text=%2B))       | n/a         |
+| n/a          | palette.magenta-dim (![#](https://placehold.co/25/c678dd/000000?text=%2B))    | n/a         |
+| n/a          | palette.cyan-dim (![#](https://placehold.co/25/56b6c2/000000?text=%2B))       | n/a         |
+| n/a          | palette.white-dim (![#](https://placehold.co/25/be5046/000000?text=%2B))      | n/a         |
+| n/a          | palette.gray (![#](https://placehold.co/25/666666/000000?text=%2B))           | n/a         |
+| n/a          | palette.gray-bright (![#](https://placehold.co/25/be5046/000000?text=%2B))    | n/a         |
+| n/a          | palette.gray-dim (![#](https://placehold.co/25/be5046/000000?text=%2B))       | n/a         |
+| n/a          | palette.orange (![#](https://placehold.co/25/d19a66/000000?text=%2B))         | n/a         |
+| n/a          | palette.orange-bright (![#](https://placehold.co/25/be5046/000000?text=%2B))  | n/a         |
+| n/a          | palette.orange-dim (![#](https://placehold.co/25/be5046/000000?text=%2B))     | n/a         |
 
 ### Sample YAML Scheme
 
-Here's what the ANSI8 specification would look like in YAML format:
+Here's what the Tinted8 specification would look like in YAML format:
 
 ```yaml
-system: "ansi8"
+system: "tinted8"
 name: "Ayu"
 author: "User <user@example.com>"
-variant: "dark"
+is-dark: "yes"
+variant: "Mirage"
 palette:
-  black: "#131721"
-  red: "#f07178"
-  green: "#b8cc52"
-  yellow: "#ffb454"
-  blue: "#59c2ff"
+  black:   "#131721"
+  red:     "#f07178"
+  green:   "#b8cc52"
+  yellow:  "#ffb454"
+  blue:    "#59c2ff"
   magenta: "#d2a6ff"
-  cyan: "#95e6cb"
-  white: "#e6e1cf"
+  cyan:    "#95e6cb"
+  white:   "#e6e1cf"
 ```
 
 **Dev Notes**: Thoughts here could be to give the builder access to a dark and
 light variant of a theme to allow it to solve things like this:
 https://github.com/tinted-theming/tinted-terminal/issues/14
 
-## Optional Colors
+## Optional code Colors
 
 Code templates will largely pull colors from the variables in the table below.
 These variables are set by automatically using the `<color>_<variant>` values
 generated by the builder, but can be modified directly by the scheme author
 using the `override` properties.
 
-**Note**: Have a look at `specs/ansi8/builder.md` for more information about
+**Note**: Have a look at `specs/tinted8/builder.md` for more information about
 `<color>_<variant>` values.
 
 | Override Property                   | Default Color   | Description |
@@ -96,10 +117,10 @@ using the `override` properties.
 | override.string.regexp              | cyan_default    | Color for regular expressions, which are patterns used to match character combinations in strings. |
 | override.constant.language.boolean  | yellow_bright   | Color used for boolean constants like `true` or `false` in code. |
 | override.character.entity           | red_default     | Color used for special character entities, like `&amp;` or `&lt;` in HTML. |
-| override.entity.name.class          | yellow_default  | Color for class names in object-oriented languages.    |
+| override.entity.name.class          | yellow_default  | Color for class names in object-oriented languages. |
 | override.entity.name.function       | blue_default    | Color used for function names in code. |
 | override.entity.name.tag            | red_default     | Color for HTML or XML tag names, such as `<div>` or `<a>`. |
-| override.entity.name.variable       | red_default     | Color for variable names in code. |
+| override.entity.name.variable       | orange_default  | Color for variable names in code. |
 | override.entity.other.attributeName | yellow_bright   | Color for attribute names, commonly used in HTML, XML, or other markup languages. |
 | override.keyword.control            | magenta_default | Color for control keywords such as `if`, `else`, `while`, or `for` that define the program's flow. |
 | override.keyword.declaration        | magenta_default | Color for declaration keywords like `let`, `const`, `var`, or `function` used to define variables or functions. |
@@ -122,32 +143,33 @@ using the `override` properties.
 | override.ui.selectionBackground     | black_bright    | Color for the background of selected items in the user interface (e.g., highlighted text or options). |
 
 For more information about how these values should be used in templates, have a
-look at `specs/ansi8/template.md`.
+look at `specs/tinted8/template.md`.
 
 ### Sample YAML scheme
 
 ```yaml
-system: "ansi8"
+system: "tinted8"
 name: "Ayu"
 author: "User <user@example.com>"
+is-dark: "yes"
 variant: "dark"
 
 palette:
-  black: "#131721"
-    red: "#f07178"
-    green: "#b8cc52"
-    yellow: "#ffb454"
-    blue: "#59c2ff"
-    magenta: "#d2a6ff"
-    cyan: "#95e6cb"
-    white: "#e6e1cf"
+  black:   "#131721"
+  red:     "#f07178"
+  green:   "#b8cc52"
+  yellow:  "#ffb454"
+  blue:    "#59c2ff"
+  magenta: "#d2a6ff"
+  cyan:    "#95e6cb"
+  white:   "#e6e1cf"
 
 override:
   comment: "#555555"
   diff:
-    added = "#00ff00"
-    changed = "#0000ff"
-    deleted = "#ff0000"
+    added:   "#00ff00"
+    changed: "#0000ff"
+    deleted: "#ff0000"
 ```
 
 _SPEC END_
