@@ -1,4 +1,4 @@
-# Contributing to Template Repsitories
+# Contributing to Template Repositories
 
 Tinted Theming template repository includes a [GitHub Action] that
 builds the colorschemes once a week. This keeps the template up-to-date
