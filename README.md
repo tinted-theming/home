@@ -92,6 +92,7 @@ Other:
 * [HexChat](https://github.com/tinted-theming/base16-hexchat) maintained by [JamyGolden](https://github.com/JamyGolden)
 * [Matlab](https://github.com/tinted-theming/tinted-matlab) maintained by [auxym](https://github.com/auxym)
 * [Polybar](https://github.com/tinted-theming/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
+* [quickshell](https://github.com/soenkehahn/base16-quickshell) maintained by [soenkehahn](https://github.com/soenkehahn)
 * [qutebrowser](https://github.com/tinted-theming/base16-qutebrowser) maintained by [theova](https://github.com/theova)
 * [Rofi](https://github.com/tinted-theming/base16-rofi) maintained by [jordiorlando](https://github.com/jordiorlando)
 * [Tmux](https://github.com/tinted-theming/tinted-tmux) maintained by [JamyGolden](https://github.com/JamyGolden)
