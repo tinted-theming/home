@@ -114,36 +114,41 @@ using the `override` properties.
 | ------------------------------------- | --------------- | ------- | ----------- |
 | override.comment                      | gray_dim        | `// Comment` → `// Comment` | Comments in the code, usually for non-executable text providing context or explanation. |
 | override.string                       | green_default   | `"Hello world"` → `"Hello world"` | All string related values. |
-| override.string.quoted                | green_default   | `"Hello world"` → `"Hello world"` | Quoted strings, such as text enclosed in double or single quotes. |
-| override.string.regexp                | cyan_default    | `/^Hello/g` → `/^Hello/g` | Regular expressions or patterns used to match character combinations in strings. |
-| override.string.template              | green_default   | `` `Hello ${name}` `` → `` `Hello ${name}` `` | Template literals and interpolations. |
-| override.string.escape                | cyan_default    | `'What\'s that?'` → `\'` | Escaped string characters inside quotes. |
-| override.constant.numeric             | yellow_default  | `42` → `42` | Integer, float, hex, exponential, etc. |
-| override.constant.numeric.integer     | yellow_default  | `12` → `12` | Integer values. |
-| override.constant.numeric.float       | yellow_default  | `18.1` → `18.1` | Float values. |
-| override.constant.numeric.hex         | yellow_default  | `0x1234ABC` → `0x1234ABC` | Hexadecimal values. |
-| override.constant.numeric.exponential | yellow_default  | `12e3` → `12e3` | Exponential/scientific notation values. |
-| override.constant.language.boolean    | yellow_default  | `true` → `true` | Boolean values. |
-| override.character.entity             | red_default     | `Foo&apos;s` → `&apos;` | Special character entities (HTML/XML). |
-| override.entity.name.class            | yellow_default  | `class Person {}` → `Person` | Class names in object-oriented languages. |
-| override.entity.name.function         | blue_default    | `function greet() {}` → `greet` | Function names in code. |
-| override.entity.name.tag              | red_default     | `<div>Hello</div>` → `div` | HTML or XML tag names. |
-| override.entity.name.variable         | orange_default  | `let username = "foo";` → `username` | Variable names in code. |
-| override.entity.other.attributeName   | yellow_bright   | `<img src="logo.png">` → `src` | Attribute names, commonly used in HTML, XML, or other markup languages. |
-| override.keyword.control              | magenta_default | `if (x > 0) { ... }` → `if` | Control keywords `if`, `else`, `while`, or `for` that define the program's flow. |
-| override.keyword.declaration          | magenta_default | `const age = 42;` → `const` | Declaration keywords like `let`, `const`, `var`, or `function` used to define variables or functions. |
-| override.markup.bold                  | yellow_default  | `<strong>Important</strong>` → `strong` | Bold text in markup languages (e.g., `<b>` or `<strong>`). |
-| override.markup.code                  | green_default   | `<code>inline</code>` → `code` | Inline code or code blocks in markup (e.g., `<code>` or `<pre>` tags). |
-| override.markup.italic                | magenta_default | `<em>note</em>` → `em` | Italic text in markup languages (e.g., `<i>` or `<em>`). |
-| override.markup.quote                 | cyan_default    | `<blockquote>Be yourself</blockquote>` → `Be yourself` | Quoted text in markup languages (e.g., `<blockquote>` or `<q>`). |
+| override.string.quoted                | parent          | `"Hello world"` → `"Hello world"` | Quoted strings, such as text enclosed in double or single quotes. |
+| override.string.regexp                | parent          | `/^Hello/g` → `/^Hello/g` | Regular expressions or patterns used to match character combinations in strings. |
+| override.string.template              | parent          | `` `Hello ${name}` `` → `` `Hello ${name}` `` | Template literals and interpolations. |
+| override.constant                     | yellow_default  | `null` → `null` | Parent for all literal constants (booleans, numbers, nulls, characters, etc.). |
+| override.constant.numeric             | parent          | `42` → `42` | Parent for all numeric constants. |
+| override.constant.numeric.integer     | parent          | `12` → `12` | Integer values. |
+| override.constant.numeric.float       | parent          | `18.1` → `18.1` | Float values. |
+| override.constant.numeric.hex         | parent          | `0x1234ABC` → `0x1234ABC` | Hexadecimal values. |
+| override.constant.numeric.exponential | parent          | `12e3` → `12e3` | Exponential/scientific notation values. |
+| override.constant.language.boolean    | parent          | `true` → `true` | Boolean values. |
+| override.constant.character           | yellow_default  | `'\\n'` → `'\\n'` | Parent for character literal constants (e.g., `'A'`, `'\\n'`, `'\\t'`). |
+| override.constant.character.escape    | parent          | `'What\'s that?'` → `\'` | Escaped characters inside strings. |
+| override.constant.character.entity    | parent          | `Foo&apos;s` → `&apos;` | Special character entities (HTML/XML). |
+| override.entity.name                  | yellow_default  | `class Person {}` → `Person` | Parent for all entity names (class, function, tag, variable). |
+| override.entity.name.class            | parent          | `class Person {}` → `Person` | Class names in object-oriented languages. |
+| override.entity.name.function         | parent          | `function greet() {}` → `greet` | Function names in code. |
+| override.entity.name.tag              | parent          | `<div>Hello</div>` → `div` | HTML or XML tag names. |
+| override.entity.name.variable         | parent          | `let username = "foo";` → `username` | Variable identifiers in code. |
+| override.entity.other.attributeName   | yellow_bright (concrete default) | `<img src="logo.png">` → `src` | Attribute names, commonly used in HTML, XML, or other markup languages. |
+| override.keyword                      | magenta_default | `function foo()` → `function` | Language keywords (e.g., function, if, const). Parent for keyword categories. |
+| override.keyword.control              | parent          | `if (x > 0)` → `if` | Control flow keywords. |
+| override.keyword.declaration          | parent          | `const age = 42;` → `const` | Declaration keywords. |
+| override.markup                       | cyan_default    | `<blockquote>Text</blockquote>` → `Text` | Parent for all markup-styled content. |
+| override.markup.bold                  | parent          | `<strong>Foo Bar</strong>` → `Foo Bar` | Bold text. |
+| override.markup.code                  | parent          | `<code>inline</code>` → `inline` | Inline/code blocks. |
+| override.markup.italic                | parent          | `<em>note</em>` → `note` | Italic text. |
+| override.markup.quote                 | parent          | `<blockquote>Be yourself</blockquote>` → `Be yourself` | Quoted text. |
 | override.diff.added                   | green_bright    | `+ const newFeature = true;` → `+ const newFeature = true;` | Added lines in a diff view, typically representing new code or content. |
 | override.diff.changed                 | magenta_bright  | `~ const version = "0.1.0";` → `~ const version = "0.1.0";` | Changed lines in a diff view, typically representing modified content. |
 | override.diff.deleted                 | red_bright      | `- const oldFeature = false;` → `- const oldFeature = false;` | Deleted lines in a diff view, typically representing removed code or content. |
 | override.ui.background                | black_default   | Editor canvas → background | The general background of the user interface. |
 | override.ui.backgroundDark            | black_dim       | Sidebar → background | Darker background areas, typically used for sidebars, footers, or other sections. |
 | override.ui.backgroundLight           | black_bright    | Active tab → background | Lighter background areas, typically used for light modes or highlighting. |
-| override.ui.deprecated                | brown_default   | `<font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
-| override.ui.foreground                | white_default   | Editor text → code | General text in the user interface. |
+| override.ui.deprecated                | brown_default   | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
+| override.ui.foreground                | white_default   | Editor text → `"hello"` | General text in the user interface. |
 | override.ui.foregroundDark            | gray_bright     | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
 | override.ui.foregroundLight           | white_bright    | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |
 | override.ui.lineBackground            | gray_dim        | Active line highlight → background | The background of lines in the user interface, such as list items or code lines. |
@@ -152,6 +157,19 @@ using the `override` properties.
 
 For more information about how these values should be used in templates, have a
 look at `specs/tinted8/template.md`.
+
+### Bright Defaults for Readability
+
+While most child overrides inherit their value from a parent property, some
+child properties are assigned a concrete bright default (for example,
+`override.entity.other.attributeName` → `yellow_bright`). These exceptions are
+intentional: they improve readability in common code and markup scenarios by
+making frequently used elements (like attribute names) stand out without
+requiring the scheme author to define them explicitly.
+
+Scheme authors can still override these values if desired, but leaving them as
+defaults ensures that a theme with no overrides remains legible and visually
+distinct.
 
 ### Sample YAML scheme
 
@@ -179,6 +197,50 @@ override:
     changed: "#0000ff"
     deleted: "#ff0000"
 ```
+
+### Inheritance Rules for Overrides
+
+Tinted8 override properties follow an inheritance model. If a more specific
+override is not defined in a scheme, it automatically falls back to its parent
+property, and ultimately to the default builder value (derived from the base
+ANSI palette). This ensures authors can define as much or as little detail as
+they like, while still producing a complete and consistent theme.
+
+**Example**: If `override.constant.numeric.float` is not defined, it inherits
+from `override.constant.numeric`. If `override.constant.numeric` is not
+defined, it inherits from `yellow_default` (the spec default).
+
+#### Strings
+
+- `override.string.quoted`, `override.string.template`,
+  `override.string.regexp`, and `override.string.escape`
+  - fall back to `override.string`
+  - falls back to `green_default`
+
+#### Numerics
+
+- `override.constant.numeric.integer`, `override.constant.numeric.float`,
+  `override.constant.numeric.hex`, `override.constant.numeric.exponential`
+  - fall back to `override.constant.numeric`
+  - falls back to `yellow_default`
+
+#### Diffs
+
+- `override.diff.added`, `override.diff.changed`, and `override.diff.deleted`
+  - fall back to the builder defaults for `green_bright`, `magenta_bright`, and
+    `red_bright` respectively, unless explicitly overridden.
+
+#### UI values
+
+- `override.ui.backgroundDark` and `override.ui.backgroundLight`
+  - fall back to `override.ui.background`
+- `override.ui.foregroundDark` and `override.ui.foregroundLight`
+  - fall back to `override.ui.foreground`
+
+#### Other properties
+
+Any override with a missing value reverts to the builder’s automatically
+generated `<color>_<variant>` assignment (e.g., `yellow_default`, `cyan_dim`, etc.).
 
 _SPEC END_
 
