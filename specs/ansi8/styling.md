@@ -110,37 +110,37 @@ using the `override` properties.
 **Note**: Have a look at `specs/tinted8/builder.md` for more information about
 `<color>_<variant>` values.
 
-| Override Property                   | Default Color   | Description |
-| ----------------------------------- | --------------- | ----------- |
-| override.comment                    | gray_dim        | Comments in the code, usually for non-executable text providing context or explanation. |
-| override.string.quoted              | green_default   | Quoted strings, such as text enclosed in double or single quotes. |
-| override.string.regexp              | cyan_default    | Regular expressions, which are patterns used to match character combinations in strings. |
-| override.constant.language.boolean  | yellow_bright   | Boolean constants like `true` or `false` in code. |
-| override.character.entity           | red_default     | Special character entities, like `&amp;` or `&lt;` in HTML. |
-| override.entity.name.class          | yellow_default  | Class names in object-oriented languages. |
-| override.entity.name.function       | blue_default    | Function names in code. |
-| override.entity.name.tag            | red_default     | hTML or XML tag names, such as `<div>` or `<a>`. |
-| override.entity.name.variable       | orange_default  | Variable names in code. |
-| override.entity.other.attributeName | yellow_bright   | Attribute names, commonly used in HTML, XML, or other markup languages. |
-| override.keyword.control            | magenta_default | Control keywords such as `if`, `else`, `while`, or `for` that define the program's flow. |
-| override.keyword.declaration        | magenta_default | Declaration keywords like `let`, `const`, `var`, or `function` used to define variables or functions. |
-| override.markup.bold                | yellow_default  | Bold text in markup languages (e.g., `<b>` or `<strong>`). |
-| override.markup.code                | green_default   | Inline code or code blocks in markup (e.g., `<code>` or `<pre>` tags). |
-| override.markup.italic              | magenta_default | Italic text in markup languages (e.g., `<i>` or `<em>`). |
-| override.markup.quote               | cyan_default    | Quoted text in markup languages (e.g., `<blockquote>` or `<q>`). |
-| override.diff.added                 | green_bright    | Added lines in a diff view, typically representing new code or content. |
-| override.diff.changed               | magenta_bright  | Changed lines in a diff view, typically representing modified content. |
-| override.diff.deleted               | red_bright      | Deleted lines in a diff view, typically representing removed code or content. |
-| override.ui.background              | black_default   | The general background of the user interface. |
-| override.ui.backgroundDark          | black_dim       | Darker background areas, typically used for sidebars, footers, or other sections. |
-| override.ui.backgroundLight         | black_bright    | Lighter background areas, typically used for light modes or highlighting. |
-| override.ui.deprecated              | brown_default   | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
-| override.ui.foreground              | white_default   | General text in the user interface. |
-| override.ui.foregroundDark          | gray_bright     | Text in dark-themed UI areas or sections where a lighter font is needed. |
-| override.ui.foregroundLight         | white_bright    | Light-colored text in the UI, often used in headings or highlighted sections. |
-| override.ui.lineBackground          | gray_dim        | The background of lines in the user interface, such as list items or code lines. |
-| override.ui.searchText              | yellow_default  | Text in search results or highlighted search terms. |
-| override.ui.selectionBackground     | black_bright    | The background of selected items in the user interface (e.g., highlighted text or options). |
+| Override Property                     | Default Color   | Example | Description |
+| ------------------------------------- | --------------- | ------- | ----------- |
+| override.comment                      | gray_dim        | `// Comment` → `// Comment` | Comments in the code, usually for non-executable text providing context or explanation. |
+| override.string.quoted                | green_default   | `"Hello world"` → `"Hello world"` | Quoted strings, such as text enclosed in double or single quotes. |
+| override.string.regexp                | cyan_default    | `/^Hello/g` → `/^Hello/g` | Regular expressions or patterns used to match character combinations in strings. |
+| override.constant.language.boolean    | yellow_default  | `true` → `true` | Boolean values. |
+| override.character.entity             | red_default     | `Foo&apos;s` → `&apos;` | Special character entities (HTML/XML). |
+| override.entity.name.class            | yellow_default  | `class Person {}` → `Person` | Class names in object-oriented languages. |
+| override.entity.name.function         | blue_default    | `function greet() {}` → `greet` | Function names in code. |
+| override.entity.name.tag              | red_default     | `<div>Hello</div>` → `div` | HTML or XML tag names. |
+| override.entity.name.variable         | orange_default  | `let username = "foo";` → `username` | Variable names in code. |
+| override.entity.other.attributeName   | yellow_bright   | `<img src="logo.png">` → `src` | Attribute names, commonly used in HTML, XML, or other markup languages. |
+| override.keyword.control              | magenta_default | `if (x > 0) { ... }` → `if` | Control keywords `if`, `else`, `while`, or `for` that define the program's flow. |
+| override.keyword.declaration          | magenta_default | `const age = 42;` → `const` | Declaration keywords like `let`, `const`, `var`, or `function` used to define variables or functions. |
+| override.markup.bold                  | yellow_default  | `<strong>Important</strong>` → `strong` | Bold text in markup languages (e.g., `<b>` or `<strong>`). |
+| override.markup.code                  | green_default   | `<code>inline</code>` → `code` | Inline code or code blocks in markup (e.g., `<code>` or `<pre>` tags). |
+| override.markup.italic                | magenta_default | `<em>note</em>` → `em` | Italic text in markup languages (e.g., `<i>` or `<em>`). |
+| override.markup.quote                 | cyan_default    | `<blockquote>Be yourself</blockquote>` → `Be yourself` | Quoted text in markup languages (e.g., `<blockquote>` or `<q>`). |
+| override.diff.added                   | green_bright    | `+ const newFeature = true;` → `+ const newFeature = true;` | Added lines in a diff view, typically representing new code or content. |
+| override.diff.changed                 | magenta_bright  | `~ const version = "0.1.0";` → `~ const version = "0.1.0";` | Changed lines in a diff view, typically representing modified content. |
+| override.diff.deleted                 | red_bright      | `- const oldFeature = false;` → `- const oldFeature = false;` | Deleted lines in a diff view, typically representing removed code or content. |
+| override.ui.background                | black_default   | Editor canvas → background | The general background of the user interface. |
+| override.ui.backgroundDark            | black_dim       | Sidebar → background | Darker background areas, typically used for sidebars, footers, or other sections. |
+| override.ui.backgroundLight           | black_bright    | Active tab → background | Lighter background areas, typically used for light modes or highlighting. |
+| override.ui.deprecated                | brown_default   | `<font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
+| override.ui.foreground                | white_default   | Editor text → code | General text in the user interface. |
+| override.ui.foregroundDark            | gray_bright     | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
+| override.ui.foregroundLight           | white_bright    | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |
+| override.ui.lineBackground            | gray_dim        | Active line highlight → background | The background of lines in the user interface, such as list items or code lines. |
+| override.ui.searchText                | yellow_default  | Search results → result | Text in search results or highlighted search terms. |
+| override.ui.selectionBackground       | black_bright    | Selected code → background | The background of selected items in the user interface (e.g., highlighted text or options). |
 
 For more information about how these values should be used in templates, have a
 look at `specs/tinted8/template.md`.
