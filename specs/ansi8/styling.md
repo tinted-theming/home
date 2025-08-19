@@ -113,8 +113,16 @@ using the `override` properties.
 | Override Property                     | Default Color   | Example | Description |
 | ------------------------------------- | --------------- | ------- | ----------- |
 | override.comment                      | gray_dim        | `// Comment` → `// Comment` | Comments in the code, usually for non-executable text providing context or explanation. |
+| override.string                       | green_default   | `"Hello world"` → `"Hello world"` | All string related values. |
 | override.string.quoted                | green_default   | `"Hello world"` → `"Hello world"` | Quoted strings, such as text enclosed in double or single quotes. |
 | override.string.regexp                | cyan_default    | `/^Hello/g` → `/^Hello/g` | Regular expressions or patterns used to match character combinations in strings. |
+| override.string.template              | green_default   | `` `Hello ${name}` `` → `` `Hello ${name}` `` | Template literals and interpolations. |
+| override.string.escape                | cyan_default    | `'What\'s that?'` → `\'` | Escaped string characters inside quotes. |
+| override.constant.numeric             | yellow_default  | `42` → `42` | Integer, float, hex, exponential, etc. |
+| override.constant.numeric.integer     | yellow_default  | `12` → `12` | Integer values. |
+| override.constant.numeric.float       | yellow_default  | `18.1` → `18.1` | Float values. |
+| override.constant.numeric.hex         | yellow_default  | `0x1234ABC` → `0x1234ABC` | Hexadecimal values. |
+| override.constant.numeric.exponential | yellow_default  | `12e3` → `12e3` | Exponential/scientific notation values. |
 | override.constant.language.boolean    | yellow_default  | `true` → `true` | Boolean values. |
 | override.character.entity             | red_default     | `Foo&apos;s` → `&apos;` | Special character entities (HTML/XML). |
 | override.entity.name.class            | yellow_default  | `class Person {}` → `Person` | Class names in object-oriented languages. |
