@@ -23,7 +23,7 @@ for any palette-based scheme systems.
 ### Schemes
 
 Each scheme system MUST specify a way of obtaining the following information
-for a given scheme, often by reading from a `toml` file or some method of
+for a given scheme, often by reading from a `yaml` file or some method of
 dynamically generating it:
 
 * `system` - which system this scheme supports.
@@ -50,36 +50,35 @@ The [schemes repository](https://github.com/tinted-theming/schemes) provides
 branches for all backwards incompatible changes, so when a backwards
 incompatible change is made, the same repository can continue to be used. The
 main branch will always be the current stable spec. This repository has a
-separate folder for each scheme system, but it is valid to walk all `toml`
+separate folder for each scheme system, but it is valid to walk all `yaml`
 files and read them directly. All files starting with a `.` and the contents of
 all directories starting with a `.` MUST be ignored.
 
 These files have the following structure:
 
-```toml
-system = "ansi8"
-name = "Ayu"
-slug-stem = "ayu"
-author = "User <user@example.com>"
-variant = "dark"
+```yaml
+system: "tinted8"
+name: "Ayu"
+author: "User <user@example.com>"
+is-dark: "yes"
+variant: "dark"
 
-[palette]
-black   = "#131721"
-red     = "#f07178"
-green   = "#b8cc52"
-yellow  = "#ffb454"
-blue    = "#59c2ff"
-magenta = "#d2a6ff"
-cyan    = "#95e6cb"
-white   = "#e6e1cf"
+palette:
+  black:   "#131721"
+  red:     "#f07178"
+  green:   "#b8cc52"
+  yellow:  "#ffb454"
+  blue:    "#59c2ff"
+  magenta: "#d2a6ff"
+  cyan:    "#95e6cb"
+  white:   "#e6e1cf"
 
-[override]
-comment = "#555555"
-
-[override.diff]
-added = "#00ff00"
-changed = "#0000ff"
-deleted = "#ff0000"
+override:
+  comment: "#555555"
+  diff:
+    added:   "#00ff00"
+    changed: "#0000ff"
+    deleted: "#ff0000"
 ```
 
 When scheme is loaded from a common scheme file, the following specifics apply:
@@ -224,47 +223,58 @@ The palette variable name color values will be known as "template-variable-color
 In addition to the template variables already mentioned, a builder MUST provide
 the following template variables:
 
-| Variable Name                                                          | Description |
-| ---------------------------------------------------------------------- | ----------- |
-| `override-comment-{{template-variable-color-type}}`                    | default value derived from `gray_dim`        |
-| `override-string-quoted-{{template-variable-color-type}}`              | default value derived from `green_default`   |
-| `override-string-regexp-{{template-variable-color-type}}`              | default value derived from `cyan_default`    |
-| `override-constant-language-boolean-{{template-variable-color-type}}`  | default value derived from `yellow_bright`   |
-| `override-character-entity-{{template-variable-color-type}}`           | default value derived from `red_default`     |
-| `override-entity-name-class-{{template-variable-color-type}}`          | default value derived from `yellow_default`  |
-| `override-entity-name-function-{{template-variable-color-type}}`       | default value derived from `blue_default`    |
-| `override-entity-name-tag-{{template-variable-color-type}}`            | default value derived from `red_default`     |
-| `override-entity-name-variable-{{template-variable-color-type}}`       | default value derived from `red_default`     |
-| `override-entity-other-attributeName-{{template-variable-color-type}}` | default value derived from `yellow_bright`   |
-| `override-keyword-control-{{template-variable-color-type}}`            | default value derived from `magenta_default` |
-| `override-keyword-declaration-{{template-variable-color-type}}`        | default value derived from `magenta_default` |
-| `override-markup-bold-{{template-variable-color-type}}`                | default value derived from `yellow_default`  |
-| `override-markup-code-{{template-variable-color-type}}`                | default value derived from `green_default`   |
-| `override-markup-italic-{{template-variable-color-type}}`              | default value derived from `magenta_default` |
-| `override-markup-quote-{{template-variable-color-type}}`               | default value derived from `cyan_default`    |
-| `override-diff-added-{{template-variable-color-type}}`                 | default value derived from `green_bright`    |
-| `override-diff-changed-{{template-variable-color-type}}`               | default value derived from `magenta_bright`  |
-| `override-diff-deleted-{{template-variable-color-type}}`               | default value derived from `red_bright`      |
-| `override-ui-background-{{template-variable-color-type}}`              | default value derived from `black_default`   |
-| `override-ui-backgroundDark-{{template-variable-color-type}}`          | default value derived from `black_dim`       |
-| `override-ui-backgroundLight-{{template-variable-color-type}}`         | default value derived from `black_bright`    |
-| `override-ui-deprecated-{{template-variable-color-type}}`              | default value derived from `brown_default`   |
-| `override-ui-foreground-{{template-variable-color-type}}`              | default value derived from `white_default`   |
-| `override-ui-foregroundDark-{{template-variable-color-type}}`          | default value derived from `gray_bright`     |
-| `override-ui-foregroundLight-{{template-variable-color-type}}`         | default value derived from `white_bright`    |
-| `override-ui-lineBackground-{{template-variable-color-type}}`          | default value derived from `gray_dim`        |
-| `override-ui-searchText-{{template-variable-color-type}}`              | default value derived from `yellow_default`  |
-| `override-ui-selectionBackground-{{template-variable-color-type}}`     | default value derived from `black_bright`    |
+| Variable Name                                                            |
+| ------------------------------------------------------------------------ |
+| `override-comment-{{template-variable-color-type}}`                      |
+| `override-string-{{template-variable-color-type}}`                       |
+| `override-string-quoted-{{template-variable-color-type}}`                |
+| `override-string-regexp-{{template-variable-color-type}}`                |
+| `override-constant-{{template-variable-color-type}}`                     |
+| `override-constant-numeric-{{template-variable-color-type}}`             |
+| `override-constant-numeric-integer-{{template-variable-color-type}}`     |
+| `override-constant-numeric-float-{{template-variable-color-type}}`       |
+| `override-constant-numeric-exponential-{{template-variable-color-type}}` |
+| `override-constant-language-boolean-{{template-variable-color-type}}`    |
+| `override-constant-character-{{template-variable-color-type}}`           |
+| `override-constant-character-entity-{{template-variable-color-type}}`    |
+| `override-constant-character-escape-{{template-variable-color-type}}`    |
+| `override-entity-name-{{template-variable-color-type}}`                  |
+| `override-entity-name-class-{{template-variable-color-type}}`            |
+| `override-entity-name-function-{{template-variable-color-type}}`         |
+| `override-entity-name-tag-{{template-variable-color-type}}`              |
+| `override-entity-name-variable-{{template-variable-color-type}}`         |
+| `override-entity-other-attributeName-{{template-variable-color-type}}`   |
+| `override-keyword-{{template-variable-color-type}}`                      |
+| `override-keyword-control-{{template-variable-color-type}}`              |
+| `override-keyword-declaration-{{template-variable-color-type}}`          |
+| `override-markup-{{template-variable-color-type}}`                       |
+| `override-markup-bold-{{template-variable-color-type}}`                  |
+| `override-markup-code-{{template-variable-color-type}}`                  |
+| `override-markup-italic-{{template-variable-color-type}}`                |
+| `override-markup-quote-{{template-variable-color-type}}`                 |
+| `override-diff-added-{{template-variable-color-type}}`                   |
+| `override-diff-changed-{{template-variable-color-type}}`                 |
+| `override-diff-deleted-{{template-variable-color-type}}`                 |
+| `override-ui-background-{{template-variable-color-type}}`                |
+| `override-ui-backgroundDark-{{template-variable-color-type}}`            |
+| `override-ui-backgroundLight-{{template-variable-color-type}}`           |
+| `override-ui-deprecated-{{template-variable-color-type}}`                |
+| `override-ui-foreground-{{template-variable-color-type}}`                |
+| `override-ui-foregroundDark-{{template-variable-color-type}}`            |
+| `override-ui-foregroundLight-{{template-variable-color-type}}`           |
+| `override-ui-lineBackground-{{template-variable-color-type}}`            |
+| `override-ui-searchText-{{template-variable-color-type}}`                |
+| `override-ui-selectionBackground-{{template-variable-color-type}}`       |
 
 The above overrides template variable values are overwritten by the optional
 scheme defined override token. The following overwrites
 `override-comment-{{template-variable-color-type}}` to derive the values from
 the hex value `#555555` instead of from `gray_dim`.
 
-```toml
+```yaml
 ...
-[override]
-comment = "#555555"
+override:
+  comment: "#555555"
 ...
 ```
 
