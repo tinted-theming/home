@@ -18,7 +18,7 @@ rule where:
 - `palette.<black|red|green|yellow|blue|magenta|cyan|white>` are the 8
   user-defined colors.
 - Bright and Dim variants of each color are automatically generated.
-- `gray` and `brown` colors are automatically generated.
+- `gray`, `orange` and `brown` colors are automatically generated.
 
 Tinted8 allows scheme authors to style specific theme properties. This is done by
 setting override properties and adds a lot of optional flexibility.
