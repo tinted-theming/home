@@ -235,6 +235,8 @@ To add your own template, submit a pull request to this repository to add your r
 
 **Recommended repository naming scheme: [style-name]-[template-name]** (with dashes as separators).
 
+See [tinted-theming-project-template](https://github.com/tinted-theming/tinted-theming-project-template) for a starting template.
+
 ## Scheme and Template Author Resources
 
 The following is a list of useful resources for anyone creating a Base16 scheme and or template:
