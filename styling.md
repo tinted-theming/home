@@ -52,11 +52,19 @@ We offer guidelines for both dark and light themes:
 - Items in parenthesis in the Terminal column do not have an identified terminal use and are a more generic color description.
 - Most terminals allow to set extended ANSI colors, but not all. It can't be assumed that the extended ANSI colors are set when using a tinted-theming terminal template theme.
 
-## YAML scheme examples
+## Scheme contents
 
-Tinted theming supports both the legacy format specified in the original spec as well as the enhanced Tinted theming spec
+Color schemes contain more than just colors.
 
-### Legacy ayu-dark.yaml
+See https://github.com/tinted-theming/home/blob/main/builder.md#schemes for specific contents of color schemes.
+
+### YAML scheme examples
+
+Tinted theming supports both the legacy format specified in the original spec as well as the enhanced Tinted theming spec.
+
+For a large set of color schemes, see https://github.com/tinted-theming/schemes
+
+#### Legacy ayu-dark.yaml
 
 As described in [chriskempson/base16](https://github.com/tinted-theming/home/blob/7c5b859b5ef07d40dd95c402c634b311ef66a0b6/styling.md).
 
@@ -83,7 +91,7 @@ base0F: "e6b673" # brown
 ```
 
 
-### ayu-dark.yaml
+#### ayu-dark.yaml
 
 See https://github.com/tinted-theming/home/blob/main/builder.md#schemes for detailed schema information.
 
