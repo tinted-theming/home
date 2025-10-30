@@ -25,15 +25,17 @@ setting override properties and adds a lot of optional flexibility.
 
 ## Scheme properties
 
-| Scheme property | Required | Description                                             |
-|-----------------|----------|---------------------------------------------------------|
-| `system`        | Yes      | Must contain the property value `tinted8`.              |
-| `name`          | Yes      | Name of the scheme.                                     |
-| `author`        | Yes      | Who authored the scheme?                                |
-| `is-dark`       | Yes      | Currently only `dark` and `light` are supported<br> variants. The builder will adjust theme backgrounds<br> and foregrounds based on the `dark` and `light`<br> values here. |
-| `variant`       | No       |  Some themse can have different variants, such as <br> "Ayu Dark", "Ayu Light" and "Ayu Mirage". The <br> `variant` property allows users to add `dark`, <br> `light` and `mirage` (in this example) and builders <br> can understand that these are different variants of <br> the same theme. |
-| `theme-author`  | No       | Who authored the original theme?                        |
-| `palette`       | Yes      | A list of required scheme colors.                       |
+| Scheme property | Required | Default | Description |
+|-----------------|----------|---------|-------------|
+| `system`        | Yes | - | Identifies the specification version this scheme adheres to. Must be set to `tinted8` for all compliant Tinted8 schemes. |
+| `scheme-author` | Yes | - | The individual or organization who created this specific color scheme. |
+| `variant`       | Yes | - | Currently only `dark` and `light` are supported<br> variants. The builder will adjust theme backgrounds<br> and foregrounds based on the `dark` and `light`<br> values here. |
+| `palette`       | Yes | - | A list of required scheme colors. |
+| `name`          | No  | `<Family> <Flavor>` (Title Case) | The human-readable name of the scheme. If the `family` and `flavor` properties are provided, the `name` will be inferred by `<family> <flavor>` in title case. |
+| `slug`          | No  | `<family>-<flavor>` or `<name>` in kebab-case | The machine-friendly identifier for the scheme. If both family and flavor are provided, the `slug` will be inferred as `<family>-<flavor>` in kebab-case (e.g., tokyo-city). If a `name` is provided, the slug will be derived from it by converting to kebab-case. |
+| `family`        | No  | - | The broader theme group or lineage this scheme belongs to. Used to group related schemes under a shared design identity (e.g., the Tokyo family may include several flavors). |
+| `flavor`        | No  | - | A stylistic or conceptual variation within a family (e.g. city, moon). Distinguishes aesthetic direction while sharing the same family identity. |
+| `theme-author`  | No  | `scheme-author` | The original creator of the upstream or inspirational theme, if this scheme is an adaptation or port. Used for attribution and provenance tracking. Defaults to `scheme-author` if no value is provided. |
 
 ### Required scheme `palette` colors
 
@@ -81,10 +83,10 @@ Here's what the Tinted8 specification would look like in YAML format:
 
 ```yaml
 system: "tinted8"
-name: "Ayu"
-author: "User <user@example.com>"
-is-dark: "yes"
-variant: "Mirage"
+scheme-author: "User <user@example.com>"
+family: "Ayu"
+flavor: "Mirage"
+variant: "dark"
 palette:
   black:   "#131721"
   red:     "#f07178"
@@ -175,9 +177,8 @@ distinct.
 
 ```yaml
 system: "tinted8"
-name: "Ayu"
-author: "User <user@example.com>"
-is-dark: "yes"
+scheme-author: "User <user@example.com>"
+family: "Ayu"
 variant: "dark"
 
 palette:
