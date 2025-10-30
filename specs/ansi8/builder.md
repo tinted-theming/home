@@ -1,7 +1,7 @@
-# ANSI8 Builder Guidelines
+# Titned8 Builder Guidelines
 
 **Version 0.1.0** The latest version of this spec can be obtained from
-[tinted-theming/specs/ansi8/builder](https://github.com/tinted-theming/home/blob/main/specs/ansi8/builder.md)
+[tinted-theming/specs/tinted8/builder](https://github.com/tinted-theming/home/blob/main/specs/tinted8/builder.md)
 
 *The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
@@ -104,7 +104,7 @@ These files have the following structure:
 
 ```yaml
 default:
-  supported-systems: [ansi8]
+  supported-systems: [tinted8]
   filename: "output-directory-name/{{ scheme-system }}-{{ scheme-slug }}.file-extension"
 
 additional:
