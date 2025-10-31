@@ -36,6 +36,7 @@ setting override properties and adds a lot of optional flexibility.
 | `family`        | No  | - | The broader theme group or lineage this scheme belongs to. Used to group related schemes under a shared design identity (e.g., the Tokyo family may include several flavors). |
 | `flavor`        | No  | - | A stylistic or conceptual variation within a family (e.g. city, moon). Distinguishes aesthetic direction while sharing the same family identity. |
 | `theme-author`  | No  | `scheme-author` | The original creator of the upstream or inspirational theme, if this scheme is an adaptation or port. Used for attribution and provenance tracking. Defaults to `scheme-author` if no value is provided. |
+| `description`   | No  | - | A short description of the scheme. |
 
 ### Required scheme `palette` colors
 
