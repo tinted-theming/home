@@ -1,160 +1,217 @@
-# Titned8 Builder Guidelines
+# Tinted8 Builder Guidelines
 
 **Version 0.1.0** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder](https://github.com/tinted-theming/home/blob/main/specs/tinted8/builder.md)
 
-*The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
-"SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be
-interpreted as described in [RFC
-2119](https://datatracker.ietf.org/doc/html/rfc2119).*
+## Introduction
 
-This document describes the requirements and basic functionality of theme
-builders. Builders are generally designed for template maintainers' ease of
-use. Template maintainers SHOULD provide built versions of their template so
-the end user doesn't need to be aware of builders.
+Builders convert a Tinted8 scheme into color data for templates to generate
+themes.
 
 ## Inputs
 
-Because the builder spec focuses on what template variables will be provided by
-the builder, the inputs are defined by the style systems, but must provide
-certain information to be functional. A common scheme format is provided here
-for any palette-based scheme systems.
+### Scheme Inputs
 
-### Schemes
+Builders read scheme files that conform to the Styling specification. At
+minimum they must provide:
 
-Each scheme system MUST specify a way of obtaining the following information
-for a given scheme, often by reading from a `yaml` file or some method of
-dynamically generating it:
+- `system`, `scheme-author`, `variant`, `name|slug|family`, `palette`
+- Optional `overrides`
 
-* `system` - which system this scheme supports.
-* `name` - the scheme's human readable name.
-* `slug-stem` - optional. The scheme's machine readable name. The slug SHOULD
-  use dashes rather than underscores. If it is not provided, a builder MUST infer
-  it by [slugifying](#slugify) the scheme's name.
-* `author` - the scheme's author.
-* `variant` - optional, but recommended. Which variant of a given color scheme
-  this qualifies as. Currently only "light" and "dark" are used, but this value
-  could be anything.
-* `palette` - all colors used by a scheme, often loaded as HTML hex colors.
-  Some scheme systems may place additional restrictions on the colors in the
-  palette.
-* `overrides` - all color overrides used by a scheme, often loaded as HTML hex
-  colors.
+All color values must be HTML-style hex (``#RRGGBB`).
 
-<details><summary>Common Scheme Format</summary>
+### Template Input
 
-The common scheme format is meant to be extensible so additional properties can
-be added in the future.
-
-The [schemes repository](https://github.com/tinted-theming/schemes) provides
-branches for all backwards incompatible changes, so when a backwards
-incompatible change is made, the same repository can continue to be used. The
-main branch will always be the current stable spec. This repository has a
-separate folder for each scheme system, but it is valid to walk all `yaml`
-files and read them directly. All files starting with a `.` and the contents of
-all directories starting with a `.` MUST be ignored.
-
-These files have the following structure:
-
-```yaml
-system: "tinted8"
-name: "Ayu"
-author: "User <user@example.com>"
-is-dark: "yes"
-variant: "dark"
-
-palette:
-  black:   "#131721"
-  red:     "#f07178"
-  green:   "#b8cc52"
-  yellow:  "#ffb454"
-  blue:    "#59c2ff"
-  magenta: "#d2a6ff"
-  cyan:    "#95e6cb"
-  white:   "#e6e1cf"
-
-override:
-  comment: "#555555"
-  diff:
-    added:   "#00ff00"
-    changed: "#0000ff"
-    deleted: "#ff0000"
+```
+/templates/config.yaml
+/templates/*.mustache
 ```
 
-When scheme is loaded from a common scheme file, the following specifics apply:
+`config.yaml` describes which systems the template supports and how output
+filenames are constructed. Builders read these values to generate consistent
+output paths.
 
-- all color values MUST be in HTML hex format and MUST be preceded by a `#`.
+## Name and Slug Handling
 
-</details>
+If a scheme lacks a `slug`, builders derive one by slugifying the `name`:
 
-### Template Config
+- Normalize Unicode to ASCII
+- Lowercase all letters
+- Replace spaces with `-`
+- Remove non-alphanumeric, non-dash characters
 
-In order to be built using a standard builder, each template repository MUST
-have a templates folder containing a config.yaml and any referenced mustache
-template files.
+Examples: 
 
-- `/templates/*.mustache` - A template file (there may be more than one of
-  these)
-- `/templates/config.yaml` - A template configuration file
+- `Tomorrow Night` → `tomorrow-night`
+- `Rosé Pine` → `rose-pine`
 
-<details>
-  <summary>Template Config Spec</summary>
+If name is missing, builders may infer it from family + flavor.
 
-These files have the following structure:
+## Palette Expansion
+
+### Variants
+
+For every `palette.<color>`, builders generate:
+
+- `default` - The color as provided (e.g. `red-default`)
+- `bright` - A lighter variant (e.g. `cyan-bright`)
+- `dim` - A darker variant (e.g `green-dim`)
+
+### Derived Colors
+
+Supplimental colors are generated if they aren't provided in the scheme itself:
+
+- `gray` - The midpoint between `palette.black` and `palette.white`
+- `orange` - Hue-shifted variant of `palette.yellow`
+- `brown` - A deeper desaturated variant of `palette.red`
+
+### Naming
+
+Each produced value is exposed as:
+
+```
+{{token-name}}-{{variant}}
+```
+
+e.g. `blue-bright`, `green-dim`.
+
+Builders may also expose sub-components:
+
+```
+{{token-name}}-{{variant}}-hex   → "7cafc2"
+{{token-name}}-{{variant}}-rgb-r → "124"
+{{token-name}}-{{variant}}-dec-b → "0.76"
+```
+
+The full list of component variables mirrors standard RGB breakdowns.
+
+## Template Variables
+
+### Meta Variables
+
+| Variable                  | Type    | Source                                                  |
+| ------------------------- |-------- | ------------------------------------------------------- |
+| `scheme-name`             | String  | `name`                                                  |
+| `scheme-author`           | String  | `author`                                                |
+| `scheme-description`      | String  | `description`                                           |
+| `scheme-slug`             | String  | `slug` or slugified `name` seperated by hiphens `-`     |
+| `scheme-slug-underscored` | String  | `slug` or slugified `name` seperated by underscores `_` |
+| `scheme-system`           | String  | `system`                                                |
+| `scheme-variant`          | String  | `variant`                                               |
+| `scheme-is-dark-variant`  | Boolean | Based on `scheme-variant` value                         | 
+
+### Color Variables
+
+The builder provides various color variables for every `palette` token variant
+(`default`, `bright`, `dim`) and every override key.
+
+The variable suffixes are as follows:
+
+- `{{ token-name }}-hex` - 6-digit hex color value (e.g "7cafc2")
+- `{{ token-name }}-hex-<r|g|b>` - Provides a R, G or B hex color value (e.g "7c")
+- `{{ token-name }}-hex-bgr` - A reversed version of all the hex values (e.g "c2af7c")
+- `{{ token-name }}-rgb-<r|g|b>` - Provides a R, G or B color value between `0` and `255` (e.g. "124")
+- `{{ token-name }}-dec-<r|g|b>` - Provides a R, G or B decimal value between `0` and `1` (e.g. "0.4863")
+- `{{ token-name }}-rgb16-<r|g|b>` - Provides a R, G or B 16 bit value between `0` and `65_535` (e.g. "15000")
+
+For example:
+
+```
+override-comment-hex
+override-string-dec-r
+override-ui-background-rgb16-b
+```
+
+Values omit the leading `#` for hex strings.
+
+### Override Variables
+
+For every recognized override key from the Styling spec, builders provide
+equivalent template variables, for example:
+
+```
+override-comment-hex
+override-string-dec-r
+override-ui-background-rgb16-b
+```
+
+Each corresponds either to:
+
+1. The explicit override in the scheme
+1. Its inherited parent
+1. The builder's default color token
+
+## Override Resolution
+
+Resolution order:
+
+- Explicit scheme override – exact key value (e.g. `override.diff.added`)
+- Inherited override – parent group value (e.g. `override.diff`)
+- Builder default – mapped palette token (e.g. `green_bright`)
+
+Builders must ensure all override variables resolve to a valid color.
+
+### Builder Default Colors
+
+| Override Property                     | Default Color   |
+| ------------------------------------- | --------------- |
+| override.comment                      | gray_dim        |
+| override.string                       | green_default   |
+| override.constant                     | yellow_default  |
+| override.constant.character           | yellow_default  |
+| override.entity.name                  | yellow_default  |
+| override.entity.other.attributeName   | yellow_bright   |
+| override.keyword                      | magenta_default |
+| override.markup                       | cyan_default    |
+| override.diff.added                   | green_bright    |
+| override.diff.changed                 | magenta_bright  |
+| override.diff.deleted                 | red_bright      |
+| override.ui.background                | black_default   |
+| override.ui.backgroundDark            | black_dim       |
+| override.ui.backgroundLight           | black_bright    |
+| override.ui.deprecated                | brown_default   |
+| override.ui.foreground                | white_default   |
+| override.ui.foregroundDark            | gray_bright     |
+| override.ui.foregroundLight           | white_bright    |
+| override.ui.lineBackground            | gray_dim        |
+| override.ui.searchText                | yellow_default  |
+| override.ui.selectionBackground       | black_bright    |
+
+## Output and Template Config
+
+Builders apply template configuration as follows:
+
+- Respect `supported-systems`
+- Generate output filenames according to the `filename` template (with
+  available variables)
+- Avoid name collisions
+- Write rendered templates relative to the repository root
+
+Example `config.yaml`:
 
 ```yaml
 default:
+  filename: "output/{{ scheme-system }}-{{ scheme-slug }}.ext"
   supported-systems: [tinted8]
-  filename: "output-directory-name/{{ scheme-system }}-{{ scheme-slug }}.file-extension"
-
-additional:
-  extension: .another-extension
-  output: output-directory-name
 ```
 
-This example specifies that a Builder is to parse two template files:
-`templates/default.mustache` and `templates/additional.mustache`.
+## Compliance
 
-`supported-systems` defines a list containing all scheme systems this template
-should be rendered for. This defaults to an array containing only `base16`.
+A builder is considered **Tinted8-compliant** if it:
 
-`filename` defines a mustache template which returns a filename relative to the
-template repository's root directory. All the [template
-variables](#template-variables) listed below are available. Builders MUST error
-if multiple files will be written with the same name.
+- Correctly reads Tinted8 scheme files
+- Expands all palette and override variables
+- Provides consistent variable naming for templates
+- Generates derived colors as described above
 
-`extension` and `output` are legacy options and SHOULD NOT be used by
-templates. If `filename` is not specified, the output filename will be `{{
-output }}/{{ scheme-system }}-{{ scheme-slug }}.{{ extension }}`, relative to
-the template repository's root directory.
+## Design Considerations
 
-As an example, the above config will output the following files for the
-`base16` `default-dark` color scheme:
+Tinted8 builders are encouraged to:
 
-- `output-directory-name/base16-default-dark.file-extension`, built from
-  `default.mustache`.
-- `output-directory-name/base16-default-dark.another-extension`, built from
-  `additional.mustache`.
-
-</details>
-
-## Slugify
-
-Slugify is simplest to implement in a number of passes:
-
-- Start with your input value, replacing any Unicode characters with their
-  ASCII approximations (as an example `é` would become `e`). On a technical
-  level, this can be done by normalizing the string to the Unicode NFD form
-  (which is the decomposed version), and then dropping any combining characters.
-- Lowercase all characters. (convert characters `A` to `Z`, to `a` to `z`.)
-- Replace spaces with the `-` character
-- Drop all characters that are neither alphanumeric nor dashes
-
-**Examples:**
-
-- `Tomorrow Night` -> `tomorrow-night`
-- `Rosé Pine` -> `rose-pine`
-- `Default (Dark)` -> `default-dark`
+- Maintain perceptual contrast between bright/dim variants
+- Preserve hue relationships when computing derived colors
+- Cache computed variables for performance
+- Provide clear error messages for missing or invalid fields
 
 ## Considerations
 
@@ -162,122 +219,16 @@ Mustache was chosen as the templating language due to its simplicity and
 widespread adoption across languages. YAML was chosen to describe scheme and
 configuration files for the similar reasons.
 
-## Template Variables
+The other Tinted Theming scheme systems also use Mustache and YAML, making it a
+consistent choice.
 
-### Meta variables
+## References
 
-| Variable Name                   | Description |
-| ------------------------------- | ----------- |
-| `scheme-name`                   | Obtained from the `name` key of the scheme input |
-| `scheme-author`                 | Obtained from the `author` key of the scheme input |
-| `scheme-description`            | obtained from the `description` key of the scheme input |
-| `scheme-slug`                   | obtained from the `slug` key of the scheme input (fallback value: a [slugified](#slugify) `scheme-name`) |
-| `scheme-slug-underscored`       | the `scheme-slug` template variable where dashes have been replaced with underscores |
-| `scheme-system`                 | obtained from the `system` key of the scheme input|
-| `scheme-variant`                | obtained from the `variant` key of the scheme input |
-| `scheme-is-{{variant}}-variant` | dynamic value built from the `variant` key of the scheme file. e.g. `variant: "light"` provides `scheme-is-light-variant` with a value of `true`.|
-
-### Palette
-
-Some general rules:
-
-- Each scheme palette token is directly mapped to `{{token-name}}-default` - a
-  `default` color-varaint.
-- Each `default` color vaiant has a matching `bright` and `dim` color-variant.
-- `gray` is not a `token-name`, but `gray-default` is generated by finding the
-  mid-point of the `black` and `white` palette token values.
-- `brown` is not a `token-name`, but `brown-default` is generated by darkening
-  the `red` token value and adjusting the hue by `TODO`.
-
-In addition to the "Meta varaibles", a builder MUST provide the following
-template variables for each defined palette token and color-variant:
-
-| Variable Name                              | Description |
-| ------------------------------------------ | ----------- |
-| `{{token-name}}-{{token-variant}}-hex`     | 6-digit hex color value. This does not include a leading `#`. e.g "7cafc2".|
-| `{{token-name}}-{{token-variant}}-hex-bgr` | built from a reversed version of all the hex values e.g "c2af7c" |
-| `{{token-name}}-{{token-variant}}-hex-r`   | red component of the hex color value. e.g "7c" |
-| `{{token-name}}-{{token-variant}}-hex-g`   | green component of the hex color value. e.g "af" |
-| `{{token-name}}-{{token-variant}}-hex-b`   | blue component of the hex color value. e.g "c2" |
-| `{{token-name}}-{{token-variant}}-rgb-r`   | red component as a value between `0` and `255`. e.g "124" |
-| `{{token-name}}-{{token-variant}}-rgb-g`   | green component as a value between `0` and `255`. e.g "175" |
-| `{{token-name}}-{{token-variant}}-rgb-b`   | blue component as a value between `0` and `255` e.g "194" |
-| `{{token-name}}-{{token-variant}}-rgb16-r` | 16 bit red component as a value between `0` and `65_535`. e.g "15000" |
-| `{{token-name}}-{{token-variant}}-rgb16-g` | 16 bit green component as a value between `0` and `65_535`. e.g "30000" |
-| `{{token-name}}-{{token-variant}}-rgb16-b` | 16 bit blue component as a value between `0` and `65_535` e.g "60000" |
-| `{{token-name}}-{{token-variant}}-dec-r`   | red component as a value between `0` and `1.0`. e.g "0.4863" |
-| `{{token-name}}-{{token-variant}}-dec-g`   | green component as a value between `0` and `1.0`. e.g "0.6863" |
-| `{{token-name}}-{{token-variant}}-dec-b`   | blue component as a value between `0` and `1.0`. e.g "0.7608" |
-
-Additionally, a builder MUST generate `gray-{{token-variant}}` and
-`brown-{{token-variant}}` which MUST also have the above variables.
-
-**Note**: There are colors that aren't currently used for anything yet, this is
-because the spec is new and we're still figuring out what the styling should be
-exactly.
-
-### Overrides
-
-The palette variable name color values will be known as "template-variable-color-type".
-
-In addition to the template variables already mentioned, a builder MUST provide
-the following template variables:
-
-| Variable Name                                                            |
-| ------------------------------------------------------------------------ |
-| `override-comment-{{template-variable-color-type}}`                      |
-| `override-string-{{template-variable-color-type}}`                       |
-| `override-string-quoted-{{template-variable-color-type}}`                |
-| `override-string-regexp-{{template-variable-color-type}}`                |
-| `override-constant-{{template-variable-color-type}}`                     |
-| `override-constant-numeric-{{template-variable-color-type}}`             |
-| `override-constant-numeric-integer-{{template-variable-color-type}}`     |
-| `override-constant-numeric-float-{{template-variable-color-type}}`       |
-| `override-constant-numeric-exponential-{{template-variable-color-type}}` |
-| `override-constant-language-boolean-{{template-variable-color-type}}`    |
-| `override-constant-character-{{template-variable-color-type}}`           |
-| `override-constant-character-entity-{{template-variable-color-type}}`    |
-| `override-constant-character-escape-{{template-variable-color-type}}`    |
-| `override-entity-name-{{template-variable-color-type}}`                  |
-| `override-entity-name-class-{{template-variable-color-type}}`            |
-| `override-entity-name-function-{{template-variable-color-type}}`         |
-| `override-entity-name-tag-{{template-variable-color-type}}`              |
-| `override-entity-name-variable-{{template-variable-color-type}}`         |
-| `override-entity-other-attributeName-{{template-variable-color-type}}`   |
-| `override-keyword-{{template-variable-color-type}}`                      |
-| `override-keyword-control-{{template-variable-color-type}}`              |
-| `override-keyword-declaration-{{template-variable-color-type}}`          |
-| `override-markup-{{template-variable-color-type}}`                       |
-| `override-markup-bold-{{template-variable-color-type}}`                  |
-| `override-markup-code-{{template-variable-color-type}}`                  |
-| `override-markup-italic-{{template-variable-color-type}}`                |
-| `override-markup-quote-{{template-variable-color-type}}`                 |
-| `override-diff-added-{{template-variable-color-type}}`                   |
-| `override-diff-changed-{{template-variable-color-type}}`                 |
-| `override-diff-deleted-{{template-variable-color-type}}`                 |
-| `override-ui-background-{{template-variable-color-type}}`                |
-| `override-ui-backgroundDark-{{template-variable-color-type}}`            |
-| `override-ui-backgroundLight-{{template-variable-color-type}}`           |
-| `override-ui-deprecated-{{template-variable-color-type}}`                |
-| `override-ui-foreground-{{template-variable-color-type}}`                |
-| `override-ui-foregroundDark-{{template-variable-color-type}}`            |
-| `override-ui-foregroundLight-{{template-variable-color-type}}`           |
-| `override-ui-lineBackground-{{template-variable-color-type}}`            |
-| `override-ui-searchText-{{template-variable-color-type}}`                |
-| `override-ui-selectionBackground-{{template-variable-color-type}}`       |
-
-The above overrides template variable values are overwritten by the optional
-scheme defined override token. The following overwrites
-`override-comment-{{template-variable-color-type}}` to derive the values from
-the hex value `#555555` instead of from `gray_dim`.
-
-```yaml
-...
-override:
-  comment: "#555555"
-...
-```
+- Tinted8 Styling Specification v0.1.0-draft
+- Mustache Template Language Specification
 
 _SPEC END_
 
 ---
+
+[semver]: https://semver.org/

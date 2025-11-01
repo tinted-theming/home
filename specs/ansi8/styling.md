@@ -3,80 +3,114 @@
 **Version 0.1.0** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
-**Note**: This spec is currently unstable due to development.
+## Introduction
 
-Tinted8 aims to make it very simple to style terminal based applications, but can
-be heavily expanded to style complex GUI applications. Tinted8 simplifies the
-process of creating a color scheme by asking the user to only specify the 8
-basic ANSI colors. The builder will then generate all additional colors,
-including bright variants, "Black" to "White" gradients, and dim variants.
+Tinted8 simplifies the creation of color schemes for terminal and GUI
+applications.
 
-In this model, the core 8 ANSI colors represent a palette, and the builder
-handles the generation of other necessary colors. The design follows a basic
-rule where:
+This styling specification describes what theme authors should and can provide
+through the scheme structure, required fields and optional override keys.
 
-- `palette.<black|red|green|yellow|blue|magenta|cyan|white>` are the 8
-  user-defined colors.
-- Bright and Dim variants of each color are automatically generated.
-- `gray`, `orange` and `brown` colors are automatically generated.
+The [Builder specification] (a separate document) describes how tools expand
+these author-defined values into complete color sets, derive variants and
+render template variables.
 
-Tinted8 allows scheme authors to style specific theme properties. This is done by
-setting override properties and adds a lot of optional flexibility.
+## Purpose and Scope
 
-## Scheme properties
+This specification is for scheme authors and it defines:
 
-| Scheme property | Required | Default | Description |
+- Which keys appear in a Tinted8 scheme file
+- What each key means
+- How overrides inherit
+
+It does **not** define how colors are generated or how files are rendered,
+those behaviors belong to the [Builder specification].
+
+## Scheme structure
+
+A Tinted8 scheme is stored as a YAML document with the following fields:
+
+| Property        | Required | Default | Description |
 |-----------------|----------|---------|-------------|
-| `system`        | Yes | - | Identifies the specification version this scheme adheres to. Must be set to `tinted8` for all compliant Tinted8 schemes. |
-| `scheme-author` | Yes | - | The individual or organization who created this specific color scheme. |
-| `variant`       | Yes | - | Currently only `dark` and `light` are supported<br> variants. The builder will adjust theme backgrounds<br> and foregrounds based on the `dark` and `light`<br> values here. |
-| `palette`       | Yes | - | A list of required scheme colors. |
-| `name`          | No  | `<Family> <Flavor>` (Title Case) | The human-readable name of the scheme. If the `family` and `flavor` properties are provided, the `name` will be inferred by `<family> <flavor>` in title case. |
-| `slug`          | No  | `<family>-<flavor>` or `<name>` in kebab-case | The machine-friendly identifier for the scheme. If both family and flavor are provided, the `slug` will be inferred as `<family>-<flavor>` in kebab-case (e.g., tokyo-city). If a `name` is provided, the slug will be derived from it by converting to kebab-case. |
-| `family`        | No  | - | The broader theme group or lineage this scheme belongs to. Used to group related schemes under a shared design identity (e.g., the Tokyo family may include several flavors). |
-| `flavor`        | No  | - | A stylistic or conceptual variation within a family (e.g. city, moon). Distinguishes aesthetic direction while sharing the same family identity. |
-| `theme-author`  | No  | `scheme-author` | The original creator of the upstream or inspirational theme, if this scheme is an adaptation or port. Used for attribution and provenance tracking. Defaults to `scheme-author` if no value is provided. |
-| `description`   | No  | - | A short description of the scheme. |
+| `system`        | Yes | - | Identifies the spec version used. For Tinted8 schemes this value must be `tinted8` |
+| `scheme-author` | Yes | - | The person or organization that created this scheme. |
+| `variant`       | Yes | - | Either `dark` or `light`. Indicates the intended luminance direction. The builders will use this to adjust foreground/background balance. |
+| `palette`       | Yes | - | Defines the base color palette for the theme. |
+| `name`          | No  | Derived from `family` + `flavor` | Human-readable name. |
+| `slug`          | No  | Derived from `name` | Machine-friendly identifier. |
+| `family`        | No  | - | Broad design family (e.g. "Tokyo"). |
+| `flavor`        | No  | - | Variation within a family (e.g. "Night", "Moon"). |
+| `theme-author`  | No  | `scheme-author` | Attribution for the original or inspirational theme. |
+| `description`   | No  | - | Short human-readable summary. |
 
-### Required scheme `palette` colors
+### YAML scheme example
 
-|ANSI Mapping |  Color Name                                                             | Description                           |
-|------------ |  ---------------------------------------------------------------------- | ------------------------------------- |
-|0            |  palette.black (![#](https://placehold.co/25/282c34/000000?text=%2B))   | Default background color (dark theme) |
-|1            |  palette.red (![#](https://placehold.co/25/e06c75/000000?text=%2B))     | error messages                        |
-|2            |  palette.green (![#](https://placehold.co/25/98c379/000000?text=%2B))   | Used for strings, success messages    |
-|3            |  palette.yellow (![#](https://placehold.co/25/e5c07b/000000?text=%2B))  | Used for constants, warnings          |
-|4            |  palette.blue (![#](https://placehold.co/25/61afef/000000?text=%2B))    | Used for functions, method names      |
-|5            |  palette.magenta (![#](https://placehold.co/25/c678dd/000000?text=%2B)) | Used for keywords, selectors          |
-|6            |  palette.cyan (![#](https://placehold.co/25/56b6c2/000000?text=%2B))    | Used for support, regex patterns      |
-|7            |  palette.white (![#](https://placehold.co/25/be5046/000000?text=%2B))   | Used for text and light backgrounds   |
+Here's what the Tinted8 specification would look like in YAML format:
+
+```yaml
+system: "tinted8"
+scheme-author: "User <user@example.com>"
+family: "Ayu"
+flavor: "Mirage"
+variant: "dark"
+palette:
+  black:   "#131721"
+  red:     "#f07178"
+  green:   "#b8cc52"
+  yellow:  "#ffb454"
+  blue:    "#59c2ff"
+  magenta: "#d2a6ff"
+  cyan:    "#95e6cb"
+  white:   "#e6e1cf"
+```
+
+## Palette Definition
+
+### Required colors
+
+| ANSI Mapping | Example Color | Color Name | Description |
+| ------------ | ------------- | ---------- | ------------|
+| 0 | ![#](https://placehold.co/25/282c34/000000?text=%2B) | palette.black   | Default background color (dark theme) |
+| 1 | ![#](https://placehold.co/25/e06c75/000000?text=%2B) | palette.red     | error messages                        |
+| 2 | ![#](https://placehold.co/25/98c379/000000?text=%2B) | palette.green   | Used for strings, success messages    |
+| 3 | ![#](https://placehold.co/25/e5c07b/000000?text=%2B) | palette.yellow  | Used for constants, warnings          |
+| 4 | ![#](https://placehold.co/25/61afef/000000?text=%2B) | palette.blue    | Used for functions, method names      |
+| 5 | ![#](https://placehold.co/25/c678dd/000000?text=%2B) | palette.magenta | Used for keywords, selectors          |
+| 6 | ![#](https://placehold.co/25/56b6c2/000000?text=%2B) | palette.cyan    | Used for support, regex patterns      |
+| 7 | ![#](https://placehold.co/25/be5046/000000?text=%2B) | palette.white   | Used for text and light backgrounds   |
 
 ### Optional scheme `palette` colors
 
-| ANSI Mapping | Color Name                                                                    | Description |
-| ------------ | ----------------------------------------------------------------------------- | ----------- |
-| 8            | palette.black-bright (![#](https://placehold.co/25/282c34/000000?text=%2B))   | n/a         |
-| 9            | palette.red-bright (![#](https://placehold.co/25/ff7b86/000000?text=%2B))     | n/a         |
-| 10           | palette.green-bright (![#](https://placehold.co/25/b1e18b/000000?text=%2B))   | n/a         |
-| 11           | palette.yellow-bright (![#](https://placehold.co/25/efb074/000000?text=%2B))  | n/a         |
-| 12           | palette.blue-bright (![#](https://placehold.co/25/67cdff/000000?text=%2B))    | n/a         |
-| 13           | palette.magenta-bright (![#](https://placehold.co/25/e48bff/000000?text=%2B)) | n/a         |
-| 14           | palette.cyan-bright (![#](https://placehold.co/25/63d4e0/000000?text=%2B))    | n/a         |
-| 15           | palette.white-bright (![#](https://placehold.co/25/be5046/000000?text=%2B))   | n/a         |
-| n/a          | palette.black-dim (![#](https://placehold.co/25/282c34/000000?text=%2B))      | n/a         |
-| n/a          | palette.red-dim (![#](https://placehold.co/25/e06c75/000000?text=%2B))        | n/a         |
-| n/a          | palette.green-dim (![#](https://placehold.co/25/98c379/000000?text=%2B))      | n/a         |
-| n/a          | palette.yellow-dim (![#](https://placehold.co/25/e5c07b/000000?text=%2B))     | n/a         |
-| n/a          | palette.blue-dim (![#](https://placehold.co/25/61afef/000000?text=%2B))       | n/a         |
-| n/a          | palette.magenta-dim (![#](https://placehold.co/25/c678dd/000000?text=%2B))    | n/a         |
-| n/a          | palette.cyan-dim (![#](https://placehold.co/25/56b6c2/000000?text=%2B))       | n/a         |
-| n/a          | palette.white-dim (![#](https://placehold.co/25/be5046/000000?text=%2B))      | n/a         |
-| n/a          | palette.gray (![#](https://placehold.co/25/666666/000000?text=%2B))           | n/a         |
-| n/a          | palette.gray-bright (![#](https://placehold.co/25/be5046/000000?text=%2B))    | n/a         |
-| n/a          | palette.gray-dim (![#](https://placehold.co/25/be5046/000000?text=%2B))       | n/a         |
-| n/a          | palette.orange (![#](https://placehold.co/25/d19a66/000000?text=%2B))         | n/a         |
-| n/a          | palette.orange-bright (![#](https://placehold.co/25/be5046/000000?text=%2B))  | n/a         |
-| n/a          | palette.orange-dim (![#](https://placehold.co/25/be5046/000000?text=%2B))     | n/a         |
+| ANSI Mapping | Example Color | Color Name | Description |
+| ------------ | ------------- | -----------| ----------- |
+| 8   | ![#](https://placehold.co/25/282c34/000000?text=%2B) | palette.black-bright   | n/a |
+| 9   | ![#](https://placehold.co/25/ff7b86/000000?text=%2B) | palette.red-bright     | n/a |
+| 10  | ![#](https://placehold.co/25/b1e18b/000000?text=%2B) | palette.green-bright   | n/a |
+| 11  | ![#](https://placehold.co/25/efb074/000000?text=%2B) | palette.yellow-bright  | n/a |
+| 12  | ![#](https://placehold.co/25/67cdff/000000?text=%2B) | palette.blue-bright    | n/a |
+| 13  | ![#](https://placehold.co/25/e48bff/000000?text=%2B) | palette.magenta-bright | n/a |
+| 14  | ![#](https://placehold.co/25/63d4e0/000000?text=%2B) | palette.cyan-bright    | n/a |
+| 15  | ![#](https://placehold.co/25/be5046/000000?text=%2B) | palette.white-bright   | n/a |
+| n/a | ![#](https://placehold.co/25/282c34/000000?text=%2B) | palette.black-dim      | n/a |
+| n/a | ![#](https://placehold.co/25/e06c75/000000?text=%2B) | palette.red-dim        | n/a |
+| n/a | ![#](https://placehold.co/25/98c379/000000?text=%2B) | palette.green-dim      | n/a |
+| n/a | ![#](https://placehold.co/25/e5c07b/000000?text=%2B) | palette.yellow-dim     | n/a |
+| n/a | ![#](https://placehold.co/25/61afef/000000?text=%2B) | palette.blue-dim       | n/a |
+| n/a | ![#](https://placehold.co/25/c678dd/000000?text=%2B) | palette.magenta-dim    | n/a |
+| n/a | ![#](https://placehold.co/25/56b6c2/000000?text=%2B) | palette.cyan-dim       | n/a |
+| n/a | ![#](https://placehold.co/25/be5046/000000?text=%2B) | palette.white-dim      | n/a |
+| n/a | ![#](https://placehold.co/25/666666/000000?text=%2B) | palette.gray           | n/a |
+| n/a | ![#](https://placehold.co/25/be5046/000000?text=%2B) | palette.gray-bright    | n/a |
+| n/a | ![#](https://placehold.co/25/be5046/000000?text=%2B) | palette.gray-dim       | n/a |
+| n/a | ![#](https://placehold.co/25/d19a66/000000?text=%2B) | palette.orange         | n/a |
+| n/a | ![#](https://placehold.co/25/be5046/000000?text=%2B) | palette.orange-bright  | n/a |
+| n/a | ![#](https://placehold.co/25/be5046/000000?text=%2B) | palette.orange-dim     | n/a |
+
+### Generated Colors
+
+Builders will extend these eight required values by generating bright, dim and
+neutral variants such as gray, orange and brown. Generation rules are defined
+in the [Builder specification].
 
 ### Sample YAML Scheme
 
@@ -99,151 +133,102 @@ palette:
   white:   "#e6e1cf"
 ```
 
-**Dev Notes**: Thoughts here could be to give the builder access to a dark and
-light variant of a theme to allow it to solve things like this:
-https://github.com/tinted-theming/tinted-terminal/issues/14
+## Overrides
 
-## Optional code Colors
+Scheme authors can refine colors for code elements or UI surfaces using the
+`override` object. Each key identifies a role with a color reference (hex color
+code) value.
 
-Code templates will largely pull colors from the variables in the table below.
-These variables are set by automatically using the `<color>_<variant>` values
-generated by the builder, but can be modified directly by the scheme author
-using the `override` properties.
+| Override Property                     | Example Context | Purpose |
+| ------------------------------------- | --------------- | ------- |
+| override.comment                      | `// Comment` → `// Comment` | Comments in the code, usually for non-executable text providing context or explanation. |
+| override.string                       | `"Hello world"` → `"Hello world"` | All string related values. |
+| override.string.quoted                | `"Hello world"` → `"Hello world"` | Quoted strings, such as text enclosed in double or single quotes. |
+| override.string.regexp                | `/^Hello/g` → `/^Hello/g` | Regular expressions or patterns used to match character combinations in strings. |
+| override.string.template              | `` `Hello ${name}` `` → `` `Hello ${name}` `` | Template literals and interpolations. |
+| override.constant                     | `null` → `null` | Parent of all literal constants (booleans, numbers, nulls, characters, etc.). |
+| override.constant.numeric             | `42` → `42` | Parent of all numeric constants. |
+| override.constant.numeric.integer     | `12` → `12` | Integer values. |
+| override.constant.numeric.float       | `18.1` → `18.1` | Float values. |
+| override.constant.numeric.hex         | `0x1234ABC` → `0x1234ABC` | Hexadecimal values. |
+| override.constant.numeric.exponential | `12e3` → `12e3` | Exponential/scientific notation values. |
+| override.constant.language.boolean    | `true` → `true` | Boolean values. |
+| override.constant.character           | `'\\n'` → `'\\n'` | Parent of character literal constants (e.g., `'A'`, `'\\n'`, `'\\t'`). |
+| override.constant.character.escape    | `'What\'s that?'` → `\'` | Escaped characters inside strings. |
+| override.constant.character.entity    | `Foo&apos;s` → `&apos;` | Special character entities (HTML/XML). |
+| override.entity.name                  | `class Person {}` → `Person` | Parent of all entity names (class, function, tag, variable). |
+| override.entity.name.class            | `class Person {}` → `Person` | Class names in object-oriented languages. |
+| override.entity.name.function         | `function greet() {}` → `greet` | Function names in code. |
+| override.entity.name.tag              | `<div>Hello</div>` → `div` | HTML or XML tag names. |
+| override.entity.name.variable         | `let username = "foo";` → `username` | Variable identifiers in code. |
+| override.entity.other.attributeName   | `<img src="logo.png">` → `src` | Attribute names, commonly used in HTML, XML, or other markup languages. |
+| override.keyword                      | `function foo()` → `function` | Language keywords (e.g., function, if, const). Parent of keyword categories. |
+| override.keyword.control              | `if (x > 0)` → `if` | Control flow keywords. |
+| override.keyword.declaration          | `const age = 42;` → `const` | Declaration keywords. |
+| override.markup                       | `<blockquote>Text</blockquote>` → `Text` | Parent of all markup-styled content. |
+| override.markup.bold                  | `<strong>Foo Bar</strong>` → `Foo Bar` | Bold text. |
+| override.markup.code                  | `<code>inline</code>` → `inline` | Inline/code blocks. |
+| override.markup.italic                | `<em>note</em>` → `note` | Italic text. |
+| override.markup.quote                 | `<blockquote>Be yourself</blockquote>` → `Be yourself` | Quoted text. |
+| override.diff.added                   | `+ const newFeature = true;` → `+ const newFeature = true;` | Added lines in a diff view, typically representing new code or content. |
+| override.diff.changed                 | `~ const version = "0.1.0";` → `~ const version = "0.1.0";` | Changed lines in a diff view, typically representing modified content. |
+| override.diff.deleted                 | `- const oldFeature = false;` → `- const oldFeature = false;` | Deleted lines in a diff view, typically representing removed code or content. |
+| override.ui.background                | Editor canvas → background | The general background of the user interface. |
+| override.ui.backgroundDark            | Sidebar → background | Darker background areas, typically used for sidebars, footers, or other sections. |
+| override.ui.backgroundLight           | Active tab → background | Lighter background areas, typically used for light modes or highlighting. |
+| override.ui.deprecated                | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
+| override.ui.foreground                | Editor text → `"hello"` | General text in the user interface. |
+| override.ui.foregroundDark            | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
+| override.ui.foregroundLight           | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |
+| override.ui.lineBackground            | Active line highlight → background | The background of lines in the user interface, such as list items or code lines. |
+| override.ui.searchText                | Search results → result | Text in search results or highlighted search terms. |
+| override.ui.selectionBackground       | Selected code → background | The background of selected items in the user interface (e.g., highlighted text or options). |
 
-**Note**: Have a look at `specs/tinted8/builder.md` for more information about
-`<color>_<variant>` values.
+The `override` properties were derived from [TextMate Theme structure].
 
-| Override Property                     | Default Color   | Example | Description |
-| ------------------------------------- | --------------- | ------- | ----------- |
-| override.comment                      | gray_dim        | `// Comment` → `// Comment` | Comments in the code, usually for non-executable text providing context or explanation. |
-| override.string                       | green_default   | `"Hello world"` → `"Hello world"` | All string related values. |
-| override.string.quoted                | parent          | `"Hello world"` → `"Hello world"` | Quoted strings, such as text enclosed in double or single quotes. |
-| override.string.regexp                | parent          | `/^Hello/g` → `/^Hello/g` | Regular expressions or patterns used to match character combinations in strings. |
-| override.string.template              | parent          | `` `Hello ${name}` `` → `` `Hello ${name}` `` | Template literals and interpolations. |
-| override.constant                     | yellow_default  | `null` → `null` | Parent for all literal constants (booleans, numbers, nulls, characters, etc.). |
-| override.constant.numeric             | parent          | `42` → `42` | Parent for all numeric constants. |
-| override.constant.numeric.integer     | parent          | `12` → `12` | Integer values. |
-| override.constant.numeric.float       | parent          | `18.1` → `18.1` | Float values. |
-| override.constant.numeric.hex         | parent          | `0x1234ABC` → `0x1234ABC` | Hexadecimal values. |
-| override.constant.numeric.exponential | parent          | `12e3` → `12e3` | Exponential/scientific notation values. |
-| override.constant.language.boolean    | parent          | `true` → `true` | Boolean values. |
-| override.constant.character           | yellow_default  | `'\\n'` → `'\\n'` | Parent for character literal constants (e.g., `'A'`, `'\\n'`, `'\\t'`). |
-| override.constant.character.escape    | parent          | `'What\'s that?'` → `\'` | Escaped characters inside strings. |
-| override.constant.character.entity    | parent          | `Foo&apos;s` → `&apos;` | Special character entities (HTML/XML). |
-| override.entity.name                  | yellow_default  | `class Person {}` → `Person` | Parent for all entity names (class, function, tag, variable). |
-| override.entity.name.class            | parent          | `class Person {}` → `Person` | Class names in object-oriented languages. |
-| override.entity.name.function         | parent          | `function greet() {}` → `greet` | Function names in code. |
-| override.entity.name.tag              | parent          | `<div>Hello</div>` → `div` | HTML or XML tag names. |
-| override.entity.name.variable         | parent          | `let username = "foo";` → `username` | Variable identifiers in code. |
-| override.entity.other.attributeName   | yellow_bright (concrete default) | `<img src="logo.png">` → `src` | Attribute names, commonly used in HTML, XML, or other markup languages. |
-| override.keyword                      | magenta_default | `function foo()` → `function` | Language keywords (e.g., function, if, const). Parent for keyword categories. |
-| override.keyword.control              | parent          | `if (x > 0)` → `if` | Control flow keywords. |
-| override.keyword.declaration          | parent          | `const age = 42;` → `const` | Declaration keywords. |
-| override.markup                       | cyan_default    | `<blockquote>Text</blockquote>` → `Text` | Parent for all markup-styled content. |
-| override.markup.bold                  | parent          | `<strong>Foo Bar</strong>` → `Foo Bar` | Bold text. |
-| override.markup.code                  | parent          | `<code>inline</code>` → `inline` | Inline/code blocks. |
-| override.markup.italic                | parent          | `<em>note</em>` → `note` | Italic text. |
-| override.markup.quote                 | parent          | `<blockquote>Be yourself</blockquote>` → `Be yourself` | Quoted text. |
-| override.diff.added                   | green_bright    | `+ const newFeature = true;` → `+ const newFeature = true;` | Added lines in a diff view, typically representing new code or content. |
-| override.diff.changed                 | magenta_bright  | `~ const version = "0.1.0";` → `~ const version = "0.1.0";` | Changed lines in a diff view, typically representing modified content. |
-| override.diff.deleted                 | red_bright      | `- const oldFeature = false;` → `- const oldFeature = false;` | Deleted lines in a diff view, typically representing removed code or content. |
-| override.ui.background                | black_default   | Editor canvas → background | The general background of the user interface. |
-| override.ui.backgroundDark            | black_dim       | Sidebar → background | Darker background areas, typically used for sidebars, footers, or other sections. |
-| override.ui.backgroundLight           | black_bright    | Active tab → background | Lighter background areas, typically used for light modes or highlighting. |
-| override.ui.deprecated                | brown_default   | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
-| override.ui.foreground                | white_default   | Editor text → `"hello"` | General text in the user interface. |
-| override.ui.foregroundDark            | gray_bright     | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
-| override.ui.foregroundLight           | white_bright    | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |
-| override.ui.lineBackground            | gray_dim        | Active line highlight → background | The background of lines in the user interface, such as list items or code lines. |
-| override.ui.searchText                | yellow_default  | Search results → result | Text in search results or highlighted search terms. |
-| override.ui.selectionBackground       | black_bright    | Selected code → background | The background of selected items in the user interface (e.g., highlighted text or options). |
+See the [Builder specification] for the complete canonical list of recognized
+override keys as well as the default color values.
 
-For more information about how these values should be used in templates, have a
-look at `specs/tinted8/template.md`.
+## Inheritance
 
-### Bright Defaults for Readability
+Overrides follow a hierarchical fallback system:
 
-While most child overrides inherit their value from a parent property, some
-child properties are assigned a concrete bright default (for example,
-`override.entity.other.attributeName` → `yellow_bright`). These exceptions are
-intentional: they improve readability in common code and markup scenarios by
-making frequently used elements (like attribute names) stand out without
-requiring the scheme author to define them explicitly.
+1. A specific key (e.g. override.constant.numeric.float) inherits from its
+   parent (override.constant.numeric).
+1. If no parent value is provided, it falls back to a builder-defined default
+   derived from the palette.
 
-Scheme authors can still override these values if desired, but leaving them as
-defaults ensures that a theme with no overrides remains legible and visually
-distinct.
+Example rule chain:
 
-### Sample YAML scheme
-
-```yaml
-system: "tinted8"
-scheme-author: "User <user@example.com>"
-family: "Ayu"
-variant: "dark"
-
-palette:
-  black:   "#131721"
-  red:     "#f07178"
-  green:   "#b8cc52"
-  yellow:  "#ffb454"
-  blue:    "#59c2ff"
-  magenta: "#d2a6ff"
-  cyan:    "#95e6cb"
-  white:   "#e6e1cf"
-
-override:
-  comment: "#555555"
-  diff:
-    added:   "#00ff00"
-    changed: "#0000ff"
-    deleted: "#ff0000"
+```
+override.string.template → override.string → builder default (green_default)
 ```
 
-### Inheritance Rules for Overrides
+This model lets authors define only the overrides they need, builders ensure
+the theme remains complete.
 
-Tinted8 override properties follow an inheritance model. If a more specific
-override is not defined in a scheme, it automatically falls back to its parent
-property, and ultimately to the default builder value (derived from the base
-ANSI palette). This ensures authors can define as much or as little detail as
-they like, while still producing a complete and consistent theme.
+## Readable Defaults
 
-**Example**: If `override.constant.numeric.float` is not defined, it inherits
-from `override.constant.numeric`. If `override.constant.numeric` is not
-defined, it inherits from `yellow_default` (the spec default).
+Some keys may intentionally default to bright variants (for instance, attribute
+names) to preserve legibility in code or markup.
 
-#### Strings
+These defaults are suggestions, authors may override them as desired.
 
-- `override.string.quoted`, `override.string.template`,
-  `override.string.regexp`, and `override.string.escape`
-  - fall back to `override.string`
-  - falls back to `green_default`
+## Compliance
 
-#### Numerics
+A scheme is Tinted8-compliant if it:
 
-- `override.constant.numeric.integer`, `override.constant.numeric.float`,
-  `override.constant.numeric.hex`, `override.constant.numeric.exponential`
-  - fall back to `override.constant.numeric`
-  - falls back to `yellow_default`
+- Includes all required fields (`system`, `scheme-author`, `variant`,
+  `name|slug|family` `palette`)
+- Uses valid color formats (hex `#RRGGBB`)
+- Follows the inheritance and structure rules defined here
 
-#### Diffs
-
-- `override.diff.added`, `override.diff.changed`, and `override.diff.deleted`
-  - fall back to the builder defaults for `green_bright`, `magenta_bright`, and
-    `red_bright` respectively, unless explicitly overridden.
-
-#### UI values
-
-- `override.ui.backgroundDark` and `override.ui.backgroundLight`
-  - fall back to `override.ui.background`
-- `override.ui.foregroundDark` and `override.ui.foregroundLight`
-  - fall back to `override.ui.foreground`
-
-#### Other properties
-
-Any override with a missing value reverts to the builder’s automatically
-generated `<color>_<variant>` assignment (e.g., `yellow_default`, `cyan_dim`, etc.).
+All further derived or computed colors are implementation details of the
+builder.
 
 _SPEC END_
 
 ---
+
+[Builder specification]: https://github.com/tinted-theming/home/blob/main/specs/tinted8/builder.md
+[TextMate Theme structure]: https://macromates.com/manual/en/language_grammars
