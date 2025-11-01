@@ -195,6 +195,86 @@ default:
   supported-systems: [tinted8]
 ```
 
+## Version and Specification Support
+
+Tinted8 builders must declare and validate the specification versions they support
+to ensure compatibility across the Styling and Builder specifications.
+
+### Support Declaration
+
+Every builder **must expose** a `supports` object, either in its configuration or
+metadata output, with the following fields in the `templates/config.yaml`:
+
+```yaml
+default:
+  filename: "output/{{ scheme-system }}-{{ scheme-slug }}.ext"
+  supported-systems: [tinted8]
+  supports:
+    tinted8-styling: ">=0.1.0"
+    tinted8-builder: ">=0.1.0"
+```
+
+This defines which versions of the Tinted8 Styling and Builder specifications
+are implemented and guaranteed compatible. All `supports` object property
+values must follow semantic versioning rules ([semver]).
+
+### Enforcement
+
+When loading a scheme file, the builder must check that:
+
+1. The scheme's declared system matches "tinted8".
+1. The scheme's spec version (if provided) satisfies the builder's
+   `supports.tinted8-styling` range.
+1. The builder's own implementation version satisfies its declared
+   `supports.tinted8-builder` range.
+
+If any of these checks fail, the builder must emit an error and refuse to
+process the scheme until the version mismatch is resolved.
+
+### Example Validation Flow
+
+```
+flowchart TD
+  A[Scheme.yaml] → B{system == "tinted8"?}
+  B → |No| E[Error: E001 Invalid system]
+  B → |Yes| C{tinted8-styling version within supported range?}
+  C → |No| F[Error: E002 Unsupported Tinted8 Styling Spec]
+  C → |Yes| D{tinted8-builder self-version within supported range?}
+  D → |No| G[Error: E003 Tinted8 Builder Spec Incompatible]
+  D → |Yes| H[Proceed with build]
+```
+
+### Example CLI Output
+
+```
+$ tinted8-builder build ./
+✔ system: tinted8
+✔ tinted8-styling: v0.1.0 (supported range >=0.1.0)
+✔ tinted8-builder: v0.1.0 (self-compatible)
+→ Building theme...
+```
+
+If validation fails:
+
+```
+✖ Error E002: Scheme requires Styling v0.2.0 but tinted8-builder supports only >=0.1.0
+```
+
+### Rationale
+
+This ensures:
+
+- Builders only build versions they are designed for, which will reduce builder generation bugs
+- Builders will have backward compatibility built into them for both the builder and styling specifications
+- Authors can easily identify compatibility issues
+- Downstream tools (editors, integrations) can introspect supported specs programmatically
+
+| Code   | Description                                                        |
+| ------ | ------------------------------------------------------------------ |
+| `E001` | Invalid or missing `supported-systems` field.                      |
+| `E002` | Scheme requires unsupported Tinted8 Styling spec version.          |
+| `E003` | Builder version not compatible with declared Tinted8 Builder spec. |
+
 ## Compliance
 
 A builder is considered **Tinted8-compliant** if it:
