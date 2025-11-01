@@ -15,10 +15,11 @@ themes.
 Builders read scheme files that conform to the Styling specification. At
 minimum they must provide:
 
-- `system`, `scheme-author`, `variant`, `name|slug|family`, `palette`
-- Optional `overrides`
+- Required: `system`, `scheme-author`, `variant`, `palette`
+- Partially required: At least one of `name`, `slug` or `family`
+- Optional: `syntax`, `ui`
 
-All color values must be HTML-style hex (``#RRGGBB`).
+All color values must be HTML-style hex (`#RRGGBB`).
 
 ### Template Input
 
@@ -42,16 +43,15 @@ If a scheme lacks a `slug`, builders derive one by slugifying the `name`:
 
 Examples: 
 
-- `Tomorrow Night` → `tomorrow-night`
+- `Catppuccin Mocha` → `catppuccin-mocha`
 - `Rosé Pine` → `rose-pine`
-
-If name is missing, builders may infer it from family + flavor.
+- `Default (Dark)` → `default-dark`
 
 ## Palette Expansion
 
 ### Variants
 
-For every `palette.<color>`, builders generate:
+For every `palette.{{token_name}}`, builders generate:
 
 - `default` - The color as provided (e.g. `red-default`)
 - `bright` - A lighter variant (e.g. `cyan-bright`)
@@ -89,93 +89,87 @@ The full list of component variables mirrors standard RGB breakdowns.
 
 ### Meta Variables
 
-| Variable                  | Type    | Source                                                  |
-| ------------------------- |-------- | ------------------------------------------------------- |
-| `scheme-name`             | String  | `name`                                                  |
-| `scheme-author`           | String  | `author`                                                |
-| `scheme-description`      | String  | `description`                                           |
-| `scheme-slug`             | String  | `slug` or slugified `name` seperated by hiphens `-`     |
-| `scheme-slug-underscored` | String  | `slug` or slugified `name` seperated by underscores `_` |
-| `scheme-system`           | String  | `system`                                                |
-| `scheme-variant`          | String  | `variant`                                               |
-| `scheme-is-dark-variant`  | Boolean | Based on `scheme-variant` value                         | 
+| Variable                  | Type    | Source                                                    |
+| ------------------------- |-------- | --------------------------------------------------------- |
+| `scheme-name`             | String  | `name`                                                    |
+| `scheme-author`           | String  | `author`                                                  |
+| `scheme-description`      | String  | `description`                                             |
+| `scheme-slug`             | String  | `slug` or slugified `name` seperated by hiphens (`-`)     |
+| `scheme-slug-underscored` | String  | `slug` or slugified `name` seperated by underscores (`_`) |
+| `scheme-system`           | String  | `system`                                                  |
+| `scheme-variant`          | String  | `variant`                                                 |
+| `scheme-is-dark-variant`  | Boolean | Based on `scheme-variant` value                           | 
 
 ### Color Variables
 
+`syntax` and `ui` properties will be referred to as "Theming Properties".
+
 The builder provides various color variables for every `palette` token variant
-(`default`, `bright`, `dim`) and every override key.
+(`default`, `bright`, `dim`) and every Theming Property.
 
 The variable suffixes are as follows:
 
-- `{{ token-name }}-hex` - 6-digit hex color value (e.g "7cafc2")
-- `{{ token-name }}-hex-<r|g|b>` - Provides a R, G or B hex color value (e.g "7c")
-- `{{ token-name }}-hex-bgr` - A reversed version of all the hex values (e.g "c2af7c")
-- `{{ token-name }}-rgb-<r|g|b>` - Provides a R, G or B color value between `0` and `255` (e.g. "124")
-- `{{ token-name }}-dec-<r|g|b>` - Provides a R, G or B decimal value between `0` and `1` (e.g. "0.4863")
-- `{{ token-name }}-rgb16-<r|g|b>` - Provides a R, G or B 16 bit value between `0` and `65_535` (e.g. "15000")
-
-For example:
-
-```
-override-comment-hex
-override-string-dec-r
-override-ui-background-rgb16-b
-```
+- `{{token-name}}-hex` - 6-digit hex color value (e.g "7cafc2")
+- `{{token-name}}-hex-<r|g|b>` - Provides a R, G or B hex color value (e.g "7c")
+- `{{token-name}}-hex-bgr` - A reversed version of all the hex values (e.g "c2af7c")
+- `{{token-name}}-rgb-<r|g|b>` - Provides a R, G or B color value between `0` and `255` (e.g. "124")
+- `{{token-name}}-dec-<r|g|b>` - Provides a R, G or B decimal value between `0` and `1` (e.g. "0.4863")
+- `{{token-name}}-rgb16-<r|g|b>` - Provides a R, G or B 16 bit value between `0` and `65_535` (e.g. "15000")
 
 Values omit the leading `#` for hex strings.
 
-### Override Variables
+### Theming Properties
 
-For every recognized override key from the Styling spec, builders provide
-equivalent template variables, for example:
+For every recognized `syntax` and `ui` key from the Styling spec, builders
+provide equivalent template variables, for example:
 
 ```
-override-comment-hex
-override-string-dec-r
-override-ui-background-rgb16-b
+syntax-comment-hex
+syntax-string-dec-r
+ui-background-rgb16-b
 ```
 
 Each corresponds either to:
 
-1. The explicit override in the scheme
+1. The explicit values set in the scheme
 1. Its inherited parent
 1. The builder's default color token
 
-## Override Resolution
+## Theme Resolution
 
 Resolution order:
 
-- Explicit scheme override – exact key value (e.g. `override.diff.added`)
-- Inherited override – parent group value (e.g. `override.diff`)
+- Explicit scheme Theming Property – exact key value (e.g. `syntax.diff.added`)
+- Inherited Theming Property – parent group value (e.g. `syntax.diff`)
 - Builder default – mapped palette token (e.g. `green_bright`)
 
-Builders must ensure all override variables resolve to a valid color.
+Builders must ensure all Theming Properties resolve to a valid color.
 
 ### Builder Default Colors
 
-| Override Property                     | Default Color   |
-| ------------------------------------- | --------------- |
-| override.comment                      | gray_dim        |
-| override.string                       | green_default   |
-| override.constant                     | yellow_default  |
-| override.constant.character           | yellow_default  |
-| override.entity.name                  | yellow_default  |
-| override.entity.other.attributeName   | yellow_bright   |
-| override.keyword                      | magenta_default |
-| override.markup                       | cyan_default    |
-| override.diff.added                   | green_bright    |
-| override.diff.changed                 | magenta_bright  |
-| override.diff.deleted                 | red_bright      |
-| override.ui.background                | black_default   |
-| override.ui.backgroundDark            | black_dim       |
-| override.ui.backgroundLight           | black_bright    |
-| override.ui.deprecated                | brown_default   |
-| override.ui.foreground                | white_default   |
-| override.ui.foregroundDark            | gray_bright     |
-| override.ui.foregroundLight           | white_bright    |
-| override.ui.lineBackground            | gray_dim        |
-| override.ui.searchText                | yellow_default  |
-| override.ui.selectionBackground       | black_bright    |
+| Theming Property                   | Default Color   |
+| ---------------------------------- | --------------- |
+| syntax.comment                     | gray_dim        |
+| syntax.string                      | green_default   |
+| syntax.constant                    | yellow_default  |
+| syntax.constant.character          | yellow_default  |
+| syntax.entity.name                 | yellow_default  |
+| syntax.entity.other.attribute-name | yellow_bright   |
+| syntax.keyword                     | magenta_default |
+| syntax.markup                      | cyan_default    |
+| syntax.diff.added                  | green_bright    |
+| syntax.diff.changed                | magenta_bright  |
+| syntax.diff.deleted                | red_bright      |
+| ui.background                      | black_default   |
+| ui.background-dark                 | black_dim       |
+| ui.background-light                | black_bright    |
+| ui.deprecated                      | brown_default   |
+| ui.foreground                      | white_default   |
+| ui.foreground-dark                 | gray_bright     |
+| ui.foreground-light                | white_bright    |
+| ui.line-background                 | gray_dim        |
+| ui.search-text                     | yellow_default  |
+| ui.selection-background            | black_bright    |
 
 ## Output and Template Config
 
@@ -280,7 +274,7 @@ This ensures:
 A builder is considered **Tinted8-compliant** if it:
 
 - Correctly reads Tinted8 scheme files
-- Expands all palette and override variables
+- Expands all palette and Theming Properties
 - Provides consistent variable naming for templates
 - Generates derived colors as described above
 
