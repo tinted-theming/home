@@ -17,7 +17,7 @@ minimum they must provide:
 
 - Required: `system`, `scheme-author`, `variant`, `palette`
 - Partially required: At least one of `name`, `slug` or `family`
-- Optional: `syntax`, `ui`
+- Optional: `syntax`, `ui`, `style`, `theme-author`, `description`
 
 All color values must be HTML-style hex (`#RRGGBB`).
 
