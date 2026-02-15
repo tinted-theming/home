@@ -1,7 +1,7 @@
 # Tinted8 Builder Guidelines
 
 **Version 0.1.0** The latest version of this spec can be obtained from
-[tinted-theming/specs/tinted8/builder](https://github.com/tinted-theming/home/blob/main/specs/tinted8/builder.md)
+[tinted-theming/specs/tinted8/builder]
 
 ## Introduction
 
@@ -59,11 +59,13 @@ For every `palette.{{token_name}}`, builders generate:
 
 ### Derived Colors
 
-Supplimental colors are generated if they aren't provided in the scheme itself:
+Supplemental colors are generated if they aren't provided in the scheme itself.
+If a color is present in the scheme palette it must be used as-is; otherwise it
+is derived using the formulas below:
 
-- `gray` - The midpoint between `palette.black` and `palette.white`
-- `orange` - Hue-shifted variant of `palette.yellow`
-- `brown` - A deeper desaturated variant of `palette.red`
+- `gray` - The midpoint between `palette.black` and `palette.white`.
+- `orange` - A hue-shifted variant of `palette.yellow`.
+- `brown` - A darker, desaturated variant derived from `palette.yellow`.
 
 ### Naming
 
@@ -84,6 +86,68 @@ Builders may also expose sub-components:
 ```
 
 The full list of component variables mirrors standard RGB breakdowns.
+
+## Color Formulas
+
+This section defines the normative color conversion rules builders must apply
+when deriving supplemental colors and generating `bright`/`dim` variants. Unless
+stated otherwise, conversions operate in HSL with channel ranges `S, L ∈ [0,1]`
+and hue in degrees `h ∈ [0, 360)`.
+
+- Clamp: `clamp(x, lo, hi) = min(max(x, lo), hi)`; builders must clamp `S` and
+  `L` after each operation to remain in-range.
+- Hue wrap: add/subtract in degrees and wrap with `(h + 360) % 360`.
+
+### Derived Colors (when missing)
+
+- orange from yellow
+  - Input: `h, s, l = HSL(palette.yellow)`
+  - Operation: `h' = (h - 10) mod 360`, `s' = s`, `l' = l`
+  - Output: `HSL(h', s', l')` converted back to RGB/hex
+
+- brown from yellow
+  - Input: `h, s, l = HSL(palette.yellow)`
+  - Operation: `h' = h`, `s' = clamp(s - 0.30, 0, 1)`, `l' = clamp(l - 0.40, 0, 1)`
+  - Output: `HSL(h', s', l')` converted back to RGB/hex
+
+- gray from black and white
+  - Input: `HSL(black) = (h_b, s_b, l_b)`, `HSL(white) = (h_w, s_w, l_w)`
+  - Operation:
+    - Hue midpoint (wrap-aware): `d = ((h_b - h_w + 540) % 360) - 180`, `h' = (h_w + 0.5*d + 360) % 360`
+    - Saturation: `s' = 0`
+    - Lightness: `l' = 0.5 * (l_b + l_w)`
+  - Output: `HSL(h', s', l')` converted back to RGB/hex
+
+If the scheme provides any of `orange`, `brown` or `gray`, builders must not
+override them and should skip derivation for that color.
+
+### Variant Generation (bright/dim)
+
+Builders must derive `bright` and `dim` from the `default` variant of each
+palette color using the following HSL adjustments, leaving the hue unchanged.
+
+- Constants: `ΔL = 0.12`
+
+- dim
+  - Given `HSL(h, s, l)`:
+  - Lightness: `l' = clamp(l - min(ΔL, l), 0, 1)`
+  - Saturation boost factor `k_dim(l)`:
+    - if `l < 0.4` → `k = 1.04`
+    - else if `l < 0.7` → `k = 1.07`
+    - else → `k = 1.10`
+  - Saturation: `s' = clamp(s * k, 0, 1)`
+
+- bright
+  - Given `HSL(h, s, l)`:
+  - Lightness: `l' = clamp(l + min(ΔL, 1 - l), 0, 1)`
+  - Saturation factor `k_bright(l)`:
+    - if `l < 0.5` → `k = 1.08`
+    - else if `l < 0.8` → `k = 1.00`
+    - else → `k = 0.90`
+  - Saturation: `s' = clamp(s * k, 0, 1)`
+
+These rules ensure consistent perceived contrast between `default`, `dim`, and
+`bright` variants while avoiding out-of-gamut values.
 
 ## Template Variables
 
@@ -139,9 +203,9 @@ Each corresponds either to:
 
 Resolution order:
 
-- Explicit scheme Theming Property – exact key value (e.g. `syntax.diff.added`)
-- Inherited Theming Property – parent group value (e.g. `syntax.diff`)
-- Builder default – mapped palette token (e.g. `green_bright`)
+1. Explicit scheme Theming Property - exact key value (e.g. `syntax.diff.added`)
+1. Inherited Theming Property - parent group value (e.g. `syntax.diff`)
+1. Builder default - mapped palette token (e.g. `green_bright`)
 
 Builders must ensure all Theming Properties resolve to a valid color.
 
@@ -305,4 +369,5 @@ _SPEC END_
 
 ---
 
+[tinted-theming/specs/tinted8/builder]: https://github.com/tinted-theming/home/blob/main/specs/tinted8/builder.md
 [semver]: https://semver.org/
