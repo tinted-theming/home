@@ -51,13 +51,13 @@ Examples:
 
 ### Variants
 
-For every `palette.{{token_name}}`, builders generate:
+For every `palette.{{token_name}}`, if the color is missing, the builder generates:
 
 - `default` - The color as provided (e.g. `red-default`)
 - `bright` - A lighter variant (e.g. `cyan-bright`)
 - `dim` - A darker variant (e.g `green-dim`)
 
-### Derived Colors
+### Derived Colors (when missing)
 
 Supplemental colors are generated if they aren't provided in the scheme itself.
 If a color is present in the scheme palette it must be used as-is; otherwise it
@@ -123,8 +123,9 @@ override them and should skip derivation for that color.
 
 ### Variant Generation (bright/dim)
 
-Builders must derive `bright` and `dim` from the `default` variant of each
-palette color using the following HSL adjustments, leaving the hue unchanged.
+Builders must derive missing `bright` and `dim` from the `default` variant of
+each palette color using the following HSL adjustments, leaving the hue
+unchanged.
 
 - Constants: `ΔL = 0.12`
 
