@@ -360,7 +360,7 @@ Tinted8 builders are encouraged to:
 
 Mustache was chosen as the templating language due to its simplicity and
 widespread adoption across languages. YAML was chosen to describe scheme and
-configuration files for the similar reasons.
+configuration files for similar reasons.
 
 The other Tinted Theming scheme systems also use Mustache and YAML, making it a
 consistent choice.
