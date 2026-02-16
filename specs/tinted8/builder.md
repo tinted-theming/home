@@ -57,6 +57,10 @@ For every `palette.{{token_name}}`, if the color is missing, the builder generat
 - `bright` - A lighter variant (e.g. `cyan-bright`)
 - `dim` - A darker variant (e.g `green-dim`)
 
+If the scheme provides `palette.{{color_name}}-bright` or
+`palette.{{color_name}}-dim` color variants, builders must not override them
+and should skip derivation for that color.
+
 ### Derived Colors (when missing)
 
 Supplemental colors are generated if they aren't provided in the scheme itself.
