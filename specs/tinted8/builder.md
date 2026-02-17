@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.1.0** The latest version of this spec can be obtained from
+**Version 0.2.0-beta1** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -15,9 +15,9 @@ themes.
 Builders read scheme files that conform to the Styling specification. At
 minimum they must provide:
 
-- Required: `system`, `scheme-author`, `variant`, `palette`
-- Partially required: At least one of `name`, `slug` or `family`
-- Optional: `syntax`, `ui`, `style`, `theme-author`, `description`
+- Required: `scheme.system`, `scheme.author`, `variant`, `palette`
+- Partially required: At least one of `scheme.name`, `scheme.slug` or `family`
+- Optional: `syntax`, `ui`, `style`, `scheme.theme-author`, `scheme.description`
 
 All color values must be HTML-style hex (`#RRGGBB`).
 
@@ -53,12 +53,12 @@ Examples:
 
 For every `palette.{{token_name}}`, if the color is missing, the builder generates:
 
-- `default` - The color as provided (e.g. `red-default`)
-- `bright` - A lighter variant (e.g. `cyan-bright`)
-- `dim` - A darker variant (e.g `green-dim`)
+- `normal` - The color as provided (e.g. `red.normal`)
+- `bright` - A lighter variant (e.g. `cyan.bright`)
+- `dim` - A darker variant (e.g `green.dim`)
 
-If the scheme provides `palette.{{color_name}}-bright` or
-`palette.{{color_name}}-dim` color variants, builders must not override them
+If the scheme provides `palette.{{color_name}}.bright` or
+`palette.{{color_name}}.dim` color variants, builders must not override them
 and should skip derivation for that color.
 
 ### Derived Colors (when missing)
@@ -73,23 +73,17 @@ is derived using the formulas below:
 
 ### Naming
 
-Each produced value is exposed as:
+Each produced value is exposed as with color sub-components:
 
 ```
-{{token-name}}-{{variant}}
+{{token-name}}-{{variant}}-{{sub-component}}
 ```
 
-e.g. `blue-bright`, `green-dim`.
-
-Builders may also expose sub-components:
-
 ```
-{{token-name}}-{{variant}}-hex   → "7cafc2"
-{{token-name}}-{{variant}}-rgb-r → "124"
-{{token-name}}-{{variant}}-dec-b → "0.76"
+blue.bright.hex  → "7cafc2"
+red.normal.rgb.r → "124"
+green.dim.dec.b  → "0.76"
 ```
-
-The full list of component variables mirrors standard RGB breakdowns.
 
 ## Color Formulas
 
@@ -111,7 +105,7 @@ and hue in degrees `h ∈ [0, 360)`.
 
 - brown from yellow
   - Input: `h, s, l = HSL(palette.yellow)`
-  - Operation: `h' = h`, `s' = clamp(s - 0.30, 0, 1)`, `l' = clamp(l - 0.40, 0, 1)`
+  - Operation: `h' = (h - 15) mod 360`, `s' = clamp(s * 0.65, 0, 1)`, `l' = clamp(l - 0.30, 0, 1)`
   - Output: `HSL(h', s', l')` converted back to RGB/hex
 
 - gray from black and white
@@ -127,7 +121,7 @@ override them and should skip derivation for that color.
 
 ### Variant Generation (bright/dim)
 
-Builders must derive missing `bright` and `dim` from the `default` variant of
+Builders must derive missing `bright` and `dim` from the `normal` variant of
 each palette color using the following HSL adjustments, leaving the hue
 unchanged.
 
@@ -151,39 +145,43 @@ unchanged.
     - else → `k = 0.90`
   - Saturation: `s' = clamp(s * k, 0, 1)`
 
-These rules ensure consistent perceived contrast between `default`, `dim`, and
+These rules ensure consistent perceived contrast between `normal`, `dim`, and
 `bright` variants while avoiding out-of-gamut values.
 
 ## Template Variables
 
 ### Meta Variables
 
-| Variable                  | Type    | Source                                                    |
-| ------------------------- |-------- | --------------------------------------------------------- |
-| `scheme-name`             | String  | `name`                                                    |
-| `scheme-author`           | String  | `author`                                                  |
-| `scheme-description`      | String  | `description`                                             |
-| `scheme-slug`             | String  | `slug` or slugified `name` seperated by hiphens (`-`)     |
-| `scheme-slug-underscored` | String  | `slug` or slugified `name` seperated by underscores (`_`) |
-| `scheme-system`           | String  | `system`                                                  |
-| `scheme-variant`          | String  | `variant`                                                 |
-| `scheme-is-dark-variant`  | Boolean | Based on `scheme-variant` value                           | 
+Meta variables exist under the `scheme` mustache variable object.
+
+| Variable                           | Type    | Description                                               |
+| ---------------------------------- | ------- | --------------------------------------------------------- |
+| `scheme.system`                    | String  | Scheme system                                             |
+| `scheme.supported-styling-version` | String  | Supported tinted8 styling spec                            |
+| `scheme.supported-builder-version` | String  | Supported tinted8 builder spec                            |
+| `scheme.name`                      | String  | `name`                                                    |
+| `scheme.author`                    | String  | `author`                                                  |
+| `scheme.theme-author`              | String  | `theme-author`                                            |
+| `scheme.description`               | String  | `description`                                             |
+| `scheme.slug`                      | String  | `slug` or slugified `name` seperated by hiphens (`-`)     |
+| `scheme.slug-underscored`          | String  | `slug` or slugified `name` seperated by underscores (`_`) |
+| `scheme.is-dark-variant`           | Boolean | Based on `scheme-variant` value                           | 
 
 ### Color Variables
 
 `syntax` and `ui` properties will be referred to as "Theming Properties".
 
 The builder provides various color variables for every `palette` token variant
-(`default`, `bright`, `dim`) and every Theming Property.
+(`normal`, `bright`, `dim`) and every Theming Property.
 
 The variable suffixes are as follows:
 
-- `{{token-name}}-hex` - 6-digit hex color value (e.g "7cafc2")
-- `{{token-name}}-hex-<r|g|b>` - Provides a R, G or B hex color value (e.g "7c")
-- `{{token-name}}-hex-bgr` - A reversed version of all the hex values (e.g "c2af7c")
-- `{{token-name}}-rgb-<r|g|b>` - Provides a R, G or B color value between `0` and `255` (e.g. "124")
-- `{{token-name}}-dec-<r|g|b>` - Provides a R, G or B decimal value between `0` and `1` (e.g. "0.4863")
-- `{{token-name}}-rgb16-<r|g|b>` - Provides a R, G or B 16 bit value between `0` and `65_535` (e.g. "15000")
+- `{{token-name}}.hex` - 6-digit hex color value (e.g "7cafc2")
+- `{{token-name}}.hex-<r|g|b>` - Provides a R, G or B hex color value (e.g "7c")
+- `{{token-name}}.hex-bgr` - A reversed version of all the hex values (e.g "c2af7c")
+- `{{token-name}}.rgb.<r|g|b>` - Provides a R, G or B color value between `0` and `255` (e.g. "124")
+- `{{token-name}}.dec.<r|g|b>` - Provides a R, G or B decimal value between `0` and `1` (e.g. "0.4863")
+- `{{token-name}}.rgb16.<r|g|b>` - Provides a R, G or B 16 bit value between `0` and `65_535` (e.g. "15000")
 
 Values omit the leading `#` for hex strings.
 
@@ -193,9 +191,29 @@ For every recognized `syntax` and `ui` key from the Styling spec, builders
 provide equivalent template variables, for example:
 
 ```
-syntax-comment-hex
-syntax-string-dec-r
-ui-background-rgb16-b
+syntax.comment.hex
+syntax.string.dec.r
+ui.global.background.rgb16.b
+```
+
+#### Parent Keys and the `.default` Suffix
+
+In Mustache, theming property keys that have children (e.g., `syntax.comment`
+which contains `syntax.comment.line`, `syntax.comment.block`, etc.) are exposed
+as objects. To access the color value of the parent key itself, use the
+`.default` suffix:
+
+```
+syntax.comment.default.hex       → color value for "comment" scope
+syntax.comment.line.hex          → color value for "comment.line" scope
+syntax.string.quoted.default.hex → color value for "string.quoted" scope
+```
+
+Leaf keys (those without children) do not require the `.default` suffix:
+
+```
+syntax.string.regexp.hex     → color value for "string.regexp" scope
+syntax.constant.language.hex → color value for "constant.language" scope
 ```
 
 Each corresponds either to:
@@ -216,29 +234,142 @@ Builders must ensure all Theming Properties resolve to a valid color.
 
 ### Builder Default Colors
 
-| Theming Property                   | Default Color   |
-| ---------------------------------- | --------------- |
-| syntax.comment                     | gray_dim        |
-| syntax.string                      | green_default   |
-| syntax.constant                    | yellow_default  |
-| syntax.constant.character          | yellow_default  |
-| syntax.entity.name                 | yellow_default  |
-| syntax.entity.other.attribute-name | yellow_bright   |
-| syntax.keyword                     | magenta_default |
-| syntax.markup                      | cyan_default    |
-| syntax.diff.added                  | green_bright    |
-| syntax.diff.changed                | magenta_bright  |
-| syntax.diff.deleted                | red_bright      |
-| ui.background                      | black_default   |
-| ui.background-dark                 | black_dim       |
-| ui.background-light                | black_bright    |
-| ui.deprecated                      | brown_default   |
-| ui.foreground                      | white_default   |
-| ui.foreground-dark                 | gray_bright     |
-| ui.foreground-light                | white_bright    |
-| ui.line-background                 | gray_dim        |
-| ui.search-text                     | yellow_default  |
-| ui.selection-background            | black_bright    |
+| Theming Property                         | Default Color  |
+| ---------------------------------------- | -------------- |
+| syntax.comment                           | gray-dim       |
+| syntax.comment.line                      | gray-dim       |
+| syntax.comment.block                     | gray-dim       |
+| syntax.comment.documentation             | gray-dim       |
+| syntax.invalid                           | red-bright     |
+| syntax.invalid.deprecated                | yellow-bright  |
+| syntax.invalid.illegal                   | red-bright     |
+| syntax.string                            | green-normal   |
+| syntax.string.quoted                     | green-normal   |
+| syntax.string.quoted.single              | green-normal   |
+| syntax.string.quoted.double              | green-normal   |
+| syntax.string.regexp                     | red-normal     |
+| syntax.string.template                   | green-normal   |
+| syntax.string.interpolated               | green-normal   |
+| syntax.string.unquoted                   | green-normal   |
+| syntax.string.other                      | green-normal   |
+| syntax.constant                          | orange-normal  |
+| syntax.constant.numeric                  | orange-normal  |
+| syntax.constant.numeric.integer          | orange-normal  |
+| syntax.constant.numeric.float            | orange-normal  |
+| syntax.constant.numeric.hex              | orange-normal  |
+| syntax.constant.language                 | orange-normal  |
+| syntax.constant.character                | orange-normal  |
+| syntax.constant.character.escape         | orange-normal  |
+| syntax.constant.character.entity         | orange-normal  |
+| syntax.constant.other                    | orange-normal  |
+| syntax.entity                            | white-normal   |
+| syntax.entity.name                       | white-normal   |
+| syntax.entity.name.class                 | yellow-normal  |
+| syntax.entity.name.function              | blue-normal    |
+| syntax.entity.name.function.constructor  | blue-normal    |
+| syntax.entity.name.label                 | white-normal   |
+| syntax.entity.name.tag                   | white-normal   |
+| syntax.entity.name.type                  | yellow-normal  |
+| syntax.entity.name.type.class            | cyan-normal    |
+| syntax.entity.name.type.enum             | cyan-normal    |
+| syntax.entity.name.namespace             | white-normal   |
+| syntax.entity.name.section               | cyan-normal    |
+| syntax.entity.other                      | white-normal   |
+| syntax.entity.other.attribute-name       | magenta-normal |
+| syntax.entity.other.inherited-class      | white-normal   |
+| syntax.keyword                           | magenta-normal |
+| syntax.keyword.control                   | magenta-normal |
+| syntax.keyword.control.import            | magenta-normal |
+| syntax.keyword.control.flow              | magenta-normal |
+| syntax.keyword.declaration               | magenta-normal |
+| syntax.keyword.operator                  | magenta-normal |
+| syntax.keyword.other                     | magenta-normal |
+| syntax.storage                           | magenta-normal |
+| syntax.storage.type                      | magenta-normal |
+| syntax.storage.modifier                  | magenta-normal |
+| syntax.support                           | blue-normal    |
+| syntax.support.function                  | blue-normal    |
+| syntax.support.class                     | blue-normal    |
+| syntax.support.type                      | blue-normal    |
+| syntax.support.constant                  | magenta-normal |
+| syntax.support.variable                  | cyan-normal    |
+| syntax.support.other                     | blue-normal    |
+| syntax.support.function.builtin          | blue-bright    |
+| syntax.variable                          | white-normal   |
+| syntax.variable.parameter                | cyan-bright    |
+| syntax.variable.language                 | magenta-normal |
+| syntax.variable.other                    | white-normal   |
+| syntax.variable.other.constant           | white-normal   |
+| syntax.variable.other.property           | white-normal   |
+| syntax.variable.other.object             | white-normal   |
+| syntax.punctuation                       | white-dim      |
+| syntax.punctuation.separator             | white-normal   |
+| syntax.punctuation.definition            | white-normal   |
+| syntax.punctuation.definition.string     | green-normal   |
+| syntax.punctuation.definition.comment    | gray-dim       |
+| syntax.punctuation.section               | orange-normal  |
+| syntax.markup                            | orange-normal  |
+| syntax.markup.bold                       | orange-normal  |
+| syntax.markup.italic                     | orange-normal  |
+| syntax.markup.quote                      | orange-normal  |
+| syntax.markup.underline                  | orange-normal  |
+| syntax.markup.heading                    | magenta-normal |
+| syntax.markup.list                       | orange-normal  |
+| syntax.markup.list.numbered              | cyan-normal    |
+| syntax.markup.list.unnumbered            | cyan-normal    |
+| syntax.markup.link                       | yellow-normal  |
+| syntax.markup.raw                        | orange-normal  |
+| syntax.markup.inserted                   | green-bright   |
+| syntax.markup.changed                    | yellow-bright  |
+| syntax.markup.deleted                    | red-bright     |
+| syntax.source                            | white-normal   |
+| syntax.text                              | white-normal   |
+| syntax.meta                              | white-normal   |
+| syntax.meta.annotation                   | orange-normal  |
+| syntax.meta.function                     | white-normal   |
+| syntax.meta.class                        | white-normal   |
+| syntax.meta.block                        | white-normal   |
+| syntax.meta.tag                          | white-normal   |
+| syntax.meta.type                         | white-normal   |
+| syntax.meta.import                       | white-normal   |
+| syntax.meta.preprocessor                 | white-normal   |
+| syntax.meta.embedded                     | white-normal   |
+| syntax.meta.object                       | orange-normal  |
+| ui.global.background.normal              | black-normal   |
+| ui.global.background.dark                | black-dim      |
+| ui.global.background.light               | black-bright   |
+| ui.deprecated                            | brown-normal   |
+| ui.accent                                | blue-normal    |
+| ui.border                                | gray-dim       |
+| ui.cursor                                | white-normal   |
+| ui.global.foreground.normal              | white-normal   |
+| ui.global.foreground.dark                | white-dim      |
+| ui.global.foreground.light               | white-bright   |
+| ui.gutter.background                     | black-dim      |
+| ui.gutter.foreground                     | white-dim      |
+| ui.highlight.line.background             | gray-dim       |
+| ui.highlight.line.foreground             | white-dim      |
+| ui.link                                  | cyan-normal    |
+| ui.highlight.search.background           | black-bright   |
+| ui.highlight.search.foreground           | yellow-normal  |
+| ui.highlight.text.background             | gray-dim       |
+| ui.highlight.text.foreground             | white-normal   |
+| ui.highlight.text.active-background      | gray-normal    |
+| ui.highlight.text.active-foreground      | white-normal   |
+| ui.highlight.button.background           | black-normal    |
+| ui.highlight.button.foreground           | white-normal   |
+| ui.indent-guide.background               | black-bright   |
+| ui.indent-guide.active-background        | gray-dim       |
+| ui.selection.background                  | black-bright   |
+| ui.selection.foreground                  | white-normal   |
+| ui.selection.inactive-background         | black-bright   |
+| ui.status.error                          | red-normal     |
+| ui.status.warning                        | yellow-normal  |
+| ui.status.info                           | orange-normal  |
+| ui.status.success                        | green-normal   |
+| ui.tooltip.background                    | black-dim      |
+| ui.tooltip.foreground                    | white-normal   |
+| ui.whitespace.foreground                 | gray-normal    |
 
 ## Output and Template Config
 
@@ -294,36 +425,71 @@ When loading a scheme file, the builder must check that:
 If any of these checks fail, the builder must emit an error and refuse to
 process the scheme until the version mismatch is resolved.
 
-### Example Validation Flow
+### Validation Stages
 
-```
+Validation runs in four stages to simplify troubleshooting. Each stage maps to
+the error code ranges below:
+
+- Scheme Intake & System Validation (E1xx): read file, parse YAML, validate scheme system. E001 is part of this stage.
+- Spec Compatibility (E2xx): verify spec-version compatibility.
+- Template Configuration (E3xx): ensure `tinted8` configs declare the required `supports` and templates.
+- Build-Time Selection/Generation (E4xx): ensure at least one scheme matches the config.
+
+#### Intake Flow (E1xx)
+
+```mermaid
 flowchart TD
-  A[Scheme.yaml] → B{system == "tinted8"?}
-  B → |No| E[Error: E001 Invalid system]
-  B → |Yes| C{tinted8-styling version within supported range?}
-  C → |No| F[Error: E002 Unsupported Tinted8 Styling Spec]
-  C → |Yes| D{tinted8-builder self-version within supported range?}
-  D → |No| G[Error: E003 Tinted8 Builder Spec Incompatible]
-  D → |Yes| H[Proceed with build]
+  A[Scheme file] --> B{Valid extension?}
+  B --> |No| E[Error: E111 Invalid scheme file]
+  B --> |Yes| C{YAML parses?}
+  C --> |No| F[Error: E112 Deserialization error]
+  C --> |Yes| D{Known scheme system?}
+  D --> |No| G[Error: E110 Unknown/unsupported system]
+  D --> |Yes| I{system == "tinted8"?}
+  I --> |No| J[Error: E001 Invalid system]
+  I --> |Yes| K[Proceed to E2xx]
 ```
 
-### Example CLI Output
+#### Compatibility Flow (E2xx)
 
-```
-$ tinted8-builder build ./
-✔ system: tinted8
-✔ tinted8-styling: v0.1.0 (supported range >=0.1.0)
-✔ tinted8-builder: v0.1.0 (self-compatible)
-→ Building theme...
-```
-
-If validation fails:
-
-```
-✖ Error E002: Scheme requires Styling v0.2.0 but tinted8-builder supports only >=0.1.0
+```mermaid
+flowchart TD
+  A[Scheme (tinted8)] --> C{tinted8-styling within supported range?}
+  C --> |No| F[Error: E002 Unsupported Tinted8 Styling Spec]
+  C --> |Yes| D{tinted8-builder self-version within supported range?}
+  D --> |No| G[Error: E003 Tinted8 Builder Spec Incompatible]
+  D --> |Yes| H[Proceed to E3xx]
 ```
 
-### Rationale
+#### Template Config Flow (E3xx)
+
+```mermaid
+flowchart TD
+  A[templates/config.yaml] --> B{targets tinted8?}
+  B --> |No| H[Proceed (other systems)]
+  B --> |Yes| C{supports block present?}
+  C --> |No| E[Error: E300 Missing supports]
+  C --> |Yes| D{tinted8-styling entry present?}
+  D --> |No| F[Error: E301 Missing supports.tinted8-styling]
+  D --> |Yes| I{tinted8-builder entry present?}
+  I --> |No| J[Error: E302 Missing supports.tinted8-builder]
+  I --> |Yes| K{mustache template exists?}
+  K --> |No| L[Error: E303 Mustache template missing]
+  K --> |Yes| M{valid filename config?}
+  M --> |No| N[Error: E304 Invalid filename configuration]
+  M --> |Yes| O[Proceed to E4xx]
+```
+
+#### Build Selection Flow (E4xx)
+
+```mermaid
+flowchart TD
+  A[Template config entry] --> B{Any matching schemes?}
+  B --> |No| E[Error: E400 No schemes found]
+  B --> |Yes| F[Generate]
+```
+
+#### Rationale
 
 This ensures:
 
@@ -332,11 +498,54 @@ This ensures:
 - Authors can easily identify compatibility issues
 - Downstream tools (editors, integrations) can introspect supported specs programmatically
 
+#### Error Code Design
+
+Error codes are segmented by lifecycle stage to make them scannable and extensible. Legacy
+compatibility is preserved by keeping `E001`–`E003` unchanged.
+
+- E1xx — Scheme Intake & System Validation (includes `E001`)
+- E2xx — Spec Compatibility
+- E3xx — Template Configuration
+- E4xx — Build-Time Selection/Generation
+
+Note: The intake flow shows `E001` at the first gate; although it appears in the compatibility diagram, it belongs to the E1xx intake stage.
+
+#### Error Groups
+
+Messages MAY include file paths or version ranges for clarity.
+
+#### Scheme Intake
+
+| Code   | Description                                                                                  |
+| ------ | -------------------------------------------------------------------------------------------- |
+| `E001` | Invalid system.                                                                              |
+| `E110` | Unknown or unsupported scheme system in input.                                               |
+| `E111` | Invalid scheme file (bad extension or missing required fields like `system`/`scheme.system`).|
+| `E112` | Scheme deserialization error (malformed YAML or incompatible structure).                     |
+
+#### Compatibility Checks
+
 | Code   | Description                                                        |
 | ------ | ------------------------------------------------------------------ |
-| `E001` | Invalid or missing `supported-systems` field.                      |
 | `E002` | Scheme requires unsupported Tinted8 Styling spec version.          |
 | `E003` | Builder version not compatible with declared Tinted8 Builder spec. |
+
+#### Template Config
+
+| Code   | Description                                                                                            |
+| ------ | ------------------------------------------------------------------------------------------------------ |
+| `E300` | Missing `supports` block when `supported-systems` includes `tinted8`.                                  |
+| `E301` | Missing `supports.tinted8-styling` entry in template config for `tinted8`.                             |
+| `E302` | Missing `supports.tinted8-builder` entry in template config for `tinted8`.                             |
+| `E303` | Mustache template missing for a config entry (e.g. `templates/<name>.mustache`).                       |
+| `E304` | Invalid filename configuration: provide `filename` or use deprecated `extension`/`output` combination. |
+| `E305` | Template config missing or invalid YAML.                                                               |
+
+#### Build-Time Selection
+
+| Code   | Description                                      |
+| ------ | ------------------------------------------------ |
+| `E400` | No schemes found for a template config entry.    |
 
 ## Compliance
 
