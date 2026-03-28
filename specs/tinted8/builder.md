@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta1** The latest version of this spec can be obtained from
+**Version 0.2.0-beta2** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -269,10 +269,10 @@ Builders must ensure all Theming Properties resolve to a valid color.
 | syntax.entity.name.function.constructor  | blue-normal    |
 | syntax.entity.name.label                 | white-normal   |
 | syntax.entity.name.tag                   | white-normal   |
-| syntax.entity.name.type                  | yellow-normal  |
+| syntax.entity.name.type                  | cyan-normal    |
 | syntax.entity.name.type.class            | cyan-normal    |
 | syntax.entity.name.type.enum             | cyan-normal    |
-| syntax.entity.name.namespace             | white-normal   |
+| syntax.entity.name.namespace             | yellow-normal  |
 | syntax.entity.name.section               | cyan-normal    |
 | syntax.entity.other                      | white-normal   |
 | syntax.entity.other.attribute-name       | magenta-normal |
@@ -339,13 +339,13 @@ Builders must ensure all Theming Properties resolve to a valid color.
 | ui.global.background.dark                | black-dim      |
 | ui.global.background.light               | black-bright   |
 | ui.deprecated                            | brown-normal   |
-| ui.accent                                | blue-normal    |
+| ui.accent                                | cyan-normal    |
 | ui.border                                | gray-dim       |
 | ui.cursor                                | white-normal   |
 | ui.global.foreground.normal              | white-normal   |
 | ui.global.foreground.dark                | white-dim      |
 | ui.global.foreground.light               | white-bright   |
-| ui.gutter.background                     | black-dim      |
+| ui.gutter.background                     | black-normal   |
 | ui.gutter.foreground                     | white-dim      |
 | ui.highlight.line.background             | gray-dim       |
 | ui.highlight.line.foreground             | white-dim      |
@@ -356,7 +356,7 @@ Builders must ensure all Theming Properties resolve to a valid color.
 | ui.highlight.text.foreground             | white-normal   |
 | ui.highlight.text.active-background      | gray-normal    |
 | ui.highlight.text.active-foreground      | white-normal   |
-| ui.highlight.button.background           | black-normal    |
+| ui.highlight.button.background           | black-bright   |
 | ui.highlight.button.foreground           | white-normal   |
 | ui.indent-guide.background               | black-bright   |
 | ui.indent-guide.active-background        | gray-dim       |

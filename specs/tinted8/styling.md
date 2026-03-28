@@ -1,6 +1,6 @@
 # Tinted8 Styling Guidelines
 
-**Version 0.2.0-beta1** The latest version of this spec can be obtained from
+**Version 0.2.0-beta2** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 ## Introduction
@@ -30,21 +30,21 @@ those behaviors belong to the [Builder specification].
 
 A Tinted8 scheme is stored as a YAML document with the following fields:
 
-| Property                | Required | Default | Description |
-| ----------------------- | -------- | ------- | ----------- |
-| `scheme.system`         | Yes | - | Identifies the scheme system. For Tinted8 schemes this value must be `tinted8`. |
-| `scheme.system-version` | Yes | - | Styling spec version implemented by the scheme (e.g. `0.1.0`). |
-| `scheme.author`         | Yes | - | The person or organization that created this scheme. |
-| `scheme.theme-author`   | No  | `scheme.author` | Attribution for the original or inspirational theme. |
-| `scheme.description`    | No  | - | Short human-readable summary. |
-| `variant`               | Yes | - | Either `dark` or `light`. Indicates the intended luminance direction. |
-| `palette`               | Yes | - | Defines the base color palette for the theme. |
-| `scheme.name`           | No  | Derived from `slug` or `family` + `style` | Human-readable name. |
-| `scheme.slug`           | No  | Derived from `name` or `family` + `style` | Machine-friendly identifier. |
-| `family`                | No  | - | Broad design family (e.g. "Tokyo"). |
-| `style`                 | No  | - | Variation within a family (e.g. "Night", "Moon"). |
-| `syntax`                | No  | Defaults documented below | Syntax theming properties. |
-| `ui`                    | No  | Defaults documented below | UI theming properties. |
+| Property                       | Required | Default | Description |
+| ------------------------------ | -------- | ------- | ----------- |
+| `scheme.system`                | Yes | - | Identifies the scheme system. For Tinted8 schemes this value must be `tinted8`. |
+| `scheme.supports.styling-spec` | Yes | - | Styling spec version implemented by the scheme (e.g. `0.1.0`). |
+| `scheme.author`                | Yes | - | The person or organization that created this scheme. |
+| `scheme.theme-author`          | No  | `scheme.author` | Attribution for the original or inspirational theme. |
+| `scheme.description`           | No  | - | Short human-readable summary. |
+| `variant`                      | Yes | - | Either `dark` or `light`. Indicates the intended luminance direction. |
+| `palette`                      | Yes | - | Defines the base color palette for the theme. |
+| `scheme.name`                  | No  | Derived from `slug` or `family` + `style` | Human-readable name. |
+| `scheme.slug`                  | No  | Derived from `name` or `family` + `style` | Machine-friendly identifier. |
+| `family`                       | No  | - | Broad design family (e.g. "Tokyo"). |
+| `style`                        | No  | - | Variation within a family (e.g. "Night", "Moon"). |
+| `syntax`                       | No  | Defaults documented below | Syntax theming properties. |
+| `ui`                           | No  | Defaults documented below | UI theming properties. |
 
 ### YAML scheme example
 
@@ -54,7 +54,8 @@ required properties and some optional properties:
 ```yaml
 scheme:
   system: "tinted8"
-  system-version: "0.1.0"
+  supports:
+    styling-spec: "0.2.0"
   author: "User <user@example.com>"
   name: "Ayu Mirage"
   slug: "ayu-mirage"
@@ -135,7 +136,8 @@ Here's what the Tinted8 specification would look like in YAML format:
 ```yaml
 scheme:
   system: "tinted8"
-  system-version: "0.1.0"
+  supports:
+    styling-spec: "0.2.0"
   author: "User <user@example.com>"
   name: "Ayu Mirage"
 variant: "dark"
