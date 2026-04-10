@@ -6,6 +6,11 @@ on:
       token:
         description: "GitHub Access Token"
         required: true
+    inputs:
+      codeowners:
+        description: "Github Codeowners team"
+        type: "string"
+        required: false
 
 jobs:
   auto-assign:
@@ -27,27 +32,29 @@ jobs:
       - name: "Get teams from CODEOWNERS file"
         id: "codeowners"
         run: |
-          result=""
+          result="${{ inputs.codeowners }}"
           first_item=true
 
-          while IFS= read -r line; do
-            if [ "$first_item" = true ]; then
-              result="${line#* @tinted-theming/}"
-              first_item=false
-            else
-              result="$result, ${line#* @tinted-theming/}"
-            fi
-          done < .github/CODEOWNERS
-
           if [ -z "$result" ]; then
-            echo "Error: unable to determine teams from .github/CODEOWNERS file"
-            exit 1
+            while IFS= read -r line; do
+              if [ "$first_item" = true ]; then
+                result="${line#* @tinted-theming/}"
+                first_item=false
+              else
+                result="$result, ${line#* @tinted-theming/}"
+              fi
+            done < .github/CODEOWNERS
+
+            if [ -z "$result" ]; then
+              echo "Error: unable to determine teams from .github/CODEOWNERS file"
+              exit 1
+            fi
           fi
 
           echo "value=$result" >> $GITHUB_OUTPUT
 
       - name: "Auto-assign issue"
-        uses: "pozil/auto-assign-issue@9fe872bb72487df4637d1eacd434c2fa97703230" # v2.0.0
+        uses: "pozil/auto-assign-issue@21ffb634481e75f2557e5f507e359cba97bbc42b" # v2.2.0
         with:
           repo-token: "${{ secrets.token }}"
           teams: "${{ steps.codeowners.outputs.value }}"
