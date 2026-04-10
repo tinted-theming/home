@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta2** The latest version of this spec can be obtained from
+**Version 0.2.0-beta3** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -16,8 +16,8 @@ Builders read scheme files that conform to the Styling specification. At
 minimum they must provide:
 
 - Required: `scheme.system`, `scheme.author`, `variant`, `palette`
-- Partially required: At least one of `scheme.name`, `scheme.slug` or `family`
-- Optional: `syntax`, `ui`, `style`, `scheme.theme-author`, `scheme.description`
+- Partially required: At least one of `scheme.name`, `scheme.slug` or `scheme.family`
+- Optional: `syntax`, `ui`, `scheme.style`, `scheme.theme-author`, `scheme.description`
 
 All color values must be HTML-style hex (`#RRGGBB`).
 
@@ -160,12 +160,21 @@ Meta variables exist under the `scheme` mustache variable object.
 | `scheme.supported-styling-version` | String  | Supported tinted8 styling spec                            |
 | `scheme.supported-builder-version` | String  | Supported tinted8 builder spec                            |
 | `scheme.name`                      | String  | `name`                                                    |
+| `scheme.family`                    | String  | `family`                                                  |
+| `scheme.style`                     | String  | `style`                                                   |
 | `scheme.author`                    | String  | `author`                                                  |
 | `scheme.theme-author`              | String  | `theme-author`                                            |
 | `scheme.description`               | String  | `description`                                             |
 | `scheme.slug`                      | String  | `slug` or slugified `name` seperated by hiphens (`-`)     |
 | `scheme.slug-underscored`          | String  | `slug` or slugified `name` seperated by underscores (`_`) |
-| `scheme.is-dark-variant`           | Boolean | Based on `scheme-variant` value                           | 
+
+### Option Variables
+
+Option variables exist under the `option` mustache variable object.
+
+| Variable                           | Type    | Description              |
+| ---------------------------------- | ------- | ------------------------ |
+| `option.is-dark-variant`           | Boolean | Based on `variant` value | 
 
 ### Color Variables
 
@@ -234,142 +243,165 @@ Builders must ensure all Theming Properties resolve to a valid color.
 
 ### Builder Default Colors
 
-| Theming Property                         | Default Color  |
-| ---------------------------------------- | -------------- |
-| syntax.comment                           | gray-dim       |
-| syntax.comment.line                      | gray-dim       |
-| syntax.comment.block                     | gray-dim       |
-| syntax.comment.documentation             | gray-dim       |
-| syntax.invalid                           | red-bright     |
-| syntax.invalid.deprecated                | yellow-bright  |
-| syntax.invalid.illegal                   | red-bright     |
-| syntax.string                            | green-normal   |
-| syntax.string.quoted                     | green-normal   |
-| syntax.string.quoted.single              | green-normal   |
-| syntax.string.quoted.double              | green-normal   |
-| syntax.string.regexp                     | red-normal     |
-| syntax.string.template                   | green-normal   |
-| syntax.string.interpolated               | green-normal   |
-| syntax.string.unquoted                   | green-normal   |
-| syntax.string.other                      | green-normal   |
-| syntax.constant                          | orange-normal  |
-| syntax.constant.numeric                  | orange-normal  |
-| syntax.constant.numeric.integer          | orange-normal  |
-| syntax.constant.numeric.float            | orange-normal  |
-| syntax.constant.numeric.hex              | orange-normal  |
-| syntax.constant.language                 | orange-normal  |
-| syntax.constant.character                | orange-normal  |
-| syntax.constant.character.escape         | orange-normal  |
-| syntax.constant.character.entity         | orange-normal  |
-| syntax.constant.other                    | orange-normal  |
-| syntax.entity                            | white-normal   |
-| syntax.entity.name                       | white-normal   |
-| syntax.entity.name.class                 | yellow-normal  |
-| syntax.entity.name.function              | blue-normal    |
-| syntax.entity.name.function.constructor  | blue-normal    |
-| syntax.entity.name.label                 | white-normal   |
-| syntax.entity.name.tag                   | white-normal   |
-| syntax.entity.name.type                  | cyan-normal    |
-| syntax.entity.name.type.class            | cyan-normal    |
-| syntax.entity.name.type.enum             | cyan-normal    |
-| syntax.entity.name.namespace             | yellow-normal  |
-| syntax.entity.name.section               | cyan-normal    |
-| syntax.entity.other                      | white-normal   |
-| syntax.entity.other.attribute-name       | magenta-normal |
-| syntax.entity.other.inherited-class      | white-normal   |
-| syntax.keyword                           | magenta-normal |
-| syntax.keyword.control                   | magenta-normal |
-| syntax.keyword.control.import            | magenta-normal |
-| syntax.keyword.control.flow              | magenta-normal |
-| syntax.keyword.declaration               | magenta-normal |
-| syntax.keyword.operator                  | magenta-normal |
-| syntax.keyword.other                     | magenta-normal |
-| syntax.storage                           | magenta-normal |
-| syntax.storage.type                      | magenta-normal |
-| syntax.storage.modifier                  | magenta-normal |
-| syntax.support                           | blue-normal    |
-| syntax.support.function                  | blue-normal    |
-| syntax.support.class                     | blue-normal    |
-| syntax.support.type                      | blue-normal    |
-| syntax.support.constant                  | magenta-normal |
-| syntax.support.variable                  | cyan-normal    |
-| syntax.support.other                     | blue-normal    |
-| syntax.support.function.builtin          | blue-bright    |
-| syntax.variable                          | white-normal   |
-| syntax.variable.parameter                | cyan-bright    |
-| syntax.variable.language                 | magenta-normal |
-| syntax.variable.other                    | white-normal   |
-| syntax.variable.other.constant           | white-normal   |
-| syntax.variable.other.property           | white-normal   |
-| syntax.variable.other.object             | white-normal   |
-| syntax.punctuation                       | white-dim      |
-| syntax.punctuation.separator             | white-normal   |
-| syntax.punctuation.definition            | white-normal   |
-| syntax.punctuation.definition.string     | green-normal   |
-| syntax.punctuation.definition.comment    | gray-dim       |
-| syntax.punctuation.section               | orange-normal  |
-| syntax.markup                            | orange-normal  |
-| syntax.markup.bold                       | orange-normal  |
-| syntax.markup.italic                     | orange-normal  |
-| syntax.markup.quote                      | orange-normal  |
-| syntax.markup.underline                  | orange-normal  |
-| syntax.markup.heading                    | magenta-normal |
-| syntax.markup.list                       | orange-normal  |
-| syntax.markup.list.numbered              | cyan-normal    |
-| syntax.markup.list.unnumbered            | cyan-normal    |
-| syntax.markup.link                       | yellow-normal  |
-| syntax.markup.raw                        | orange-normal  |
-| syntax.markup.inserted                   | green-bright   |
-| syntax.markup.changed                    | yellow-bright  |
-| syntax.markup.deleted                    | red-bright     |
-| syntax.source                            | white-normal   |
-| syntax.text                              | white-normal   |
-| syntax.meta                              | white-normal   |
-| syntax.meta.annotation                   | orange-normal  |
-| syntax.meta.function                     | white-normal   |
-| syntax.meta.class                        | white-normal   |
-| syntax.meta.block                        | white-normal   |
-| syntax.meta.tag                          | white-normal   |
-| syntax.meta.type                         | white-normal   |
-| syntax.meta.import                       | white-normal   |
-| syntax.meta.preprocessor                 | white-normal   |
-| syntax.meta.embedded                     | white-normal   |
-| syntax.meta.object                       | orange-normal  |
-| ui.global.background.normal              | black-normal   |
-| ui.global.background.dark                | black-dim      |
-| ui.global.background.light               | black-bright   |
-| ui.deprecated                            | brown-normal   |
-| ui.accent                                | cyan-normal    |
-| ui.border                                | gray-dim       |
-| ui.cursor                                | white-normal   |
-| ui.global.foreground.normal              | white-normal   |
-| ui.global.foreground.dark                | white-dim      |
-| ui.global.foreground.light               | white-bright   |
-| ui.gutter.background                     | black-normal   |
-| ui.gutter.foreground                     | white-dim      |
-| ui.highlight.line.background             | gray-dim       |
-| ui.highlight.line.foreground             | white-dim      |
-| ui.link                                  | cyan-normal    |
-| ui.highlight.search.background           | black-bright   |
-| ui.highlight.search.foreground           | yellow-normal  |
-| ui.highlight.text.background             | gray-dim       |
-| ui.highlight.text.foreground             | white-normal   |
-| ui.highlight.text.active-background      | gray-normal    |
-| ui.highlight.text.active-foreground      | white-normal   |
-| ui.highlight.button.background           | black-bright   |
-| ui.highlight.button.foreground           | white-normal   |
-| ui.indent-guide.background               | black-bright   |
-| ui.indent-guide.active-background        | gray-dim       |
-| ui.selection.background                  | black-bright   |
-| ui.selection.foreground                  | white-normal   |
-| ui.selection.inactive-background         | black-bright   |
-| ui.status.error                          | red-normal     |
-| ui.status.warning                        | yellow-normal  |
-| ui.status.info                           | orange-normal  |
-| ui.status.success                        | green-normal   |
-| ui.tooltip.background                    | black-dim      |
-| ui.tooltip.foreground                    | white-normal   |
-| ui.whitespace.foreground                 | gray-normal    |
+The default table below lists colors for the `dark` variant. When generating a
+`light` variant, builders must mirror any default that uses `black`, `gray` or
+`white` through the following luminance scale:
+
+| Index | Color          |
+| ----- | -------------- |
+| 0     | `black-dim`    |
+| 1     | `black-normal` |
+| 2     | `black-bright` |
+| 3     | `gray-dim`     |
+| 4     | `gray-normal`  |
+| 5     | `gray-bright`  |
+| 6     | `white-dim`    |
+| 7     | `white-normal` |
+| 8     | `white-bright` |
+
+To convert a dark default to its light equivalent, mirror the index:
+`light_index = 8 - dark_index`. For example, `black-bright` (index 2)
+becomes `white-dim` (index 6), and `gray-dim` (index 3) becomes `gray-bright`
+(index 5). Colors that are not `black`, `gray` or `white` remain unchanged
+between variants.
+
+| Theming Property                         | Dark Default Color  | Light Default Color  |
+| ---------------------------------------- | ------------------- | -------------------- |
+| syntax.comment                           | gray-dim            | gray-bright          |
+| syntax.comment.line                      | gray-dim            | gray-bright          |
+| syntax.comment.block                     | gray-dim            | gray-bright          |
+| syntax.comment.documentation             | gray-dim            | gray-bright          |
+| syntax.invalid                           | red-bright          | red-bright           |
+| syntax.invalid.deprecated                | yellow-bright       | yellow-bright        |
+| syntax.invalid.illegal                   | red-bright          | red-bright           |
+| syntax.string                            | green-normal        | green-normal         |
+| syntax.string.quoted                     | green-normal        | green-normal         |
+| syntax.string.quoted.single              | green-normal        | green-normal         |
+| syntax.string.quoted.double              | green-normal        | green-normal         |
+| syntax.string.regexp                     | red-normal          | red-normal           |
+| syntax.string.template                   | green-normal        | green-normal         |
+| syntax.string.interpolated               | green-normal        | green-normal         |
+| syntax.string.unquoted                   | green-normal        | green-normal         |
+| syntax.string.other                      | green-normal        | green-normal         |
+| syntax.constant                          | orange-normal       | orange-normal        |
+| syntax.constant.numeric                  | orange-normal       | orange-normal        |
+| syntax.constant.numeric.integer          | orange-normal       | orange-normal        |
+| syntax.constant.numeric.float            | orange-normal       | orange-normal        |
+| syntax.constant.numeric.hex              | orange-normal       | orange-normal        |
+| syntax.constant.language                 | orange-normal       | orange-normal        |
+| syntax.constant.character                | orange-normal       | orange-normal        |
+| syntax.constant.character.escape         | orange-normal       | orange-normal        |
+| syntax.constant.character.entity         | orange-normal       | orange-normal        |
+| syntax.constant.other                    | orange-normal       | orange-normal        |
+| syntax.entity                            | white-normal        | black-normal         |
+| syntax.entity.name                       | white-normal        | black-normal         |
+| syntax.entity.name.class                 | yellow-normal       | yellow-normal        |
+| syntax.entity.name.function              | blue-normal         | blue-normal          |
+| syntax.entity.name.function.constructor  | blue-normal         | blue-normal          |
+| syntax.entity.name.label                 | white-normal        | black-normal         |
+| syntax.entity.name.tag                   | white-normal        | black-normal         |
+| syntax.entity.name.type                  | cyan-normal         | cyan-normal          |
+| syntax.entity.name.type.class            | cyan-normal         | cyan-normal          |
+| syntax.entity.name.type.enum             | cyan-normal         | cyan-normal          |
+| syntax.entity.name.namespace             | yellow-normal       | yellow-normal        |
+| syntax.entity.name.section               | cyan-normal         | cyan-normal          |
+| syntax.entity.other                      | white-normal        | black-normal         |
+| syntax.entity.other.attribute-name       | magenta-normal      | magenta-normal       |
+| syntax.entity.other.inherited-class      | white-normal        | black-normal         |
+| syntax.keyword                           | magenta-normal      | magenta-normal       |
+| syntax.keyword.control                   | magenta-normal      | magenta-normal       |
+| syntax.keyword.control.import            | magenta-normal      | magenta-normal       |
+| syntax.keyword.control.flow              | magenta-normal      | magenta-normal       |
+| syntax.keyword.declaration               | magenta-normal      | magenta-normal       |
+| syntax.keyword.operator                  | magenta-normal      | magenta-normal       |
+| syntax.keyword.other                     | magenta-normal      | magenta-normal       |
+| syntax.storage                           | magenta-normal      | magenta-normal       |
+| syntax.storage.type                      | magenta-normal      | magenta-normal       |
+| syntax.storage.modifier                  | magenta-normal      | magenta-normal       |
+| syntax.support                           | blue-normal         | blue-normal          |
+| syntax.support.function                  | blue-normal         | blue-normal          |
+| syntax.support.class                     | blue-normal         | blue-normal          |
+| syntax.support.type                      | blue-normal         | blue-normal          |
+| syntax.support.constant                  | magenta-normal      | magenta-normal       |
+| syntax.support.variable                  | cyan-normal         | cyan-normal          |
+| syntax.support.other                     | blue-normal         | blue-normal          |
+| syntax.support.function.builtin          | blue-bright         | blue-bright          |
+| syntax.variable                          | white-normal        | black-normal         |
+| syntax.variable.parameter                | cyan-bright         | cyan-bright          |
+| syntax.variable.language                 | magenta-normal      | magenta-normal       |
+| syntax.variable.other                    | white-normal        | black-normal         |
+| syntax.variable.other.constant           | white-normal        | black-normal         |
+| syntax.variable.other.property           | white-normal        | black-normal         |
+| syntax.variable.other.object             | white-normal        | black-normal         |
+| syntax.punctuation                       | white-dim           | black-bright         |
+| syntax.punctuation.separator             | white-normal        | black-normal         |
+| syntax.punctuation.definition            | white-normal        | black-normal         |
+| syntax.punctuation.definition.string     | green-normal        | green-normal         |
+| syntax.punctuation.definition.comment    | gray-dim            | gray-bright          |
+| syntax.punctuation.section               | orange-normal       | orange-normal        |
+| syntax.markup                            | orange-normal       | orange-normal        |
+| syntax.markup.bold                       | orange-normal       | orange-normal        |
+| syntax.markup.italic                     | orange-normal       | orange-normal        |
+| syntax.markup.quote                      | orange-normal       | orange-normal        |
+| syntax.markup.underline                  | orange-normal       | orange-normal        |
+| syntax.markup.heading                    | magenta-normal      | magenta-normal       |
+| syntax.markup.list                       | orange-normal       | orange-normal        |
+| syntax.markup.list.numbered              | cyan-normal         | cyan-normal          |
+| syntax.markup.list.unnumbered            | cyan-normal         | cyan-normal          |
+| syntax.markup.link                       | yellow-normal       | yellow-normal        |
+| syntax.markup.raw                        | orange-normal       | orange-normal        |
+| syntax.markup.inserted                   | green-bright        | green-bright         |
+| syntax.markup.changed                    | yellow-bright       | yellow-bright        |
+| syntax.markup.deleted                    | red-bright          | red-bright           |
+| syntax.source                            | white-normal        | black-normal         |
+| syntax.text                              | white-normal        | black-normal         |
+| syntax.meta                              | white-normal        | black-normal         |
+| syntax.meta.annotation                   | orange-normal       | orange-normal        |
+| syntax.meta.function                     | white-normal        | black-normal         |
+| syntax.meta.class                        | white-normal        | black-normal         |
+| syntax.meta.block                        | white-normal        | black-normal         |
+| syntax.meta.tag                          | white-normal        | black-normal         |
+| syntax.meta.type                         | white-normal        | black-normal         |
+| syntax.meta.import                       | white-normal        | black-normal         |
+| syntax.meta.preprocessor                 | white-normal        | black-normal         |
+| syntax.meta.embedded                     | white-normal        | black-normal         |
+| syntax.meta.object                       | orange-normal       | orange-normal        |
+| ui.global.background.normal              | black-normal        | white-normal         |
+| ui.global.background.dark                | black-dim           | white-bright         |
+| ui.global.background.light               | black-bright        | white-dim            |
+| ui.deprecated                            | brown-normal        | brown-normal         |
+| ui.accent                                | cyan-normal         | cyan-normal          |
+| ui.border                                | gray-dim            | gray-bright          |
+| ui.cursor.normal                         | white-normal        | black-normal         |
+| ui.cursor.muted                          | gray-bright         | gray-dim             |
+| ui.global.foreground.normal              | white-normal        | black-normal         |
+| ui.global.foreground.dark                | white-dim           | black-bright         |
+| ui.global.foreground.light               | white-bright        | black-dim            |
+| ui.gutter.background                     | black-normal        | white-normal         |
+| ui.gutter.foreground                     | white-dim           | black-bright         |
+| ui.highlight.line.background             | gray-dim            | gray-bright          |
+| ui.highlight.line.foreground             | white-dim           | black-bright         |
+| ui.link                                  | cyan-normal         | cyan-normal          |
+| ui.highlight.search.background           | black-bright        | white-dim            |
+| ui.highlight.search.foreground           | yellow-normal       | yellow-normal        |
+| ui.highlight.text.background             | gray-dim            | gray-bright          |
+| ui.highlight.text.foreground             | white-normal        | black-normal         |
+| ui.highlight.text.active-background      | gray-normal         | gray-normal          |
+| ui.highlight.text.active-foreground      | white-normal        | black-normal         |
+| ui.highlight.button.background           | black-bright        | white-dim            |
+| ui.highlight.button.foreground           | white-normal        | black-normal         |
+| ui.indent-guide.background               | black-bright        | white-dim            |
+| ui.indent-guide.active-background        | gray-dim            | gray-bright          |
+| ui.selection.background                  | black-bright        | white-dim            |
+| ui.selection.foreground                  | white-normal        | black-normal         |
+| ui.selection.inactive-background         | black-bright        | white-dim            |
+| ui.status.error                          | red-normal          | red-normal           |
+| ui.status.warning                        | yellow-normal       | yellow-normal        |
+| ui.status.info                           | orange-normal       | orange-normal        |
+| ui.status.success                        | green-normal        | green-normal         |
+| ui.tooltip.background                    | black-dim           | white-bright         |
+| ui.tooltip.foreground                    | white-normal        | black-normal         |
+| ui.whitespace.foreground                 | gray-normal         | gray-normal          |
 
 ## Output and Template Config
 
