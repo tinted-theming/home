@@ -1,6 +1,6 @@
 # Tinted8 Styling Guidelines
 
-**Version 0.2.0-beta2** The latest version of this spec can be obtained from
+**Version 0.2.0-beta3** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 ## Introduction
@@ -37,12 +37,12 @@ A Tinted8 scheme is stored as a YAML document with the following fields:
 | `scheme.author`                | Yes | - | The person or organization that created this scheme. |
 | `scheme.theme-author`          | No  | `scheme.author` | Attribution for the original or inspirational theme. |
 | `scheme.description`           | No  | - | Short human-readable summary. |
-| `variant`                      | Yes | - | Either `dark` or `light`. Indicates the intended luminance direction. |
+| `scheme.variant`               | Yes | - | Either `dark` or `light`. Indicates the intended luminance direction. |
+| `scheme.family`                | No  | - | Broad design family (e.g. "Tokyo"). |
+| `scheme.style`                 | No  | - | Variation within a family (e.g. "Night", "Moon"). |
 | `palette`                      | Yes | - | Defines the base color palette for the theme. |
 | `scheme.name`                  | No  | Derived from `slug` or `family` + `style` | Human-readable name. |
 | `scheme.slug`                  | No  | Derived from `name` or `family` + `style` | Machine-friendly identifier. |
-| `family`                       | No  | - | Broad design family (e.g. "Tokyo"). |
-| `style`                        | No  | - | Variation within a family (e.g. "Night", "Moon"). |
 | `syntax`                       | No  | Defaults documented below | Syntax theming properties. |
 | `ui`                           | No  | Defaults documented below | UI theming properties. |
 
@@ -59,9 +59,9 @@ scheme:
   author: "User <user@example.com>"
   name: "Ayu Mirage"
   slug: "ayu-mirage"
-variant: "dark"
-family: "Ayu"
-style: "Mirage"
+  variant: "dark"
+  family: "Ayu"
+  style: "Mirage"
 palette:
   black:   "#131721"
   red:     "#f07178"
@@ -140,9 +140,9 @@ scheme:
     styling-spec: "0.2.0"
   author: "User <user@example.com>"
   name: "Ayu Mirage"
-variant: "dark"
-family: "Ayu"
-style: "Mirage"
+  variant: "dark"
+  family: "Ayu"
+  style: "Mirage"
 palette:
   black:   "#131721"
   red:     "#f07178"
@@ -269,24 +269,25 @@ color code) value.
 | ui.deprecated                       | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
 | ui.accent                           | Focus rings / active border | Primary accent color for focus/active indications. |
 | ui.border                           | Panel/tab borders | Generic border/divider color. |
-| ui.cursor                           | Editor caret | The text cursor color in editors. |
+| ui.cursor.normal                    | Editor caret | The text cursor color in editors. |
+| ui.cursor.muted                     | Muted/disabled editor caret | The muted/disabled text cursor color in editors. |
 | ui.global.foreground.normal         | Editor text → `"hello"` | General text in the user interface. |
 | ui.global.foreground.dark           | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
 | ui.global.foreground.light          | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |
 | ui.gutter.background                | Editor gutter → background | Background color for the gutter/line number area. |
 | ui.gutter.foreground                | Editor gutter → line numbers | Foreground color for the gutter/line numbers. |
-| ui.highlight.line.background       | Active line highlight → background | The background of the active/marked line. |
-| ui.highlight.line.foreground       | Line info → text | Foreground for the line highlight area (e.g., line numbers). |
-| ui.highlight.search.background     | Search highlight → background | Background of highlighted search matches. |
-| ui.highlight.search.foreground     | Search highlight → text | Foreground of highlighted search matches. |
-| ui.highlight.text.background       | Selected text highlight → background | Background of inline text highlights. |
-| ui.highlight.text.foreground       | Selected text highlight → text | Foreground of inline text highlights. |
+| ui.highlight.line.background        | Active line highlight → background | The background of the active/marked line. |
+| ui.highlight.line.foreground        | Line info → text | Foreground for the line highlight area (e.g., line numbers). |
+| ui.highlight.search.background      | Search highlight → background | Background of highlighted search matches. |
+| ui.highlight.search.foreground      | Search highlight → text | Foreground of highlighted search matches. |
+| ui.highlight.text.background        | Selected text highlight → background | Background of inline text highlights. |
+| ui.highlight.text.foreground        | Selected text highlight → text | Foreground of inline text highlights. |
 | ui.highlight.text.active-background | Active selection → background | Background when the selection is active/focused. |
 | ui.highlight.text.active-foreground | Active selection → text | Foreground when the selection is active/focused. |
-| ui.indent-guide.background         | Indent guides → background | Background color for indentation guide marks. |
-| ui.indent-guide.active-background  | Active indent guide → background | Background for the active/primary indent guide. |
+| ui.indent-guide.background          | Indent guides → background | Background color for indentation guide marks. |
+| ui.indent-guide.active-background   | Active indent guide → background | Background for the active/primary indent guide. |
 | ui.link                             | UI links | Link and interactive text color in UI chrome. |
-| ui.whitespace.foreground           | Invisible/whitespace guides → marks | Foreground for whitespace/invisible character markers. |
+| ui.whitespace.foreground            | Invisible/whitespace guides → marks | Foreground for whitespace/invisible character markers. |
 | ui.selection.background             | Selected code → background | The background of selected items in the user interface (e.g., highlighted text or options). |
 | ui.selection.foreground             | Selected code → foreground | The foreground of selected items in the user interface (e.g., highlighted text or options). |
 | ui.selection.inactive-background    | Unfocused selection → background | Selection background when the editor is unfocused. |
@@ -332,7 +333,7 @@ These defaults are suggestions, authors may override them as desired.
 
 A scheme is Tinted8-compliant if it:
 
-- Includes all required fields (`scheme.system`, `scheme.author`, `variant`,
+- Includes all required fields (`scheme.system`, `scheme.author`, `scheme.variant`,
   `scheme.name|scheme.slug|scheme.family` `palette`)
 - Uses valid color formats (hex `#RRGGBB`)
 - Follows the inheritance and structure rules defined here
