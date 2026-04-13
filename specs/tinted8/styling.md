@@ -1,6 +1,6 @@
 # Tinted8 Styling Guidelines
 
-**Version 0.2.0-beta3** The latest version of this spec can be obtained from
+**Version 0.2.0-beta4** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 ## Introduction
@@ -37,7 +37,7 @@ A Tinted8 scheme is stored as a YAML document with the following fields:
 | `scheme.author`                | Yes | - | The person or organization that created this scheme. |
 | `scheme.theme-author`          | No  | `scheme.author` | Attribution for the original or inspirational theme. |
 | `scheme.description`           | No  | - | Short human-readable summary. |
-| `scheme.variant`               | Yes | - | Either `dark` or `light`. Indicates the intended luminance direction. |
+| `variant`                      | Yes | - | Either `dark` or `light`. Indicates the intended luminance direction. |
 | `scheme.family`                | No  | - | Broad design family (e.g. "Tokyo"). |
 | `scheme.style`                 | No  | - | Variation within a family (e.g. "Night", "Moon"). |
 | `palette`                      | Yes | - | Defines the base color palette for the theme. |
@@ -59,9 +59,9 @@ scheme:
   author: "User <user@example.com>"
   name: "Ayu Mirage"
   slug: "ayu-mirage"
-  variant: "dark"
   family: "Ayu"
   style: "Mirage"
+variant: "dark"
 palette:
   black:   "#131721"
   red:     "#f07178"
@@ -140,9 +140,9 @@ scheme:
     styling-spec: "0.2.0"
   author: "User <user@example.com>"
   name: "Ayu Mirage"
-  variant: "dark"
   family: "Ayu"
   style: "Mirage"
+variant: "dark"
 palette:
   black:   "#131721"
   red:     "#f07178"
@@ -333,7 +333,7 @@ These defaults are suggestions, authors may override them as desired.
 
 A scheme is Tinted8-compliant if it:
 
-- Includes all required fields (`scheme.system`, `scheme.author`, `scheme.variant`,
+- Includes all required fields (`scheme.system`, `scheme.author`, `variant`,
   `scheme.name|scheme.slug|scheme.family` `palette`)
 - Uses valid color formats (hex `#RRGGBB`)
 - Follows the inheritance and structure rules defined here
