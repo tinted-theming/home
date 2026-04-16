@@ -99,6 +99,8 @@ Other:
 * [Wob](https://github.com/tinted-theming/base16-wob) maintained by [h4-n1](https://github.com/h4-n1)
 * [Xresources](https://github.com/tinted-theming/base16-xresources) maintained by [DanManN](https://github.com/orgs/tinted-theming/people/DanManN), and [pinpox](https://github.com/orgs/tinted-theming/people/pinpox)
 * [Waybar](https://github.com/tinted-theming/base16-waybar) maintained by [laenzlinger](https://github.com/laenzlinger)
+* [lazygit](https://github.com/tinted-theming/tinted-lazygit) maintained by [blueingreen68](https://github.com/BlueInGreen68)
+* [nwg-dock](https://github.com/tinted-theming/tinted-nwg-dock) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 
 ## Official Schemes
 
@@ -221,10 +223,8 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [Vimiv](https://github.com/karlch/base16-vimiv) maintained by [karlch](https://github.com/karlch)
 * [Windows Command Prompt](https://github.com/iamthad/base16-windows-command-prompt) maintained by [iamthad](https://github.com/iamthad)
 * [zathura](https://github.com/HaoZeke/base16-zathura) maintained by [HaoZeke](https://github.com/HaoZeke)
-* [nwg-dock](https://git.sr.ht/~blueingreen/base16-nwg-dock) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 * [wlr-which-key](https://git.sr.ht/~blueingreen/base16-wlr-which-key) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 * [btop](https://git.sr.ht/~blueingreen/base16-btop) maintained by [blueingreen68](https://github.com/BlueInGreen68)
-* [lazygit](https://git.sr.ht/~blueingreen/base16-lazygit) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 
 </p>
 </details>
