@@ -7,7 +7,7 @@
 **Features**
 
 - Seamless builder support for _multiple_ style systems ([Base16](https://github.com/chriskempson/base16), [Base24](https://github.com/tinted-theming/base24/), etc.)
-- Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://tinted-theming.github.io/base16-gallery).
+- Over 230 beautiful and ready-to-use color schemes. [View the Gallery](https://tinted-theming.github.io/tinted-gallery).
 - Over 70 supported GUI and terminal applications. [See the full list](#supported-applications).
 - Allows end users to choose a color scheme and know it will be available _everywhere_.
 - Allows color scheme designers to craft a palette of colors once, instantly supporting for many different apps.
@@ -43,6 +43,10 @@ A template describes how a scheme should be transformed to support a specific ap
 
 Templates often include ready-to-use pre-built versions of every scheme. These are typically installed directly by end users to use the schemes in different applications.
 
+## Manager
+
+A manager serves as a central controller for managing and applying themes in your applications.
+
 ## Supported Applications
 
 Supported applications are applications for which a template exists.
@@ -58,34 +62,63 @@ Editors:
 * [Emacs](https://github.com/tinted-theming/base16-emacs) maintained by [belak](https://github.com/belak)
 * [Helix](https://github.com/tinted-theming/base16-helix) maintained by [krgn](https://github.com/krgn)
 * [JetBrains](https://github.com/tinted-theming/base16-jetbrains) maintained by [adilosa](https://github.com/adilosa), and [JamyGolden](https://github.com/JamyGolden)
-* [Kakoune](https://github.com/tinted-theming/base16-kakoune) maintained by [JamyGolden](https://github.com/JamyGolden)
-* [VSCode](https://github.com/tinted-theming/base16-vscode) maintained by [golf1052](https://github.com/golf1052)
-* [Vim](https://github.com/tinted-theming/base16-vim) maintained by [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
+* [Kakoune](https://github.com/tinted-theming/tinted-kakoune) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [SublimeText](https://github.com/tinted-theming/tinted-sublime-text) maintained by [JamyGolden](https://github.com/JamyGolden) 
+* [VSCode](https://github.com/tinted-theming/tinted-vscode) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [Vim/NeoVim](https://github.com/tinted-theming/tinted-vim) maintained by [BonaBeavis](https://github.com/BonaBeavis), and [JamyGolden](https://github.com/JamyGolden)
+* [NeoVim](https://github.com/tinted-theming/tinted-nvim) maintained by [JamyGolden](https://github.com/JamyGolden), and [bezhermoso](https://github.com/bezhermoso)
 
 Terminals:
 
-* [ConEmu](https://github.com/tinted-theming/base16-conemu) maintained by [martinlindhe](https://github.com/martinlindhe)
-* [Foot](https://github.com/tinted-theming/base16-foot) maintained by [h4-n1](https://github.com/h4-n1)
-* [iTerm2](https://github.com/tinted-theming/base16-iterm2) maintained by [martinlindhe](https://github.com/martinlindhe)
-* [PuTTY](https://github.com/tinted-theming/base16-putty) maintained by [benjojo](https://github.com/benjojo)
-* [Shell](https://github.com/tinted-theming/base16-shell) (all shells) maintained by [belak](https://github.com/belak), and [JamyGolden](https://github.com/JamyGolden)
-* [XFCE Terminal](https://github.com/tinted-theming/base16-xfce4-terminal) maintained by [afq984](https://github.com/afq984)
+* [Alacritty](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden) 
+* [ConEmu](https://github.com/tinted-theming/tinted-terminal) maintained by [martinlindhe](https://github.com/martinlindhe)
+* [Foot](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [Ghostty](https://github.com/tinted-theming/tinted-terminal) maintained by [bezhermoso](https://github.com/bezhermoso)
+* [Kermit](https://github.com/tinted-theming/tinted-terminal) maintained by [orhun](https://github.com/orhun)
+* [Kitty](https://github.com/tinted-theming/tinted-terminal) maintained by [martinlindhe](https://github.com/martinlindhe)
+* [PuTTY](https://github.com/tinted-theming/tinted-terminal) maintained by [abravalheri](https://github.com/abravalheri)
+* [Rio](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden) 
+* [Shell](https://github.com/tinted-theming/tinted-shell) (POSIX and Fish) maintained by [belak](https://github.com/belak), and [JamyGolden](https://github.com/JamyGolden)
+* [Termite](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden) 
+* [XFCE Terminal](https://github.com/tinted-theming/tinted-terminal) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [iTerm2](https://github.com/tinted-theming/tinted-terminal) maintained by [martinlindhe](https://github.com/martinlindhe), and [JamyGolden](https://github.com/JamyGolden)
 
 Other:
 
 * [Dunst](https://github.com/tinted-theming/base16-dunst) maintained by [khamer](https://github.com/khamer)
-* [FZF](https://github.com/tinted-theming/base16-fzf) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [FZF](https://github.com/tinted-theming/tinted-fzf) maintained by [JamyGolden](https://github.com/JamyGolden)
 * [GTK FlatColor](https://github.com/tinted-theming/base16-gtk-flatcolor) maintained by [Misterio77](https://github.com/Misterio77)
 * [i3](https://github.com/tinted-theming/base16-i3) maintained by [khamer](https://github.com/khamer)
 * [HexChat](https://github.com/tinted-theming/base16-hexchat) maintained by [JamyGolden](https://github.com/JamyGolden)
+* [Matlab](https://github.com/tinted-theming/tinted-matlab) maintained by [auxym](https://github.com/auxym)
 * [Polybar](https://github.com/tinted-theming/base16-polybar) maintained by [Misterio77](https://github.com/Misterio77)
+* [quickshell](https://github.com/soenkehahn/base16-quickshell) maintained by [soenkehahn](https://github.com/soenkehahn)
 * [qutebrowser](https://github.com/tinted-theming/base16-qutebrowser) maintained by [theova](https://github.com/theova)
 * [Rofi](https://github.com/tinted-theming/base16-rofi) maintained by [jordiorlando](https://github.com/jordiorlando)
-* [Termite](https://github.com/tinted-theming/base16-termite) maintained by [khamer](https://github.com/khamer)
-* [Tmux](https://github.com/tinted-theming/base16-tmux) maintained by [mattdavis90](https://github.com/mattdavis90)
+* [Tmux](https://github.com/tinted-theming/tinted-tmux) maintained by [JamyGolden](https://github.com/JamyGolden)
 * [Wob](https://github.com/tinted-theming/base16-wob) maintained by [h4-n1](https://github.com/h4-n1)
 * [Xresources](https://github.com/tinted-theming/base16-xresources) maintained by [DanManN](https://github.com/orgs/tinted-theming/people/DanManN), and [pinpox](https://github.com/orgs/tinted-theming/people/pinpox)
 * [Waybar](https://github.com/tinted-theming/base16-waybar) maintained by [laenzlinger](https://github.com/laenzlinger)
+
+## Official Schemes
+
+To add a Base16 scheme, simply submit a pull request to the [schemes repo](https://github.com/tinted-theming/schemes) and add your scheme.
+
+## Official Builders
+
+Normally end-users should not need to use builders, as they're primarily meant for maintainers - both scheme and template maintainers. These are tools used to build templates with all the currently submitted schemes.
+
+Spec changes will not be released until there is consensus among maintainers and at least one builder with a pull request ready for implementing that spec version.
+
+See the [CHANGELOG](/CHANGELOG.md) for more information about changes in the
+spec.
+
+* [Tinted Builder Rust](https://github.com/tinted-theming/tinted-builder-rust) maintained by [JamyGolden](https://github.com/JamyGolden) - currently supports 0.11.1
+* [Base16 Builder Go](https://github.com/tinted-theming/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.11.0
+
+## Official Managers
+
+* [Tinty](https://github.com/tinted-theming/tinty) maintained by [JamyGolden](https://github.com/JamyGolden)
 
 ### Unofficial Templates
 
@@ -99,11 +132,13 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 * [ConCfg](https://github.com/h404bi/base16-concfg) maintained by [h404bi](https://github.com/h404bi)
 * [Console2](https://github.com/AFulgens/base16-console2) maintained by [AFulgens](https://github.com/AFulgens)
 * [ConsoleZ](https://github.com/AFulgens/base16-consolez) maintained by [AFulgens](https://github.com/AFulgens)
+* [Contour](https://github.com/adre5577/contour-tinted) maintained by [adre5577](https://github.com/adre5577)
 * [Crosh](https://github.com/philj56/base16-crosh) maintained by [philj56](https://github.com/philj56)
 * [fish](https://github.com/tomyun/base16-fish) maintained by [tomyun](https://github.com/tomyun)
 * [fish-shell](https://github.com/FabioAntunes/base16-fish-shell) maintained by [FabioAntunes](https://github.com/FabioAntunes)
 * [Gnome Terminal](https://github.com/aarowill/base16-gnome-terminal) maintained by [aarowill](https://github.com/aarowill)
-* [kermit](https://github.com/orhun/base16-kermit) maintained by [orhun](https://github.com/orhun)
+* [Halloy](https://github.com/4e554c4c/base16-halloy) maintained by [4e554c4c](https://github.com/4e554c4c)
+* [jjui](https://github.com/vic/tinted-jjui) maintained by [vic](https://github.com/vic)
 * [kitty](https://github.com/kdrag0n/base16-kitty) maintained by [kdrag0n](https://github.com/kdrag0n)
 * [Konsole](https://github.com/cskeeters/base16-konsole) maintained by [cskeeters](https://github.com/cskeeters)
 * [MinTTY](https://github.com/geoffstokes/base16-mintty) maintained by [geoffstokes](https://github.com/geoffstokes)
@@ -122,10 +157,12 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 
 * [Frescobaldi](https://github.com/rkubosz/base16-frescobaldi) maintained by [rkubosz](https://github.com/rkubosz)
 * [Godot](https://github.com/Calinou/base16-godot) maintained by [Calinou](https://github.com/Calinou)
+* [gtksourceview](https://github.com/RobLoach/base16-gtksourceview) maintained by [RobLoach](https://github.com/RobLoach)
 * [gtksourceview3](https://github.com/GarkGarcia/base16-gtksourceview3) maintained by [GarkGarcia](https://github.com/GarkGarcia)
 * [JOE](https://github.com/jjjordan/base16-joe) maintained by [jjjordan](https://github.com/jjjordan)
 * [Jetbrains IDE](https://github.com/ShiromMakkad/base16-jetbrains-ide) maintained by [ShiromMakkad](https://github.com/ShiromMakkad)
 * [Kakoune](https://github.com/leira/base16-kakoune) maintained by [leira](https://github.com/leira)
+* [Micro](https://github.com/w3dg/base16-micro) maintained by [w3dg](https://github.com/w3dg)
 * [MonoDevelop](https://github.com/netpyoung/base16-monodevelop) maintained by [netpyoung](https://github.com/netpyoung)
 * [QOwnNotes](https://github.com/themix-project/base16-template-qOwnNotes) maintained by [themix-project](https://github.com/themix-project)
 * [Scide](https://github.com/brunoro/base16-scide) maintained by [brunoro](https://github.com/brunoro)
@@ -198,21 +235,7 @@ To add your own template, submit a pull request to this repository to add your r
 
 **Recommended repository naming scheme: [style-name]-[template-name]** (with dashes as separators).
 
-## Schemes
-
-To add a Base16 scheme, simply submit a pull request to the [base16-schemes repo](https://github.com/tinted-theming/base16-schemes) and add your scheme.
-
-## Builders
-
-Normally end-users should not need to use builders, as they're primarily meant for maintainers - both scheme and template maintainers. These are tools used to build templates with all the currently submitted schemes.
-
-Spec changes will not be released until there is consensus among maintainers and at least one builder with a pull request ready for implementing that spec version.
-
-See the [CHANGELOG](/CHANGELOG.md) for more information about changes in the
-spec.
-
-* [Base16 Builder Go](https://github.com/tinted-theming/base16-builder-go) maintained by [belak](https://github.com/belak) - currently supports 0.11.0
-* [Base16 Builder Node](https://github.com/tinted-theming/base16-builder-node) maintained by [joshgoebel](https://github.com/joshgoebel) - currently supports 0.10.0
+See [tinted-theming-project-template](https://github.com/tinted-theming/tinted-theming-project-template) for a starting template.
 
 ## Scheme and Template Author Resources
 
@@ -225,7 +248,7 @@ The following is a list of useful resources for anyone creating a Base16 scheme 
 
 If you've written a tool feel free to add it to the list below:
 
-* [auto-base16-theme](https://github.com/makuto/auto-base16-theme) - A command line tool to create a base16 theme from an input image's color palette.
+* [auto-base16-theme](https://macoy.me/code/macoy/auto-base16-theme.git) - A command line tool to create a base16 theme from an input image's color palette.
 * [base16-manager](https://github.com/AuditeMarlow/base16-manager) - A command line tool to install base16 templates and set themes globally.
 * [base16-shell-preview](https://github.com/nvllsvm/base16-shell-preview) - A command line tool to preview and set base16-shell themes.
 * [base16-universal-manager](https://github.com/binaryplease/base16-universal-manager) - A command line tool to automatically get, build and set base16 themes globally for *all* supported applications. Themes and templates are pulled form the official repositories or from a local cache.
