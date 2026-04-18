@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta3** The latest version of this spec can be obtained from
+**Version 0.2.0-beta4** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -417,7 +417,7 @@ Example `config.yaml`:
 
 ```yaml
 default:
-  filename: "output/{{ scheme-system }}-{{ scheme-slug }}.ext"
+  filename: "output/{{ scheme.system }}-{{ scheme.slug }}.ext"
   supported-systems: [tinted8]
 ```
 
@@ -433,7 +433,7 @@ metadata output, with the following fields in the `templates/config.yaml`:
 
 ```yaml
 default:
-  filename: "output/{{ scheme-system }}-{{ scheme-slug }}.ext"
+  filename: "output/{{ scheme.system }}-{{ scheme.slug }}.ext"
   supported-systems: [tinted8]
   supports:
     tinted8-styling: ">=0.1.0"
