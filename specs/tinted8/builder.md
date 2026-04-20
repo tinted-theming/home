@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta4** The latest version of this spec can be obtained from
+**Version 0.2.0-beta5** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -542,6 +542,27 @@ compatibility is preserved by keeping `E001`–`E003` unchanged.
 
 Note: The intake flow shows `E001` at the first gate; although it appears in the compatibility diagram, it belongs to the E1xx intake stage.
 
+#### Warning Codes
+
+Warning codes use the `W` prefix and indicate non-fatal conditions that do not
+prevent the build from completing. Unlike errors, warnings must not cause the
+builder to abort. Builders must emit warnings to stderr (or an equivalent
+diagnostic channel) so that authors can identify potential issues without
+interrupting automated pipelines.
+
+A warning signals that the build can proceed but the result may be incomplete or
+unexpected. For example, `W001` indicates that no schemes matched a template
+config entry — the builder skips that entry and continues, but the author
+should be aware that no output was produced for it.
+
+Warning codes follow the same stage-based numbering as errors:
+
+- W0xx — Legacy / general warnings
+- W1xx — Scheme Intake
+- W2xx — Spec Compatibility
+- W3xx — Template Configuration
+- W4xx — Build-Time Selection/Generation
+
 #### Error Groups
 
 Messages MAY include file paths or version ranges for clarity.
@@ -577,7 +598,7 @@ Messages MAY include file paths or version ranges for clarity.
 
 | Code   | Description                                      |
 | ------ | ------------------------------------------------ |
-| `E400` | No schemes found for a template config entry.    |
+| `W001` | No schemes found for a template config entry.    |
 
 ## Compliance
 
