@@ -1,6 +1,6 @@
 # Tinted8 Styling Guidelines
 
-**Version 0.2.0-beta4** The latest version of this spec can be obtained from
+**Version 0.2.0-beta5** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 ## Introduction
@@ -269,8 +269,10 @@ color code) value.
 | ui.deprecated                       | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
 | ui.accent                           | Focus rings / active border | Primary accent color for focus/active indications. |
 | ui.border                           | Panel/tab borders | Generic border/divider color. |
-| ui.cursor.normal                    | Editor caret | The text cursor color in editors. |
-| ui.cursor.muted                     | Muted/disabled editor caret | The muted/disabled text cursor color in editors. |
+| ui.cursor.background.normal         | Editor caret | The text cursor background color in editors. |
+| ui.cursor.background.muted          | Muted/disabled editor caret | The muted/disabled text cursor background color in editors. |
+| ui.cursor.foreground.normal         | Editor caret | The text cursor foreground color in editors. |
+| ui.cursor.foreground.muted          | Muted/disabled editor caret | The muted/disabled text foreground cursor color in editors. |
 | ui.global.foreground.normal         | Editor text → `"hello"` | General text in the user interface. |
 | ui.global.foreground.dark           | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
 | ui.global.foreground.light          | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |

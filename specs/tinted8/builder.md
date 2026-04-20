@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta5** The latest version of this spec can be obtained from
+**Version 0.2.0-beta6** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -372,8 +372,10 @@ between variants.
 | ui.deprecated                            | brown-normal        | brown-normal         |
 | ui.accent                                | cyan-normal         | cyan-normal          |
 | ui.border                                | gray-dim            | gray-bright          |
-| ui.cursor.normal                         | white-normal        | black-normal         |
-| ui.cursor.muted                          | gray-bright         | gray-dim             |
+| ui.cursor.background.normal              | white-normal        | black-normal         |
+| ui.cursor.background.muted               | gray-bright         | gray-dim             |
+| ui.cursor.foreground.normal              | black-normal        | white-normal         |
+| ui.cursor.foreground.muted               | gray-dim            | gray-bright          |
 | ui.global.foreground.normal              | white-normal        | black-normal         |
 | ui.global.foreground.dark                | white-dim           | black-bright         |
 | ui.global.foreground.light               | white-bright        | black-dim            |
