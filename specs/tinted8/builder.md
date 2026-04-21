@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta6** The latest version of this spec can be obtained from
+**Version 0.2.0-beta7** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -370,8 +370,8 @@ between variants.
 | ui.global.background.dark                | black-dim           | white-bright         |
 | ui.global.background.light               | black-bright        | white-dim            |
 | ui.deprecated                            | brown-normal        | brown-normal         |
-| ui.accent                                | cyan-normal         | cyan-normal          |
-| ui.border                                | gray-dim            | gray-bright          |
+| ui.accent.normal                         | cyan-normal         | cyan-normal          |
+| ui.border.normal                         | gray-dim            | gray-bright          |
 | ui.cursor.background.normal              | white-normal        | black-normal         |
 | ui.cursor.background.muted               | gray-bright         | gray-dim             |
 | ui.cursor.foreground.normal              | black-normal        | white-normal         |
@@ -383,7 +383,7 @@ between variants.
 | ui.gutter.foreground                     | white-dim           | black-bright         |
 | ui.highlight.line.background             | gray-dim            | gray-bright          |
 | ui.highlight.line.foreground             | white-dim           | black-bright         |
-| ui.link                                  | cyan-normal         | cyan-normal          |
+| ui.link.normal                           | cyan-normal         | cyan-normal          |
 | ui.highlight.search.background           | black-bright        | white-dim            |
 | ui.highlight.search.foreground           | yellow-normal       | yellow-normal        |
 | ui.highlight.text.background             | gray-dim            | gray-bright          |
