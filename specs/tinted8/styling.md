@@ -1,6 +1,6 @@
 # Tinted8 Styling Guidelines
 
-**Version 0.2.0-beta5** The latest version of this spec can be obtained from
+**Version 0.2.0-beta6** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 ## Introduction
@@ -267,8 +267,8 @@ color code) value.
 | ui.global.background.dark           | Sidebar → background | Darker background areas, typically used for sidebars, footers, or other sections. |
 | ui.global.background.light          | Active tab → background | Lighter background areas, typically used for light modes or highlighting. |
 | ui.deprecated                       | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
-| ui.accent                           | Focus rings / active border | Primary accent color for focus/active indications. |
-| ui.border                           | Panel/tab borders | Generic border/divider color. |
+| ui.accent.normal                    | Focus rings / active border | Primary accent color for focus/active indications. |
+| ui.border.normal                    | Panel/tab borders | Generic border/divider color. |
 | ui.cursor.background.normal         | Editor caret | The text cursor background color in editors. |
 | ui.cursor.background.muted          | Muted/disabled editor caret | The muted/disabled text cursor background color in editors. |
 | ui.cursor.foreground.normal         | Editor caret | The text cursor foreground color in editors. |
@@ -288,7 +288,8 @@ color code) value.
 | ui.highlight.text.active-foreground | Active selection → text | Foreground when the selection is active/focused. |
 | ui.indent-guide.background          | Indent guides → background | Background color for indentation guide marks. |
 | ui.indent-guide.active-background   | Active indent guide → background | Background for the active/primary indent guide. |
-| ui.link                             | UI links | Link and interactive text color in UI chrome. |
+| ui.link.normal.background           | UI links | Link and interactive background color in UI chrome. |
+| ui.link.normal.foreground           | UI links | Link and interactive text color in UI chrome. |
 | ui.whitespace.foreground            | Invisible/whitespace guides → marks | Foreground for whitespace/invisible character markers. |
 | ui.selection.background             | Selected code → background | The background of selected items in the user interface (e.g., highlighted text or options). |
 | ui.selection.foreground             | Selected code → foreground | The foreground of selected items in the user interface (e.g., highlighted text or options). |
