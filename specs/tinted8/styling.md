@@ -1,6 +1,6 @@
 # Tinted8 Styling Guidelines
 
-**Version 0.2.0-beta6** The latest version of this spec can be obtained from
+**Version 0.2.0-beta7** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 ## Introduction
@@ -269,6 +269,12 @@ color code) value.
 | ui.deprecated                       | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
 | ui.accent.normal                    | Focus rings / active border | Primary accent color for focus/active indications. |
 | ui.border.normal                    | Panel/tab borders | Generic border/divider color. |
+| ui.chrome.background.normal         | Sidebar/tab bar/etc → background | The general background of app chrome surfaces (sidebars, tab bars, status bars, toolbars). |
+| ui.chrome.background.dark           | Sidebar/tab bar/etc → background | Can be used to highlight or mute areas. |
+| ui.chrome.background.light          | Sidebar/tab bar/etc → background | Can be used to highlight or mute areas. |
+| ui.chrome.foreground.normal         | Sidebar/tab bar/etc → text | General text/icon color in app chrome surfaces. |
+| ui.chrome.foreground.dark           | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
+| ui.chrome.foreground.light          | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
 | ui.cursor.background.normal         | Editor caret | The text cursor background color in editors. |
 | ui.cursor.background.muted          | Muted/disabled editor caret | The muted/disabled text cursor background color in editors. |
 | ui.cursor.foreground.normal         | Editor caret | The text cursor foreground color in editors. |

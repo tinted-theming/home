@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta7** The latest version of this spec can be obtained from
+**Version 0.2.0-beta8** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -367,11 +367,17 @@ between variants.
 | syntax.meta.embedded                     | white-normal        | black-normal         |
 | syntax.meta.object                       | orange-normal       | orange-normal        |
 | ui.global.background.normal              | black-normal        | white-normal         |
-| ui.global.background.dark                | black-dim           | white-bright         |
-| ui.global.background.light               | black-bright        | white-dim            |
+| ui.global.background.dark                | black-dim           | white-dim            |
+| ui.global.background.light               | black-bright        | white-bright         |
 | ui.deprecated                            | brown-normal        | brown-normal         |
 | ui.accent.normal                         | cyan-normal         | cyan-normal          |
 | ui.border.normal                         | gray-dim            | gray-bright          |
+| ui.chrome.background.normal              | black-bright        | white-dim            |
+| ui.chrome.background.dark                | black-dim           | gray-bright          |
+| ui.chrome.background.light               | gray-dim            | white-normal         |
+| ui.chrome.foreground.normal              | white-normal        | black-normal         |
+| ui.chrome.foreground.dark                | white-dim           | black-dim            |
+| ui.chrome.foreground.light               | white-bright        | black-bright         |
 | ui.cursor.background.normal              | white-normal        | black-normal         |
 | ui.cursor.background.muted               | gray-bright         | gray-dim             |
 | ui.cursor.foreground.normal              | black-normal        | white-normal         |
