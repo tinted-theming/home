@@ -100,6 +100,7 @@
             "description": "Intended luminance direction."
         },
         "palette": {
+            "title": "Palette",
             "type": "object",
             "description": "Base color palette. All values must be hex colors in #RRGGBB format.",
             "required": [
@@ -207,6 +208,7 @@
             }
         },
         "syntax": {
+            "title": "Syntax",
             "type": "object",
             "description": "Syntax theming properties. Keys use dot-notation (e.g. \"string.quoted.single\"). Not required because these values will be derived using the 'palette' object colors.",
             "additionalProperties": false,
@@ -508,8 +510,9 @@
             }
         },
         "ui": {
+            "title": "UI",
             "type": "object",
-            "description": "UI theming properties. Keys use dot-notation (e.g. \"global.background.normal\").. Not required because these values will be derived using the 'palette' object colors.",
+            "description": "UI theming properties. Keys use dot-notation (e.g. \"global.background.normal\"). Not required because these values will be derived using the 'palette' object colors.",
             "additionalProperties": false,
             "properties": {
                 "global.background.normal": {
