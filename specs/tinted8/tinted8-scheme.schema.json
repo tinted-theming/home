@@ -1,0 +1,656 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/tinted-theming/home/main/specs/tinted8/tinted8-scheme.schema.json",
+    "title": "Tinted8 Color Scheme",
+    "description": "Schema for Tinted8 color scheme files (styling spec 0.2.0-beta7). Validates structure and format but not runtime inheritance or builder-derived defaults.",
+    "type": "object",
+    "required": [
+        "scheme",
+        "variant",
+        "palette"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "scheme": {
+            "type": "object",
+            "description": "Scheme metadata.",
+            "required": [
+                "system",
+                "supports",
+                "author"
+            ],
+            "additionalProperties": false,
+            "anyOf": [
+                {
+                    "required": [
+                        "name"
+                    ]
+                },
+                {
+                    "required": [
+                        "slug"
+                    ]
+                },
+                {
+                    "required": [
+                        "family"
+                    ]
+                }
+            ],
+            "properties": {
+                "system": {
+                    "type": "string",
+                    "const": "tinted8",
+                    "description": "Identifies the scheme system."
+                },
+                "supports": {
+                    "type": "object",
+                    "required": [
+                        "styling-spec"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "styling-spec": {
+                            "type": "string",
+                            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-zA-Z0-9.]+)?$",
+                            "description": "Styling spec version implemented by the scheme (e.g. \"0.2.0\")."
+                        }
+                    }
+                },
+                "author": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "The person or organization that created this scheme."
+                },
+                "theme-author": {
+                    "type": "string",
+                    "description": "Attribution for the original or inspirational theme."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Short human-readable summary."
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Human-readable name."
+                },
+                "slug": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+                    "description": "Machine-friendly identifier."
+                },
+                "family": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Broad design family (e.g. \"Tokyo\")."
+                },
+                "style": {
+                    "type": "string",
+                    "description": "Variation within a family (e.g. \"Night\", \"Moon\")."
+                }
+            }
+        },
+        "variant": {
+            "type": "string",
+            "enum": [
+                "dark",
+                "light"
+            ],
+            "description": "Intended luminance direction."
+        },
+        "palette": {
+            "type": "object",
+            "description": "Base color palette. All values must be hex colors in #RRGGBB format.",
+            "required": [
+                "black",
+                "red",
+                "green",
+                "yellow",
+                "blue",
+                "magenta",
+                "cyan",
+                "white"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "black": {
+                    "$ref": "#/$defs/color"
+                },
+                "black-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "black-dim": {
+                    "$ref": "#/$defs/color"
+                },
+                "red": {
+                    "$ref": "#/$defs/color"
+                },
+                "red-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "red-dim": {
+                    "$ref": "#/$defs/color"
+                },
+                "green": {
+                    "$ref": "#/$defs/color"
+                },
+                "green-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "green-dim": {
+                    "$ref": "#/$defs/color"
+                },
+                "yellow": {
+                    "$ref": "#/$defs/color"
+                },
+                "yellow-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "yellow-dim": {
+                    "$ref": "#/$defs/color"
+                },
+                "blue": {
+                    "$ref": "#/$defs/color"
+                },
+                "blue-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "blue-dim": {
+                    "$ref": "#/$defs/color"
+                },
+                "magenta": {
+                    "$ref": "#/$defs/color"
+                },
+                "magenta-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "magenta-dim": {
+                    "$ref": "#/$defs/color"
+                },
+                "cyan": {
+                    "$ref": "#/$defs/color"
+                },
+                "cyan-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "cyan-dim": {
+                    "$ref": "#/$defs/color"
+                },
+                "white": {
+                    "$ref": "#/$defs/color"
+                },
+                "white-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "white-dim": {
+                    "$ref": "#/$defs/color"
+                },
+                "gray": {
+                    "$ref": "#/$defs/color"
+                },
+                "gray-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "gray-dim": {
+                    "$ref": "#/$defs/color"
+                },
+                "orange": {
+                    "$ref": "#/$defs/color"
+                },
+                "orange-bright": {
+                    "$ref": "#/$defs/color"
+                },
+                "orange-dim": {
+                    "$ref": "#/$defs/color"
+                }
+            }
+        },
+        "syntax": {
+            "type": "object",
+            "description": "Syntax theming properties. Keys use dot-notation (e.g. \"string.quoted.single\"). Not required because these values will be derived using the 'palette' object colors.",
+            "additionalProperties": false,
+            "properties": {
+                "comment": {
+                    "$ref": "#/$defs/color"
+                },
+                "comment.line": {
+                    "$ref": "#/$defs/color"
+                },
+                "comment.block": {
+                    "$ref": "#/$defs/color"
+                },
+                "comment.documentation": {
+                    "$ref": "#/$defs/color"
+                },
+                "invalid": {
+                    "$ref": "#/$defs/color"
+                },
+                "invalid.deprecated": {
+                    "$ref": "#/$defs/color"
+                },
+                "invalid.illegal": {
+                    "$ref": "#/$defs/color"
+                },
+                "string": {
+                    "$ref": "#/$defs/color"
+                },
+                "string.quoted": {
+                    "$ref": "#/$defs/color"
+                },
+                "string.quoted.single": {
+                    "$ref": "#/$defs/color"
+                },
+                "string.quoted.double": {
+                    "$ref": "#/$defs/color"
+                },
+                "string.regexp": {
+                    "$ref": "#/$defs/color"
+                },
+                "string.template": {
+                    "$ref": "#/$defs/color"
+                },
+                "string.interpolated": {
+                    "$ref": "#/$defs/color"
+                },
+                "string.unquoted": {
+                    "$ref": "#/$defs/color"
+                },
+                "string.other": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant.numeric": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant.numeric.integer": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant.numeric.float": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant.numeric.hex": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant.language": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant.character": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant.character.escape": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant.character.entity": {
+                    "$ref": "#/$defs/color"
+                },
+                "constant.other": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.class": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.function": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.function.constructor": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.label": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.tag": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.type": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.type.class": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.type.enum": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.namespace": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.name.section": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.other": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.other.attribute-name": {
+                    "$ref": "#/$defs/color"
+                },
+                "entity.other.inherited-class": {
+                    "$ref": "#/$defs/color"
+                },
+                "keyword": {
+                    "$ref": "#/$defs/color"
+                },
+                "keyword.control": {
+                    "$ref": "#/$defs/color"
+                },
+                "keyword.control.import": {
+                    "$ref": "#/$defs/color"
+                },
+                "keyword.control.flow": {
+                    "$ref": "#/$defs/color"
+                },
+                "keyword.declaration": {
+                    "$ref": "#/$defs/color"
+                },
+                "keyword.operator": {
+                    "$ref": "#/$defs/color"
+                },
+                "keyword.other": {
+                    "$ref": "#/$defs/color"
+                },
+                "storage": {
+                    "$ref": "#/$defs/color"
+                },
+                "storage.type": {
+                    "$ref": "#/$defs/color"
+                },
+                "storage.modifier": {
+                    "$ref": "#/$defs/color"
+                },
+                "support": {
+                    "$ref": "#/$defs/color"
+                },
+                "support.function": {
+                    "$ref": "#/$defs/color"
+                },
+                "support.class": {
+                    "$ref": "#/$defs/color"
+                },
+                "support.type": {
+                    "$ref": "#/$defs/color"
+                },
+                "support.constant": {
+                    "$ref": "#/$defs/color"
+                },
+                "support.variable": {
+                    "$ref": "#/$defs/color"
+                },
+                "support.other": {
+                    "$ref": "#/$defs/color"
+                },
+                "support.function.builtin": {
+                    "$ref": "#/$defs/color"
+                },
+                "variable": {
+                    "$ref": "#/$defs/color"
+                },
+                "variable.parameter": {
+                    "$ref": "#/$defs/color"
+                },
+                "variable.language": {
+                    "$ref": "#/$defs/color"
+                },
+                "variable.other": {
+                    "$ref": "#/$defs/color"
+                },
+                "variable.other.constant": {
+                    "$ref": "#/$defs/color"
+                },
+                "variable.other.object": {
+                    "$ref": "#/$defs/color"
+                },
+                "variable.other.object.property": {
+                    "$ref": "#/$defs/color"
+                },
+                "punctuation": {
+                    "$ref": "#/$defs/color"
+                },
+                "punctuation.separator": {
+                    "$ref": "#/$defs/color"
+                },
+                "punctuation.definition": {
+                    "$ref": "#/$defs/color"
+                },
+                "punctuation.definition.string": {
+                    "$ref": "#/$defs/color"
+                },
+                "punctuation.definition.comment": {
+                    "$ref": "#/$defs/color"
+                },
+                "punctuation.section": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.bold": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.italic": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.quote": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.underline": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.heading": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.list": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.list.numbered": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.list.unnumbered": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.link": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.raw": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.inserted": {
+                    "$ref": "#/$defs/color"
+                },
+                "markup.changed": {
+                    "$ref": "#/$defs/color"
+                },
+                "source": {
+                    "$ref": "#/$defs/color"
+                },
+                "text": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.annotation": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.function": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.class": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.block": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.tag": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.type": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.import": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.preprocessor": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.embedded": {
+                    "$ref": "#/$defs/color"
+                },
+                "meta.object": {
+                    "$ref": "#/$defs/color"
+                }
+            }
+        },
+        "ui": {
+            "type": "object",
+            "description": "UI theming properties. Keys use dot-notation (e.g. \"global.background.normal\").. Not required because these values will be derived using the 'palette' object colors.",
+            "additionalProperties": false,
+            "properties": {
+                "global.background.normal": {
+                    "$ref": "#/$defs/color"
+                },
+                "global.background.dark": {
+                    "$ref": "#/$defs/color"
+                },
+                "global.background.light": {
+                    "$ref": "#/$defs/color"
+                },
+                "deprecated": {
+                    "$ref": "#/$defs/color"
+                },
+                "accent.normal": {
+                    "$ref": "#/$defs/color"
+                },
+                "border.normal": {
+                    "$ref": "#/$defs/color"
+                },
+                "chrome.background.normal": {
+                    "$ref": "#/$defs/color"
+                },
+                "chrome.background.dark": {
+                    "$ref": "#/$defs/color"
+                },
+                "chrome.background.light": {
+                    "$ref": "#/$defs/color"
+                },
+                "chrome.foreground.normal": {
+                    "$ref": "#/$defs/color"
+                },
+                "chrome.foreground.dark": {
+                    "$ref": "#/$defs/color"
+                },
+                "chrome.foreground.light": {
+                    "$ref": "#/$defs/color"
+                },
+                "cursor.background.normal": {
+                    "$ref": "#/$defs/color"
+                },
+                "cursor.background.muted": {
+                    "$ref": "#/$defs/color"
+                },
+                "cursor.foreground.normal": {
+                    "$ref": "#/$defs/color"
+                },
+                "cursor.foreground.muted": {
+                    "$ref": "#/$defs/color"
+                },
+                "global.foreground.normal": {
+                    "$ref": "#/$defs/color"
+                },
+                "global.foreground.dark": {
+                    "$ref": "#/$defs/color"
+                },
+                "global.foreground.light": {
+                    "$ref": "#/$defs/color"
+                },
+                "gutter.background": {
+                    "$ref": "#/$defs/color"
+                },
+                "gutter.foreground": {
+                    "$ref": "#/$defs/color"
+                },
+                "highlight.line.background": {
+                    "$ref": "#/$defs/color"
+                },
+                "highlight.line.foreground": {
+                    "$ref": "#/$defs/color"
+                },
+                "highlight.search.background": {
+                    "$ref": "#/$defs/color"
+                },
+                "highlight.search.foreground": {
+                    "$ref": "#/$defs/color"
+                },
+                "highlight.text.background": {
+                    "$ref": "#/$defs/color"
+                },
+                "highlight.text.foreground": {
+                    "$ref": "#/$defs/color"
+                },
+                "highlight.text.active-background": {
+                    "$ref": "#/$defs/color"
+                },
+                "highlight.text.active-foreground": {
+                    "$ref": "#/$defs/color"
+                },
+                "indent-guide.background": {
+                    "$ref": "#/$defs/color"
+                },
+                "indent-guide.active-background": {
+                    "$ref": "#/$defs/color"
+                },
+                "link.normal.background": {
+                    "$ref": "#/$defs/color"
+                },
+                "link.normal.foreground": {
+                    "$ref": "#/$defs/color"
+                },
+                "whitespace.foreground": {
+                    "$ref": "#/$defs/color"
+                },
+                "selection.background": {
+                    "$ref": "#/$defs/color"
+                },
+                "selection.foreground": {
+                    "$ref": "#/$defs/color"
+                },
+                "selection.inactive-background": {
+                    "$ref": "#/$defs/color"
+                },
+                "status.error": {
+                    "$ref": "#/$defs/color"
+                },
+                "status.warning": {
+                    "$ref": "#/$defs/color"
+                },
+                "status.info": {
+                    "$ref": "#/$defs/color"
+                },
+                "status.success": {
+                    "$ref": "#/$defs/color"
+                },
+                "tooltip.background": {
+                    "$ref": "#/$defs/color"
+                },
+                "tooltip.foreground": {
+                    "$ref": "#/$defs/color"
+                }
+            }
+        }
+    },
+    "$defs": {
+        "color": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "description": "Hex color in #RRGGBB format.",
+            "$comment": "Alpha channel (#RRGGBBAA) intentionally excluded.",
+            "examples": ["#1a1b26", "#c0caf5"]
+        }
+    }
+}
