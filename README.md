@@ -180,7 +180,8 @@ If you have a template you maintain, but don't want to submit it to this org, fe
 
 <details><summary><b>Window Managers</b> - window managers and related utilities</summary>
 <p>
-
+ 
+* [Hyprland (Lua)](https://github.com/janfreeman/base16-hyprland-lua) maintained by [janfreeman](https://github.com/janfreeman)
 * [i3status](https://github.com/Eluminae/base16-i3status) maintained by [Eluminae](https://github.com/Eluminae)
 * [i3status-rust](https://github.com/mystfox/base16-i3status-rust) maintained by [mystfox](https://github.com/mystfox)
 * [mako](https://github.com/Eluminae/base16-mako) maintained by [Eluminae](https://github.com/Eluminae)
