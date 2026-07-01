@@ -1,6 +1,6 @@
 # Tinted8 Styling Guidelines
 
-**Version 0.2.0-beta7** The latest version of this spec can be obtained from
+**Version 0.2.0-beta8** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 ## Introduction
@@ -229,7 +229,6 @@ color code) value.
 | syntax.variable.other               | `$var` → `$var` | Other variables not covered by parameter or language. |
 | syntax.variable.other.constant      | `MAX_SIZE` → `MAX_SIZE` | Constant variables. (Non-standard) |
 | syntax.variable.other.object        | `obj.property` → `obj` | Object variables. (Non-standard) |
-| syntax.variable.other.object        | `obj.property` → `obj` | Object variables. (Non-standard) |
 | syntax.variable.other.object.property | `obj.property` → `property` | Object property variables. (Non-standard) |
 | syntax.punctuation                  | `a, b;` → `,` `;` | All punctuation characters. Fallback for accessors, separators, terminators, etc. |
 | syntax.punctuation.separator        | `a, b` → `,` | List/argument separators (e.g., commas, semicolons). |
@@ -250,6 +249,7 @@ color code) value.
 | syntax.markup.raw                   | "```code```" → `code` | Raw blocks/inline code. |
 | syntax.markup.inserted              | `+ const newFeature = true;` → `+ const newFeature = true;` | Inserted content in diffs or change tracking. |
 | syntax.markup.changed               | `~ const version = "0.1.0";` → `~ const version = "0.1.0";` | Changed content in diffs or change tracking. |
+| syntax.markup.deleted               | `- const oldFeature = true;` → `- const oldFeature = true;` | Deleted content in diffs or change tracking. |
 | syntax.source                       | Embedded source code region | Source code regions (used for embedding). |
 | syntax.text                         | Plain text region | Plain text regions (non-code content). |
 | syntax.meta                         | `function foo() { }` → context | Meta scopes for contextual groupings (typically not styled directly). |
@@ -275,10 +275,10 @@ color code) value.
 | ui.chrome.foreground.normal         | Sidebar/tab bar/etc → text | General text/icon color in app chrome surfaces. |
 | ui.chrome.foreground.dark           | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
 | ui.chrome.foreground.light          | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
-| ui.cursor.background.normal         | Editor caret | The text cursor background color in editors. |
-| ui.cursor.background.muted          | Muted/disabled editor caret | The muted/disabled text cursor background color in editors. |
-| ui.cursor.foreground.normal         | Editor caret | The text cursor foreground color in editors. |
-| ui.cursor.foreground.muted          | Muted/disabled editor caret | The muted/disabled text foreground cursor color in editors. |
+| ui.cursor.normal.background         | Editor caret | The text cursor background color in editors. |
+| ui.cursor.muted.background          | Muted/disabled editor caret | The muted/disabled text cursor background color in editors. |
+| ui.cursor.normal.foreground         | Editor caret | The text cursor foreground color in editors. |
+| ui.cursor.muted.foreground          | Muted/disabled editor caret | The muted/disabled text foreground cursor color in editors. |
 | ui.global.foreground.normal         | Editor text → `"hello"` | General text in the user interface. |
 | ui.global.foreground.dark           | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
 | ui.global.foreground.light          | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |
@@ -314,7 +314,7 @@ Theming Properties as well as the default color values.
 
 ## Inheritance
 
-Theming Properties follow a hierarchical fallback system:
+`syntax` Theming Properties follow a hierarchical fallback system:
 
 1. A specific key (e.g. syntax.constant.numeric.float) inherits from its
    parent (syntax.constant.numeric).
@@ -327,9 +327,12 @@ Example rule chain:
 syntax.string.template → syntax.string → builder default (green-normal)
 ```
 
-This model lets authors define only the Theming Properties they need, builders
-ensure the theme remains complete by generating default values for the left out
-properties.
+This model lets authors define only the `syntax` properties they need and
+builders ensure the theme remains complete by generating default values for the
+left out properties.
+
+`ui` properties do not inherit from parent keys. Each `ui` key resolves
+independently to either its explicit scheme value or its builder default.
 
 ## Readable Defaults
 
@@ -342,8 +345,9 @@ These defaults are suggestions, authors may override them as desired.
 
 A scheme is Tinted8-compliant if it:
 
-- Includes all required fields (`scheme.system`, `scheme.author`, `variant`,
-  `scheme.name|scheme.slug|scheme.family` `palette`)
+- Includes all required fields (`scheme.system`,
+  `scheme.supports.styling-spec`, `scheme.author`, `variant`,
+  `scheme.name|scheme.slug|scheme.family`, `palette`)
 - Uses valid color formats (hex `#RRGGBB`)
 - Follows the inheritance and structure rules defined here
 

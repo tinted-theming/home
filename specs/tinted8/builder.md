@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta8** The latest version of this spec can be obtained from
+**Version 0.2.0-beta9** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -112,7 +112,7 @@ and hue in degrees `h ∈ [0, 360)`.
   - Input: `HSL(black) = (h_b, s_b, l_b)`, `HSL(white) = (h_w, s_w, l_w)`
   - Operation:
     - Hue midpoint (wrap-aware): `d = ((h_b - h_w + 540) % 360) - 180`, `h' = (h_w + 0.5*d + 360) % 360`
-    - Saturation: `s' = 0`
+    - Saturation: `s' = 0.5 * (s_b + s_w)`
     - Lightness: `l' = 0.5 * (l_b + l_w)`
   - Output: `HSL(h', s', l')` converted back to RGB/hex
 
@@ -268,9 +268,9 @@ between variants.
 | Theming Property                         | Dark Default Color  | Light Default Color  |
 | ---------------------------------------- | ------------------- | -------------------- |
 | syntax.comment                           | gray-dim            | gray-bright          |
-| syntax.comment.line                      | gray-dim            | gray-bright          |
 | syntax.comment.block                     | gray-dim            | gray-bright          |
 | syntax.comment.documentation             | gray-dim            | gray-bright          |
+| syntax.comment.line                      | gray-dim            | gray-bright          |
 | syntax.invalid                           | red-bright          | red-bright           |
 | syntax.invalid.deprecated                | yellow-bright       | yellow-bright        |
 | syntax.invalid.illegal                   | red-bright          | red-bright           |
@@ -331,7 +331,7 @@ between variants.
 | syntax.variable.language                 | magenta-normal      | magenta-normal       |
 | syntax.variable.other                    | white-normal        | black-normal         |
 | syntax.variable.other.constant           | white-normal        | black-normal         |
-| syntax.variable.other.property           | white-normal        | black-normal         |
+| syntax.variable.other.object.property    | white-normal        | black-normal         |
 | syntax.variable.other.object             | white-normal        | black-normal         |
 | syntax.punctuation                       | white-dim           | black-bright         |
 | syntax.punctuation.separator             | white-normal        | black-normal         |
@@ -367,8 +367,8 @@ between variants.
 | syntax.meta.embedded                     | white-normal        | black-normal         |
 | syntax.meta.object                       | orange-normal       | orange-normal        |
 | ui.global.background.normal              | black-normal        | white-normal         |
-| ui.global.background.dark                | black-dim           | white-dim            |
-| ui.global.background.light               | black-bright        | white-bright         |
+| ui.global.background.dark                | black-dim           | white-bright         |
+| ui.global.background.light               | black-bright        | white-dim            |
 | ui.deprecated                            | brown-normal        | brown-normal         |
 | ui.accent.normal                         | cyan-normal         | cyan-normal          |
 | ui.border.normal                         | gray-dim            | gray-bright          |
@@ -378,10 +378,10 @@ between variants.
 | ui.chrome.foreground.normal              | white-normal        | black-normal         |
 | ui.chrome.foreground.dark                | white-dim           | black-dim            |
 | ui.chrome.foreground.light               | white-bright        | black-bright         |
-| ui.cursor.background.normal              | white-normal        | black-normal         |
-| ui.cursor.background.muted               | gray-bright         | gray-dim             |
-| ui.cursor.foreground.normal              | black-normal        | white-normal         |
-| ui.cursor.foreground.muted               | gray-dim            | gray-bright          |
+| ui.cursor.normal.background              | white-normal        | black-normal         |
+| ui.cursor.muted.background               | gray-bright         | gray-dim             |
+| ui.cursor.normal.foreground              | black-normal        | white-normal         |
+| ui.cursor.muted.foreground               | gray-dim            | gray-bright          |
 | ui.global.foreground.normal              | white-normal        | black-normal         |
 | ui.global.foreground.dark                | white-dim           | black-bright         |
 | ui.global.foreground.light               | white-bright        | black-dim            |
