@@ -165,30 +165,18 @@ color code) value.
 | Theming Property                    | Example Context | Purpose |
 | ----------------------------------- | --------------- | ------- |
 | syntax.comment                      | `// Comment` → `// Comment` | All comment scopes (line, block, documentation). Fallback for unspecified comment types. |
-| syntax.comment.line                 | `// Comment` → `// Comment` | Line comments (e.g., `//` or `#` style). |
 | syntax.comment.block                | `/* comment */` → `/* comment */` | Block comments (e.g., `/* */` or `"""` style). |
 | syntax.comment.documentation        | `/** @param x */` → `/** @param x */` | Documentation comments (e.g., JSDoc, Javadoc, docstrings). |
-| syntax.invalid                      | `@` in invalid context → `@` | Invalid or erroneous constructs. |
-| syntax.invalid.deprecated           | Deprecated API use → token | Deprecated constructs. |
-| syntax.invalid.illegal              | Illegal token → token | Illegal constructs that should not appear. |
-| syntax.string                       | `"Hello world"` → `"Hello world"` | All string related values. |
-| syntax.string.quoted                | `"Hello world"` → `"Hello world"` | Quoted strings, such as text enclosed in double or single quotes. |
-| syntax.string.quoted.single         | `'hello'` → `'hello'` | Single-quoted strings. |
-| syntax.string.quoted.double         | `"hello"` → `"hello"` | Double-quoted strings. |
-| syntax.string.regexp                | `/^Hello/g` → `/^Hello/g` | Regular expressions or patterns used to match character combinations in strings. |
-| syntax.string.template              | `` `Hello ${name}` `` → `` `Hello ${name}` `` | Template literals and interpolations. |
-| syntax.string.interpolated          | `` `Hello ${name}` `` → `${name}` | Interpolated/embedded portions inside strings. |
-| syntax.string.unquoted              | `hello` → `hello` | Unquoted string content in languages that allow it. |
-| syntax.string.other                 | `q{string}` → `q{string}` | Other string types not covered by quoted, regexp, or template. |
+| syntax.comment.line                 | `// Comment` → `// Comment` | Line comments (e.g., `//` or `#` style). |
 | syntax.constant                     | `null` → `null` | All literal constants (booleans, numbers, nulls, characters). Fallback for unspecified constant types. |
+| syntax.constant.character           | `'\\n'` → `'\\n'` | Character literals and escape sequences. Fallback for escape and entity characters. |
+| syntax.constant.character.entity    | `Foo&apos;s` → `&apos;` | Special character entities (HTML/XML). |
+| syntax.constant.character.escape    | `'What\'s that?'` → `\'` | Escaped characters inside strings. |
+| syntax.constant.language            | `true` → `true` | Language-provided constants (e.g., `true`, `false`, `null`, `nil`). |
 | syntax.constant.numeric             | `42` → `42` | All numeric literals. Fallback for integer, float, hex, and exponential numbers. |
-| syntax.constant.numeric.integer     | `12` → `12` | Integer values. |
 | syntax.constant.numeric.float       | `18.1` → `18.1` | Float values. |
 | syntax.constant.numeric.hex         | `0x1234ABC` → `0x1234ABC` | Hexadecimal values. |
-| syntax.constant.language            | `true` → `true` | Language-provided constants (e.g., `true`, `false`, `null`, `nil`). |
-| syntax.constant.character           | `'\\n'` → `'\\n'` | Character literals and escape sequences. Fallback for escape and entity characters. |
-| syntax.constant.character.escape    | `'What\'s that?'` → `\'` | Escaped characters inside strings. |
-| syntax.constant.character.entity    | `Foo&apos;s` → `&apos;` | Special character entities (HTML/XML). |
+| syntax.constant.numeric.integer     | `12` → `12` | Integer values. |
 | syntax.constant.other               | `nil` → `nil` | Constants not covered by numeric, language, or character categories (e.g., symbols, atoms). |
 | syntax.entity                       | `class Person {}` → `Person` | All named constructs (classes, functions, tags, variables). Fallback for entity scopes. |
 | syntax.entity.name                  | `class Person {}` → `Person` | All entity names. Fallback for class, function, tag, type, and variable names. |
@@ -196,116 +184,127 @@ color code) value.
 | syntax.entity.name.function         | `function greet() {}` → `greet` | Function names in code. |
 | syntax.entity.name.function.constructor | `new Foo()` → `Foo` | Constructor method names. (Non-standard) |
 | syntax.entity.name.label            | `loop: for` → `loop` | Labels for goto targets or loop identifiers. |
+| syntax.entity.name.namespace        | `MyApp.Utils.foo` → `MyApp` | Namespace/package/module names. |
+| syntax.entity.name.section          | Markdown heading → `Heading` | Section or heading names. |
 | syntax.entity.name.tag              | `<div>Hello</div>` → `div` | HTML or XML tag names. |
 | syntax.entity.name.type             | `List<String>` → `List` | Type names. |
 | syntax.entity.name.type.class       | `class Person {}` → `Person` | Type names for classes. (Non-standard) |
 | syntax.entity.name.type.enum        | `enum Status {}` → `Status` | Type names for enums. (Non-standard) |
-| syntax.entity.name.namespace        | `MyApp.Utils.foo` → `MyApp` | Namespace/package/module names. |
-| syntax.entity.name.section          | Markdown heading → `Heading` | Section or heading names. |
 | syntax.entity.other                 | `<img src="logo.png">` → `src` | Miscellaneous entity data. Fallback for attributes and inherited classes. |
 | syntax.entity.other.attribute-name  | `<img src="logo.png">` → `src` | Attribute names, commonly used in HTML, XML, or other markup languages. |
 | syntax.entity.other.inherited-class | `class B extends A` → `A` | Inherited/extended class names. |
+| syntax.invalid                      | `@` in invalid context → `@` | Invalid or erroneous constructs. |
+| syntax.invalid.deprecated           | Deprecated API use → token | Deprecated constructs. |
+| syntax.invalid.illegal              | Illegal token → token | Illegal constructs that should not appear. |
 | syntax.keyword                      | `function foo()` → `function` | All language keywords. Fallback for control, declaration, and operator keywords. |
 | syntax.keyword.control              | `if (x > 0)` → `if` | Control flow keywords. Fallback for import and flow keywords. |
-| syntax.keyword.control.import       | `import x from 'y'` → `import` | Import/include/require statements. |
 | syntax.keyword.control.flow         | `return x` → `return` | Flow control keywords (e.g., `return`, `break`, `continue`). |
+| syntax.keyword.control.import       | `import x from 'y'` → `import` | Import/include/require statements. |
 | syntax.keyword.declaration          | `const age = 42;` → `const` | Declaration keywords. |
 | syntax.keyword.operator             | `a + b` → `+` | Operator keywords/symbolic operators that tokenize as keywords. |
 | syntax.keyword.other                | `import` → `import` | Keywords not covered by control, declaration, or operator categories. |
+| syntax.markup                       | `**bold** _italic_` → `bold`, `italic` | All markup content. Fallback for bold, italic, code, links, and other markup styles. |
+| syntax.markup.bold                  | `<strong>Foo Bar</strong>` → `Foo Bar` | Bold text. |
+| syntax.markup.changed               | `~ const version = "0.1.0";` → `~ const version = "0.1.0";` | Changed content in diffs or change tracking. |
+| syntax.markup.deleted               | `- const oldFeature = true;` → `- const oldFeature = true;` | Deleted content in diffs or change tracking. |
+| syntax.markup.heading               | `# Title` → `Title` | Headings in markup documents. |
+| syntax.markup.inserted              | `+ const newFeature = true;` → `+ const newFeature = true;` | Inserted content in diffs or change tracking. |
+| syntax.markup.italic                | `<em>note</em>` → `note` | Italic text. |
+| syntax.markup.link                  | `[text](url)` → `text` | Link text. |
+| syntax.markup.list                  | `- item` → `-` | All list markers. Fallback for numbered and unnumbered lists. |
+| syntax.markup.list.numbered         | `1. item` → `1.` | Numbered/ordered list markers. |
+| syntax.markup.list.unnumbered       | `- item` → `-` | Unnumbered/bullet list markers. |
+| syntax.markup.quote                 | `<blockquote>Be yourself</blockquote>` → `Be yourself` | Quoted text. |
+| syntax.markup.raw                   | "```code```" → `code` | Raw blocks/inline code. |
+| syntax.markup.underline             | `<u>note</u>` → `note` | Underlined text. |
+| syntax.meta                         | `function foo() { }` → context | Meta scopes for contextual groupings (typically not styled directly). |
+| syntax.meta.annotation              | `#[derive(Debug)]` → `derive` | Attribute/decorator context. (Non-standard) |
+| syntax.meta.block                   | `{ ... }` → block | Generic block/statement grouping context. |
+| syntax.meta.class                   | `class Person {}` → `class` | Class context (often paired with `entity.name.class`). |
+| syntax.meta.embedded                | `<style>...</style>` → embedded | Embedded language or content region. |
+| syntax.meta.function                | `function foo() { }` → `function` | Function context (often paired with `entity.name.function`). |
+| syntax.meta.import                  | `import { x } from "y"` → `import` | Import/include context. |
+| syntax.meta.object                  | `obj` → `obj` | Object context. (Non-standard) |
+| syntax.meta.preprocessor            | `#if DEBUG` → `#if` | Preprocessor or directive context. |
+| syntax.meta.tag                     | `<div class="x">` → tag | Tag context in markup or templates. |
+| syntax.meta.type                    | `type Foo = ...` → `type` | Type definition or declaration context. |
+| syntax.punctuation                  | `a, b;` → `,` `;` | All punctuation characters. Fallback for accessors, separators, terminators, etc. |
+| syntax.punctuation.definition       | `/* comment */` → `/* */`, `"string"` → `""` | Definition delimiters (quotes, comment markers). Fallback for string and comment delimiters. |
+| syntax.punctuation.definition.comment | `/* */` → `/* */` | Comment delimiters. |
+| syntax.punctuation.definition.string| `"hello"` → `""` | Quote delimiters for strings. |
+| syntax.punctuation.section          | `( a )` → `(` `)` | Sectioning delimiters such as parentheses/brackets/braces. |
+| syntax.punctuation.separator        | `a, b` → `,` | List/argument separators (e.g., commas, semicolons). |
+| syntax.source                       | Embedded source code region | Source code regions (used for embedding). |
 | syntax.storage                      | `static int x` → `static`, `int` | Storage types and modifiers. Fallback for type and modifier scopes. |
-| syntax.storage.type                 | `int x` → `int` | Type keywords in declarations (e.g., `int`, `char`, `function`, `class`). |
 | syntax.storage.modifier             | `public class` → `public` | Storage modifiers/qualifiers. |
+| syntax.storage.type                 | `int x` → `int` | Type keywords in declarations (e.g., `int`, `char`, `function`, `class`). |
+| syntax.string                       | `"Hello world"` → `"Hello world"` | All string related values. |
+| syntax.string.interpolated          | `` `Hello ${name}` `` → `${name}` | Interpolated/embedded portions inside strings. |
+| syntax.string.other                 | `q{string}` → `q{string}` | Other string types not covered by quoted, regexp, or template. |
+| syntax.string.quoted                | `"Hello world"` → `"Hello world"` | Quoted strings, such as text enclosed in double or single quotes. |
+| syntax.string.quoted.double         | `"hello"` → `"hello"` | Double-quoted strings. |
+| syntax.string.quoted.single         | `'hello'` → `'hello'` | Single-quoted strings. |
+| syntax.string.regexp                | `/^Hello/g` → `/^Hello/g` | Regular expressions or patterns used to match character combinations in strings. |
+| syntax.string.template              | `` `Hello ${name}` `` → `` `Hello ${name}` `` | Template literals and interpolations. |
+| syntax.string.unquoted              | `hello` → `hello` | Unquoted string content in languages that allow it. |
 | syntax.support                      | `printf` → `printf` | Library/framework-provided identifiers. Fallback for support functions, classes, types, etc. |
-| syntax.support.function             | `printf` → `printf` | Library/framework functions. |
 | syntax.support.class                | `String` → `String` | Library/framework classes. |
-| syntax.support.type                 | `HTMLElement` → `HTMLElement` | Library/framework types. |
 | syntax.support.constant             | `PI` → `PI` | Library/framework constants. |
-| syntax.support.variable             | `$@special` → `$@special` | Library/framework variables. |
-| syntax.support.other                | `@annotation` → `@annotation` | Other library/framework support not covered by specific categories. |
+| syntax.support.function             | `printf` → `printf` | Library/framework functions. |
 | syntax.support.function.builtin     | `len()` → `len` | Built-in/native functions. (Non-standard) |
+| syntax.support.other                | `@annotation` → `@annotation` | Other library/framework support not covered by specific categories. |
+| syntax.support.type                 | `HTMLElement` → `HTMLElement` | Library/framework types. |
+| syntax.support.variable             | `$@special` → `$@special` | Library/framework variables. |
+| syntax.text                         | Plain text region | Plain text regions (non-code content). |
 | syntax.variable                     | `let x` → `x` | All variable references. Fallback for parameters, language variables, and function variables. |
-| syntax.variable.parameter           | `function f(x)` → `x` | Function/method parameters. |
 | syntax.variable.language            | `this`/`self` → `this` | Language-provided variables. |
 | syntax.variable.other               | `$var` → `$var` | Other variables not covered by parameter or language. |
 | syntax.variable.other.constant      | `MAX_SIZE` → `MAX_SIZE` | Constant variables. (Non-standard) |
 | syntax.variable.other.object        | `obj.property` → `obj` | Object variables. (Non-standard) |
 | syntax.variable.other.object.property | `obj.property` → `property` | Object property variables. (Non-standard) |
-| syntax.punctuation                  | `a, b;` → `,` `;` | All punctuation characters. Fallback for accessors, separators, terminators, etc. |
-| syntax.punctuation.separator        | `a, b` → `,` | List/argument separators (e.g., commas, semicolons). |
-| syntax.punctuation.definition       | `/* comment */` → `/* */`, `"string"` → `""` | Definition delimiters (quotes, comment markers). Fallback for string and comment delimiters. |
-| syntax.punctuation.definition.string| `"hello"` → `""` | Quote delimiters for strings. |
-| syntax.punctuation.definition.comment | `/* */` → `/* */` | Comment delimiters. |
-| syntax.punctuation.section          | `( a )` → `(` `)` | Sectioning delimiters such as parentheses/brackets/braces. |
-| syntax.markup                       | `**bold** _italic_` → `bold`, `italic` | All markup content. Fallback for bold, italic, code, links, and other markup styles. |
-| syntax.markup.bold                  | `<strong>Foo Bar</strong>` → `Foo Bar` | Bold text. |
-| syntax.markup.italic                | `<em>note</em>` → `note` | Italic text. |
-| syntax.markup.quote                 | `<blockquote>Be yourself</blockquote>` → `Be yourself` | Quoted text. |
-| syntax.markup.underline             | `<u>note</u>` → `note` | Underlined text. |
-| syntax.markup.heading               | `# Title` → `Title` | Headings in markup documents. |
-| syntax.markup.list                  | `- item` → `-` | All list markers. Fallback for numbered and unnumbered lists. |
-| syntax.markup.list.numbered         | `1. item` → `1.` | Numbered/ordered list markers. |
-| syntax.markup.list.unnumbered       | `- item` → `-` | Unnumbered/bullet list markers. |
-| syntax.markup.link                  | `[text](url)` → `text` | Link text. |
-| syntax.markup.raw                   | "```code```" → `code` | Raw blocks/inline code. |
-| syntax.markup.inserted              | `+ const newFeature = true;` → `+ const newFeature = true;` | Inserted content in diffs or change tracking. |
-| syntax.markup.changed               | `~ const version = "0.1.0";` → `~ const version = "0.1.0";` | Changed content in diffs or change tracking. |
-| syntax.markup.deleted               | `- const oldFeature = true;` → `- const oldFeature = true;` | Deleted content in diffs or change tracking. |
-| syntax.source                       | Embedded source code region | Source code regions (used for embedding). |
-| syntax.text                         | Plain text region | Plain text regions (non-code content). |
-| syntax.meta                         | `function foo() { }` → context | Meta scopes for contextual groupings (typically not styled directly). |
-| syntax.meta.annotation              | `#[derive(Debug)]` → `derive` | Attribute/decorator context. (Non-standard) |
-| syntax.meta.function                | `function foo() { }` → `function` | Function context (often paired with `entity.name.function`). |
-| syntax.meta.class                   | `class Person {}` → `class` | Class context (often paired with `entity.name.class`). |
-| syntax.meta.block                   | `{ ... }` → block | Generic block/statement grouping context. |
-| syntax.meta.tag                     | `<div class="x">` → tag | Tag context in markup or templates. |
-| syntax.meta.type                    | `type Foo = ...` → `type` | Type definition or declaration context. |
-| syntax.meta.import                  | `import { x } from "y"` → `import` | Import/include context. |
-| syntax.meta.preprocessor            | `#if DEBUG` → `#if` | Preprocessor or directive context. |
-| syntax.meta.embedded                | `<style>...</style>` → embedded | Embedded language or content region. |
-| syntax.meta.object                  | `obj` → `obj` | Object context. (Non-standard) |
-| ui.global.background.normal         | Editor canvas → background | The general background of the user interface. |
-| ui.global.background.dark           | Sidebar → background | Darker background areas, typically used for sidebars, footers, or other sections. |
-| ui.global.background.light          | Active tab → background | Lighter background areas, typically used for light modes or highlighting. |
-| ui.deprecated                       | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
+| syntax.variable.parameter           | `function f(x)` → `x` | Function/method parameters. |
 | ui.accent.normal                    | Focus rings / active border | Primary accent color for focus/active indications. |
 | ui.border.normal                    | Panel/tab borders | Generic border/divider color. |
-| ui.chrome.background.normal         | Sidebar/tab bar/etc → background | The general background of app chrome surfaces (sidebars, tab bars, status bars, toolbars). |
 | ui.chrome.background.dark           | Sidebar/tab bar/etc → background | Can be used to highlight or mute areas. |
 | ui.chrome.background.light          | Sidebar/tab bar/etc → background | Can be used to highlight or mute areas. |
-| ui.chrome.foreground.normal         | Sidebar/tab bar/etc → text | General text/icon color in app chrome surfaces. |
+| ui.chrome.background.normal         | Sidebar/tab bar/etc → background | The general background of app chrome surfaces (sidebars, tab bars, status bars, toolbars). |
 | ui.chrome.foreground.dark           | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
 | ui.chrome.foreground.light          | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
-| ui.cursor.normal.background         | Editor caret | The text cursor background color in editors. |
 | ui.cursor.muted.background          | Muted/disabled editor caret | The muted/disabled text cursor background color in editors. |
-| ui.cursor.normal.foreground         | Editor caret | The text cursor foreground color in editors. |
 | ui.cursor.muted.foreground          | Muted/disabled editor caret | The muted/disabled text foreground cursor color in editors. |
-| ui.global.foreground.normal         | Editor text → `"hello"` | General text in the user interface. |
+| ui.cursor.normal.background         | Editor caret | The text cursor background color in editors. |
+| ui.cursor.normal.foreground         | Editor caret | The text cursor foreground color in editors. |
+| ui.deprecated                       | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
+| ui.global.background.dark           | Sidebar → background | Darker background areas, typically used for sidebars, footers, or other sections. |
+| ui.global.background.light          | Active tab → background | Lighter background areas, typically used for light modes or highlighting. |
+| ui.global.background.normal         | Editor canvas → background | The general background of the user interface. |
 | ui.global.foreground.dark           | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
 | ui.global.foreground.light          | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |
+| ui.global.foreground.normal         | Editor text → `"hello"` | General text in the user interface. |
 | ui.gutter.background                | Editor gutter → background | Background color for the gutter/line number area. |
 | ui.gutter.foreground                | Editor gutter → line numbers | Foreground color for the gutter/line numbers. |
 | ui.highlight.line.background        | Active line highlight → background | The background of the active/marked line. |
 | ui.highlight.line.foreground        | Line info → text | Foreground for the line highlight area (e.g., line numbers). |
 | ui.highlight.search.background      | Search highlight → background | Background of highlighted search matches. |
 | ui.highlight.search.foreground      | Search highlight → text | Foreground of highlighted search matches. |
-| ui.highlight.text.background        | Selected text highlight → background | Background of inline text highlights. |
-| ui.highlight.text.foreground        | Selected text highlight → text | Foreground of inline text highlights. |
 | ui.highlight.text.active-background | Active selection → background | Background when the selection is active/focused. |
 | ui.highlight.text.active-foreground | Active selection → text | Foreground when the selection is active/focused. |
-| ui.indent-guide.background          | Indent guides → background | Background color for indentation guide marks. |
+| ui.highlight.text.background        | Selected text highlight → background | Background of inline text highlights. |
+| ui.highlight.text.foreground        | Selected text highlight → text | Foreground of inline text highlights. |
 | ui.indent-guide.active-background   | Active indent guide → background | Background for the active/primary indent guide. |
+| ui.indent-guide.background          | Indent guides → background | Background color for indentation guide marks. |
 | ui.link.normal.background           | UI links | Link and interactive background color in UI chrome. |
 | ui.link.normal.foreground           | UI links | Link and interactive text color in UI chrome. |
-| ui.whitespace.foreground            | Invisible/whitespace guides → marks | Foreground for whitespace/invisible character markers. |
 | ui.selection.background             | Selected code → background | The background of selected items in the user interface (e.g., highlighted text or options). |
 | ui.selection.foreground             | Selected code → foreground | The foreground of selected items in the user interface (e.g., highlighted text or options). |
 | ui.selection.inactive-background    | Unfocused selection → background | Selection background when the editor is unfocused. |
 | ui.status.error                     | Status/error banners | Error status/badge color. |
-| ui.status.warning                   | Status/warning banners | Warning status/badge color. |
 | ui.status.info                      | Status/info banners | Information status/badge color. |
 | ui.status.success                   | Status/success banners | Success status/badge color. |
+| ui.status.warning                   | Status/warning banners | Warning status/badge color. |
 | ui.tooltip.background               | Tooltip/hover → background | Background of tooltips and hover popovers. |
 | ui.tooltip.foreground               | Tooltip/hover → text | Foreground of tooltips and hover popovers. |
+| ui.whitespace.foreground            | Invisible/whitespace guides → marks | Foreground for whitespace/invisible character markers. |
 
 The `syntax` properties were largely derived from [TextMate Theme structure].
 
