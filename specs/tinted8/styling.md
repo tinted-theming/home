@@ -1,6 +1,6 @@
 # Tinted8 Styling Guidelines
 
-**Version 0.2.0-beta8** The latest version of this spec can be obtained from
+**Version 0.2.0-beta10** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 ## Introduction
@@ -75,10 +75,11 @@ syntax:
   string: "#ffb454"
   entity.name: "#95e6cb"
 ui:
-  background:
-    normal: "#131721"
-  foreground:
-    normal: "#e6e1cf"
+  global:
+    background:
+      normal: "#131721"
+    foreground:
+      normal: "#e6e1cf"
 ```
 
 ## Palette Definition
@@ -122,6 +123,9 @@ ui:
 | n/a | ![#](https://placehold.co/25/d19a66/000000?text=%2B) | palette.orange         | n/a |
 | n/a | ![#](https://placehold.co/25/ddb48d/000000?text=%2B) | palette.orange-bright  | n/a |
 | n/a | ![#](https://placehold.co/25/bc7939/000000?text=%2B) | palette.orange-dim     | n/a |
+| n/a | ![#](https://placehold.co/25/8b6914/000000?text=%2B) | palette.brown          | n/a |
+| n/a | ![#](https://placehold.co/25/a07d2a/000000?text=%2B) | palette.brown-bright   | n/a |
+| n/a | ![#](https://placehold.co/25/6b5200/000000?text=%2B) | palette.brown-dim      | n/a |
 
 ### Generated Colors
 
@@ -190,6 +194,7 @@ color code) value.
 | syntax.entity.name.type             | `List<String>` → `List` | Type names. |
 | syntax.entity.name.type.class       | `class Person {}` → `Person` | Type names for classes. (Non-standard) |
 | syntax.entity.name.type.enum        | `enum Status {}` → `Status` | Type names for enums. (Non-standard) |
+| syntax.entity.name.type.struct      | `struct Point {}` → `Point` | Type names for structs. (Non-standard) |
 | syntax.entity.other                 | `<img src="logo.png">` → `src` | Miscellaneous entity data. Fallback for attributes and inherited classes. |
 | syntax.entity.other.attribute-name  | `<img src="logo.png">` → `src` | Attribute names, commonly used in HTML, XML, or other markup languages. |
 | syntax.entity.other.inherited-class | `class B extends A` → `A` | Inherited/extended class names. |
@@ -232,6 +237,11 @@ color code) value.
 | syntax.punctuation.definition       | `/* comment */` → `/* */`, `"string"` → `""` | Definition delimiters (quotes, comment markers). Fallback for string and comment delimiters. |
 | syntax.punctuation.definition.comment | `/* */` → `/* */` | Comment delimiters. |
 | syntax.punctuation.definition.string| `"hello"` → `""` | Quote delimiters for strings. |
+| syntax.punctuation.brackets         | `[a]` → `[` `]` | All bracket characters. Fallback for angle, curly, round, and square brackets. |
+| syntax.punctuation.brackets.angle   | `<T>` → `<` `>` | Angle brackets. |
+| syntax.punctuation.brackets.curly   | `{ x }` → `{` `}` | Curly braces. |
+| syntax.punctuation.brackets.round   | `(a, b)` → `(` `)` | Round brackets (parentheses). |
+| syntax.punctuation.brackets.square  | `arr[0]` → `[` `]` | Square brackets. |
 | syntax.punctuation.section          | `( a )` → `(` `)` | Sectioning delimiters such as parentheses/brackets/braces. |
 | syntax.punctuation.separator        | `a, b` → `,` | List/argument separators (e.g., commas, semicolons). |
 | syntax.source                       | Embedded source code region | Source code regions (used for embedding). |
@@ -269,6 +279,7 @@ color code) value.
 | ui.chrome.background.light          | Sidebar/tab bar/etc → background | Can be used to highlight or mute areas. |
 | ui.chrome.background.normal         | Sidebar/tab bar/etc → background | The general background of app chrome surfaces (sidebars, tab bars, status bars, toolbars). |
 | ui.chrome.foreground.dark           | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
+| ui.chrome.foreground.normal         | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
 | ui.chrome.foreground.light          | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
 | ui.cursor.muted.background          | Muted/disabled editor caret | The muted/disabled text cursor background color in editors. |
 | ui.cursor.muted.foreground          | Muted/disabled editor caret | The muted/disabled text foreground cursor color in editors. |
@@ -283,6 +294,8 @@ color code) value.
 | ui.global.foreground.normal         | Editor text → `"hello"` | General text in the user interface. |
 | ui.gutter.background                | Editor gutter → background | Background color for the gutter/line number area. |
 | ui.gutter.foreground                | Editor gutter → line numbers | Foreground color for the gutter/line numbers. |
+| ui.highlight.button.background      | Button highlight → background | Background color for highlighted/active buttons. |
+| ui.highlight.button.foreground      | Button highlight → text | Foreground color for highlighted/active buttons. |
 | ui.highlight.line.background        | Active line highlight → background | The background of the active/marked line. |
 | ui.highlight.line.foreground        | Line info → text | Foreground for the line highlight area (e.g., line numbers). |
 | ui.highlight.search.background      | Search highlight → background | Background of highlighted search matches. |

@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta9** The latest version of this spec can be obtained from
+**Version 0.2.0-beta10** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -293,6 +293,7 @@ between variants.
 | syntax.entity.name.type                  | cyan-normal         | cyan-normal          |
 | syntax.entity.name.type.class            | cyan-normal         | cyan-normal          |
 | syntax.entity.name.type.enum             | cyan-normal         | cyan-normal          |
+| syntax.entity.name.type.struct           | cyan-normal         | cyan-normal          |
 | syntax.entity.other                      | white-normal        | black-normal         |
 | syntax.entity.other.attribute-name       | magenta-normal      | magenta-normal       |
 | syntax.entity.other.inherited-class      | white-normal        | black-normal         |
@@ -335,6 +336,11 @@ between variants.
 | syntax.punctuation.definition            | white-normal        | black-normal         |
 | syntax.punctuation.definition.comment    | gray-dim            | gray-bright          |
 | syntax.punctuation.definition.string     | green-normal        | green-normal         |
+| syntax.punctuation.brackets              | orange-normal       | orange-normal        |
+| syntax.punctuation.brackets.angle        | orange-normal       | orange-normal        |
+| syntax.punctuation.brackets.curly        | orange-normal       | orange-normal        |
+| syntax.punctuation.brackets.round        | orange-normal       | orange-normal        |
+| syntax.punctuation.brackets.square       | orange-normal       | orange-normal        |
 | syntax.punctuation.section               | orange-normal       | orange-normal        |
 | syntax.punctuation.separator             | white-normal        | black-normal         |
 | syntax.source                            | white-normal        | black-normal         |
@@ -372,6 +378,7 @@ between variants.
 | ui.chrome.background.light               | gray-dim            | white-normal         |
 | ui.chrome.background.normal              | black-bright        | white-dim            |
 | ui.chrome.foreground.dark                | white-dim           | black-dim            |
+| ui.chrome.foreground.normal              | white-normal        | black-normal         |
 | ui.chrome.foreground.light               | white-bright        | black-bright         |
 | ui.cursor.muted.background               | gray-bright         | gray-dim             |
 | ui.cursor.muted.foreground               | gray-dim            | gray-bright          |
@@ -398,7 +405,8 @@ between variants.
 | ui.highlight.text.foreground             | white-normal        | black-normal         |
 | ui.indent-guide.active-background        | gray-dim            | gray-bright          |
 | ui.indent-guide.background               | black-bright        | white-dim            |
-| ui.link.normal                           | cyan-normal         | cyan-normal          |
+| ui.link.normal.foreground                | cyan-normal         | cyan-normal          |
+| ui.link.normal.background                | black-normal        | white-normal         |
 | ui.selection.background                  | black-bright        | white-dim            |
 | ui.selection.foreground                  | white-normal        | black-normal         |
 | ui.selection.inactive-background         | black-bright        | white-dim            |
