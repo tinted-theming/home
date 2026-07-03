@@ -76,10 +76,9 @@ syntax:
   entity.name: "#95e6cb"
 ui:
   global:
-    background:
-      normal: "#131721"
-    foreground:
-      normal: "#e6e1cf"
+    normal:
+      background: "#131721"
+      foreground: "#e6e1cf"
 ```
 
 ## Palette Definition
@@ -275,23 +274,23 @@ color code) value.
 | syntax.variable.parameter           | `function f(x)` → `x` | Function/method parameters. |
 | ui.accent.normal                    | Focus rings / active border | Primary accent color for focus/active indications. |
 | ui.border.normal                    | Panel/tab borders | Generic border/divider color. |
-| ui.chrome.background.dark           | Sidebar/tab bar/etc → background | Can be used to highlight or mute areas. |
-| ui.chrome.background.light          | Sidebar/tab bar/etc → background | Can be used to highlight or mute areas. |
-| ui.chrome.background.normal         | Sidebar/tab bar/etc → background | The general background of app chrome surfaces (sidebars, tab bars, status bars, toolbars). |
-| ui.chrome.foreground.dark           | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
-| ui.chrome.foreground.normal         | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
-| ui.chrome.foreground.light          | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
+| ui.chrome.dark.background           | Sidebar/tab bar/etc → background | Can be used to highlight or mute areas. |
+| ui.chrome.dark.foreground           | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
+| ui.chrome.light.background          | Sidebar/tab bar/etc → background | Can be used to highlight or mute areas. |
+| ui.chrome.light.foreground          | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
+| ui.chrome.normal.background         | Sidebar/tab bar/etc → background | The general background of app chrome surfaces (sidebars, tab bars, status bars, toolbars). |
+| ui.chrome.normal.foreground         | Sidebar/tab bar/etc → text | Could be used to highlight or mute areas. |
 | ui.cursor.muted.background          | Muted/disabled editor caret | The muted/disabled text cursor background color in editors. |
 | ui.cursor.muted.foreground          | Muted/disabled editor caret | The muted/disabled text foreground cursor color in editors. |
 | ui.cursor.normal.background         | Editor caret | The text cursor background color in editors. |
 | ui.cursor.normal.foreground         | Editor caret | The text cursor foreground color in editors. |
 | ui.deprecated                       | `<font color="red">Hello</font>` → `<font>` | Deprecated or outdated UI elements, signaling that they are no longer recommended. |
-| ui.global.background.dark           | Sidebar → background | Darker background areas, typically used for sidebars, footers, or other sections. |
-| ui.global.background.light          | Active tab → background | Lighter background areas, typically used for light modes or highlighting. |
-| ui.global.background.normal         | Editor canvas → background | The general background of the user interface. |
-| ui.global.foreground.dark           | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
-| ui.global.foreground.light          | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |
-| ui.global.foreground.normal         | Editor text → `"hello"` | General text in the user interface. |
+| ui.global.dark.background           | Sidebar → background | Darker background areas, typically used for sidebars, footers, or other sections. |
+| ui.global.dark.foreground           | Sidebar file names → `filename.md` | Text in dark-themed UI areas or sections where a lighter font is needed. |
+| ui.global.light.background          | Active tab → background | Lighter background areas, typically used for light modes or highlighting. |
+| ui.global.light.foreground          | Active tab label → `main.js` | Light-colored text in the UI, often used in headings or highlighted sections. |
+| ui.global.normal.background         | Editor canvas → background | The general background of the user interface. |
+| ui.global.normal.foreground         | Editor text → `"hello"` | General text in the user interface. |
 | ui.gutter.background                | Editor gutter → background | Background color for the gutter/line number area. |
 | ui.gutter.foreground                | Editor gutter → line numbers | Foreground color for the gutter/line numbers. |
 | ui.highlight.button.background      | Button highlight → background | Background color for highlighted/active buttons. |
@@ -300,17 +299,17 @@ color code) value.
 | ui.highlight.line.foreground        | Line info → text | Foreground for the line highlight area (e.g., line numbers). |
 | ui.highlight.search.background      | Search highlight → background | Background of highlighted search matches. |
 | ui.highlight.search.foreground      | Search highlight → text | Foreground of highlighted search matches. |
-| ui.highlight.text.active-background | Active selection → background | Background when the selection is active/focused. |
-| ui.highlight.text.active-foreground | Active selection → text | Foreground when the selection is active/focused. |
+| ui.highlight.text.active.background | Active selection → background | Background when the selection is active/focused. |
+| ui.highlight.text.active.foreground | Active selection → text | Foreground when the selection is active/focused. |
 | ui.highlight.text.background        | Selected text highlight → background | Background of inline text highlights. |
 | ui.highlight.text.foreground        | Selected text highlight → text | Foreground of inline text highlights. |
-| ui.indent-guide.active-background   | Active indent guide → background | Background for the active/primary indent guide. |
+| ui.indent-guide.active.background   | Active indent guide → background | Background for the active/primary indent guide. |
 | ui.indent-guide.background          | Indent guides → background | Background color for indentation guide marks. |
 | ui.link.normal.background           | UI links | Link and interactive background color in UI chrome. |
 | ui.link.normal.foreground           | UI links | Link and interactive text color in UI chrome. |
 | ui.selection.background             | Selected code → background | The background of selected items in the user interface (e.g., highlighted text or options). |
 | ui.selection.foreground             | Selected code → foreground | The foreground of selected items in the user interface (e.g., highlighted text or options). |
-| ui.selection.inactive-background    | Unfocused selection → background | Selection background when the editor is unfocused. |
+| ui.selection.inactive.background    | Unfocused selection → background | Selection background when the editor is unfocused. |
 | ui.status.error                     | Status/error banners | Error status/badge color. |
 | ui.status.info                      | Status/info banners | Information status/badge color. |
 | ui.status.success                   | Status/success banners | Success status/badge color. |

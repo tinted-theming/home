@@ -202,7 +202,7 @@ provide equivalent template variables, for example:
 ```
 syntax.comment.hex
 syntax.string.dec.r
-ui.global.background.rgb16.b
+ui.global.normal.background.rgb16.b
 ```
 
 #### Parent Keys and the `.default` Suffix
@@ -374,23 +374,23 @@ between variants.
 | syntax.variable.parameter                | cyan-bright         | cyan-bright          |
 | ui.accent.normal                         | cyan-normal         | cyan-normal          |
 | ui.border.normal                         | gray-dim            | gray-bright          |
-| ui.chrome.background.dark                | black-dim           | gray-bright          |
-| ui.chrome.background.light               | gray-dim            | white-normal         |
-| ui.chrome.background.normal              | black-bright        | white-dim            |
-| ui.chrome.foreground.dark                | white-dim           | black-dim            |
-| ui.chrome.foreground.normal              | white-normal        | black-normal         |
-| ui.chrome.foreground.light               | white-bright        | black-bright         |
+| ui.chrome.dark.background                | black-dim           | gray-bright          |
+| ui.chrome.dark.foreground                | white-dim           | black-dim            |
+| ui.chrome.light.background               | gray-dim            | white-normal         |
+| ui.chrome.light.foreground               | white-bright        | black-bright         |
+| ui.chrome.normal.background              | black-bright        | white-dim            |
+| ui.chrome.normal.foreground              | white-normal        | black-normal         |
 | ui.cursor.muted.background               | gray-bright         | gray-dim             |
 | ui.cursor.muted.foreground               | gray-dim            | gray-bright          |
 | ui.cursor.normal.background              | white-normal        | black-normal         |
 | ui.cursor.normal.foreground              | black-normal        | white-normal         |
 | ui.deprecated                            | brown-normal        | brown-normal         |
-| ui.global.background.dark                | black-dim           | white-bright         |
-| ui.global.background.light               | black-bright        | white-dim            |
-| ui.global.background.normal              | black-normal        | white-normal         |
-| ui.global.foreground.dark                | white-dim           | black-bright         |
-| ui.global.foreground.light               | white-bright        | black-dim            |
-| ui.global.foreground.normal              | white-normal        | black-normal         |
+| ui.global.dark.background                | black-dim           | white-bright         |
+| ui.global.dark.foreground                | white-dim           | black-bright         |
+| ui.global.light.background               | black-bright        | white-dim            |
+| ui.global.light.foreground               | white-bright        | black-dim            |
+| ui.global.normal.background              | black-normal        | white-normal         |
+| ui.global.normal.foreground              | white-normal        | black-normal         |
 | ui.gutter.background                     | black-normal        | white-normal         |
 | ui.gutter.foreground                     | white-dim           | black-bright         |
 | ui.highlight.button.background           | black-bright        | white-dim            |
@@ -399,17 +399,17 @@ between variants.
 | ui.highlight.line.foreground             | white-dim           | black-bright         |
 | ui.highlight.search.background           | black-bright        | white-dim            |
 | ui.highlight.search.foreground           | yellow-normal       | yellow-normal        |
-| ui.highlight.text.active-background      | gray-normal         | gray-normal          |
-| ui.highlight.text.active-foreground      | white-normal        | black-normal         |
+| ui.highlight.text.active.background      | gray-normal         | gray-normal          |
+| ui.highlight.text.active.foreground      | white-normal        | black-normal         |
 | ui.highlight.text.background             | gray-dim            | gray-bright          |
 | ui.highlight.text.foreground             | white-normal        | black-normal         |
-| ui.indent-guide.active-background        | gray-dim            | gray-bright          |
+| ui.indent-guide.active.background        | gray-dim            | gray-bright          |
 | ui.indent-guide.background               | black-bright        | white-dim            |
 | ui.link.normal.foreground                | cyan-normal         | cyan-normal          |
 | ui.link.normal.background                | black-normal        | white-normal         |
 | ui.selection.background                  | black-bright        | white-dim            |
 | ui.selection.foreground                  | white-normal        | black-normal         |
-| ui.selection.inactive-background         | black-bright        | white-dim            |
+| ui.selection.inactive.background         | black-bright        | white-dim            |
 | ui.status.error                          | red-normal          | red-normal           |
 | ui.status.info                           | orange-normal       | orange-normal        |
 | ui.status.success                        | green-normal        | green-normal         |
