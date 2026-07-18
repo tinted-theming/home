@@ -101,6 +101,7 @@ Other:
 * [Waybar](https://github.com/tinted-theming/base16-waybar) maintained by [laenzlinger](https://github.com/laenzlinger)
 * [lazygit](https://github.com/tinted-theming/tinted-lazygit) maintained by [blueingreen68](https://github.com/BlueInGreen68)
 * [nwg-dock](https://github.com/tinted-theming/tinted-nwg-dock) maintained by [blueingreen68](https://github.com/BlueInGreen68)
+* [Zen Browser](https://github.com/tinted-theming/tinted-zen) maintained by [GooseRooster](https://github.com/GooseRooster)
 
 ## Official Schemes
 
@@ -121,6 +122,12 @@ spec.
 ## Official Managers
 
 * [Tinty](https://github.com/tinted-theming/tinty) maintained by [JamyGolden](https://github.com/JamyGolden)
+
+### Unofficial Managers
+
+If you have a manager you maintain, but don't want to submit it to this org, feel free to add a link to the repository here to add it to this list. These are community maintained managers and may not be updated often.
+
+* [gnomad](https://github.com/GooseRooster/gnomad) maintained by [GooseRooster](https://github.com/GooseRooster) - **note**: gnomad is a GNOME-centric manager that relies on Tinty being installed to function as a full Manager while also integrating with GNOME Shell.
 
 ### Unofficial Templates
 
