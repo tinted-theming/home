@@ -1,6 +1,6 @@
 # Tinted8 Styling Guidelines
 
-**Version 0.2.0-beta10** The latest version of this spec can be obtained from
+**Version 0.2.0-beta11** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/styling](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
 
 ## Introduction
@@ -30,21 +30,26 @@ those behaviors belong to the [Builder specification].
 
 A Tinted8 scheme is stored as a YAML document with the following fields:
 
-| Property                       | Required | Default | Description |
-| ------------------------------ | -------- | ------- | ----------- |
-| `scheme.system`                | Yes | - | Identifies the scheme system. For Tinted8 schemes this value must be `tinted8`. |
-| `scheme.supports.styling-spec` | Yes | - | Styling spec version implemented by the scheme (e.g. `0.2.0`). |
-| `scheme.author`                | Yes | - | The person or organization that created this scheme. |
-| `scheme.theme-author`          | No  | `scheme.author` | Attribution for the original or inspirational theme. |
-| `scheme.description`           | No  | - | Short human-readable summary. |
-| `variant`                      | Yes | - | Either `dark` or `light`. Indicates the intended luminance direction. |
-| `scheme.family`                | No  | - | Broad design family (e.g. "Tokyo"). |
-| `scheme.style`                 | No  | - | Variation within a family (e.g. "Night", "Moon"). |
-| `palette`                      | Yes | - | Defines the base color palette for the theme. |
-| `scheme.name`                  | No  | Derived from `slug` or `family` + `style` | Human-readable name. |
-| `scheme.slug`                  | No  | Derived from `name` or `family` + `style` | Machine-friendly identifier. |
-| `syntax`                       | No  | Defaults documented below | Syntax theming properties. |
-| `ui`                           | No  | Defaults documented below | UI theming properties. |
+| Property                       | Required  | Default                                    | Description |
+| ------------------------------ | --------- | ------------------------------------------ | ----------- |
+| `scheme.system`                | Yes       | -                                          | Identifies the scheme system. For Tinted8 schemes this value must be `tinted8`. |
+| `scheme.supports.styling-spec` | Yes       | -                                          | Styling spec version implemented by the scheme (e.g. `0.2.0`). |
+| `scheme.author`                | Yes       | -                                          | The person or organization that created this scheme. |
+| `scheme.theme-author`          | No        | `scheme.author`                            | Attribution for the original or inspirational theme. |
+| `scheme.description`           | No        | -                                          | Short human-readable summary. |
+| `variant`                      | Yes       | -                                          | Either `dark` or `light`. Indicates the intended luminance direction. |
+| `scheme.family`                | No        | -                                          | Broad design family (e.g. "Tokyo"). |
+| `scheme.style`                 | No        | -                                          | Variation within a family (e.g. "Night", "Moon"). |
+| `palette`                      | Yes       | -                                          | Defines the base color palette for the theme. |
+| `scheme.name`                  | See below | Derived from `slug`, or `family` + `style` | Human-readable name. |
+| `scheme.slug`                  | See below | Slugified `name`                           | Machine-friendly identifier. |
+| `syntax`                       | No        | Defaults documented below                  | Syntax theming properties. |
+| `ui`                           | No        | Defaults documented below                  | UI theming properties. |
+
+A scheme must provide **at least one** of `scheme.name`, `scheme.slug` or
+`scheme.family`. Each is individually optional, but they cannot all be omitted,
+since the builder derives the missing ones from whichever is present. See
+[Name and Slug Handling] in the Builder specification for the exact rules.
 
 ### YAML scheme example
 
@@ -87,50 +92,76 @@ ui:
 
 | ANSI Mapping | Example Color | Color Name | Description |
 | ------------ | ------------- | ---------- | ------------|
-| 0 | ![#](https://placehold.co/25/282c34/000000?text=%2B) | palette.black   | Default background color (dark theme). |
+| 0 | ![#](https://placehold.co/25/282c34/000000?text=%2B) | palette.black   | The darkest anchor color. Background in dark schemes, text in light schemes. |
 | 1 | ![#](https://placehold.co/25/e06c75/000000?text=%2B) | palette.red     | error messages.                        |
 | 2 | ![#](https://placehold.co/25/98c379/000000?text=%2B) | palette.green   | Used for strings, success messages.    |
 | 3 | ![#](https://placehold.co/25/e5c07b/000000?text=%2B) | palette.yellow  | Used for constants, warnings.          |
 | 4 | ![#](https://placehold.co/25/61afef/000000?text=%2B) | palette.blue    | Used for functions, method names.      |
 | 5 | ![#](https://placehold.co/25/c678dd/000000?text=%2B) | palette.magenta | Used for keywords, selectors.          |
 | 6 | ![#](https://placehold.co/25/56b6c2/000000?text=%2B) | palette.cyan    | Used for support, regex patterns.      |
-| 7 | ![#](https://placehold.co/25/e6e1cf/000000?text=%2B) | palette.white   | Used for text and light backgrounds.   |
+| 7 | ![#](https://placehold.co/25/e6e1cf/000000?text=%2B) | palette.white   | The lightest anchor color. Text in dark schemes, background in light schemes. |
+
+These eight keys are written unsuffixed and carry the `normal` variant of each
+color.
 
 ### Optional scheme `palette` colors
 
+Variants are written as **flat, hyphenated keys** directly under `palette`. The
+unsuffixed key carries the `normal` variant:
+
+```yaml
+palette:
+  red: "#e06c75" # red-normal
+  red-bright: "#eb9fa4"
+  red-dim: "#db3441"
+```
+
+Every key below is optional. Any that is omitted is generated by the builder
+from the required colors, so a scheme only needs to declare the variants it
+wants to control. The example colors shown are the values the [Builder
+specification]'s formulas produce from the required palette above, so they
+illustrate exactly what you get by leaving a key out.
+
 | ANSI Mapping | Example Color | Color Name | Description |
 | ------------ | ------------- | -----------| ----------- |
-| 8   | ![#](https://placehold.co/25/282c34/000000?text=%2B) | palette.black-bright   | n/a |
-| 9   | ![#](https://placehold.co/25/ff7b86/000000?text=%2B) | palette.red-bright     | n/a |
-| 10  | ![#](https://placehold.co/25/b1e18b/000000?text=%2B) | palette.green-bright   | n/a |
-| 11  | ![#](https://placehold.co/25/efb074/000000?text=%2B) | palette.yellow-bright  | n/a |
-| 12  | ![#](https://placehold.co/25/67cdff/000000?text=%2B) | palette.blue-bright    | n/a |
-| 13  | ![#](https://placehold.co/25/e48bff/000000?text=%2B) | palette.magenta-bright | n/a |
-| 14  | ![#](https://placehold.co/25/63d4e0/000000?text=%2B) | palette.cyan-bright    | n/a |
+| 8   | ![#](https://placehold.co/25/424957/000000?text=%2B) | palette.black-bright   | n/a |
+| 9   | ![#](https://placehold.co/25/eb9fa4/000000?text=%2B) | palette.red-bright     | n/a |
+| 10  | ![#](https://placehold.co/25/b8d6a3/000000?text=%2B) | palette.green-bright   | n/a |
+| 11  | ![#](https://placehold.co/25/efd8ae/000000?text=%2B) | palette.yellow-bright  | n/a |
+| 12  | ![#](https://placehold.co/25/99cbf5/000000?text=%2B) | palette.blue-bright    | n/a |
+| 13  | ![#](https://placehold.co/25/dba9e9/000000?text=%2B) | palette.magenta-bright | n/a |
+| 14  | ![#](https://placehold.co/25/83c9d2/000000?text=%2B) | palette.cyan-bright    | n/a |
 | 15  | ![#](https://placehold.co/25/fbfaf7/000000?text=%2B) | palette.white-bright   | n/a |
-| n/a | ![#](https://placehold.co/25/282c34/000000?text=%2B) | palette.black-dim      | n/a |
-| n/a | ![#](https://placehold.co/25/e06c75/000000?text=%2B) | palette.red-dim        | n/a |
-| n/a | ![#](https://placehold.co/25/98c379/000000?text=%2B) | palette.green-dim      | n/a |
-| n/a | ![#](https://placehold.co/25/e5c07b/000000?text=%2B) | palette.yellow-dim     | n/a |
-| n/a | ![#](https://placehold.co/25/61afef/000000?text=%2B) | palette.blue-dim       | n/a |
-| n/a | ![#](https://placehold.co/25/c678dd/000000?text=%2B) | palette.magenta-dim    | n/a |
-| n/a | ![#](https://placehold.co/25/56b6c2/000000?text=%2B) | palette.cyan-dim       | n/a |
+| n/a | ![#](https://placehold.co/25/0d0f11/000000?text=%2B) | palette.black-dim      | n/a |
+| n/a | ![#](https://placehold.co/25/db3441/000000?text=%2B) | palette.red-dim        | n/a |
+| n/a | ![#](https://placehold.co/25/77b34b/000000?text=%2B) | palette.green-dim      | n/a |
+| n/a | ![#](https://placehold.co/25/e0a943/000000?text=%2B) | palette.yellow-dim     | n/a |
+| n/a | ![#](https://placehold.co/25/2394f0/000000?text=%2B) | palette.blue-dim       | n/a |
+| n/a | ![#](https://placehold.co/25/b442d6/000000?text=%2B) | palette.magenta-dim    | n/a |
+| n/a | ![#](https://placehold.co/25/3698a4/000000?text=%2B) | palette.cyan-dim       | n/a |
 | n/a | ![#](https://placehold.co/25/d3c9a5/000000?text=%2B) | palette.white-dim      | n/a |
-| n/a | ![#](https://placehold.co/25/666666/000000?text=%2B) | palette.gray           | n/a |
-| n/a | ![#](https://placehold.co/25/8c8c8c/000000?text=%2B) | palette.gray-bright    | n/a |
-| n/a | ![#](https://placehold.co/25/4d4d4d/000000?text=%2B) | palette.gray-dim       | n/a |
-| n/a | ![#](https://placehold.co/25/d19a66/000000?text=%2B) | palette.orange         | n/a |
-| n/a | ![#](https://placehold.co/25/ddb48d/000000?text=%2B) | palette.orange-bright  | n/a |
-| n/a | ![#](https://placehold.co/25/bc7939/000000?text=%2B) | palette.orange-dim     | n/a |
-| n/a | ![#](https://placehold.co/25/8b6914/000000?text=%2B) | palette.brown          | n/a |
-| n/a | ![#](https://placehold.co/25/a07d2a/000000?text=%2B) | palette.brown-bright   | n/a |
-| n/a | ![#](https://placehold.co/25/6b5200/000000?text=%2B) | palette.brown-dim      | n/a |
+| n/a | ![#](https://placehold.co/25/69a075/000000?text=%2B) | palette.gray           | n/a |
+| n/a | ![#](https://placehold.co/25/8eb897/000000?text=%2B) | palette.gray-bright    | n/a |
+| n/a | ![#](https://placehold.co/25/4d7e58/000000?text=%2B) | palette.gray-dim       | n/a |
+| n/a | ![#](https://placehold.co/25/e5ae7b/000000?text=%2B) | palette.orange         | n/a |
+| n/a | ![#](https://placehold.co/25/efcdae/000000?text=%2B) | palette.orange-bright  | n/a |
+| n/a | ![#](https://placehold.co/25/e08e43/000000?text=%2B) | palette.orange-dim     | n/a |
+| n/a | ![#](https://placehold.co/25/8f5b38/000000?text=%2B) | palette.brown          | n/a |
+| n/a | ![#](https://placehold.co/25/bd7747/000000?text=%2B) | palette.brown-bright   | n/a |
+| n/a | ![#](https://placehold.co/25/643f26/000000?text=%2B) | palette.brown-dim      | n/a |
 
 ### Generated Colors
 
 Builders will extend these eight required values by generating bright, dim and
-neutral variants such as gray, orange and brown. Generation rules are defined
-in the [Builder specification].
+supplemental colors such as gray, orange and brown. Generation rules are
+defined in the [Builder specification].
+
+Note that the derived `gray` is **not guaranteed to be neutral**. It is the
+midpoint of `black` and `white` in HSL, so it inherits a hue and some
+saturation from them: the example above resolves to a muted green because the
+required palette pairs a blue-tinted black with a warm cream white. Authors who
+want a neutral or specifically tinted gray should set `palette.gray`
+explicitly, which suppresses derivation.
 
 ### Sample YAML Scheme
 
@@ -320,6 +351,12 @@ color code) value.
 
 The `syntax` properties were largely derived from [TextMate Theme structure].
 
+In `ui.global.*` and `ui.chrome.*`, the `dark` and `light` segments name the
+surface's **role**, not its luminance: `dark` is the recessed surface and
+`light` is the raised one. These roles mirror between variants, so in a `light`
+scheme `ui.global.dark.background` resolves to the lightest color rather than
+the darkest. Choose these keys by the role you want, not the color you expect.
+
 See the [Builder specification] for the complete canonical list of recognized
 Theming Properties as well as the default color values.
 
@@ -327,20 +364,32 @@ Theming Properties as well as the default color values.
 
 `syntax` Theming Properties follow a hierarchical fallback system:
 
-1. A specific key (e.g. syntax.constant.numeric.float) inherits from its
-   parent (syntax.constant.numeric).
-1. If no parent value is provided, it falls back to a builder-defined default
+1. A specific key (e.g. `syntax.constant.numeric.float`) inherits from the
+   nearest ancestor the scheme set a value for, searched upwards one segment at
+   a time (`syntax.constant.numeric`, then `syntax.constant`).
+1. If no ancestor value is provided, it falls back to a builder-defined default
    derived from the palette.
 
-Example rule chain:
+Inheritance walks the entire ancestor chain, not only the immediate parent.
+
+Example rule chains:
 
 ```
 syntax.string.template → syntax.string → builder default (green-normal)
+syntax.constant.numeric.float → syntax.constant.numeric → syntax.constant
+                              → builder default (orange-normal)
 ```
 
 This model lets authors define only the `syntax` properties they need and
 builders ensure the theme remains complete by generating default values for the
 left out properties.
+
+Because inheritance is checked before the builder default, setting an ancestor
+overrides the builder defaults of **all** its descendants, including those
+whose default differs from the ancestor's. For example `syntax.string` defaults
+to green while its child `syntax.string.regexp` defaults to red; setting
+`syntax.string` alone also changes `syntax.string.regexp`. Set a descendant
+explicitly to keep it distinct.
 
 `ui` properties do not inherit from parent keys. Each `ui` key resolves
 independently to either its explicit scheme value or its builder default.
@@ -359,7 +408,11 @@ A scheme is Tinted8-compliant if it:
 - Includes all required fields (`scheme.system`,
   `scheme.supports.styling-spec`, `scheme.author`, `variant`,
   `scheme.name|scheme.slug|scheme.family`, `palette`)
+- Provides all eight required `palette` colors
+- Sets `variant` to exactly `dark` or `light`
 - Uses valid color formats (hex `#RRGGBB`)
+- Writes any optional palette variants as flat, hyphenated keys (`red-bright`,
+  not a nested `red: { bright: ... }` mapping)
 - Follows the inheritance and structure rules defined here
 
 All further derived or computed colors are implementation details of the
@@ -370,4 +423,5 @@ _SPEC END_
 ---
 
 [Builder specification]: https://github.com/tinted-theming/home/blob/main/specs/tinted8/builder.md
+[Name and Slug Handling]: https://github.com/tinted-theming/home/blob/main/specs/tinted8/builder.md#name-and-slug-handling
 [TextMate Theme structure]: https://macromates.com/manual/en/language_grammars
