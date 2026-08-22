@@ -1,6 +1,6 @@
 # Tinted8 Builder Guidelines
 
-**Version 0.2.0-beta10** The latest version of this spec can be obtained from
+**Version 0.2.0-beta11** The latest version of this spec can be obtained from
 [tinted-theming/specs/tinted8/builder]
 
 ## Introduction
@@ -15,11 +15,16 @@ themes.
 Builders read scheme files that conform to the Styling specification. At
 minimum they must provide:
 
-- Required: `scheme.system`, `scheme.author`, `variant`, `palette`
-- Partially required: At least one of `scheme.name`, `scheme.slug` or `scheme.family`
-- Optional: `syntax`, `ui`, `scheme.style`, `scheme.theme-author`, `scheme.description`
+- Required: `scheme.system`, `scheme.supports.styling-spec`, `scheme.author`,
+  `variant`, `palette`
+- Partially required: At least one of `scheme.name`, `scheme.slug` or
+  `scheme.family`
+- Optional: `syntax`, `ui`, `scheme.style`, `scheme.theme-author`,
+  `scheme.description`
 
-All color values must be HTML-style hex (`#RRGGBB`).
+All color values must be HTML-style hex (`#RRGGBB`). Builders must accept both
+uppercase and lowercase hex digits on input, and must emit lowercase hex in all
+generated template variables.
 
 ### Template Input
 
@@ -34,32 +39,67 @@ output paths.
 
 ## Name and Slug Handling
 
-If a scheme lacks a `slug`, builders derive one by slugifying the `name`:
+A scheme must provide at least one of `scheme.name`, `scheme.slug` or
+`scheme.family`. Builders resolve the missing values in this order:
 
-- Normalize Unicode to ASCII
-- Lowercase all letters
-- Replace spaces with `-`
-- Remove non-alphanumeric, non-dash characters
+- `name`, if absent, is `slug` if present, otherwise `family` joined to `style`
+  with a single space (the `style` is omitted when absent).
+- `slug`, if absent, is the slugified `name`.
 
-Examples: 
+If a scheme lacks a `slug`, builders derive one by slugifying the `name` with
+the following steps, applied in order:
+
+1. Normalize Unicode to ASCII
+1. Lowercase all letters
+1. Replace each whitespace character with `-`
+1. Remove all characters that are not alphanumeric or `-`
+1. Collapse runs of consecutive `-` into a single `-`
+1. Strip any leading and trailing `-`
+
+Examples:
 
 - `Catppuccin Mocha` → `catppuccin-mocha`
 - `Rosé Pine` → `rose-pine`
 - `Default (Dark)` → `default-dark`
+- `Foo & Bar` → `foo-bar`
 
 ## Palette Expansion
 
 ### Variants
 
-For every `palette.{{token_name}}`, if the color is missing, the builder generates:
+Every palette color resolves to three variants:
 
-- `normal` - The color as provided (e.g. `palette.red.normal`)
-- `bright` - A lighter variant (e.g. `palette.cyan.bright`)
-- `dim` - A darker variant (e.g `palette.green.dim`)
+- `normal` - The color as authored
+- `bright` - A lighter variant
+- `dim` - A darker variant
 
-If the scheme provides `palette.{{color_name}}.bright` or
-`palette.{{color_name}}.dim` color variants, builders must not override them
-and should skip derivation for that color.
+Scheme authors and templates spell these differently, and builders must not
+conflate the two:
+
+- **In the scheme file**, variants are flat, hyphenated keys under `palette`,
+  for example `red-bright` and `red-dim`. The unsuffixed key (`red`) is the
+  `normal` variant. See the Styling specification for the authoring format.
+- **In templates**, variants are nested objects, for example
+  `palette.red.bright`. See [Naming](#naming) below.
+
+For every `palette.{{token-name}}`, the builder derives any variant the scheme
+did not provide:
+
+- `normal` is the value authored as `{{token-name}}`
+- `bright` is derived from `normal` when `{{token-name}}-bright` is absent
+- `dim` is derived from `normal` when `{{token-name}}-dim` is absent
+
+If the scheme provides `{{token-name}}-bright` or `{{token-name}}-dim`,
+builders must use those values as-is and skip derivation for that variant.
+Derivation is per-variant: providing `red-bright` does not suppress derivation
+of `red-dim`.
+
+Deriving a variant always requires a `normal` value. For the eight required
+palette colors a `normal` value is guaranteed. For the optional colors (`gray`,
+`orange`, `brown`), if a scheme provides only a `bright` or `dim` variant
+without the unsuffixed base key, the builder must first resolve `normal` using
+the [Derived Color Formulas](#derived-color-formulas), then honour the authored
+variant and derive only the remaining one.
 
 ### Derived Colors (when missing)
 
@@ -73,30 +113,37 @@ is derived using the formulas below:
 
 ### Naming
 
-Each produced value is exposed as with color sub-components:
+Each produced value is exposed to templates as a nested object path, with the
+variant and the color sub-component as dot-separated segments:
 
 ```
-palette.{{token-name}}-{{variant}}-{{sub-component}}
+palette.{{token-name}}.{{variant}}.{{sub-component}}
 ```
 
 ```
 palette.blue.bright.hex  → "7cafc2"
 palette.red.normal.rgb.r → "124"
-palette.green.dim.dec.b  → "0.76"
+palette.green.dim.dec.b  → "0.76078431"
 ```
+
+Note that the separator is a dot at every level. The hyphenated spelling
+(`red-bright`) is used only in the scheme file; it is never a template variable
+name. The sole exception is the per-channel hex accessor, which is hyphenated
+(`hex-r`) because it is a single leaf key rather than a nested object. See
+[Color Variables](#color-variables).
 
 ## Color Formulas
 
 This section defines the normative color conversion rules builders must apply
-when deriving supplemental colors and generating `bright`/`dim` variants. Unless
-stated otherwise, conversions operate in HSL with channel ranges `S, L ∈ [0,1]`
-and hue in degrees `h ∈ [0, 360)`.
+when deriving supplemental colors and generating `bright`/`dim` variants.
+Unless stated otherwise, conversions operate in HSL with channel ranges `S, L ∈
+[0,1]` and hue in degrees `h ∈ [0, 360)`.
 
 - Clamp: `clamp(x, lo, hi) = min(max(x, lo), hi)`; builders must clamp `S` and
-  `L` after each operation to remain in-range.
+`L` after each operation to remain in-range.
 - Hue wrap: add/subtract in degrees and wrap with `(h + 360) % 360`.
 
-### Derived Colors (when missing)
+### Derived Color Formulas
 
 - orange from yellow
   - Input: `h, s, l = HSL(palette.yellow)`
@@ -105,13 +152,15 @@ and hue in degrees `h ∈ [0, 360)`.
 
 - brown from yellow
   - Input: `h, s, l = HSL(palette.yellow)`
-  - Operation: `h' = (h - 15) mod 360`, `s' = clamp(s * 0.65, 0, 1)`, `l' = clamp(l - 0.30, 0, 1)`
+  - Operation: `h' = (h - 15) mod 360`, `s' = clamp(s * 0.65, 0, 1)`, `l' =
+  clamp(l - 0.30, 0, 1)`
   - Output: `HSL(h', s', l')` converted back to RGB/hex
 
 - gray from black and white
   - Input: `HSL(black) = (h_b, s_b, l_b)`, `HSL(white) = (h_w, s_w, l_w)`
   - Operation:
-    - Hue midpoint (wrap-aware): `d = ((h_b - h_w + 540) % 360) - 180`, `h' = (h_w + 0.5*d + 360) % 360`
+    - Hue midpoint (wrap-aware): `d = ((h_b - h_w + 540) % 360) - 180`, `h' =
+    (h_w + 0.5*d + 360) % 360`
     - Saturation: `s' = 0.5 * (s_b + s_w)`
     - Lightness: `l' = 0.5 * (l_b + l_w)`
   - Output: `HSL(h', s', l')` converted back to RGB/hex
@@ -152,21 +201,35 @@ These rules ensure consistent perceived contrast between `normal`, `dim`, and
 
 ### Meta Variables
 
-Meta variables exist under the `scheme` mustache variable object.
+Meta variables exist under the `scheme` mustache variable object, with the
+exception of `variant`, which is top-level to mirror the scheme file.
 
 | Variable                           | Type    | Description                                               |
 | ---------------------------------- | ------- | --------------------------------------------------------- |
 | `scheme.system`                    | String  | Scheme system                                             |
-| `scheme.supported-styling-version` | String  | Supported tinted8 styling spec                            |
-| `scheme.supported-builder-version` | String  | Supported tinted8 builder spec                            |
+| `scheme.supported-styling-version` | String  | Tinted8 styling spec version the builder implements       |
+| `scheme.supported-builder-version` | String  | Tinted8 builder spec version the builder implements       |
 | `scheme.name`                      | String  | `name`                                                    |
 | `scheme.family`                    | String  | `family`                                                  |
 | `scheme.style`                     | String  | `style`                                                   |
 | `scheme.author`                    | String  | `author`                                                  |
-| `scheme.theme-author`              | String  | `theme-author`                                            |
+| `scheme.theme-author`              | String  | `theme-author`, defaulting to `author` when absent        |
 | `scheme.description`               | String  | `description`                                             |
-| `scheme.slug`                      | String  | `slug` or slugified `name` seperated by hiphens (`-`)     |
-| `scheme.slug-underscored`          | String  | `slug` or slugified `name` seperated by underscores (`_`) |
+| `scheme.slug`                      | String  | `slug` or slugified `name` separated by hyphens (`-`)     |
+| `scheme.slug-underscored`          | String  | `slug` or slugified `name` separated by underscores (`_`) |
+| `variant`                          | String  | Either `dark` or `light`                                  |
+
+`scheme.supported-styling-version` and `scheme.supported-builder-version`
+report the spec versions **the builder itself implements**. They are supplied
+by the builder and are not read from the scheme file. The scheme's own
+declaration is a version *range* under `scheme.supports.styling-spec` and is
+not exposed as a template variable.
+
+Builders must render meta variables without HTML escaping, since values such as
+`scheme.author` and `scheme.description` legitimately contain characters like
+`&`, `<` and `'`. In Mustache terms, these are triple-brace (`{{{ }}}`) values;
+builders that construct the render context directly must disable escaping for
+them. Color variables contain only `[0-9a-f.]` and are unaffected.
 
 ### Option Variables
 
@@ -174,25 +237,45 @@ Option variables exist under the `option` mustache variable object.
 
 | Variable                           | Type    | Description              |
 | ---------------------------------- | ------- | ------------------------ |
-| `option.is-dark-variant`           | Boolean | Based on `variant` value | 
+| `option.is-dark-variant`           | Boolean | Based on `variant` value |
+
+There is no `is-light-variant` counterpart. Templates should use a Mustache
+inverted section (`{{^option.is-dark-variant}}`) for the light case, or read
+the `variant` meta variable directly.
 
 ### Color Variables
 
 `syntax` and `ui` properties will be referred to as "Theming Properties".
 
 The builder provides various color variables for every `palette` token variant
-(`normal`, `bright`, `dim`) and every Theming Property.
+(`normal`, `bright`, `dim`) and every Theming Property. Palette variants carry
+these suffixes directly (`palette.blue.bright.hex`), while Theming Properties
+carry them under `.default` (`syntax.comment.default.hex`), for the reason
+given in [The `.default` Suffix](#the-default-suffix).
 
-The variable suffixes are as follows:
+The variable suffixes are as follows. All examples are for the color `#7cafc2`,
+whose red channel is `0x7c` / `124`.
 
 - `{{token-name}}.hex` - 6-digit hex color value (e.g "7cafc2")
 - `{{token-name}}.hex-<r|g|b>` - Provides a R, G or B hex color value (e.g "7c")
 - `{{token-name}}.hex-bgr` - A reversed version of all the hex values (e.g "c2af7c")
 - `{{token-name}}.rgb.<r|g|b>` - Provides a R, G or B color value between `0` and `255` (e.g. "124")
-- `{{token-name}}.dec.<r|g|b>` - Provides a R, G or B decimal value between `0` and `1` (e.g. "0.4863")
-- `{{token-name}}.rgb16.<r|g|b>` - Provides a R, G or B 16 bit value between `0` and `65_535` (e.g. "15000")
+- `{{token-name}}.dec.<r|g|b>` - Provides a R, G or B decimal value between `0` and `1` (e.g. "0.48627451")
+- `{{token-name}}.rgb16.<r|g|b>` - Provides a R, G or B 16 bit value between `0` and `65_535` (e.g. "31868")
 
-Values omit the leading `#` for hex strings.
+Values omit the leading `#` for hex strings, and hex digits are lowercase.
+
+The numeric conversions are normative:
+
+- `rgb` is the 8-bit channel value, `0`..`255`.
+- `rgb16` is the 8-bit channel value multiplied by `257`, giving `0`..`65535`.
+  Multiplying by `257` (rather than scaling by `65535/255` and rounding) maps
+  `0x00` to `0` and `0xff` to `65535` exactly, and is equivalent to repeating
+  the hex byte (`0x7c` → `0x7c7c` → `31868`).
+- `dec` is the 8-bit channel value divided by `255`, formatted as a decimal
+  string with exactly **8** digits after the point (e.g. `124/255` renders as
+  `"0.48627451"`). Builders must not vary this precision, since templates
+  compare rendered output across builders.
 
 ### Theming Properties
 
@@ -200,32 +283,57 @@ For every recognized `syntax` and `ui` key from the Styling spec, builders
 provide equivalent template variables, for example:
 
 ```
-syntax.comment.hex
-syntax.string.dec.r
-ui.global.normal.background.rgb16.b
+syntax.string.regexp.default.hex
+syntax.string.regexp.default.dec.r
+ui.global.normal.background.default.rgb16.b
 ```
 
-#### Parent Keys and the `.default` Suffix
+#### The `.default` Suffix
 
-In Mustache, theming property keys that have children (e.g., `syntax.comment`
-which contains `syntax.comment.line`, `syntax.comment.block`, etc.) are exposed
-as objects. To access the color value of the parent key itself, use the
-`.default` suffix:
+Every theming property key is exposed as an **object**, never as a color
+directly. The key's own color is exposed under `.default`, alongside any child
+keys:
 
 ```
 syntax.comment.default.hex       → color value for "comment" scope
-syntax.comment.line.hex          → color value for "comment.line" scope
+syntax.comment.line.default.hex  → color value for "comment.line" scope
 syntax.string.quoted.default.hex → color value for "string.quoted" scope
 ```
 
-Leaf keys (those without children) do not require the `.default` suffix:
+This holds for every theming property key, whether or not it currently has
+children. Builders must **not** expose the color suffixes on the key itself:
 
 ```
-syntax.string.regexp.hex     → color value for "string.regexp" scope
-syntax.constant.language.hex → color value for "constant.language" scope
+syntax.string.regexp.hex          ✗ must resolve to nothing
+syntax.string.regexp.default.hex  ✓
 ```
 
-Each corresponds either to:
+Requiring `.default` everywhere is what keeps template variables stable. In
+Mustache an unresolved variable is not an error; it renders as an empty string,
+so a variable that stops resolving yields a malformed theme file rather than a
+failed build. If the bare form worked on a key that has no children today,
+every template using it would break silently on the day that key gained
+children. Because the bare form never resolves, that breakage cannot be
+introduced later: `.default` is the only spelling, and it goes on resolving to
+the same color when a leaf becomes a branch.
+
+Palette colors are not theming property keys. Their structure is closed, as a
+variant can never gain children, so they carry the color suffixes directly
+(`palette.blue.bright.hex`) and do not take `.default`.
+
+##### Child Names That Look Like Color Suffixes
+
+Because no theming property key carries color suffixes, a child key may safely
+share a name with one. `syntax.constant.numeric.hex` is the only such key in
+this specification, and it reads unambiguously: `hex` is the child scope for
+hexadecimal literals.
+
+```
+syntax.constant.numeric.default.hex      → hex string for "constant.numeric"
+syntax.constant.numeric.hex.default.hex  → hex string for "constant.numeric.hex"
+```
+
+Each resolved color corresponds either to:
 
 1. The explicit values set in the scheme
 1. Its inherited parent
@@ -233,11 +341,29 @@ Each corresponds either to:
 
 ## Theme Resolution
 
-Resolution order:
+Resolution order for a `syntax` property:
 
-1. Explicit scheme Theming Property - exact key value (e.g. `syntax.diff.added`)
-1. Inherited Theming Property - parent group value (e.g. `syntax.diff`)
-1. Builder default - mapped palette token (e.g. `green_bright`)
+1. Explicit scheme Theming Property - exact key value (e.g. `syntax.string.quoted.double`)
+1. Inherited Theming Property - the nearest ancestor the scheme set a value for,
+   searched upwards one segment at a time (e.g. `syntax.string.quoted`, then
+   `syntax.string`)
+1. Builder default - the mapped palette token for the exact key (e.g. `green-normal`)
+
+Inheritance walks the **entire** ancestor chain, not just the immediate parent.
+`syntax.string.quoted.double` resolves against `syntax.string.quoted` and then
+`syntax.string` before falling back to its builder default.
+
+`ui` properties do not inherit. Each `ui` key resolves to either its explicit
+scheme value or its builder default, with no ancestor lookup. This matches the
+Styling specification.
+
+Because inheritance is checked before the builder default, setting an ancestor
+in a scheme overrides the builder defaults of **all** its descendants,
+including descendants whose default differs from the ancestor's. For example,
+the default for `syntax.string.regexp` is `red-normal` while `syntax.string` is
+`green-normal`; a scheme that sets `syntax.string` to a custom color also
+changes `syntax.string.regexp` to that color. Authors who want to keep a
+descendant distinct must set it explicitly.
 
 Builders must ensure all Theming Properties resolve to a valid color.
 
@@ -260,10 +386,24 @@ The default table below lists colors for the `dark` variant. When generating a
 | 8     | `white-bright` |
 
 To convert a dark default to its light equivalent, mirror the index:
-`light_index = 8 - dark_index`. For example, `black-bright` (index 2)
-becomes `white-dim` (index 6), and `gray-dim` (index 3) becomes `gray-bright`
-(index 5). Colors that are not `black`, `gray` or `white` remain unchanged
-between variants.
+`light_index = 8 - dark_index`. For example, `black-bright` (index 2) becomes
+`white-dim` (index 6), and `gray-dim` (index 3) becomes `gray-bright` (index
+5). Colors that are not `black`, `gray` or `white` remain unchanged between
+variants.
+
+The Light Default Color column in the table below is normative. Where it
+disagrees with the mirroring rule, the table wins. The four `ui.chrome.dark.*`
+and `ui.chrome.light.*` defaults are deliberate exceptions: mechanically
+mirroring them produces chrome surfaces that are indistinguishable from the
+editor canvas in light schemes, so their light values are hand-tuned. Every
+other default in the table follows the rule exactly.
+
+Note that the `dark` and `light` segments in keys such as
+`ui.global.dark.background` name the surface's **role**, not its luminance.
+`dark` is the recessed surface and `light` is the raised one. Under a light
+variant these mirror, so `ui.global.dark.background` resolves to the *lightest*
+color in the scheme. Templates should select these keys by the role they want,
+never by the literal color they expect.
 
 | Theming Property                         | Dark Default Color  | Light Default Color  |
 | ---------------------------------------- | ------------------- | -------------------- |
@@ -336,11 +476,11 @@ between variants.
 | syntax.punctuation.definition            | white-normal        | black-normal         |
 | syntax.punctuation.definition.comment    | gray-dim            | gray-bright          |
 | syntax.punctuation.definition.string     | green-normal        | green-normal         |
-| syntax.punctuation.brackets              | orange-normal       | orange-normal        |
-| syntax.punctuation.brackets.angle        | orange-normal       | orange-normal        |
-| syntax.punctuation.brackets.curly        | orange-normal       | orange-normal        |
-| syntax.punctuation.brackets.round        | orange-normal       | orange-normal        |
-| syntax.punctuation.brackets.square       | orange-normal       | orange-normal        |
+| syntax.punctuation.brackets              | white-dim           | black-bright         |
+| syntax.punctuation.brackets.angle        | white-dim           | black-bright         |
+| syntax.punctuation.brackets.curly        | white-dim           | black-bright         |
+| syntax.punctuation.brackets.round        | white-dim           | black-bright         |
+| syntax.punctuation.brackets.square       | white-dim           | black-bright         |
 | syntax.punctuation.section               | orange-normal       | orange-normal        |
 | syntax.punctuation.separator             | white-normal        | black-normal         |
 | syntax.source                            | white-normal        | black-normal         |
@@ -425,8 +565,12 @@ Builders apply template configuration as follows:
 - Respect `supported-systems`
 - Generate output filenames according to the `filename` template (with
   available variables)
-- Avoid name collisions
 - Write rendered templates relative to the repository root
+
+`filename` is itself a Mustache template and may use any [Meta
+Variable](#meta-variables). Builders must error with `E306` if two rendered
+schemes resolve to the same output filename, rather than silently overwriting
+one with the other.
 
 Example `config.yaml`:
 
@@ -443,8 +587,9 @@ to ensure compatibility across the Styling and Builder specifications.
 
 ### Support Declaration
 
-Every builder **must expose** a `supports` object, either in its configuration or
-metadata output, with the following fields in the `templates/config.yaml`:
+Every template config entry that targets `tinted8` **must declare** a
+`supports` object in `templates/config.yaml`, stating which spec versions the
+template was written against:
 
 ```yaml
 default:
@@ -456,18 +601,40 @@ default:
 ```
 
 This defines which versions of the Tinted8 Styling and Builder specifications
-are implemented and guaranteed compatible. All `supports` object property
-values must follow semantic versioning rules ([semver]).
+the template is compatible with. All `supports` object property values must
+follow semantic versioning rules ([semver]).
+
+### Versions and Ranges
+
+Four distinct values are involved, and they are not interchangeable. Three are
+version *ranges* declared by authors; one is the concrete *version* a builder
+implements:
+
+| Value                          | Declared in             | Kind    |
+| ------------------------------ | ----------------------- | ------- |
+| `scheme.supports.styling-spec` | the scheme file         | Range   |
+| `supports.tinted8-styling`     | `templates/config.yaml` | Range   |
+| `supports.tinted8-builder`     | `templates/config.yaml` | Range   |
+| Implemented spec version       | the builder itself      | Version |
+
+Ranges are matched against the builder's implemented **release** version. The
+`-betaN` suffix on this document is a revision marker for the specification
+text and is not part of the version builders match against: a builder
+implementing this document reports `0.2.0`, so a scheme or template declaring
+`>=0.2.0` matches it. Authors must not write pre-release identifiers into a
+range, because under [semver] a pre-release sorts *below* its release and
+`0.2.0-beta11` would fail to satisfy `>=0.2.0`.
 
 ### Enforcement
 
 When loading a scheme file, the builder must check that:
 
 1. The scheme's declared system matches "tinted8".
-1. The scheme's spec version (if provided) satisfies the builder's
-   `supports.tinted8-styling` range.
-1. The builder's own implementation version satisfies its declared
-   `supports.tinted8-builder` range.
+1. The builder's implemented styling spec version satisfies the scheme's
+   `scheme.supports.styling-spec` range.
+1. The builder's implemented styling and builder spec versions satisfy the
+   template config's `supports.tinted8-styling` and `supports.tinted8-builder`
+   ranges.
 
 If any of these checks fail, the builder must emit an error and refuse to
 process the scheme until the version mismatch is resolved.
@@ -477,10 +644,14 @@ process the scheme until the version mismatch is resolved.
 Validation runs in four stages to simplify troubleshooting. Each stage maps to
 the error code ranges below:
 
-- Scheme Intake & System Validation (E1xx): read file, parse YAML, validate scheme system. E001 is part of this stage.
+- Scheme Intake & System Validation (E1xx): read file, parse YAML, validate
+  scheme system, then validate the scheme body (`variant`, required palette
+  colors, color formats). E001 is part of this stage.
 - Spec Compatibility (E2xx): verify spec-version compatibility.
-- Template Configuration (E3xx): ensure `tinted8` configs declare the required `supports` and templates.
-- Build-Time Selection/Generation (E4xx): ensure at least one scheme matches the config.
+- Template Configuration (E3xx): ensure `tinted8` configs declare the required
+  `supports` and templates.
+- Build-Time Selection/Generation (E4xx): ensure at least one scheme matches
+  the config.
 
 #### Intake Flow (E1xx)
 
@@ -494,14 +665,24 @@ flowchart TD
   D --> |No| G[Error: E110 Unknown/unsupported system]
   D --> |Yes| I{system == "tinted8"?}
   I --> |No| J[Error: E001 Invalid system]
-  I --> |Yes| K[Proceed to E2xx]
+  I --> |Yes| L{variant is dark or light?}
+  L --> |No| M[Error: E113 Invalid variant]
+  L --> |Yes| N{all 8 required palette colors present?}
+  N --> |No| O[Error: E114 Missing required palette color]
+  N --> |Yes| P{all color values valid #RRGGBB?}
+  P --> |No| Q[Error: E115 Invalid color value]
+  P --> |Yes| K[Proceed to E2xx]
 ```
+
+Unrecognized keys under `syntax` or `ui` are not an error. Builders must ignore
+them and emit `W110` so that schemes written against a newer styling spec
+remain usable on an older builder.
 
 #### Compatibility Flow (E2xx)
 
 ```mermaid
 flowchart TD
-  A[Scheme (tinted8)] --> C{tinted8-styling within supported range?}
+  A["Scheme (tinted8)"] --> C{tinted8-styling within supported range?}
   C --> |No| F[Error: E002 Unsupported Tinted8 Styling Spec]
   C --> |Yes| D{tinted8-builder self-version within supported range?}
   D --> |No| G[Error: E003 Tinted8 Builder Spec Incompatible]
@@ -512,8 +693,10 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  A[templates/config.yaml] --> B{targets tinted8?}
-  B --> |No| H[Proceed (other systems)]
+  A[templates/config.yaml] --> P{present and valid YAML?}
+  P --> |No| Q[Error: E305 Template config missing or invalid]
+  P --> |Yes| B{targets tinted8?}
+  B --> |No| H["Proceed (other systems)"]
   B --> |Yes| C{supports block present?}
   C --> |No| E[Error: E300 Missing supports]
   C --> |Yes| D{tinted8-styling entry present?}
@@ -532,30 +715,40 @@ flowchart TD
 ```mermaid
 flowchart TD
   A[Template config entry] --> B{Any matching schemes?}
-  B --> |No| E[Error: E400 No schemes found]
-  B --> |Yes| F[Generate]
+  B --> |No| E[Warning: W001 No schemes found, skip entry]
+  B --> |Yes| F{Output filename unique?}
+  F --> |No| G[Error: E306 Duplicate output filename]
+  F --> |Yes| H[Generate]
 ```
+
+Note that an entry matching no schemes is **not** fatal. The builder emits
+`W001`, skips the entry and continues with the remaining entries.
 
 #### Rationale
 
 This ensures:
 
-- Builders only build versions they are designed for, which will reduce builder generation bugs
-- Builders will have backward compatibility built into them for both the builder and styling specifications
+- Builders only build versions they are designed for, which will reduce builder
+  generation bugs
+- Builders will have backward compatibility built into them for both the
+  builder and styling specifications
 - Authors can easily identify compatibility issues
-- Downstream tools (editors, integrations) can introspect supported specs programmatically
+- Downstream tools (editors, integrations) can introspect supported specs
+  programmatically
 
 #### Error Code Design
 
-Error codes are segmented by lifecycle stage to make them scannable and extensible. Legacy
-compatibility is preserved by keeping `E001`–`E003` unchanged.
+Error codes are segmented by lifecycle stage to make them scannable and
+extensible. Legacy compatibility is preserved by keeping `E001`, `E002` and
+`E003` unchanged.
 
 - E1xx — Scheme Intake & System Validation (includes `E001`)
 - E2xx — Spec Compatibility
 - E3xx — Template Configuration
 - E4xx — Build-Time Selection/Generation
 
-Note: The intake flow shows `E001` at the first gate; although it appears in the compatibility diagram, it belongs to the E1xx intake stage.
+Note: The intake flow shows `E001` at the first gate; although it appears in
+the compatibility diagram, it belongs to the E1xx intake stage.
 
 #### Warning Codes
 
@@ -565,8 +758,8 @@ builder to abort. Builders must emit warnings to stderr (or an equivalent
 diagnostic channel) so that authors can identify potential issues without
 interrupting automated pipelines.
 
-A warning signals that the build can proceed but the result may be incomplete or
-unexpected. For example, `W001` indicates that no schemes matched a template
+A warning signals that the build can proceed but the result may be incomplete
+or unexpected. For example, `W001` indicates that no schemes matched a template
 config entry — the builder skips that entry and continues, but the author
 should be aware that no output was produced for it.
 
@@ -584,12 +777,16 @@ Messages MAY include file paths or version ranges for clarity.
 
 #### Scheme Intake
 
-| Code   | Description                                                                                  |
-| ------ | -------------------------------------------------------------------------------------------- |
-| `E001` | Invalid system.                                                                              |
-| `E110` | Unknown or unsupported scheme system in input.                                               |
-| `E111` | Invalid scheme file (bad extension or missing required fields like `system`/`scheme.system`).|
-| `E112` | Scheme deserialization error (malformed YAML or incompatible structure).                     |
+| Code   | Description                                                                                   |
+| ------ | --------------------------------------------------------------------------------------------- |
+| `E001` | Invalid system.                                                                               |
+| `E110` | Unknown or unsupported scheme system in input.                                                |
+| `E111` | Invalid scheme file (bad extension or missing required fields like `system`/`scheme.system`). |
+| `E112` | Scheme deserialization error (malformed YAML or incompatible structure).                      |
+| `E113` | Invalid `variant` value (must be exactly `dark` or `light`).                                  |
+| `E114` | Missing a required `palette` color.                                                           |
+| `E115` | Invalid color value (must be HTML-style hex `#RRGGBB`).                                       |
+| `W110` | Unrecognized `syntax` or `ui` key; ignored.                                                   |
 
 #### Compatibility Checks
 
@@ -600,29 +797,44 @@ Messages MAY include file paths or version ranges for clarity.
 
 #### Template Config
 
-| Code   | Description                                                                                            |
-| ------ | ------------------------------------------------------------------------------------------------------ |
-| `E300` | Missing `supports` block when `supported-systems` includes `tinted8`.                                  |
-| `E301` | Missing `supports.tinted8-styling` entry in template config for `tinted8`.                             |
-| `E302` | Missing `supports.tinted8-builder` entry in template config for `tinted8`.                             |
-| `E303` | Mustache template missing for a config entry (e.g. `templates/<name>.mustache`).                       |
-| `E304` | Invalid filename configuration: provide `filename` or use deprecated `extension`/`output` combination. |
-| `E305` | Template config missing or invalid YAML.                                                               |
+| Code   | Description                                                                                |
+| ------ | ------------------------------------------------------------------------------------------ |
+| `E300` | Missing `supports` block when `supported-systems` includes `tinted8`.                      |
+| `E301` | Missing `supports.tinted8-styling` entry in template config for `tinted8`.                 |
+| `E302` | Missing `supports.tinted8-builder` entry in template config for `tinted8`.                 |
+| `E303` | Mustache template missing for a config entry (e.g. `templates/<name>.mustache`).           |
+| `E304` | Invalid filename configuration: `filename` is missing or is not a valid Mustache template. |
+| `E305` | Template config missing or invalid YAML.                                                   |
+| `E306` | Two schemes resolve to the same output filename.                                           |
+
+Unlike base16 and base24 template configs, `tinted8` entries do not support the
+legacy `extension` and `output` keys. `filename` is required.
 
 #### Build-Time Selection
 
-| Code   | Description                                      |
-| ------ | ------------------------------------------------ |
-| `W001` | No schemes found for a template config entry.    |
+| Code   | Description                                                     |
+| ------ | --------------------------------------------------------------- |
+| `W001` | No schemes found for a template config entry; entry is skipped. |
 
 ## Compliance
 
 A builder is considered **Tinted8-compliant** if it:
 
-- Correctly reads Tinted8 scheme files
-- Expands all palette and Theming Properties
-- Provides consistent variable naming for templates
+- Correctly reads Tinted8 scheme files, accepting the flat hyphenated palette
+  variant keys defined by the Styling specification
+- Expands all palette and Theming Properties, exposing every theming property
+  key as an object addressed through `.default`, and never exposing the color
+  suffixes on the key itself
+- Provides consistent variable naming for templates, including the normative
+  `rgb16` and `dec` conversions
 - Generates derived colors as described above
+- Resolves `syntax` properties through the full ancestor chain and `ui`
+  properties without inheritance
+- Applies the light-variant defaults, including the documented `ui.chrome`
+  exceptions
+- Validates and enforces the declared spec version ranges
+- Emits the error and warning codes listed above, treating warnings as
+  non-fatal
 
 ## Design Considerations
 
